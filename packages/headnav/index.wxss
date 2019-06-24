@@ -1,0 +1,1 @@
+.headnav{position: fixed;top:0;left:0;right:0;background-image:linear-gradient(to top left,#313036,#35343a,#3a393f);}

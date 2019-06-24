@@ -1,0 +1,11 @@
+<x-drawer maskClosable='{{false}}' x-class='x_drawer' type='center' show='{{show}}'>
+  <view class='login_view'>
+    <view>
+      <image mode='widthFix' src='/static/logo.png'></image>
+    </view>
+    <view>微信登录查看</view>
+    <view>
+      <x-button long size='115' type='primary' open-type='getUserInfo' bind:getuserinfo='getuserinfo'>授权登录</x-button>
+    </view>
+  </view>
+</x-drawer>
