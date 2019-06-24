@@ -4,13 +4,33 @@
     "pages/index/detail/index",
     "pages/my/address/detail/index",
     "pages/my/address/list/index",
-    "pages/my/userinfo/index"
+    "pages/my/userinfo/index",
+    "pages/my/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "抽呀",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index/index",
+        "text": "首页",
+        "iconPath": "/static/tabbar/basics.png",
+        "selectedIconPath": "/static/tabbar/basics_cur.png"
+      },
+      {
+        "pagePath": "pages/my/index/index",
+        "text": "我的",
+        "iconPath": "/static/tabbar/about.png",
+        "selectedIconPath": "/static/tabbar/about_cur.png"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx7271410f70eb2829"
+  ]
 }
