@@ -1,21 +1,10 @@
-// pages/my/index/index.js
+// pages/my/cooperation/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userinfo: {
-      nickname: '我们不一样', grade:1,
-    avatar:'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJVXjzLkbZp0biaib5zMPibwsZq7JjwnhibRQYvUoE5NphngOa4u6W684JHqpBBBYBBggictauXq8ICsbQ/132'}
-  },
-  /**
-   * 进入我参与或中奖纪录列表
-   */
-  gridClick:function(e){
-    wx.navigateTo({
-      url: e.currentTarget.dataset.page,
-    })
   },
 
   /**

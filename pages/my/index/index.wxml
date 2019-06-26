@@ -1,2 +1,16 @@
-<!--pages/my/index/index.wxml-->
-<text>pages/my/index/index.wxml</text>
+<x-cell x-class='userinfo_body'>
+  <image slot='icon' src='{{userinfo.avatar}}' class='avatar'></image>
+  <view class='userinfo'>
+    <view>{{userinfo.nickname}}</view>
+    <view>等级：{{userinfo.grade}}</view>
+  </view>
+</x-cell>
+<x-grid-group>
+  <x-grid-item title='我参与' data-page='/pages/my/participant/index?type=1' catchtap='gridClick'><view class='cooperation'>0</view></x-grid-item>
+  <x-grid-item title='中奖纪录' data-page='/pages/my/participant/index?type=2' catchtap='gridClick'><view class='cooperation'>0</view></x-grid-item>
+  <x-grid-item title='等级积分' data-page='/pages/my/userinfo/index' catchtap='gridClick'><view class='cooperation'>0</view></x-grid-item>
+</x-grid-group>
+<x-cell-group menuCard>
+  <x-cell menuArrow title='商务合作' url='/pages/my/cooperation/index'></x-cell>
+  <x-cell menuArrow title='收货地址' url='/pages/my/address/list/index'></x-cell>
+</x-cell-group>

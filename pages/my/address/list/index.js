@@ -5,7 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: [
+      {
+        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 1, add_time: '2019-6-25 10:25',status:0
+      }, {
+        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 2, add_time: '2019-6-25 10:25', status: 1
+      }, {
+        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 3, add_time: '2019-6-25 10:25', status: 0
+      }, {
+        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 4, add_time: '2019-6-25 10:25', status: 0
+      }
+    ]
   },
 
   /**

@@ -4,6 +4,7 @@ const warn = (msg, getValue) => {
   console.log('接受到的值为：', getValue);
 };
 Component({
+  externalClasses: ['x-class'],
   relations: {
     '../cell-group/index': {
       type: 'parent'

@@ -1,2 +1,10 @@
-<!--pages/index/index/index.wxml-->
-<text>pages/index/index/index.wxml</text>
+<x-card x-class='body' wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
+  <view slot='image' class='head'>
+    <image src='{{item.url}}' style='height:250px;'></image>
+    <text class='tag'>已参与</text>
+  </view>
+  <view class='title_info'>{{item.title}}</view>
+  <view class='time_info'>
+    <text>{{item.activity_time}}</text><text>自动开奖</text>
+  </view>
+</x-card>

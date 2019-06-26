@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userinfo: {
+      nickname: '我们不一样', grade: 1, integral:0,
+      avatar: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJVXjzLkbZp0biaib5zMPibwsZq7JjwnhibRQYvUoE5NphngOa4u6W684JHqpBBBYBBggictauXq8ICsbQ/132'
+    }
   },
 
   /**

@@ -5,12 +5,14 @@
     "pages/my/address/detail/index",
     "pages/my/address/list/index",
     "pages/my/userinfo/index",
-    "pages/my/index/index"
+    "pages/my/index/index",
+    "pages/my/cooperation/index",
+    "pages/my/participant/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "抽呀",
+    "navigationBarTitleText": "抽抽乐",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

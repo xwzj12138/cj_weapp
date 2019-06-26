@@ -1,0 +1,13 @@
+<x-cell wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
+  <image slot='icon' src='{{item.url}}' style='width:90px;height:90px;'></image>
+  <view class='info'>
+    <view class='title_info'>{{item.title}}</view>
+    <view class='time_info'>
+      <text>参与时间:</text><text>{{item.add_time}}</text>
+    </view>
+    <view class='time_info'>
+      <text>开奖时间:</text><text>{{item.activity_time}}</text>
+    </view>
+  </view>
+  <view slot='footer' class='footer'>未中奖</view>
+</x-cell>

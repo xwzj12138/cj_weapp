@@ -1,2 +1,6 @@
-<!--pages/my/address/list/index.wxml-->
-<text>pages/my/address/list/index.wxml</text>
+<x-cell wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
+  <x-icon slot='icon' name="{{item.status==1?'roundcheck':'round'}}" size='46'></x-icon>
+  <view>
+    <view>{{item.title}}</view>
+  </view>
+</x-cell>

@@ -1,0 +1,1 @@
+<x-input right value='{{value3}}' name='value3' title='公司名称' placeholder='请输入公司名称' bind:change='inputChange'></x-input>

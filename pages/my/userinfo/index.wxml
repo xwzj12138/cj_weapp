@@ -1,2 +1,10 @@
-<!--pages/my/userinfo/index.wxml-->
-<text>pages/my/userinfo/index.wxml</text>
+<view class='userinfo'>
+  <view>{{userinfo.nickname}}</view>
+  <view>等级：{{userinfo.grade}}</view>
+  <view>积分：{{userinfo.integral}}</view>
+</view>
+
+<view class='rules'>
+  <view>所需等级：2</view>
+  <view>1，每天可以给1个好友助力</view>
+</view>

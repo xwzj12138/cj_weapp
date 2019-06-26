@@ -1,2 +1,23 @@
-<!--pages/index/detail/index.wxml-->
-<text>pages/index/detail/index.wxml</text>
+<image src='{{data.image}}' style='height:250px;'></image>
+<view class='title'>{{data.title}}</view>
+<view class='time_info'>
+  <text>{{data.activity_time}}</text><text>自动开奖</text>
+</view>
+<view class='time_info brand_info'>
+  <text>发起方</text><text></text><text>{{data.brand_name}}</text>
+</view>
+<view class='brand_qrcode'>
+  <view>
+    <view class='brand_name'>{{data.brand_name}}赞助</view>
+    <view>长按识别右侧小程序码</view>
+  </view>
+  <view><image src='{{data.qrcode}}' show-menu-by-longpress></image></view>
+</view>
+<view>
+  <view class='hint'>{{data.status==0?'观看完整视频广告，参与抽奖':'邀请好友可提高等级哦'}}<text></text></view>
+  <button class='participant'>{{data.status==0?'参与抽奖':'邀请好友'}}</button>
+</view>
+<view class='product_detail'>
+  <view>商品详情</view>
+  <image wx:for='{{data.detail}}' src='{{item}}' mode='widthFix' wx:key='{{index}}'></image>
+</view>
