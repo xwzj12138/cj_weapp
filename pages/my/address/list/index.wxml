@@ -1,6 +1,17 @@
-<x-cell wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
-  <x-icon slot='icon' name="{{item.status==1?'roundcheck':'round'}}" size='46'></x-icon>
-  <view>
-    <view>{{item.title}}</view>
-  </view>
-</x-cell>
+<x-cell-group>
+  <x-cell wx:for='{{data}}' wx:key='{{index}}'>
+    <x-icon slot='icon' name="{{item.is_default==1?'roundcheck':'round'}}" size='46' data-index='{{index}}' bindtap='setDefault'></x-icon>
+    <view data-index='{{index}}' bindtap='goDetail'>
+      <view class='userinfo'>
+        <text>{{item.consignee_name}}</text><text>{{item.consignee_tel}}</text><text>默认地址</text>
+      </view>
+      <view class='address'>
+        <text>{{item.province}}</text><text>{{item.city}}</text><text>{{item.county}}</text><text>{{item.address}}</text>
+      </view>
+    </view>
+  </x-cell>
+</x-cell-group>
+
+<x-tabbar>
+  <x-tabbar-flex-item x-class='tabbar' title='添加地址' bindtap='goDetail'></x-tabbar-flex-item>
+</x-tabbar>

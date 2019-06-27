@@ -1,21 +1,26 @@
 // pages/my/userinfo/index.js
+import { user } from '../../../model/user.js'
+let userModel = new user();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userinfo: {
-      nickname: '我们不一样', grade: 1, integral:0,
-      avatar: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJVXjzLkbZp0biaib5zMPibwsZq7JjwnhibRQYvUoE5NphngOa4u6W684JHqpBBBYBBggictauXq8ICsbQ/132'
-    }
+    userinfo: {},
+    grade_list:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    userModel.myinfo((res) => {
+      this.setData({ userinfo: res.data })
+    })
+    userModel.getGrade((res)=>{
+      this.setData({ grade_list: res.data})
+    })
   },
 
   /**

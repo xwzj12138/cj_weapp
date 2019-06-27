@@ -6,9 +6,9 @@
   </view>
 </x-cell>
 <x-grid-group>
-  <x-grid-item title='我参与' data-page='/pages/my/participant/index?type=1' catchtap='gridClick'><view class='cooperation'>0</view></x-grid-item>
-  <x-grid-item title='中奖纪录' data-page='/pages/my/participant/index?type=2' catchtap='gridClick'><view class='cooperation'>0</view></x-grid-item>
-  <x-grid-item title='等级积分' data-page='/pages/my/userinfo/index' catchtap='gridClick'><view class='cooperation'>0</view></x-grid-item>
+  <x-grid-item title='我参与' data-page='/pages/my/participant/index?type=1' catchtap='gridClick'><view class='cooperation'>{{userinfo.participant_num}}</view></x-grid-item>
+  <x-grid-item title='中奖纪录' data-page='/pages/my/participant/index?type=2' catchtap='gridClick'><view class='cooperation'>{{userinfo.succeed_num}}</view></x-grid-item>
+  <x-grid-item title='等级积分' data-page='/pages/my/userinfo/index' catchtap='gridClick'><view class='cooperation'>{{userinfo.integral}}</view></x-grid-item>
 </x-grid-group>
 <x-cell-group menuCard>
   <x-cell menuArrow title='商务合作' url='/pages/my/cooperation/index'></x-cell>

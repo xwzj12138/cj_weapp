@@ -1,13 +1,13 @@
 // pages/my/index/index.js
+import { user } from '../../../model/user.js'
+let userModel = new user();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userinfo: {
-      nickname: '我们不一样', grade:1,
-    avatar:'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJVXjzLkbZp0biaib5zMPibwsZq7JjwnhibRQYvUoE5NphngOa4u6W684JHqpBBBYBBggictauXq8ICsbQ/132'}
+    userinfo: {nickname: '', grade:0,avatar:''}
   },
   /**
    * 进入我参与或中奖纪录列表
@@ -22,6 +22,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    userModel.myinfo((res)=>{
+      this.setData({userinfo:res.data})
+    })
   },
 
   /**

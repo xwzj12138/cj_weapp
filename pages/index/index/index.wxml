@@ -1,4 +1,7 @@
-<x-card x-class='body' wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
+<!-- 登录提示 -->
+<x-login show='{{show_login}}' bind:getuserinfo='getuserinfo'></x-login>
+<!-- 奖品列表 -->
+<x-card x-class='body' wx:for='{{goodsList}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
   <view slot='image' class='head'>
     <image src='{{item.url}}' style='height:250px;'></image>
     <text class='tag'>已参与</text>

@@ -1,56 +1,62 @@
 // pages/my/address/list/index.js
+import { address } from '../../../../model/address.js'
+let addressModel = new address();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      {
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 1, add_time: '2019-6-25 10:25',status:0
-      }, {
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 2, add_time: '2019-6-25 10:25', status: 1
-      }, {
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 3, add_time: '2019-6-25 10:25', status: 0
-      }, {
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 4, add_time: '2019-6-25 10:25', status: 0
-      }
-    ]
+    total: 0, 
+    per_page: 15, 
+    current_page: 1, 
+    last_page: 0, 
+    data:[]
   },
-
+  /**
+   * 添加或修改地址
+   */
+  goDetail:function(e){
+    let page = '/pages/my/address/detail/index'
+    console.log(e.currentTarget.dataset.index)
+    if (e.currentTarget.dataset.index!=undefined){
+      let info = this.data.data[e.currentTarget.dataset.index]
+      page = page+'?id=' + info.id + '&consignee_name=' + info.consignee_name + '&consignee_tel=' + info.consignee_tel + '&province=' + info.province + '&city=' + info.city + '&county=' + info.county + '&address=' + info.address + '&is_default=' + info.is_default
+    }
+    wx.navigateTo({
+      url: page,
+    })
+  },
+  /**
+   * 设置默认地址
+   */
+  setDefault:function(e){
+    let info = this.data.data[e.currentTarget.dataset.index]
+    if (info.is_default!=1){
+      for (let i = 0; i < this.data.data.length; i++) {
+        if (e.currentTarget.dataset.index == i) {
+          this.data.data[i].is_default = 1
+        } else {
+          this.data.data[i].is_default = 0
+        }
+      }
+      this.setData(this.data)
+      addressModel.setDefault({id:info.id})
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+    addressModel.getList((res) => {
+      this.setData(res)
+    })
   },
 
   /**

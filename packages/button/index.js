@@ -2,6 +2,9 @@ Component({
   externalClasses: ['x-class'],
 
   properties: {
+    form_type:{
+      type:String
+    },
     // default, primary, ghost, info, success, warning, error
     type: {
       type: String,

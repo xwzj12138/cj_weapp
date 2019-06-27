@@ -18,7 +18,7 @@ export class base{
       success: function (res) {
         if(res.data.code!=200) {
           return wx.showToast({
-            title: res.data.message,
+            title: res.data.msg,
             icon: 'none'
           })
         }

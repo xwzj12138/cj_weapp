@@ -1,1 +1,2 @@
-/* pages/my/address/detail/index.wxss */
+.picker{padding:7px 15px;color:#495060;}
+.inline_button{margin-left: 125rpx !important;}
