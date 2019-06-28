@@ -4,7 +4,7 @@
   <view>积分：{{userinfo.integral}}</view>
 </view>
 
-<view class='rules' wx:for='{{grade_list}}' wx:key='{{index}}'>
+<view class='rules' wx:for='{{grade_list.data}}' wx:key='{{index}}'>
   <view>所需等级：{{item.grade}}</view>
   <view>1，每天可以给{{item.help_num}}个好友助力</view>
   <view>2，每天可以参与{{item.participant_num}}个抽奖</view>

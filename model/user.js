@@ -15,12 +15,12 @@ export class user extends base {
       }
     })
   }
-  //获取用户信息详情
-  getGrade(callback) {
+  //获取等级列表
+  getGrade(param,callback) {
     this.request({
       url: 'index/v1/user/getGrade',
       type: 'POST',
-      data: {},
+      data: param,
       sCallBack: (res) => {
         callback(res)
       }

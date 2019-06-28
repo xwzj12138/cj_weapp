@@ -7,10 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    total: 0, 
-    per_page: 15, 
-    current_page: 1, 
-    last_page: 0, 
     data:[]
   },
   /**
@@ -55,28 +51,7 @@ Page({
    */
   onShow: function () {
     addressModel.getList((res) => {
-      this.setData(res)
+      this.setData({ data: res.data})
     })
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })
