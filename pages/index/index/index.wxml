@@ -1,13 +1,13 @@
 <!-- 登录提示 -->
 <x-login show='{{show_login}}' bind:getuserinfo='getuserinfo'></x-login>
 <!-- 奖品列表 -->
-<x-card x-class='body' wx:for='{{goodsList}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
+<x-card x-class='body' wx:for='{{goodsList.data}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
   <view slot='image' class='head'>
-    <image src='{{item.url}}' style='height:250px;'></image>
+    <image src='{{item.image}}' style='height:250px;'></image>
     <text class='tag'>已参与</text>
   </view>
-  <view class='title_info'>{{item.title}}</view>
+  <view class='title_info'>{{item.pruze_name}}</view>
   <view class='time_info'>
-    <text>{{item.activity_time}}</text><text>自动开奖</text>
+    <text>{{item.activity_time}}</text><text>自动开奖</text><text>限{{item.grade}}级用户</text>
   </view>
 </x-card>

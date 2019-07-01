@@ -8,7 +8,7 @@ Page({
    */
   data: {
     userinfo: {},
-    grade_list:{data:[]}
+    grade_list: {current_page:1,data:[]}
   },
 
   /**
@@ -25,8 +25,9 @@ Page({
    */
   getGradeList:function(page=1){
     userModel.getGrade({page:page},(res) => {
-      res.data = res.data.concat(this.data.grade_list.data)
-      this.setData({ grade_list: res })
+      this.data.grade_list.current_page = res.current_page
+      this.data.grade_list.data = this.data.grade_list.data.concat(res.data)
+      this.setData({ grade_list: this.data.grade_list })
     })
   },
   /**

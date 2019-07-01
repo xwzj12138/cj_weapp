@@ -1,5 +1,7 @@
 // pages/index/index/index.js
 import { login } from '../../../model/login.js'
+import { pruze } from '../../../model/pruze.js'
+let pruzeModel = new pruze();
 let loginModel = new login();
 Page({
 
@@ -8,21 +10,7 @@ Page({
    */
   data: {
     show_login:false,
-    goodsList: [
-      { 
-        url: 'https://test.xwzj88.cn/uploads/20190625/a295a07807b404fd656b3507fd87b270.jpeg', 
-        title: '美甲指甲剪十件套 x 1', activity_time:'2019-06-25 15:06',id:1
-      }, {
-        url: 'https://test.xwzj88.cn/uploads/20190625/a295a07807b404fd656b3507fd87b270.jpeg',
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 2
-      }, {
-        url: 'https://test.xwzj88.cn/uploads/20190625/a295a07807b404fd656b3507fd87b270.jpeg',
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 3
-      }, {
-        url: 'https://test.xwzj88.cn/uploads/20190625/a295a07807b404fd656b3507fd87b270.jpeg',
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 4
-      }
-    ]
+    goodsList: { current_page: 1, data: [] }
   },
   /**
    * 进入详情页面
@@ -45,10 +33,14 @@ Page({
     }
   },
   /**
-   * 授权登录事件
+   * 授权登录成功回调，获取奖品列表
    */
   getuserinfo: function () {
-    console.log('登录成功')
+    pruzeModel.getList((res)=>{
+      this.data.goodsList.current_page = res.current_page
+      this.data.goodsList.data = this.data.goodsList.data.concat(res.data)
+      this.setData({ goodsList: this.data.goodsList})
+    })
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作

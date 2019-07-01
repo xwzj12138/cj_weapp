@@ -3,4 +3,4 @@
 .tag{position: absolute;top: 0;left: 0;padding: 3px 8px;background:#ffb800;color: #fcffc6; border-radius: 15rpx 0 15rpx 0;}
 .title_info{margin: 0 0 5px 10px;font-weight: 600;}
 .time_info{margin: 0 0 10px 10px;color: #666;}
-.time_info>text:last-child{margin-left:5px;}
+.time_info>text:nth-child(2){margin:0 5px;}

@@ -1,72 +1,68 @@
 // pages/index/detail/index.js
+import { pruze } from '../../../model/pruze.js'
+let pruzeModel = new pruze();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    data: {
-      image: 'https://test.xwzj88.cn/uploads/20190625/a295a07807b404fd656b3507fd87b270.jpeg',
-      title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 1,status:0,
-      intro:'抽抽乐是一个专注于抽奖的平台',
-      brand_name: '抽抽乐官方', qrcode:'https://raw.githubusercontent.com/xwzj12138/Xview/master/static/weapp_qr_code.jpg',
-      detail: [
-        'https://test.xwzj88.cn/uploads/20190625/bb8f70e0c294f0e973d8d370c51d5007.jpg',
-        'https://test.xwzj88.cn/uploads/20190625/f12273f41e43bdc9796909b1524a17aa.jpg',
-        'https://test.xwzj88.cn/uploads/20190625/7bb9cd38bf80b6335806af26e53bb433.jpg',
-        'https://test.xwzj88.cn/uploads/20190625/2876837cb8d8a7458f78e6e2ff522da6.jpg',
-        'https://test.xwzj88.cn/uploads/20190625/1285d3a693c541ee0318f915f074f324.jpg'
-      ]
+    id:'',
+    is_participant:false,
+    videoAd:'',
+    image: '',
+    title: '', activity_time: '', status: 0,
+    brand_name: '', qrcode: '',
+    pruze_detail: []
+  },
+  /**
+   * 显示广告
+   */
+  showAd() {
+    if (this.data.videoAd) {
+      this.data.videoAd.show().catch((err) => {
+        wx.showToast({title:'参与失败',icon: 'none'})
+      })
+    }else{
+      wx.showToast({ title: '网络加载慢,请稍后再试', icon: 'none' })
     }
   },
-
+  /**
+   * 加载广告插件
+   */
+  loadVidelAd(ad_id) {
+    // 在页面onLoad回调事件中创建激励视频广告实例
+    if (wx.createRewardedVideoAd) {
+      let videoAd = wx.createRewardedVideoAd({
+        adUnitId: ad_id
+      })
+      videoAd.onLoad(() => {
+        this.setData({ videoAd: videoAd })
+      })
+      videoAd.onError((err) => {
+        wx.showToast({ title: err.errMsg, icon: 'none' })
+      })
+      videoAd.onClose((res) => {
+        // isEnded：true有效观看完整视屏 false：无效观看
+        if (res.isEnded){
+          pruzeModel.participant({ id: this.data.id }, (res) => {
+            this.setData({ is_participant:true})
+          })
+        }else{
+          wx.showToast({ title: '参与失败了！', icon: 'none' })
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+    //获取奖品详情
+    pruzeModel.getDetail({id:options.id},(res)=>{
+      this.setData(res.data)
+      this.loadVidelAd(res.data.ad_id)
+    })
   },
 
   /**
