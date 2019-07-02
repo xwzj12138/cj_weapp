@@ -1,4 +1,4 @@
-// pages/index/index/index.js
+// pages/share/help/index.js
 import { login } from '../../../model/login.js'
 import { pruze } from '../../../model/pruze.js'
 import { user } from '../../../model/user.js'
@@ -11,15 +11,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userinfo:{},
-    show_login:false,
+    userinfo: { uid:0},
+    show_login: false,
     goodsList: { current_page: 1, data: [] }
   },
   /**
-   * 进入详情页面
-   */
-  goDetail:function(e){
-    if (e.currentTarget.dataset.grade>this.data.userinfo.grade){
+  * 进入详情页面
+  */
+  goDetail: function (e) {
+    if (e.currentTarget.dataset.grade > this.data.userinfo.grade) {
       wx.showToast({ title: '您的等级不够，分享好友提升一下吧！', icon: 'none' })
     }
     wx.navigateTo({
@@ -30,6 +30,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.userinfo.uid = options.id
+    this.setData({ userinfo: this.data.userinfo})
     //判断是否登录
     let token = loginModel.getToken()
     if (!token) {
@@ -39,40 +41,35 @@ Page({
     }
   },
   /**
-   * 授权登录成功回调，获取奖品列表
-   */
+  * 授权登录成功回调，获取奖品列表
+  */
   getuserinfo: function () {
     //获取用户信息
-    userModel.getGlobalUserinfo((res) => {
-      this.setData({ userinfo: res })
+    userModel.getByIdUserInfo({ id: this.data.userinfo.uid }, (res) => {
+      this.setData({ userinfo: res.data, show_login: false })
     })
-    pruzeModel.getList((res)=>{
+    pruzeModel.getList((res) => {
       this.data.goodsList.current_page = res.current_page
       this.data.goodsList.data = this.data.goodsList.data.concat(res.data)
-      this.setData({ goodsList: this.data.goodsList})
+      this.setData({ goodsList: this.data.goodsList })
     })
   },
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 助力
    */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    return {
-      title: '我刚刚抽中了几个,现在等级不够帮我助力一下',
-      path: '/pages/share/help/index?uid=' + this.data.userinfo.uid
-    }
+  helpFriend:function(){
+    userModel.help({id:this.data.userinfo.uid},(res) => {
+      if(res.code!=200){
+        setTimeout(function(){
+          wx.switchTab({
+            url: '/pages/index/index/index',
+          })
+        },1500)
+      }else{
+        wx.switchTab({
+          url: '/pages/index/index/index',
+        })
+      }
+    })
   }
 })

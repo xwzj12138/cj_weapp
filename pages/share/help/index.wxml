@@ -1,5 +1,11 @@
 <!-- 登录提示 -->
 <x-login show='{{show_login}}' bind:getuserinfo='getuserinfo'></x-login>
+<view wx:if='{{!show_login}}' class='share_user_info'>
+  <image src='{{userinfo.avatar}}'></image>
+  <view>参与失败了</view>
+  <view>亲们帮我加油呗，我的等级为：{{userinfo.grade}}</view>
+  <x-button type='warning' size='86' shape='circle' catchtap='helpFriend'>帮他助力</x-button>
+</view>
 <!-- 奖品列表 -->
 <x-card x-class='body' wx:for='{{goodsList.data}}' wx:key='{{index}}' data-id='{{item.id}}' data-grade='{{item.grade}}' bindtap='goDetail'>
   <view slot='image' class='head'>

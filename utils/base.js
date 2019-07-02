@@ -19,13 +19,16 @@ export class base{
         if(res.data.code!=200) {
           return wx.showToast({
             title: res.data.msg,
-            icon: 'none'
+            icon: 'none',
+            success: (cer) => {
+              params.errCallBack && params.errCallBack(res.data);
+            }
           })
         }
         params.sCallBack && params.sCallBack(res.data);
       },
       fail: function (err) {
-        wx.showToast({
+        return wx.showToast({
           title: err,
           icon:'none'
         })

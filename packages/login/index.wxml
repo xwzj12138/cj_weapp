@@ -1,4 +1,4 @@
-<x-drawer maskClosable='{{false}}' x-class='x_drawer' type='center' show='{{show}}'>
+<x-drawer maskClosable='{{false}}' x-class='x_drawer' type='center' show='{{show}}' maskShow>
   <view class='login_view'>
     <view>
       <image mode='widthFix' src='/static/logo.png'></image>

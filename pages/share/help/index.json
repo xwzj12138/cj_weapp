@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "x-login": "/packages/login/index",
+    "x-button": "/packages/button/index",
+    "x-card": "/packages/card/index"
+  }
+}

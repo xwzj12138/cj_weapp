@@ -1,5 +1,11 @@
+.body{margin:10px;border-radius:15rpx;overflow: hidden;box-shadow: #666 0 0 3px;}
+.head{position: relative;}
+.tag{position: absolute;top: 0;left: 0;padding: 3px 8px;background:#ffb800;color: #fcffc6; border-radius: 15rpx 0 15rpx 0;}
+.title_info{margin: 0 0 5px 10px;font-weight: 600;}
+.time_info{margin: 0 0 10px 10px;color: #666;}
+.time_info>text:nth-child(2){margin:0 5px;}
 .userinfo_body{background-color: #f7db9a !important;padding: 10px !important;}
-.avatar{border-radius:50%;width: 100px;height:100px;}
+.avatar{border-radius:50%;width: 80px;height:80px;}
 .userinfo{margin-left:10px;font-size:14px;font-weight:600;}
 .userinfo>view:nth-child(2){color: #666;font-size: 14px;font-weight: 500;margin: 10px 0;}
 .cooperation{font-size: 17px;font-weight: 600;margin-bottom: 5px;}

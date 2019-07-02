@@ -1,5 +1,7 @@
 // pages/index/detail/index.js
 import { pruze } from '../../../model/pruze.js'
+import { user } from '../../../model/user.js'
+let userModel = new user();
 let pruzeModel = new pruze();
 Page({
 
@@ -7,13 +9,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id:'',
-    is_participant:false,
-    videoAd:'',
-    image: '',
-    title: '', activity_time: '', status: 0,
-    brand_name: '', qrcode: '',
-    pruze_detail: []
+    videoAd: '',
+    userinfo:'',
+    pruze_info: {
+      id: '',
+      is_participant: false,
+      image: '',
+      title: '', activity_time: '', status: 0,
+      brand_name: '', qrcode: '',
+      pruze_detail: []
+    }
   },
   /**
    * 显示广告
@@ -46,7 +51,8 @@ Page({
         // isEnded：true有效观看完整视屏 false：无效观看
         if (res.isEnded){
           pruzeModel.participant({ id: this.data.id }, (res) => {
-            this.setData({ is_participant:true})
+            this.data.pruze_info.is_participant = true
+            this.setData({ pruze_info:this.data.pruze_info})
           })
         }else{
           wx.showToast({ title: '参与失败了！', icon: 'none' })
@@ -58,9 +64,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //获取用户信息
+    userModel.getGlobalUserinfo((res) => {
+      this.setData({ userinfo: res })
+    })
     //获取奖品详情
-    pruzeModel.getDetail({id:options.id},(res)=>{
-      this.setData(res.data)
+    pruzeModel.getDetail({ id: options.id }, (res) => {
+      this.setData({ pruze_info: res.data })
       this.loadVidelAd(res.data.ad_id)
     })
   },
@@ -69,6 +79,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '我刚刚抽中了几个,现在等级不够帮我助力一下',
+      path: '/pages/share/help/index?uid=' + this.data.userinfo.uid
+    }
   }
 })
