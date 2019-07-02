@@ -1,8 +1,11 @@
-<view class='userinfo'>
-  <view>{{userinfo.nickname}}</view>
-  <view>等级：{{userinfo.grade}}</view>
-  <view>积分：{{userinfo.integral}}</view>
-</view>
+<x-cell x-class='userinfo_body'>
+  <view class='userinfo'>
+    <view>{{userinfo.nickname}}</view>
+    <view>等级：{{userinfo.grade}}</view>
+    <view>积分：{{userinfo.integral}}</view>
+  </view>
+  <x-button slot='footer' open-type='share' inline type='warning' size='76'>邀请好友升级</x-button>
+</x-cell>
 
 <view class='rules' wx:for='{{grade_list.data}}' wx:key='{{index}}'>
   <view>所需等级：{{item.grade}}</view>

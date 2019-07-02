@@ -1,6 +1,8 @@
 // pages/index/index/index.js
 import { login } from '../../../model/login.js'
 import { pruze } from '../../../model/pruze.js'
+import { user } from '../../../model/user.js'
+let userModel = new user();
 let pruzeModel = new pruze();
 let loginModel = new login();
 Page({
@@ -9,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userinfo:{},
     show_login:false,
     goodsList: { current_page: 1, data: [] }
   },
@@ -16,6 +19,9 @@ Page({
    * 进入详情页面
    */
   goDetail:function(e){
+    if (e.currentTarget.dataset.grade>this.data.userinfo.grade){
+      wx.showToast({ title: '您的等级不够，分享好友提升一下吧！', icon: 'none' })
+    }
     wx.navigateTo({
       url: '/pages/index/detail/index?id=' + e.currentTarget.dataset.id,
     })
@@ -36,6 +42,10 @@ Page({
    * 授权登录成功回调，获取奖品列表
    */
   getuserinfo: function () {
+    //获取用户信息
+    userModel.myinfo((res) => {
+      this.setData({ userinfo: res.data })
+    })
     pruzeModel.getList((res)=>{
       this.data.goodsList.current_page = res.current_page
       this.data.goodsList.data = this.data.goodsList.data.concat(res.data)

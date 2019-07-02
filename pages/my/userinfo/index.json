@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "x-cell": "/packages/cell/index",
+     "x-button": "/packages/button/index"
+  }
 }

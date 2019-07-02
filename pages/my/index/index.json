@@ -3,6 +3,7 @@
     "x-cell": "/packages/cell/index",
     "x-cell-group": "/packages/cell-group/index",
     "x-grid-group": "/packages/grid-group/index",
-    "x-grid-item": "/packages/grid-item/index"
+    "x-grid-item": "/packages/grid-item/index",
+    "x-button": "/packages/button/index"
   }
 }

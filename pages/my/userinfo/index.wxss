@@ -1,4 +1,2 @@
-.userinfo{padding:20px;font-size:14px;font-weight:600;background-color: #f7db9a;color: #666;}
-.userinfo>view:nth-child(2){color: #666;font-size: 14px;font-weight: 500;margin: 10px 0;}
 .rules{padding: 20px;font-size: 11px;}
 .rules>view:first-child{font-size: 14px;font-weight: 600;margin: 5px 0;}
