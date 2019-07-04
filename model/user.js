@@ -49,7 +49,7 @@ export class user extends base {
     })
   }
   //给好友助力
-  help(param, callback) {
+  help(param, callback, errCallback=null) {
     this.request({
       url: 'index/v1/user/help',
       type: 'POST',
@@ -58,8 +58,29 @@ export class user extends base {
         callback(res)
       },
       errCallBack:(err)=>{
-        console.log(1111)
-        callback(err)
+        errCallback && errCallback(err)
+      }
+    })
+  }
+  //获取用户列表
+  participant(param,callback){
+    this.request({
+      url: 'index/v1/user/participant',
+      type: 'POST',
+      data: param,
+      sCallBack: (res) => {
+        callback(res)
+      }
+    })
+  }
+  //获取好友列表
+  getfriend_list(param,callback){
+    this.request({
+      url: 'index/v1/user/friend_list',
+      type: 'POST',
+      data: param,
+      sCallBack: (res) => {
+        callback(res)
       }
     })
   }

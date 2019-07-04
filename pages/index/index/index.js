@@ -11,9 +11,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show_loading:false,
     userinfo:{},
     show_login:false,
-    goodsList: { current_page: 1, data: [] }
+    goodsList: { current_page: 0, last_page:1, data: [] }
   },
   /**
    * 进入详情页面
@@ -46,24 +47,39 @@ Page({
     userModel.getGlobalUserinfo((res) => {
       this.setData({ userinfo: res })
     })
-    pruzeModel.getList((res)=>{
+    this.getPruzeList();
+  },
+  /**
+   * 获取奖品列表
+   */
+  getPruzeList:function(){
+    let param = { page: this.data.goodsList.current_page+1}
+    if (this.data.goodsList.current_page == this.data.goodsList.last_page){
+      //提示没有数据了
+      wx.stopPullDownRefresh()
+      return this.setData({ show_loading:true})
+    }
+    pruzeModel.getList(param,(res) => {
       this.data.goodsList.current_page = res.current_page
+      this.data.goodsList.last_page = res.last_page
       this.data.goodsList.data = this.data.goodsList.data.concat(res.data)
-      this.setData({ goodsList: this.data.goodsList})
+      this.setData({ goodsList: this.data.goodsList })
+      wx.stopPullDownRefresh()
     })
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({ goodsList: { current_page: 0, last_page:1, data: [] }})
+    this.getPruzeList()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getPruzeList()
   },
 
   /**

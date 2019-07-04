@@ -8,7 +8,8 @@
     "pages/my/index/index",
     "pages/my/cooperation/index",
     "pages/my/participant/index",
-    "pages/share/help/index"
+    "pages/share/help/index",
+    "pages/my/friend_list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

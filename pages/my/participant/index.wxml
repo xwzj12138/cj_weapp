@@ -1,7 +1,7 @@
-<x-cell wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
-  <image slot='icon' src='{{item.url}}' style='width:90px;height:90px;'></image>
+<x-cell wx:for='{{data}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
+  <image slot='icon' src='{{item.image}}' style='width:90px;height:90px;'></image>
   <view class='info'>
-    <view class='title_info'>{{item.title}}</view>
+    <view class='title_info'>{{item.pruze_name}}</view>
     <view class='time_info'>
       <text>参与时间:</text><text>{{item.add_time}}</text>
     </view>
@@ -9,5 +9,6 @@
       <text>开奖时间:</text><text>{{item.activity_time}}</text>
     </view>
   </view>
-  <view slot='footer' class='footer'>未中奖</view>
+  <view slot='footer' class='footer'>{{item.status==0?'待开奖':item.status==1?'未中奖':'已中奖'}}</view>
 </x-cell>
+<x-loading icon='' isShow="{{data.length==0}}" hint='没有数据哦！'></x-loading>

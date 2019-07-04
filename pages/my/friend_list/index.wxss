@@ -1,0 +1,2 @@
+/* pages/my/friend_list/index.wxss */
+.avatar{width:60px;height:60px;}

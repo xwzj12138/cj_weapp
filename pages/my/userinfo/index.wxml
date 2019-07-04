@@ -3,12 +3,14 @@
     <view>{{userinfo.nickname}}</view>
     <view>等级：{{userinfo.grade}}</view>
     <view>积分：{{userinfo.integral}}</view>
+    <view>每日可助力：{{userinfo.help_limit}}</view>
+    <view>每日可参与：{{userinfo.participant_limit}}</view>
   </view>
-  <x-button slot='footer' open-type='share' inline type='warning' size='76'>邀请好友升级</x-button>
+  <x-button slot='footer' open-type='share' inline type='warning' size='76' shape='circle'>邀请好友升级</x-button>
 </x-cell>
 
 <view class='rules' wx:for='{{grade_list.data}}' wx:key='{{index}}'>
   <view>所需等级：{{item.grade}}</view>
-  <view>1，每天可以给{{item.help_num}}个好友助力</view>
-  <view>2，每天可以参与{{item.participant_num}}个抽奖</view>
+  <view>1，每天可以给{{item.help_limit}}个好友助力</view>
+  <view>2，每天可以参与{{item.participant_limit}}个抽奖</view>
 </view>

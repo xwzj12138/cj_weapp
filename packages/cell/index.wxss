@@ -4,8 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 100rpx;
-  padding: 0 30rpx;
+  padding: 10px 30rpx;
   overflow:hidden;
   color: #333;
   background: #fff;

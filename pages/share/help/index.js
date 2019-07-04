@@ -30,7 +30,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.userinfo.uid = options.id
+    this.data.userinfo.uid = options.uid
     this.setData({ userinfo: this.data.userinfo})
     //判断是否登录
     let token = loginModel.getToken()
@@ -48,7 +48,7 @@ Page({
     userModel.getByIdUserInfo({ id: this.data.userinfo.uid }, (res) => {
       this.setData({ userinfo: res.data, show_login: false })
     })
-    pruzeModel.getList((res) => {
+    pruzeModel.getList({page:1},(res) => {
       this.data.goodsList.current_page = res.current_page
       this.data.goodsList.data = this.data.goodsList.data.concat(res.data)
       this.setData({ goodsList: this.data.goodsList })
@@ -59,17 +59,15 @@ Page({
    */
   helpFriend:function(){
     userModel.help({id:this.data.userinfo.uid},(res) => {
-      if(res.code!=200){
-        setTimeout(function(){
-          wx.switchTab({
-            url: '/pages/index/index/index',
-          })
-        },1500)
-      }else{
+      wx.switchTab({
+        url: '/pages/index/index/index',
+      })
+    },(err)=>{
+      setTimeout(function () {
         wx.switchTab({
           url: '/pages/index/index/index',
         })
-      }
+      }, 1500)
     })
   }
 })

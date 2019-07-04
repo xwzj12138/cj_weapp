@@ -28,10 +28,7 @@ export class base{
         params.sCallBack && params.sCallBack(res.data);
       },
       fail: function (err) {
-        return wx.showToast({
-          title: err,
-          icon:'none'
-        })
+        return wx.showToast({title: err,icon:'none'})
       }
     })
   }

@@ -5,6 +5,10 @@ Component({
     form_type:{
       type:String
     },
+    font_size:{
+      type:Number,
+      value:15
+    },
     // default, primary, ghost, info, success, warning, error
     type: {
       type: String,

@@ -5,11 +5,11 @@ export class pruze extends base {
     super();
   }
   //获取奖品列表
-  getList(callback) {
+  getList(param,callback) {
     this.request({
       url: 'index/v1/pruze/get_list',
       type: 'POST',
-      data: {},
+      data: param,
       sCallBack: (res) => {
         callback(res)
       }

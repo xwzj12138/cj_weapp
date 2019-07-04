@@ -1,0 +1,12 @@
+<x-cell-group>
+  <x-cell wx:for='{{data}}' wx:key='{{index}}'>
+    <image slot='icon' src='{{item.avatar}}' class='avatar'></image>
+    <view class='userinfo'>
+      <view>{{item.nickname}}</view>
+      <view>等级：{{item.grade}}</view>
+      <view>积分：{{item.integral}}</view>
+      <view>中奖次数：{{item.succeed_num}}</view>
+    </view>
+    <x-button slot='footer' inline type='warning' size='56' shape='circle' data-uid='{{item.uid}}' catchtap='helpFriend'>助力</x-button>
+  </x-cell>
+</x-cell-group>

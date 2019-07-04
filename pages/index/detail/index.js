@@ -50,7 +50,7 @@ Page({
       videoAd.onClose((res) => {
         // isEnded：true有效观看完整视屏 false：无效观看
         if (res.isEnded){
-          pruzeModel.participant({ id: this.data.id }, (res) => {
+          pruzeModel.participant({ id: this.data.pruze_info.id }, (res) => {
             this.data.pruze_info.is_participant = true
             this.setData({ pruze_info:this.data.pruze_info})
           })

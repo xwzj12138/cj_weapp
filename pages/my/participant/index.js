@@ -1,62 +1,38 @@
 // pages/my/participant/index.js
+import {user} from '../../../model/user.js'
+let userModel = new user();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      {
-        url: 'https://test.xwzj88.cn/uploads/20190625/a295a07807b404fd656b3507fd87b270.jpeg',
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 1, add_time: '2019-6-25 10:25'
-      }, {
-        url: 'https://test.xwzj88.cn/uploads/20190625/a295a07807b404fd656b3507fd87b270.jpeg',
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 2, add_time: '2019-6-25 10:25'
-      }, {
-        url: 'https://test.xwzj88.cn/uploads/20190625/a295a07807b404fd656b3507fd87b270.jpeg',
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 3, add_time: '2019-6-25 10:25'
-      }, {
-        url: 'https://test.xwzj88.cn/uploads/20190625/a295a07807b404fd656b3507fd87b270.jpeg',
-        title: '美甲指甲剪十件套 x 1', activity_time: '2019-06-25 15:06', id: 4, add_time: '2019-6-25 10:25'
-      }
-    ]
+    type:1,
+    current_page:0,
+    last_page:1,
+    data: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    this.setData({type:options.type})
+    //获取参与记录
+    this.getParticipant()
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 获取参与纪录数据
    */
-  onReady: function () {
-
+  getParticipant:function(){
+    let param = { type: this.data.type,page:this.data.current_page+1}
+    userModel.participant(param, (res) => {
+      this.data.current_page = res.current_page
+      this.data.last_page = res.last_page
+      this.data.data = this.data.data.concat(res.data)
+      this.setData(this.data)
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
