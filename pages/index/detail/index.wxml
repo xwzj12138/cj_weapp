@@ -1,4 +1,4 @@
-<image src='{{pruze_info.image}}' style='height:250px;'></image>
+<image src='{{pruze_info.image}}' style='height:250px;width:100%;'></image>
   <view class='title'>{{pruze_info.pruze_name}}</view>
   <view class='time_info'>
     <text>{{pruze_info.activity_time}}</text><text>自动开奖</text>

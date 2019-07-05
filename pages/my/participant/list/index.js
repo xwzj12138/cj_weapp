@@ -1,5 +1,5 @@
 // pages/my/participant/index.js
-import {user} from '../../../model/user.js'
+import {user} from '../../../../model/user.js'
 let userModel = new user();
 Page({
 
@@ -11,6 +11,14 @@ Page({
     current_page:0,
     last_page:1,
     data: []
+  },
+  /**
+   * 进入详情页面
+   */
+  goDetail:function(e){
+    wx.navigateTo({
+      url: '/pages/my/participant/detail/index?id=' + e.currentTarget.dataset.id
+    })
   },
 
   /**
@@ -33,17 +41,11 @@ Page({
       this.setData(this.data)
     })
   },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getParticipant()
   }
 })

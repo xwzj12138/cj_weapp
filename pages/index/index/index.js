@@ -21,11 +21,9 @@ Page({
    */
   goDetail:function(e){
     if (e.currentTarget.dataset.grade>this.data.userinfo.grade){
-      wx.showToast({ title: '您的等级不够，分享好友提升一下吧！', icon: 'none' })
+      return wx.showToast({ title: '您的等级不够，分享好友提升一下吧！', icon: 'none' })
     }
-    wx.navigateTo({
-      url: '/pages/index/detail/index?id=' + e.currentTarget.dataset.id,
-    })
+    wx.navigateTo({url: '/pages/index/detail/index?id=' + e.currentTarget.dataset.id})
   },
   /**
    * 生命周期函数--监听页面加载
@@ -72,7 +70,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.setData({ goodsList: { current_page: 0, last_page:1, data: [] }})
-    this.getPruzeList()
+    this.getuserinfo()
   },
 
   /**

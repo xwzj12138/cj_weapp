@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "x-cell": "/packages/cell/index",
+    "x-step": "/packages/step/index",
+    "x-steps": "/packages/steps/index"
+  }
+}

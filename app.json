@@ -7,9 +7,10 @@
     "pages/my/userinfo/index",
     "pages/my/index/index",
     "pages/my/cooperation/index",
-    "pages/my/participant/index",
+    "pages/my/participant/list/index",
     "pages/share/help/index",
-    "pages/my/friend_list/index"
+    "pages/my/friend_list/index",
+    "pages/my/participant/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
