@@ -11,4 +11,4 @@
     <text>{{item.activity_time}}</text><text>自动开奖</text><text>限{{item.grade}}级用户</text>
   </view>
 </x-card>
-<x-loading icon='' isShow="{{show_loading}}" hint='没有数据哦！'></x-loading>
+<x-loading icon='' isShow="{{show_loading || goodsList.data.length==0}}" hint='没有数据哦！'></x-loading>

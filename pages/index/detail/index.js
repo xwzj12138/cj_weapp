@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    formId:'',
     videoAd: '',
     userinfo:'',
     pruze_info: {
@@ -23,7 +24,8 @@ Page({
   /**
    * 显示广告
    */
-  showAd() {
+  showAd(e) {
+    this.setData({ formId: e.detail.formId})
     if (this.data.videoAd) {
       this.data.videoAd.show().catch((err) => {
         wx.showToast({title:'参与失败',icon: 'none'})
@@ -50,7 +52,7 @@ Page({
       videoAd.onClose((res) => {
         // isEnded：true有效观看完整视屏 false：无效观看
         if (res.isEnded){
-          pruzeModel.participant({ id: this.data.pruze_info.id }, (res) => {
+          pruzeModel.participant({ id: this.data.pruze_info.id, form_id:this.data.formId }, (res) => {
             this.data.pruze_info.is_participant = true
             this.setData({ pruze_info:this.data.pruze_info})
           })

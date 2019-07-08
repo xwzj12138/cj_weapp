@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "x-loading": "/packages/loading/index",
     "x-cell-group": "/packages/cell-group/index",
     "x-cell": "/packages/cell/index",
     "x-button": "/packages/button/index"

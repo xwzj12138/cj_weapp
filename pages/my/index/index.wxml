@@ -12,7 +12,7 @@
   <x-grid-item title='等级积分' data-page='/pages/my/userinfo/index' catchtap='gridClick'><view class='cooperation'>{{userinfo.integral}}</view></x-grid-item>
 </x-grid-group>
 <x-cell-group menuCard>
-  <x-cell menuArrow title='商务合作' url='/pages/my/cooperation/index'></x-cell>
-  <x-cell menuArrow title='收货地址' url='/pages/my/address/list/index'></x-cell>
   <x-cell menuArrow title='好友列表' url='/pages/my/friend_list/index'></x-cell>
+  <x-cell menuArrow title='收货地址' url='/pages/my/address/list/index'></x-cell>
+  <x-cell menuArrow title='商务合作' url='/pages/my/cooperation/index'></x-cell>
 </x-cell-group>

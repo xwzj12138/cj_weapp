@@ -84,4 +84,15 @@ export class user extends base {
       }
     })
   }
+  //获取参与详情
+  getParticipantDetail(param, callback){
+    this.request({
+      url: 'index/v1/user/participant_detail',
+      type: 'POST',
+      data: param,
+      sCallBack: (res) => {
+        callback(res)
+      }
+    })
+  }
 }

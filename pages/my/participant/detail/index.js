@@ -1,14 +1,14 @@
 // pages/my/participant/detail/index.js
-import {pruze} from '../../../../model/pruze.js'
-let pruzeModel = new pruze()
+import { user} from '../../../../model/user.js'
+let userModel = new user()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pruze_info:{},
-    logistics_info:[]
+    status_list: ['待开奖', '未中奖', '待领取', '领取过期', '待发货','已发货'],
+    pruze_info:{}
   },
 
   /**
@@ -16,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     //获取奖品信息
-    pruzeModel.getDetail({id:options.id},(res)=>{
+    userModel.getParticipantDetail({id:options.id},(res)=>{
       this.setData({ pruze_info:res.data})
     })
   },

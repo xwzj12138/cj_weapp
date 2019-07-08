@@ -8,13 +8,17 @@
     <view class='time_info'>
       <text>开奖时间:</text><text>{{pruze_info.activity_time}}</text>
     </view>
+    <view class='time_info status_info'>
+      <text>状态:</text><text>{{status_list[pruze_info.status]}}</text>
+    </view>
+    <view class='time_info' wx:if='{{pruze_info.status>1}}'>
+      <text>快递公司:</text><text>{{pruze_info.tracking_num}}</text>
+    </view>
+    <view class='time_info' wx:if='{{pruze_info.status>1}}'>
+      <text>快递单号:</text><text>{{pruze_info.tracking_num}}</text>
+    </view>
   </view>
-  <view slot='footer' class="footer {{pruze_info.status>1?'success':''}}">{{pruze_info.status==0?'待开奖':item.status==1?'未中奖':'中奖'}}</view>
 </x-cell>
-<x-steps direction='vertical'>
-    <x-step title='已完成' content='描述信息' color='#0081ff'></x-step>
-    <x-step title='进行中' content='描述信息' color='#f37b1d'></x-step>
-    <x-step title='错误' content='描述信息' color='#e54d42'></x-step>
-    <x-step title='重新审核中' content='描述信息' color='#19be6b'></x-step>
-    <x-step title='错误' content='描述信息描述信息描述信息' color='#e54d42'></x-step>
+<x-steps direction='vertical' wx:if='{{pruze_info.kd_info.length>0}}'>
+    <x-step x-class='step' icon='title' wx:for='{{pruze_info.kd_info}}' wx:key='{{index}}' title='{{item.AcceptStation}}' content='{{item.AcceptTime}}' color="{{index==0?'#f60':'#666'}}"></x-step>
 </x-steps>
