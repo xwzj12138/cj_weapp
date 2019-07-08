@@ -4,6 +4,12 @@ export class user extends base {
   constructor() {
     super();
   }
+  //更新缓存的用户信息
+  updateUserInfo(key,value){
+    let appinfo = getApp()
+    // appinfo[]
+  }
+  //获取缓存的用户信息
   getGlobalUserinfo(callback){
     let appinfo = getApp()
     if (appinfo.globalData.userInfo) {
