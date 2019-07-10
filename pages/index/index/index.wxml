@@ -4,7 +4,7 @@
 <x-card x-class='body' wx:for='{{goodsList.data}}' wx:key='{{index}}' data-id='{{item.id}}' data-grade='{{item.grade}}' bindtap='goDetail'>
   <view slot='image' class='head'>
     <image src='{{item.image}}' style='height:250px;width:100%;'></image>
-    <!-- <text class='tag'>已参与</text> -->
+    <!-- <text class='tag' wx:if='{{item.end_time <= now_time}}'>已结束</text> -->
   </view>
   <view class='title_info'>{{item.pruze_name}}</view>
   <view class='time_info'>

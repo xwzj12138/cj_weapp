@@ -1,7 +1,7 @@
 /* pages/share/help/index.wxss */
 .share_user_info{
   text-align: center;
-  margin: 0 10px 30px 10px;
+  padding: 35px 10px 30px 10px;
   font-weight: 600;
   font-size: 14px;
 }

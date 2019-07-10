@@ -1,5 +1,4 @@
 {
   "usingComponents": {
-    "x-login": "/packages/login/index"
   }
 }

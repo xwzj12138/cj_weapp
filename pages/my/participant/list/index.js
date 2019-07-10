@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    status_list: ['待开奖', '未中奖', '待领取', '已过期', '待发货','已发货'],
     type:1,
     current_page:0,
     last_page:1,
@@ -16,8 +17,12 @@ Page({
    * 进入详情页面
    */
   goDetail:function(e){
+    let page = '/pages/my/participant/detail/index?id=' + e.currentTarget.dataset.id;
+    if (e.currentTarget.dataset.status==2){
+      page = '/pages/my/set_address/index?id=' + e.currentTarget.dataset.pruze_id;
+    }
     wx.navigateTo({
-      url: '/pages/my/participant/detail/index?id=' + e.currentTarget.dataset.id
+      url: page
     })
   },
 

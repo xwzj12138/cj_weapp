@@ -1,11 +1,12 @@
 {
-  "navigationStyle":"custom",
+  "navigationStyle": "custom",
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "x-login": "/packages/login/index",
+    "x-cell-group": "/packages/cell-group/index",
+    "x-cell": "/packages/cell/index",
     "x-icon": "/packages/icon/index",
     "x-button": "/packages/button/index",
-    "x-card": "/packages/card/index",
     "x-headnav": "/packages/headnav/index"
   }
 }

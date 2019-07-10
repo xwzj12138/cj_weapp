@@ -25,6 +25,7 @@ Page({
    * 显示广告
    */
   showAd(e) {
+    return console.log(e.detail.formId)
     this.setData({ formId: e.detail.formId})
     if (this.data.videoAd) {
       this.data.videoAd.show().catch((err) => {

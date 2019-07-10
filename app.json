@@ -10,7 +10,8 @@
     "pages/my/participant/list/index",
     "pages/share/help/index",
     "pages/my/friend_list/index",
-    "pages/my/participant/detail/index"
+    "pages/my/participant/detail/index",
+    "pages/my/set_address/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

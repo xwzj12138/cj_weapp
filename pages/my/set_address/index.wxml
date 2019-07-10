@@ -1,0 +1,22 @@
+<!-- 登录提示 -->
+<x-login show='{{show_login}}' bind:getuserinfo='getuserinfo'></x-login>
+<!-- 头部view -->
+<x-headnav>
+  <x-icon name='home' size='56' catchtap='goHome'></x-icon>
+</x-headnav>
+<image src='{{pruze_info.image}}' style='height:250px;width:100%;'></image>
+<view class='title'>{{pruze_info.pruze_name}}</view>
+<view class='time_info'>
+  <text>{{pruze_info.activity_time}}</text><text>自动开奖</text>
+</view>
+<x-cell-group menuCard>
+  <x-cell menuArrow url='/pages/my/address/list/index'>
+    <view wx:if='{{pruze_info.default_address==null}}'>还没有地址哦</view>
+    <view wx:else>
+    <view>{{pruze_info.default_address.consignee_name}}</view>
+    <view wx:if='{{pruze_info.default_address.consignee_name}}'>{{pruze_info.default_address.province+pruze_info.default_address.city+pruze_info.default_address.county+pruze_info.default_address.address}}</view>
+    </view>
+  </x-cell>
+</x-cell-group>
+
+<x-button type='warning' size='86' shape='circle' catchtap='setAddress'>确认地址</x-button>

@@ -16,6 +16,14 @@ Page({
     goodsList: { current_page: 1, data: [] }
   },
   /**
+   * 进入首页
+   */
+  goHome:function(){
+    wx.switchTab({
+      url: '/pages/index/index/index',
+    })
+  },
+  /**
   * 进入详情页面
   */
   goDetail: function (e) {

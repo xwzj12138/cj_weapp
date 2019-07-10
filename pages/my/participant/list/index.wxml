@@ -1,4 +1,4 @@
-<x-cell wx:for='{{data}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='goDetail'>
+<x-cell wx:for='{{data}}' wx:key='{{index}}' data-id='{{item.id}}' data-status='{{item.status}}' data-pruze_id='{{item.pruze_id}}' bindtap='goDetail'>
   <image slot='icon' src='{{item.image}}' style='width:90px;height:90px;'></image>
   <view class='info'>
     <view class='title_info'>{{item.pruze_name}}</view>
@@ -9,6 +9,6 @@
       <text>开奖时间:</text><text>{{item.activity_time}}</text>
     </view>
   </view>
-  <view slot='footer' class="footer {{item.status>1?'success':''}}">{{item.status==0?'待开奖':item.status==1?'未中奖':'中奖'}}</view>
+  <view slot='footer' class="footer {{item.status>1?'success':''}}">{{status_list[item.status]}}</view>
 </x-cell>
 <x-loading icon='' isShow="{{data.length==0}}" hint='没有数据哦！'></x-loading>

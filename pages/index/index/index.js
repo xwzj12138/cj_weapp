@@ -29,6 +29,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // let now_time = (new Date()).getTime()
+    // this.setData({})
     //判断是否登录
     let token = loginModel.getToken()
     if (!token) {
