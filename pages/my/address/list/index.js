@@ -1,5 +1,5 @@
 // pages/my/address/list/index.js
-import { address } from '../../../../model/address.js'
+import { address } from '../../../../model/model.js'
 let addressModel = new address();
 Page({
 
@@ -14,7 +14,6 @@ Page({
    */
   goDetail:function(e){
     let page = '/pages/my/address/detail/index'
-    console.log(e.currentTarget.dataset.index)
     if (e.currentTarget.dataset.index!=undefined){
       let info = this.data.data[e.currentTarget.dataset.index]
       page = page+'?id=' + info.id + '&consignee_name=' + info.consignee_name + '&consignee_tel=' + info.consignee_tel + '&province=' + info.province + '&city=' + info.city + '&county=' + info.county + '&address=' + info.address + '&is_default=' + info.is_default

@@ -1,5 +1,6 @@
 .info{margin:0 3px;}
-.title_info{font-weight: 600;font-size: 13px;}
-.time_info{margin:3px 0;color: #666;font-size: 11px;}
-.footer{font-size: 14px;}
+.title_info{font-weight: 600;font-size: 12px;}
+.time_info{color: #666;font-size: 11px;padding: 0;}
+.footer{font-size: 14px;color: #f60;}
 .success{border-radius: 50%;width:50px;line-height:50px;text-align: center;box-shadow: #ffb800 0 0 10px;font-weight: 600;color: #666;}
+.no_success{color:#666;}

@@ -1,6 +1,4 @@
 .title{font-size: 16px;font-weight: 600;margin: 10px;}
-.time_info{padding: 0 0 10px 10px;color: #666;}
-.time_info>text:last-child{margin-left:5px;}
 .brand_info{color: #000;font-size: 14px;}
 .brand_info text:nth-child(2){border-right: 1px solid #666;margin: 0 4px 0 8px;font-size: 10px;}
 .brand_qrcode{display: flex;margin: 10px;align-items: center;font-size: 14px;box-shadow: #666 0 0 4px;padding: 5px 8px;border-radius: 5px;}

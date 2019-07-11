@@ -1,5 +1,5 @@
 // pages/my/set_address/index.js
-import { pruze } from '../../../model/pruze.js'
+import { pruze } from '../../../model/model.js'
 let pruzeModel = new pruze();
 Page({
 

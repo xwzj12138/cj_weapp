@@ -1,7 +1,7 @@
 // pages/share/help/index.js
-import { login } from '../../../model/login.js'
-import { pruze } from '../../../model/pruze.js'
-import { user } from '../../../model/user.js'
+import { login } from '../../../model/model.js'
+import { pruze } from '../../../model/model.js'
+import { user } from '../../../model/model.js'
 let userModel = new user();
 let pruzeModel = new pruze();
 let loginModel = new login();

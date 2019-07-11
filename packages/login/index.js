@@ -1,5 +1,5 @@
 // packages/login/index.js
-import {login} from '../../model/login.js' 
+import {login} from '../../model/model.js' 
 let loginModel = new login();
 Component({
   /**

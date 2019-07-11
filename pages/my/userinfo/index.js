@@ -1,5 +1,5 @@
 // pages/my/userinfo/index.js
-import { user } from '../../../model/user.js'
+import { user } from '../../../model/model.js'
 let userModel = new user();
 Page({
 

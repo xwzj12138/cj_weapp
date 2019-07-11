@@ -1,24 +1,18 @@
-// pages/my/participant/detail/index.js
-import { user } from '../../../../model/model.js'
-let userModel = new user()
+// packages/pages/my/index/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    status_list: ['待开奖', '未中奖', '待领取', '领取过期', '待发货','已发货'],
-    pruze_info:{}
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取奖品信息
-    userModel.getParticipantDetail({id:options.id},(res)=>{
-      this.setData({ pruze_info:res.data})
-    })
+
   },
 
   /**

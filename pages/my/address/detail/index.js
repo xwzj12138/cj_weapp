@@ -1,5 +1,5 @@
 // pages/my/address/detail/index.js
-import { address } from '../../../../model/address.js'
+import { address } from '../../../../model/model.js'
 let addressModel = new address();
 Page({
 

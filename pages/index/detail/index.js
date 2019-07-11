@@ -1,6 +1,6 @@
 // pages/index/detail/index.js
-import { pruze } from '../../../model/pruze.js'
-import { user } from '../../../model/user.js'
+import { pruze } from '../../../model/model.js'
+import { user } from '../../../model/model.js'
 let userModel = new user();
 let pruzeModel = new pruze();
 Page({
@@ -25,7 +25,6 @@ Page({
    * 显示广告
    */
   showAd(e) {
-    return console.log(e.detail.formId)
     this.setData({ formId: e.detail.formId})
     if (this.data.videoAd) {
       this.data.videoAd.show().catch((err) => {

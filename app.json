@@ -16,7 +16,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "抽抽乐",
+    "navigationBarTitleText": "抽乐",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
@@ -36,6 +36,7 @@
       }
     ]
   },
+  "debug": false,
   "navigateToMiniProgramAppIdList": [
     "wx7271410f70eb2829"
   ]

@@ -1,5 +1,5 @@
 // pages/my/cooperation/index.js
-import { cooperation } from '../../../model/cooperation.js'
+import { cooperation } from '../../../model/model.js'
 let cooperationModel = new cooperation();
 Page({
 

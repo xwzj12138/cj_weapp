@@ -9,6 +9,6 @@
       <text>开奖时间:</text><text>{{item.activity_time}}</text>
     </view>
   </view>
-  <view slot='footer' class="footer {{item.status>1?'success':''}}">{{status_list[item.status]}}</view>
+  <view slot='footer' class="footer {{item.status>1?'success':item.status==1?'no_success':''}}">{{status_list[item.status]}}</view>
 </x-cell>
 <x-loading icon='' isShow="{{data.length==0}}" hint='没有数据哦！'></x-loading>

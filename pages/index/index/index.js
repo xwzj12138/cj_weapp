@@ -1,10 +1,11 @@
 // pages/index/index/index.js
-import { login } from '../../../model/login.js'
-import { pruze } from '../../../model/pruze.js'
-import { user } from '../../../model/user.js'
+import { login } from './../../../model/model.js'
+import { pruze } from './../../../model/model.js'
+import { user } from './../../../model/model.js'
 let userModel = new user();
 let pruzeModel = new pruze();
 let loginModel = new login();
+
 Page({
 
   /**
@@ -29,8 +30,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // let now_time = (new Date()).getTime()
-    // this.setData({})
     //判断是否登录
     let token = loginModel.getToken()
     if (!token) {
@@ -60,10 +59,11 @@ Page({
       return this.setData({ show_loading:true})
     }
     pruzeModel.getList(param,(res) => {
+      this.data.show_loading = res.data.length==0?true:false
       this.data.goodsList.current_page = res.current_page
       this.data.goodsList.last_page = res.last_page
       this.data.goodsList.data = this.data.goodsList.data.concat(res.data)
-      this.setData({ goodsList: this.data.goodsList })
+      this.setData({ goodsList: this.data.goodsList, show_loading: this.data.show_loading })
       wx.stopPullDownRefresh()
     })
   },
