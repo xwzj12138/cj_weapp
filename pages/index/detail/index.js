@@ -26,6 +26,9 @@ Page({
    */
   showAd(e) {
     this.setData({ formId: e.detail.formId})
+    if(this.data.pruze_info.ad_id==''){
+      return this.participant();
+    }
     if (this.data.videoAd) {
       this.data.videoAd.show().catch((err) => {
         wx.showToast({title:'参与失败',icon: 'none'})
@@ -52,15 +55,21 @@ Page({
       videoAd.onClose((res) => {
         // isEnded：true有效观看完整视屏 false：无效观看
         if (res.isEnded){
-          pruzeModel.participant({ id: this.data.pruze_info.id, form_id:this.data.formId }, (res) => {
-            this.data.pruze_info.is_participant = true
-            this.setData({ pruze_info:this.data.pruze_info})
-          })
+          this.participant();
         }else{
           wx.showToast({ title: '参与失败了！', icon: 'none' })
         }
       })
     }
+  },
+  /**
+   * 参与抽奖
+   */
+  participant:function(){
+    pruzeModel.participant({ id: this.data.pruze_info.id, form_id: this.data.formId }, (res) => {
+      this.data.pruze_info.is_participant = true
+      this.setData({ pruze_info: this.data.pruze_info })
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -73,7 +82,9 @@ Page({
     //获取奖品详情
     pruzeModel.getDetail({ id: options.id }, (res) => {
       this.setData({ pruze_info: res.data })
-      this.loadVidelAd(res.data.ad_id)
+      if (res.data.ad_id!=''){
+        this.loadVidelAd(res.data.ad_id)
+      }
     })
   },
 

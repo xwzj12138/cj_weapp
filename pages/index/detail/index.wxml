@@ -6,7 +6,7 @@
 <view class='time_info brand_info' wx:if='{{pruze_info.brand_name}}'>
   <text>发起方</text><text></text><text>{{pruze_info.brand_name}}</text>
 </view>
-<view class='brand_qrcode' wx:if='{{pruze_info.brand_name && pruze_info.qrcode}}'>
+<view class='brand_qrcode' wx:if='{{pruze_info.qrcode}}'>
   <view>
     <view class='brand_name'>{{pruze_info.brand_name}}赞助</view>
     <view>长按识别右侧小程序码</view>
