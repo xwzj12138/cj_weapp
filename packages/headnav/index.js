@@ -1,6 +1,5 @@
 // packages/headnav/index.js
 Component({
-  pageLifetimes:{},
   lifetimes:{
     ready() {
       wx.getSystemInfo({
@@ -14,11 +13,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    // 每一行多少给item
-    body: {
-      type: Number,
-      value: 50
-    }
   },
   /**
    * 组件的初始数据

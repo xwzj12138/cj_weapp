@@ -1,0 +1,25 @@
+<swiper indicator-dots='true' autoplay='true' circular='true' wx:if='{{banner_list.length>0}}'>
+  <swiper-item wx:for='{{banner_list}}' bindtap='goBannerDetail' item-id='{{item.id}}' wx:key='{{item.id}}' data-id='{{item.id}}'>
+    <image src='{{item.ad_image}}' mode='aspectFit' style="width:100%;height:100%;"></image>
+  </swiper-item>
+</swiper>
+<!-- 文章列表 -->
+<view wx:for='{{data}}' wx:key='{{index}}' class="article_body">
+  <x-cell wx:if='{{item.uid>0}}'>
+    <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon'></x-avatar>
+    <view class="nickname">{{item.nickname}}</view>
+    <view class="article_cate">{{item.cate_name}}</view>
+  </x-cell>
+  <view class="article">
+    <view data-index='{{index}}' catchtap="goDetail">{{item.title}}</view>
+    <view class="article_image">
+      <image wx:for='{{item.img_list}}' wx:for-item='value' wx:key='{{value}}' src="{{value}}"></image>
+    </view>
+    <view class="article_lable">{{item.add_time}}发布</view>
+    <view wx:if='{{item.uid>0}}' class="article_lable"><x-icon name='locationfill' color='#f60' size='32'></x-icon>{{item.publish_address}}</view>
+  </view>
+  <view class="browse_like">
+    <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
+    <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeArticle"></x-icon><text>{{item.like_num}}</text></view>
+  </view>
+</view>

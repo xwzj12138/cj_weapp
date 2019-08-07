@@ -1,0 +1,10 @@
+.article_detail_body{background: #fff;}
+.nickname{font-weight: 500;color:#1296db;}
+.article_cate{font-size: 12px;background: #f60;color:#fff;display: inline-block;padding: 1px 3px;border-radius: 2px;overflow: hidden;margin: 5px 0;}
+.article_lable{font-size:10px;color:#1296db;}
+.browse_like{display:flex;color: #1296db;padding: 3px 30rpx;font-size: 15px;}
+.browse_like>view{flex: 1;}
+.browse_like text{margin-left: 5px;}
+.article_content{padding: 0 30rpx;font-size: 13px;}
+.article_image{padding:5px 5px;}
+.article_image image{display: inline-block;margin-right: 5px;width:23%;height:80px;}

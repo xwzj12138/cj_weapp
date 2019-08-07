@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/article/list/index",
+    "pages/article/detail/index",
     "pages/index/index/index",
     "pages/index/detail/index",
     "pages/my/address/detail/index",
@@ -11,7 +13,11 @@
     "pages/share/help/index",
     "pages/my/friend_list/index",
     "pages/my/participant/detail/index",
-    "pages/my/set_address/index"
+    "pages/my/set_address/index",
+    "pages/my/my_article/list/index",
+    "pages/my/my_article/detail/index",
+    "pages/my/my_pruze/list/index",
+    "pages/my/my_pruze/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,16 +29,22 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index/index",
+        "pagePath": "pages/article/list/index",
         "text": "首页",
         "iconPath": "/static/tabbar/basics.png",
         "selectedIconPath": "/static/tabbar/basics_cur.png"
       },
       {
+        "pagePath": "pages/index/index/index",
+        "text": "抽乐",
+        "iconPath": "/static/tabbar/pruze.png",
+        "selectedIconPath": "/static/tabbar/select_pruze.png"
+      },
+      {
         "pagePath": "pages/my/index/index",
         "text": "我的",
-        "iconPath": "/static/tabbar/about.png",
-        "selectedIconPath": "/static/tabbar/about_cur.png"
+        "iconPath": "/static/tabbar/my.png",
+        "selectedIconPath": "/static/tabbar/select_my.png"
       }
     ]
   },

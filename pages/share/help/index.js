@@ -20,7 +20,7 @@ Page({
    */
   goHome:function(){
     wx.switchTab({
-      url: '/pages/index/index/index',
+      url: '/pages/index/index/index'
     })
   },
   /**

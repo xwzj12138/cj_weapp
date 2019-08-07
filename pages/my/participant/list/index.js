@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    status_list: ['待开奖', '未中奖', '待领取', '已过期', '待发货','已发货'],
+    status_list: ['待开奖', '未中奖', '待领取', '已过期', '待发货','已发货','中奖'],
     type:1,
     current_page:0,
     last_page:1,
@@ -19,7 +19,7 @@ Page({
   goDetail:function(e){
     let page = '/pages/my/participant/detail/index?id=' + e.currentTarget.dataset.id;
     if (e.currentTarget.dataset.status==2){
-      page = '/pages/my/set_address/index?id=' + e.currentTarget.dataset.pruze_id;
+      page = '/pages/my/set_address/index?id=' + e.currentTarget.dataset.id;
     }
     wx.navigateTo({
       url: page
@@ -30,9 +30,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({type:options.type})
     //获取参与记录
-    this.getParticipant()
+    this.getParticipant();
   },
   /**
    * 获取参与纪录数据

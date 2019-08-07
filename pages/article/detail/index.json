@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "x-cell": "/packages/cell/index",
+    "x-avatar": "/packages/avatar/index",
+    "x-icon": "/packages/icon/index"
+  }
+}

@@ -6,13 +6,23 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.1",
+	"libVersion": "2.7.5",
 	"appid": "wxea2586a42af671d8",
 	"projectname": "cj_shop",
 	"debugOptions": {
@@ -39,13 +49,27 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
-					"name": "详情页",
+					"name": "助力页面",
 					"pathName": "pages/share/help/index",
 					"query": "uid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品分享页面",
+					"pathName": "pages/index/detail/index",
+					"query": "uid=1&id=1",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "领取页面",
+					"pathName": "pages/my/set_address/index",
+					"query": "id=32",
 					"scene": null
 				}
 			]

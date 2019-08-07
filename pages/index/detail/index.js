@@ -1,6 +1,8 @@
 // pages/index/detail/index.js
 import { pruze } from '../../../model/model.js'
 import { user } from '../../../model/model.js'
+import { login } from '../../../model/model.js'
+let loginModel = new login();
 let userModel = new user();
 let pruzeModel = new pruze();
 Page({
@@ -9,6 +11,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show_login:false,
+    pruze_id:'',
+    uid:'',
     formId:'',
     videoAd: '',
     userinfo:'',
@@ -69,32 +74,54 @@ Page({
     pruzeModel.participant({ id: this.data.pruze_info.id, form_id: this.data.formId }, (res) => {
       this.data.pruze_info.is_participant = true
       this.setData({ pruze_info: this.data.pruze_info })
+      wx.showToast({title: '参与成功', icon: 'none' })
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    options.uid = options.uid?options.uid:'';
+    this.setData({ pruze_id:options.id,uid:options.uid})
+    //判断是否登录
+    let token = loginModel.getToken()
+    if (!token) {
+      this.setData({ show_login: true })
+    } else {
+      this.getDetail();
+    }
+  },
+  /**
+   * 获取奖品详情
+   */
+  getDetail:function(){
     //获取用户信息
     userModel.getGlobalUserinfo((res) => {
       this.setData({ userinfo: res })
-    })
+    });
     //获取奖品详情
-    pruzeModel.getDetail({ id: options.id }, (res) => {
+    pruzeModel.getDetail({ id: this.data.pruze_id, super_uid:this.data.uid}, (res) => {
       this.setData({ pruze_info: res.data })
-      if (res.data.ad_id!=''){
+      if (res.data.ad_id != '' && !res.data.is_participant) {
         this.loadVidelAd(res.data.ad_id)
       }
     })
   },
-
+  /**
+   * 回到首页
+   */
+  goHome: function () {
+    wx.switchTab({
+      url: '/pages/index/index/index'
+    })
+  },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
     return {
       title: '我刚刚抽中了几个,现在等级不够帮我助力一下',
-      path: '/pages/share/help/index?uid=' + this.data.userinfo.uid
+      path: '/pages/index/detail/index?uid=' + this.data.userinfo.uid+'&id='+this.data.pruze_id
     }
   }
 })

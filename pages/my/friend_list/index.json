@@ -1,5 +1,7 @@
 {
+  "onReachBottomDistance": 200,
   "usingComponents": {
+    "x-avatar": "/packages/avatar/index",
     "x-loading": "/packages/loading/index",
     "x-cell-group": "/packages/cell-group/index",
     "x-cell": "/packages/cell/index",

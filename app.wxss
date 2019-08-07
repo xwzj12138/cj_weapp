@@ -1,12 +1,22 @@
+::-webkit-scrollbar {display: none;}
 page{background-color: #f3f3f3;}
 .body{margin:10px;border-radius:15rpx;overflow: hidden;box-shadow: #666 0 0 3px;}
 .head{position: relative;}
-.tag{position: absolute;top: 0;left: 0;padding: 3px 8px;background:#ffb800;color: #fcffc6; border-radius: 15rpx 0 15rpx 0;}
+.tag{position: absolute;bottom: 0;left: 0;width:100%;
+background:linear-gradient(to right,rgba(102,102,102,0.7),rgba(255,255,255,0.3),rgba(255,255,255,0));
+color: #fff;padding: 4px 8px;
+}
+.detail_buttom{background: #f60;color:#fff;padding: 3px 5px;border-radius: 10px;float: right;margin: 0 5px 5px 0;}
 .title_info{padding: 0 0 5px 0;font-weight: 600;}
 .time_info{padding: 0 0 10px 10px;color: #666;}
 .time_info>text:nth-child(2){margin:0 5px;}
 .userinfo_body{background-color: #f7db9a !important;}
-.avatar{border-radius:50%;width: 80px;height:80px;}
 .userinfo{margin-left:10px;font-size:14px;color: #666;}
 .userinfo>view:first-child{color: #000;font-weight: 600;margin: 10px 0;}
 .cooperation{font-size: 17px;font-weight: 600;margin-bottom: 5px;}
+.brand_info{color: #000;font-size: 14px;}
+.brand_info text:nth-child(2){border-right: 1px solid #666;margin: 0 4px 0 8px;font-size: 10px;}
+.brand_qrcode{display: flex;margin: 10px;align-items: center;font-size: 14px;box-shadow: #666 0 0 4px;padding: 5px 8px;border-radius: 5px;background: #fff;}
+.brand_qrcode>view:first-child{flex: 1;}
+.brand_name{font-size: 17px;font-weight: 600;margin-bottom: 15px;}
+.brand_qrcode image{width: 100px;height: 100px;}

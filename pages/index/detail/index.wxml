@@ -1,3 +1,10 @@
+<!-- 登录提示 -->
+<x-login show='{{show_login}}' bind:getuserinfo='getDetail'></x-login>
+<!-- 头部view -->
+<x-headnav>
+  <x-icon name='home' size='56' catchtap='goHome'></x-icon>
+</x-headnav>
+<!-- 商品详情 -->
 <image src='{{pruze_info.image}}' style='height:250px;width:100%;'></image>
 <view class='title'>{{pruze_info.pruze_name}}</view>
 <view class='time_info'>
@@ -13,7 +20,7 @@
   </view>
   <view><image src='{{pruze_info.qrcode}}' show-menu-by-longpress></image></view>
 </view>
-<view>
+<view wx:if='{{pruze_info.pruze_detail.length>0}}'>
   <view class='hint'>{{pruze_info.is_participant==false?'观看完整视频广告，参与抽奖':'邀请好友可提高等级哦'}}<text></text></view>
   <button class='participant' open-type='share' wx:if='{{pruze_info.is_participant}}'>邀请好友</button>
   <form report-submit='{{true}}' bindsubmit='showAd' wx:else>

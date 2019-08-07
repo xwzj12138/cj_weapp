@@ -4,7 +4,8 @@
 
 <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
   <view class="picker">
-    当前选择：{{form.province}}{{form.city}}{{form.county}}
+    <view>{{form.province?'当前选择：':'请选择地址'}}{{form.province}}{{form.city}}{{form.county}}</view>
+    <view><x-icon name="right" size='46' ></x-icon></view>
   </view>
 </picker>
 

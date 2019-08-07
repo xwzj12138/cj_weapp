@@ -13,4 +13,5 @@
   <view>所需等级：{{item.grade}}</view>
   <view>1，每天可以给{{item.help_limit}}个好友助力</view>
   <view>2，每天可以参与{{item.participant_limit}}个抽奖</view>
+  <view>2，本周内可以发布{{item.publish_limit}}次文章</view>
 </view>

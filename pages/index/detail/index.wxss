@@ -1,10 +1,4 @@
 .title{font-size: 16px;font-weight: 600;margin: 10px;}
-.brand_info{color: #000;font-size: 14px;}
-.brand_info text:nth-child(2){border-right: 1px solid #666;margin: 0 4px 0 8px;font-size: 10px;}
-.brand_qrcode{display: flex;margin: 10px;align-items: center;font-size: 14px;box-shadow: #666 0 0 4px;padding: 5px 8px;border-radius: 5px;background: #fff;}
-.brand_qrcode>view:first-child{flex: 1;}
-.brand_name{font-size: 17px;font-weight: 600;margin-bottom: 15px;}
-.brand_qrcode image{width: 100px;height: 100px;}
 .participant{
   width:120px;height:120px;border-radius:50%;margin:0 auto;line-height:100px;background:#ff785a;
   box-shadow:#ffdfd8 0 1px 20px;border:#fff solid 8px;color:#fff;text-align: center;
@@ -17,3 +11,4 @@
 .hint text{position:absolute;bottom:-30px;left:50%;border:15px solid;margin-left:-15px;border-color:#fff transparent transparent transparent;border-radius:5px;}
 .product_detail{padding: 0 10px;}
 .product_detail image{width: 100%;}
+button::after{border: none;}

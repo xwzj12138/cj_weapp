@@ -25,9 +25,15 @@ Page({
    * 获取好友列表
    */
   friend_list:function(){
+    if (this.data.current_page == this.data.last_page) {
+      return '';
+    }
     let param = { page: this.data.current_page + 1 }
     userModel.getfriend_list(param,(res)=>{
-      this.setData(res)
+      this.data.current_page = res.current_page
+      this.data.last_page = res.last_page
+      this.data.data = this.data.data.concat(res.data)
+      this.setData(this.data)
     })
   },
   /**
@@ -39,6 +45,12 @@ Page({
         title: '助力成功',
       })
     })
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.friend_list()
   },
   /**
    * 用户点击右上角分享

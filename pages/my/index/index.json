@@ -2,6 +2,7 @@
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "light",
   "usingComponents": {
+    "x-avatar": "/packages/avatar/index",
     "x-cell": "/packages/cell/index",
     "x-cell-group": "/packages/cell-group/index",
     "x-grid-group": "/packages/grid-group/index",
