@@ -4,11 +4,12 @@
     <view class="nickname">{{data.nickname}}</view>
     <view class="article_cate">{{data.cate_name}}</view>
     <view wx:if='{{data.uid>0}}' class="article_lable"><x-icon name='locationfill' color='#f60' size='32'></x-icon>{{data.publish_address}}</view>
+    <x-button wx:if="{{data.tel}}" slot='footer' inline size='66' type='info' bind:click="contact">联系他</x-button>
   </x-cell>
   <!-- 文章内容 -->
   <view class="article_content">{{data.title}}</view>
   <view class="article_image">
-    <image wx:for='{{data.images}}' wx:key='{{index}}' src="{{item}}"></image>
+    <image wx:for='{{data.images}}' wx:key='{{index}}' src="{{item}}" data-src="{{item}}" catchtap="showImage"></image>
   </view>
   <!-- 点赞数及浏览数 -->
   <view class="browse_like">

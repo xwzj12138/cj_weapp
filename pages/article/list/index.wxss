@@ -1,7 +1,7 @@
 /* pages/article/list/index.wxss */
 .article_body{background: #fff;margin:5px 0;padding-bottom: 10px;}
 .nickname{font-weight: 500;color:#1296db;margin-bottom: 8px;}
-.article_cate{font-size: 12px;background: #f60;color:#fff;display: inline-block;padding: 1px 3px;border-radius: 2px;overflow: hidden;}
+.article_cate{font-size: 12px;background: #f60;color:#fff;display: inline-block;padding: 1px 3px;border-radius: 2px;overflow: hidden;margin-right: 5px;}
 .article{padding: 0 30rpx;font-size: 13px;}
 .article>view:first-child{margin-bottom: 10px;}
 .article>view:nth-child(3){font-size: 10px;color:#666;margin: 3px 0;}

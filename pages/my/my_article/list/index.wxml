@@ -1,2 +1,15 @@
-<!--pages/my/my_article/list/index.wxml-->
-<text>pages/my/my_article/list/index.wxml</text>
+<!-- 文章列表 -->
+<view wx:for='{{data}}' wx:key='{{index}}' class="article_body" data-index='{{index}}' catchtap="goDetail">
+  <view class="article">
+    <view>{{item.title}}</view>
+    <view class="article_image">
+      <image wx:for='{{item.images}}' wx:for-item='value' wx:for-index='i' wx:key='{{value}}' src="{{value}}" lazy-load wx:if='{{i<4}}'></image>
+    </view>
+    <view class="article_lable">{{item.add_time}}发布</view>
+    <view wx:if='{{item.uid>0}}' class="article_lable"><x-icon name='locationfill' color='#f60' size='32'></x-icon>{{item.publish_address}}</view>
+  </view>
+  <view class="browse_like">
+    <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
+    <view><x-icon name='appreciate' color='#666' size='40'></x-icon><text>{{item.like_num}}</text></view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+/* pages/my/money/detail/index.wxss */
+.bill_remark{font-size: 12px;padding: 5px 0;color: #203541;}
+.bill_time{color: #A7B1B9;font-size: 10px;}
+.bill_money{color: #F62A66;}

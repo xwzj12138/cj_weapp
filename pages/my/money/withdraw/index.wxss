@@ -1,0 +1,2 @@
+/* pages/my/money/withdraw/index.wxss */
+.bill_money{color: #F62A66;margin-left: 10px;}

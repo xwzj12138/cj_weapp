@@ -1,0 +1,6 @@
+<x-cell wx:for='{{data}}'>
+  <view>{{type_list[item.type]}}</view>
+  <view class="bill_remark">单号：{{item.orderNum}}</view>
+  <view class="bill_remark bill_time">{{item.add_time}}</view>
+  <view slot='footer' class="bill_money">{{item.pm==0?'-':'+'}}{{item.number}}</view>
+</x-cell>

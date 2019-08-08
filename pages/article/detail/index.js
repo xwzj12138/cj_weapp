@@ -30,23 +30,20 @@ Page({
     });
   },
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 显示图片
    */
-  onPullDownRefresh: function () {
-
+  showImage: function (e) {
+    wx.previewImage({
+      current: e.currentTarget.dataset.src,
+      urls: this.data.data.images
+    })
   },
-
   /**
-   * 页面上拉触底事件的处理函数
+   * 联系用户
    */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  contact: function (e) {
+    wx.makePhoneCall({
+      phoneNumber: this.data.data.tel,
+    })
   }
 })

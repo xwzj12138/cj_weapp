@@ -1,0 +1,18 @@
+<x-cell-group>
+  <x-cell title='提现金额'></x-cell>
+  <x-cell>
+    <x-icon name='moneybagfill' slot='icon'></x-icon>
+    <x-input name='money' placeholder='请输入提现金额' bind:change='inputChange'></x-input>
+  </x-cell>
+  <x-cell>
+    <view><text>可提现金额￥</text><text class="bill_money">{{now_brokerage}}</text></view>
+  </x-cell>
+  <x-cell>
+    <x-input title='账号' name='account' placeholder='请输入微信账号' bind:change='inputChange'></x-input>
+  </x-cell>
+  <x-cell>
+    <x-input title='名称' name='real_name' placeholder='请输入名称' bind:change='inputChange'></x-input>
+  </x-cell>
+</x-cell-group>
+
+<x-button type="success" bind:click="commit">提交</x-button>

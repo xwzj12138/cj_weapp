@@ -11,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    is_share:false,
     show_login:false,
     pruze_id:'',
     uid:'',
@@ -81,8 +82,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    options.is_share = options.is_share ? options.is_share : false;
     options.uid = options.uid?options.uid:'';
-    this.setData({ pruze_id:options.id,uid:options.uid})
+    this.setData({ pruze_id: options.id, uid: options.uid, is_share:options.is_share})
     //判断是否登录
     let token = loginModel.getToken()
     if (!token) {
@@ -121,7 +123,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '我刚刚抽中了几个,现在等级不够帮我助力一下',
-      path: '/pages/index/detail/index?uid=' + this.data.userinfo.uid+'&id='+this.data.pruze_id
+      path: '/pages/index/detail/index?is_share=true&uid=' + this.data.userinfo.uid+'&id='+this.data.pruze_id
     }
   }
 })

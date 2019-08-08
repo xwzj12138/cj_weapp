@@ -1,6 +1,4 @@
 {
-  "navigationStyle": "custom",
-  "navigationBarTextStyle": "white",
   "usingComponents": {
     "x-login": "/packages/login/index",
     "x-icon": "/packages/icon/index",

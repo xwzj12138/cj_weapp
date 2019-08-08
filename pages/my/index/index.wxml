@@ -10,7 +10,7 @@
   <x-grid-item title='我参与' data-page='/pages/my/participant/list/index' catchtap='gridClick'>
     <view class='cooperation'>{{userinfo.participant_num}}</view>
   </x-grid-item>
-  <x-grid-item title='余额' data-page='/pages/my/my_pruze/list/index' catchtap='gridClick'>
+  <x-grid-item title='余额' data-page='/pages/my/money/index/index?now_brokerage={{userinfo.now_brokerage}}' catchtap='gridClick'>
     <view class='cooperation'>{{userinfo.now_brokerage}}</view>
   </x-grid-item>
   <x-grid-item title='等级积分' data-page='/pages/my/userinfo/index' catchtap='gridClick'>
@@ -18,6 +18,8 @@
   </x-grid-item>
 </x-grid-group>
 <x-cell-group menuCard>
+  <x-cell menuArrow title='我的文章' url='/pages/my/my_article/list/index'></x-cell>
+  <x-cell menuArrow title='我的奖品' url='/pages/my/my_pruze/list/index'></x-cell>
   <x-cell menuArrow title='好友列表' url='/pages/my/friend_list/index'></x-cell>
   <x-cell menuArrow title='收货地址' url='/pages/my/address/list/index'></x-cell>
   <x-cell menuArrow title='商务合作' url='/pages/my/cooperation/index'></x-cell>

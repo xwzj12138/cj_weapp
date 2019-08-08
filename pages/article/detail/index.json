@@ -2,6 +2,7 @@
   "usingComponents": {
     "x-cell": "/packages/cell/index",
     "x-avatar": "/packages/avatar/index",
+    "x-button": "/packages/button/index",
     "x-icon": "/packages/icon/index"
   }
 }

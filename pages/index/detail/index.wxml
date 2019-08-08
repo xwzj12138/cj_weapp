@@ -1,9 +1,5 @@
 <!-- 登录提示 -->
 <x-login show='{{show_login}}' bind:getuserinfo='getDetail'></x-login>
-<!-- 头部view -->
-<x-headnav>
-  <x-icon name='home' size='56' catchtap='goHome'></x-icon>
-</x-headnav>
 <!-- 商品详情 -->
 <image src='{{pruze_info.image}}' style='height:250px;width:100%;'></image>
 <view class='title'>{{pruze_info.pruze_name}}</view>
@@ -31,3 +27,5 @@
   <view>商品详情</view>
   <image wx:for='{{pruze_info.pruze_detail}}' src='{{item}}' mode='widthFix' wx:key='{{index}}'></image>
 </view>
+<!-- 返回抽奖列表页面 -->
+<view class="goHomeButton" wx:if='{{is_share}}'><x-icon name='home' size='86' catchtap='goHome'></x-icon></view>

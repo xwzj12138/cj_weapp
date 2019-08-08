@@ -1,12 +1,15 @@
 // pages/article/list/index.js
 import { article } from '../../../model/model.js'
+import { login } from '../../../model/model.js'
 let articleModel = new article();
+let loginModel = new login();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    show_login:false,
     banner_list:[],
     current_page:0,
     data:[],
@@ -17,6 +20,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //判断是否登录
+    let token = loginModel.getToken()
+    if (!token) {
+      this.setData({ show_login: true })
+    } else {
+      this.getuserinfo()
+    }
+  },
+  /**
+   * 授权登录成功回调，文章列表及banner图
+   */
+  getuserinfo: function () {
+    this.setData({ show_login: false })
     this.getArticleList();
     this.getBannerList();
   },
@@ -25,11 +41,16 @@ Page({
    */
   getArticleList: function () {
     if(this.data.current_page==this.data.last_page){
+      wx.stopPullDownRefresh()
       return wx.showToast({ title: '没有更多数据哦!', icon:'none' });
     }
     let param = {page:this.data.current_page+1};
     articleModel.getList(param,(res) => {
-      this.setData(res)
+      this.data.current_page = res.current_page
+      this.data.last_page = res.last_page
+      this.data.data = this.data.data.concat(res.data)
+      this.setData(this.data)
+      wx.stopPullDownRefresh()
     });
   },
   /**
@@ -54,6 +75,18 @@ Page({
     });
   },
   /**
+   * 浏览文章
+   */
+  browseArticle:function(index){
+    let article = this.data.data[index];
+    article.browse_num++;
+    let param = { id: article.id };
+    articleModel.browse(param, (res) => {
+      this.data.data[index] = article
+      this.setData(this.data)
+    });
+  },
+  /**
    * 进入详情页面
    */
   goDetail:function(e){
@@ -62,17 +95,48 @@ Page({
     })
   },
   /**
+   * 进入banner详情页
+   */
+  goBannerDetail:function(e){
+    wx.navigateTo({
+      url: e.currentTarget.dataset.detail_url,
+    })
+  },
+  /**
+   * 显示图片
+   */
+  showImage: function (e) {
+    wx.previewImage({
+      current: e.currentTarget.dataset.src,
+      urls: this.data.data[e.currentTarget.dataset.index].images,
+      success: (res) => {
+        //记录浏览量
+        this.browseArticle(e.currentTarget.dataset.index)
+      }
+    })
+  },
+  /**
+   * 联系用户
+   */
+  contact:function(e){
+    console.log(e.currentTarget.dataset.index)
+    wx.makePhoneCall({
+      phoneNumber: this.data.data[e.currentTarget.dataset.index].tel,
+    })
+  },
+  /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({ data: [], current_page:0,last_page:1})
+    this.getArticleList();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getArticleList();
   },
 
   /**
