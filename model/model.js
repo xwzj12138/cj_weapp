@@ -88,6 +88,10 @@ export class pruze extends base {
   setPruzeAdress(param, callback) {
     this.request({ url: 'index/v1/pruze/setAddress', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } })
   }
+  //获取我发起的奖品
+  myPublish(param, callback) {
+    this.request({ url: 'index/v1/pruze/myPublish', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } })
+  }
 }
 
 export class login extends base {

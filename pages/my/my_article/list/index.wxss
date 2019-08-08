@@ -1,7 +1,7 @@
 /* pages/article/list/index.wxss */
 .article_body{background: #fff;margin:5px 0;padding-bottom: 10px;}
-.article{padding: 0 30rpx;font-size: 13px;}
-.article>view:first-child{padding: 10px 0;}
+.article{padding: 5px 30rpx;font-size: 13px;}
+.article>view:first-child{margin: 10px 0;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:3;text-overflow:ellipsis;overflow: hidden;}
 .article>view:nth-child(3){font-size: 10px;color:#666;margin: 3px 0;}
 .article>view:nth-child(4){font-size:10px;color:#1296db;margin: 3px 0;}
 .browse_like{display:flex;color: #1296db;margin: 3px 30rpx;font-size: 15px;}

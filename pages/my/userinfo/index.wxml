@@ -5,6 +5,7 @@
     <view>积分：{{userinfo.integral}}</view>
     <view>每日可助力：{{userinfo.help_limit}}</view>
     <view>每日可参与：{{userinfo.participant_limit}}</view>
+    <view>本周内可发布文章：{{userinfo.publish_limit}}</view>
   </view>
   <x-button slot='footer' open-type='share' inline type='warning' size='76' shape='circle'>邀请好友升级</x-button>
 </x-cell>
