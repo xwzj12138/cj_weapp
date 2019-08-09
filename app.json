@@ -19,18 +19,21 @@
     "pages/my/my_pruze/detail/index",
     "pages/my/money/index/index",
     "pages/my/money/detail/index",
-    "pages/my/money/withdraw/index"
+    "pages/my/money/withdraw/index",
+    "pages/publish/index/index",
+    "pages/publish/article/index",
+    "pages/publish/pruze/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#1296db",
     "navigationBarTitleText": "抽乐",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "color":"#8a8a8a",
-    "selectedColor":"#d81e06",
+    "color": "#8a8a8a",
+    "selectedColor": "#d81e06",
     "list": [
       {
         "pagePath": "pages/article/list/index",
@@ -45,7 +48,7 @@
         "selectedIconPath": "/static/tabbar/select_pruze.png"
       },
       {
-        "pagePath": "pages/index/index/index",
+        "pagePath": "pages/publish/index/index",
         "text": "发布",
         "iconPath": "/static/tabbar/publish.png",
         "selectedIconPath": "/static/tabbar/select_publish.png"

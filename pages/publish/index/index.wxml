@@ -1,0 +1,3 @@
+<x-grid-group>
+  <x-grid-item wx:for='{{data}}' wx:key='{{index}}' url='{{item.image}}' title='{{item.cate_name}}' data-id='{{item.id}}' catchtap='goPublish'></x-grid-item>
+</x-grid-group>

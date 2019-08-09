@@ -180,4 +180,8 @@ export class article extends base{
   myList(param, callback) {
     this.request({ url: 'index/v1/article/myList', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
+  //获取分类列表
+  getCateList(param,callback){
+    this.request({ url: 'index/v1/article/getCateList', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
 }

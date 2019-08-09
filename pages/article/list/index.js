@@ -11,6 +11,8 @@ Page({
   data: {
     show_login:false,
     banner_list:[],
+    cate_list:[],
+    cate_id:0,
     current_page:0,
     data:[],
     last_page:1
@@ -44,8 +46,9 @@ Page({
       wx.stopPullDownRefresh()
       return wx.showToast({ title: '没有更多数据哦!', icon:'none' });
     }
-    let param = {page:this.data.current_page+1};
+    let param = {page:this.data.current_page+1,cate_id:this.data.cate_id};
     articleModel.getList(param,(res) => {
+      if (res.data.length == 0) return wx.showToast({ title: '已经到底了', icon: 'none' });
       this.data.current_page = res.current_page
       this.data.last_page = res.last_page
       this.data.data = this.data.data.concat(res.data)
@@ -58,8 +61,16 @@ Page({
    */
   getBannerList:function(){
     articleModel.getBanners( (res) => {
-      this.setData({ banner_list:res.data})
+      this.setData(res.data)
     });
+  },
+  /**
+   * 选择分类
+   */
+  select_cate:function(e){
+    if (e.currentTarget.dataset.id == this.data.cate_id) return ;
+    this.setData({cate_id: e.currentTarget.dataset.id, current_page: 0,data: [],last_page: 1})
+    this.getArticleList();
   },
   /**
    * 点赞文章
