@@ -16,3 +16,8 @@
     </view> -->
   </view>
 </view>
+<!-- 没有数据提示前往发布-->
+<view wx:if='{{data.length==0}}'>
+  <view style="text-align:center;margin:30px;">您还没有发布哦！</view>
+  <x-button type="success" bind:click="goArticle" shape='circle'>前往发布</x-button>
+</view>

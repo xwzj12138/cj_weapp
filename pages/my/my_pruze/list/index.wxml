@@ -12,3 +12,8 @@
   <view slot='footer' class="footer" wx:if='{{item.status==4}}'>待发货</view>
 </x-cell>
 <x-loading icon='' isShow="{{data.length==0}}" hint='没有数据哦！'></x-loading>
+<!-- 没有数据提示前往发布-->
+<view wx:if='{{data.length==0}}'>
+  <view style="text-align:center;margin:30px;">您还没有发布哦！</view>
+  <x-button type="success" bind:click="goArticle" shape='circle'>前往发布</x-button>
+</view>

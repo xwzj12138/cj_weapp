@@ -52,7 +52,14 @@ Page({
       wx.showToast({title: '顶置成功'});
     });
   },
-
+  /**
+   * 进入发布页面
+   */
+  goArticle:function(){
+    wx.switchTab({
+      url: '/pages/publish/index/index'
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */
