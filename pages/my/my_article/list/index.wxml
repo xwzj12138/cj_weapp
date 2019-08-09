@@ -11,5 +11,8 @@
   <view class="browse_like">
     <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
     <view><x-icon name='appreciate' color='#666' size='40'></x-icon><text>{{item.like_num}}</text></view>
+    <!-- <view class="top_view">
+      <text data-id="{{item.id}}" catchtap="topArticle">顶置</text>
+    </view> -->
   </view>
 </view>

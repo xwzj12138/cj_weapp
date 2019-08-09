@@ -44,23 +44,19 @@ Page({
     })
   },
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 顶置文章
    */
-  onPullDownRefresh: function () {
-
+  topArticle: function (e) {
+    let param = { id: e.currentTarget.dataset.id };
+    articleModel.top(param, (res) => {
+      wx.showToast({title: '顶置成功'});
+    });
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    this.getArticleList();
   }
 })

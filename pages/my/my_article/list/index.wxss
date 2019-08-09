@@ -8,3 +8,4 @@
 .browse_like>view{flex: 1;}
 .browse_like text{margin-left: 5px;}
 .article_image image{display: inline-block;margin-right: 5px;width:23%;height:80px;}
+.top_view text{color: #fff;background: #f90;padding: 3px 5px;border-radius: 5px;font-size: 12px;}

@@ -11,7 +11,7 @@ Page({
     end_time_list:[{name:'1天',value:1}],
     formData: { token: '' },
     upload_api: '',
-    data: { pruze_name: '', image: '', grade: '', brand_id: '', end_time: '', pruze_detail:[]}
+    data: { pruze_name: '', image: '', grade: 0, brand_id: '', end_time: '', pruze_detail:[]}
   },
 
   /**
@@ -57,8 +57,21 @@ Page({
   /**
    * 设置结束日期
    */
-  setEndTimeDate:function(e){
+  setEndTime:function(e){
     this.data.data.end_time = e.detail.value
     this.setData(this.data)
+  },
+  /**
+   * 提交数据
+   */
+  handleClick:function(){
+    console.log(this.data.data)
+    if (this.data.data.pruze_name=='') return wx.showToast({title: '请输入奖品名称',icon:'none'});
+    if (this.data.data.image == '') return wx.showToast({ title: '请上传封面图片', icon: 'none'});
+    if (this.data.data.end_time == '') return wx.showToast({ title: '请选择结束时间', icon: 'none' });
+    if (this.data.data.pruze_detail.length == 0) return wx.showToast({ title: '请上传详情图', icon: 'none' });
+    pruzeModel.publish(this.data.data,(res)=>{
+      wx.switchTab({url: '/pages/index/index/index'});
+    })
   }
 })

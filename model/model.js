@@ -92,6 +92,10 @@ export class pruze extends base {
   myPublish(param, callback) {
     this.request({ url: 'index/v1/pruze/myPublish', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } })
   }
+  //发起的抽奖
+  publish(param, callback) {
+    this.request({ url: 'index/v1/pruze/add', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } })
+  }
 }
 
 export class login extends base {
@@ -187,5 +191,9 @@ export class article extends base{
   //发布文章
   publish(param, callback) {
     this.request({ url: 'index/v1/article/publish', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
+  //顶置文章
+  top(param, callback) {
+    this.request({ url: 'index/v1/article/top', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
 }
