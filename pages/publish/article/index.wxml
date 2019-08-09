@@ -1,5 +1,7 @@
 <!-- 文章标题 -->
 <x-input type='textarea' name='title' placeholder='请输入标题' bind:change='inputChange'></x-input>
+<!-- 手机号 -->
+<x-input name='tel' placeholder='请输入联系方式' bind:change='inputChange'></x-input>
 <!-- 图片列表 -->
 <x-upload urlList='{{data.images}}' binddelFile='delFile'  bindaddFile='addFile' limit='8' uploadApi='{{upload_api}}' formData='{{formData}}'></x-upload>
 

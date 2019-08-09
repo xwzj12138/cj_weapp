@@ -53,7 +53,7 @@ Page({
         this.data.data.latitude = res.latitude
         this.data.data.longitude = res.longitude
         articleModel.publish(this.data.data, (res) => {
-          wx.switchTab({url: '/pages/article/list/index'});
+          wx.reLaunch({ url: '/pages/article/list/index' });
         });
       }
     })

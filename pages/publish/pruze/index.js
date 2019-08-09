@@ -71,7 +71,7 @@ Page({
     if (this.data.data.end_time == '') return wx.showToast({ title: '请选择结束时间', icon: 'none' });
     if (this.data.data.pruze_detail.length == 0) return wx.showToast({ title: '请上传详情图', icon: 'none' });
     pruzeModel.publish(this.data.data,(res)=>{
-      wx.switchTab({url: '/pages/index/index/index'});
+      wx.reLaunch({url: '/pages/index/index/index'});
     })
   }
 })
