@@ -184,4 +184,8 @@ export class article extends base{
   getCateList(param,callback){
     this.request({ url: 'index/v1/article/getCateList', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
+  //发布文章
+  publish(param, callback) {
+    this.request({ url: 'index/v1/article/publish', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
 }

@@ -62,7 +62,9 @@
     ]
   },
   "debug": false,
-  "navigateToMiniProgramAppIdList": [
-    "wx7271410f70eb2829"
-  ]
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于首页的效果展示"
+    }
+  }
 }

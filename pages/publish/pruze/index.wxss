@@ -1,1 +1,5 @@
-/* pages/publish/pruze/index.wxss */
+.title{color: #495060;
+min-width: 65px;
+padding-right: 10px;
+}
+.picker{color: #aaa;}

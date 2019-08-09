@@ -25,6 +25,10 @@ Component({
     formData:{
       type:JSON,
       value:{}
+    },
+    is_underway:{
+      type:Boolean,
+      value:false
     }
   },
 
@@ -55,17 +59,19 @@ Component({
           if (!this.data.uploadApi){
             return this.triggerEvent('addFile', { uploadResult: res, selectIndex: index})
           }
-          res.tempFilePaths.forEach((item) => {
+          this.setData({ is_underway: true })
+          res.tempFilePaths.forEach((item,index) => {
             wx.uploadFile({
               url: this.data.uploadApi,
               filePath: item,
               name: this.data.name,
               formData: this.data.formData,
               success: (result) => {
-                this.triggerEvent('addFile', { uploadResult: result, selectIndex: index })
+                this.triggerEvent('addFile', { uploadResult: JSON.parse(result.data), selectIndex: index })
+                if (index == res.tempFilePaths.length-1) { this.setData({ is_underway: false }) }
               },
               fail: (result) => {
-                this.triggerEvent('addFile', { uploadResult: result, selectIndex: index })
+                this.triggerEvent('addFile', { uploadResult: JSON.parse(result.data), selectIndex: index })
               }
             })
           })

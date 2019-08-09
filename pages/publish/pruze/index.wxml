@@ -1,2 +1,22 @@
-<!--pages/publish/pruze/index.wxml-->
-<text>pages/publish/pruze/index.wxml</text>
+<x-input title='奖品名称' name='pruze_name' placeholder='请输入奖品名称' bind:change='inputChange'></x-input>
+<!-- 封面图 -->
+<x-cell>
+  <view slot='icon' class="title">封面图</view>
+  <x-upload urlList="{{data.image==''?[]:[data.image]}}" uploadApi='{{upload_api}}' formData='{{formData}}' bindaddFile='uploadImage'></x-upload>
+</x-cell>
+<x-cell>
+  <view slot='icon' class="title">等级</view>
+  <x-input-number max='9999' min='0' value='{{data.grade}}' step='1' bindchange='setGrade'></x-input-number>
+</x-cell>
+<x-cell>
+  <view slot='icon' class="title">结束时间</view>
+  <picker mode='date' bindchange='setEndTime'>
+    <view class="picker">{{data.end_time==''?'请选择结束时间':data.end_time}}</view>
+  </picker>
+</x-cell>
+<!-- 详情图 -->
+<x-cell>
+  <view slot='icon' class="title">详情图</view>
+</x-cell>
+<x-upload urlList="{{data.pruze_detail}}" uploadApi='{{upload_api}}' limit='8' formData='{{formData}}' bindaddFile='uploadDetailImage'></x-upload>
+<x-button type="primary" bind:click="handleClick" shape="circle">提交</x-button>

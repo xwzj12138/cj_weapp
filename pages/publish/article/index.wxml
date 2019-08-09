@@ -1,2 +1,6 @@
-<!--pages/publish/article/index.wxml-->
-<text>pages/publish/article/index.wxml</text>
+<!-- 文章标题 -->
+<x-input type='textarea' name='title' placeholder='请输入标题' bind:change='inputChange'></x-input>
+<!-- 图片列表 -->
+<x-upload urlList='{{data.images}}' binddelFile='delFile'  bindaddFile='addFile' limit='8' uploadApi='{{upload_api}}' formData='{{formData}}'></x-upload>
+
+<x-button type="primary" bind:click="handleClick">提交</x-button>
