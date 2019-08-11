@@ -1,7 +1,7 @@
 <view class='brand_qrcode' wx:for='{{data}}' wx:key='index' data-index="{{index}}" bindtap='goDetail'>
   <view>
     <view class='brand_name'>{{item.brand_name}}</view>
-    <view>{{item.intro}}</view>
+    <view>{{item.intro?item.intro:''}}</view>
   </view>
   <view><image src='{{item.qrcode}}' show-menu-by-longpress></image></view>
 </view>

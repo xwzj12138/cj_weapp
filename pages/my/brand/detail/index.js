@@ -32,7 +32,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options){
+    if(options.id){
       this.data.form.id = options.id;
       this.data.form.brand_name = options.brand_name;
       this.data.form.qrcode = options.qrcode;

@@ -8,3 +8,4 @@
 }
 .goods-action button{padding:0;line-height:1;background:none;font-size:12px;width:100%;}
 .goods-action button::after{border:none;}
+.goods-action>view:last-child{height: 100%;}
