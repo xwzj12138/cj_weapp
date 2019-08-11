@@ -1,0 +1,11 @@
+<x-input value='{{form.brand_name}}' name='brand_name' title='品牌名:' placeholder='请输入品牌名' bind:change='inputChange' maxlength="30"></x-input>
+<!-- 封面图 -->
+<x-cell>
+  <view slot='icon' class="title">封面图</view>
+  <x-upload urlList="{{form.qrcode==''?[]:[form.qrcode]}}" uploadApi='{{upload_api}}' formData='{{formData}}' bindaddFile='uploadImage'></x-upload>
+</x-cell>
+<!-- 简介 -->
+<x-input type='textarea' name='intro' value='{{form.intro}}' placeholder='请输入简介' bind:change='inputChange' maxlength="255"></x-input>
+<view style='text-align: center;'>
+  <x-button type="primary" bind:click="submit">提交</x-button>
+</view>

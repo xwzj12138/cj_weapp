@@ -1,0 +1,11 @@
+<view class='brand_qrcode' wx:for='{{data}}' wx:key='index' data-index="{{index}}" bindtap='goDetail'>
+  <view>
+    <view class='brand_name'>{{item.brand_name}}</view>
+    <view>{{item.intro}}</view>
+  </view>
+  <view><image src='{{item.qrcode}}' show-menu-by-longpress></image></view>
+</view>
+<x-loading icon='' isShow="{{data.length==0}}" hint='没有数据哦！'></x-loading>
+<x-tabbar>
+  <x-tabbar-flex-item x-class='tabbar' title='添加地址' bindtap='goDetail'></x-tabbar-flex-item>
+</x-tabbar>

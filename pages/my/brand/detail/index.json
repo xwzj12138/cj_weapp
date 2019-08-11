@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "x-input": "/packages/input/index",
+    "x-icon": "/packages/icon/index",
+    "x-cell": "/packages/cell/index",
+    "x-upload": "/packages/upload/index",
+    "x-button": "/packages/button/index"
+  }
+}

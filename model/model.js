@@ -197,3 +197,21 @@ export class article extends base{
     this.request({ url: 'index/v1/article/top', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
 }
+//推广品牌相关
+export class brand extends base {
+  constructor(){
+    super();
+  }
+  //添加
+  add(param, callback) {
+    this.request({ url: 'index/v1/brand/add', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
+  //获取
+  getList(param, callback) {
+    this.request({ url: 'index/v1/brand/get', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
+  //修改品牌信息
+  update(param, callback) {
+    this.request({ url: 'index/v1/brand/update', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
+}

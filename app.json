@@ -22,7 +22,9 @@
     "pages/my/money/withdraw/index",
     "pages/publish/index/index",
     "pages/publish/article/index",
-    "pages/publish/pruze/index"
+    "pages/publish/pruze/index",
+    "pages/my/brand/list/index",
+    "pages/my/brand/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
