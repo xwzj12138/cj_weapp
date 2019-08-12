@@ -16,13 +16,34 @@
   </view>
   <view><image src='{{pruze_info.qrcode}}' show-menu-by-longpress></image></view>
 </view>
-<view wx:if='{{pruze_info.pruze_detail.length>0}}'>
+<!-- 未开奖时显示参与邀请按钮 -->
+<view wx:if='{{pruze_info.status==0}}'>
   <view class='hint'>{{pruze_info.is_participant==false?'观看完整视频广告，参与抽奖':'邀请好友可提高等级哦'}}<text></text></view>
   <button class='participant' open-type='share' wx:if='{{pruze_info.is_participant}}'>邀请好友</button>
   <form report-submit='{{true}}' bindsubmit='showAd' wx:else>
     <button class='participant' form-type='submit'>参与抽奖</button>
   </form>
 </view>
+<!-- 已开奖显示中奖用户及当前用户是否中奖 -->
+<view class='brand_qrcode user_info' wx:if='{{pruze_info.status>0}}'>
+  <view>
+    <view wx:if='{{!pruze_info.success}}'>抱歉！您没有中奖哦！</view>
+    <view class='brand_name'>中奖用户</view>
+    <image src='{{pruze_info.success_user.avatar}}'></image>
+    <view>{{pruze_info.success_user.nickname}}</view>
+  </view>
+</view>
+<!-- 设置收货地址 -->
+<x-cell-group menuCard wx:if='{{pruze_info.status==2 && pruze_info.success}}'>
+  <x-cell menuArrow url='/pages/my/address/list/index'>
+    <view wx:if='{{pruze_info.default_address==null}}'>还没有地址哦</view>
+    <view wx:else>
+    <view>{{pruze_info.default_address.consignee_name}}</view>
+    <view wx:if='{{pruze_info.default_address.consignee_name}}'>{{pruze_info.default_address.province+pruze_info.default_address.city+pruze_info.default_address.county+pruze_info.default_address.address}}</view>
+    </view>
+  </x-cell>
+  <x-button type='warning' size='86' shape='circle' catchtap='setAddress'>确认地址</x-button>
+</x-cell-group>
 <view class='product_detail'>
   <view>商品详情</view>
   <image wx:for='{{pruze_info.pruze_detail}}' src='{{item}}' mode='widthFix' wx:key='{{index}}'></image>

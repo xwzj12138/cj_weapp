@@ -1,4 +1,4 @@
-<x-cell wx:for='{{data}}' wx:key='{{index}}' data-id='{{item.id}}' data-status='{{item.status}}' data-pruze_id='{{item.pruze_id}}' bindtap='goDetail'>
+<x-cell wx:for='{{data}}' wx:key='{{index}}' data-id='{{item.id}}' data-status='{{item.status}}' bindtap='goDetail'>
   <image slot='icon' src='{{item.image}}' style='width:90px;height:90px;'></image>
   <view class='info'>
     <view class='title_info'>{{item.pruze_name}}</view>

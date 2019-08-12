@@ -34,5 +34,16 @@ Page({
       this.setData(this.data)
       wx.stopPullDownRefresh()
     })
+  },
+  /**
+   * 进入奖品详情页
+   */
+  goDetail:function(e){
+    let url = '/pages/index/detail/index?id=' + e.currentTarget.dataset.id;
+    //未开奖之前进入抽奖页面,否则进入发货页面
+    if (e.currentTarget.dataset.status>0){
+      url = '/pages/my/my_pruze/detail/index?id=' + e.currentTarget.dataset.id;
+    }
+    wx.navigateTo({url: url});
   }
 })
