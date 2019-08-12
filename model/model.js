@@ -80,10 +80,6 @@ export class pruze extends base {
   participant(param, callback) {
     this.request({ url: 'index/v1/pruze/participant', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
-  //获取领取详情
-  getPruzeDetail(param, callback) {
-    this.request({ url: 'index/v1/UserParticipant/detail', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
-  }
   //确认收货地址
   setPruzeAdress(param, callback) {
     this.request({ url: 'index/v1/pruze/setAddress', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } })

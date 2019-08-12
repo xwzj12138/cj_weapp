@@ -14,12 +14,12 @@ Page({
     data: []
   },
   /**
-   * 进入详情页面
+   * 进入详情页面。默认进入奖品详情页面，已领取的进入物流信息页面
    */
   goDetail:function(e){
-    let page = '/pages/my/participant/detail/index?id=' + e.currentTarget.dataset.id;
-    if (e.currentTarget.dataset.status==2){
-      page = '/pages/my/set_address/index?id=' + e.currentTarget.dataset.id;
+    let page = '/pages/index/detail/index?id=' + e.currentTarget.dataset.pruze_id;
+    if (e.currentTarget.dataset.status>2){
+      page = '/pages/my/participant/detail/index?id=' + e.currentTarget.dataset.id;
     }
     wx.navigateTo({
       url: page
