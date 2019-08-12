@@ -215,3 +215,11 @@ export class brand extends base {
     this.request({ url: 'index/v1/brand/update', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
 }
+
+export class notice extends base {
+  constructor(){ super(); }
+  //获取通知详情
+  detail(param,callback){
+    this.request({ url: 'index/v1/notice/detail', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
+}

@@ -24,7 +24,8 @@
     "pages/publish/article/index",
     "pages/publish/pruze/index",
     "pages/my/brand/list/index",
-    "pages/my/brand/detail/index"
+    "pages/my/brand/detail/index",
+    "pages/notice/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
