@@ -1,6 +1,8 @@
 // pages/publish/pruze/index.js
 import { config } from '../../../utils/config.js'
 import { pruze } from '../../../model/model.js'
+import { brand } from '../../../model/model.js';
+let brandModel = new brand();
 let pruzeModel = new pruze();
 Page({
 
@@ -8,10 +10,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    end_time_list:[{name:'1天',value:1}],
+    time_list:['1天','2天','3天','4天','5天','6天','7天'],
+    brand_list:[],
+    brands:[],
     formData: { token: '' },
     upload_api: '',
-    data: { pruze_name: '', image: '', grade: 0, brand_id: '', end_time: '', pruze_detail:[]}
+    data: { pruze_name: '', image: '', grade: 0, brand_id: '', time: '', pruze_detail:[]}
   },
 
   /**
@@ -20,11 +24,14 @@ Page({
   onLoad: function (options) {
     this.data.formData.token = wx.getStorageSync('token').token;
     this.data.upload_api = config.restUrl + 'index/v1/upload';
-    // let date = new Date();
-    // this.data.data.end_time_date = date.getFullYear();
-    // this.data.data.end_time_date = this.data.data.end_time_date + '-' + date.getMonth();
-    // this.data.data.end_time_date = this.data.data.end_time_date + '-' + date.getDate();
-    this.setData(this.data)
+    this.setData(this.data);
+    //获取品牌列表
+    brandModel.getList((res)=>{
+      res.data.forEach((item)=>{
+        this.data.brands.push(item.brand_name);
+      });
+      this.setData({ brand_list: res.data, brands:this.data.brands});
+    });
   },
   /**
    * 上传封面图
@@ -58,18 +65,26 @@ Page({
    * 设置结束日期
    */
   setEndTime:function(e){
-    this.data.data.end_time = e.detail.value
+    this.data.data.time = e.detail.value
+    this.setData(this.data)
+  },
+  /**
+   * 设置品牌
+   */
+  setBrand:function(e){
+    this.data.data.brand_id = e.detail.value
     this.setData(this.data)
   },
   /**
    * 提交数据
    */
   handleClick:function(){
-    console.log(this.data.data)
     if (this.data.data.pruze_name=='') return wx.showToast({title: '请输入奖品名称',icon:'none'});
     if (this.data.data.image == '') return wx.showToast({ title: '请上传封面图片', icon: 'none'});
     if (this.data.data.end_time == '') return wx.showToast({ title: '请选择结束时间', icon: 'none' });
     if (this.data.data.pruze_detail.length == 0) return wx.showToast({ title: '请上传详情图', icon: 'none' });
+    this.data.data.time++
+    this.data.data.brand_id = this.data.brand_list[this.data.data.brand_id].id
     pruzeModel.publish(this.data.data,(res)=>{
       wx.reLaunch({url: '/pages/index/index/index'});
     })

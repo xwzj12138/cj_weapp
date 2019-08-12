@@ -9,9 +9,15 @@
   <x-input-number max='9999' min='0' value='{{data.grade}}' step='1' bindchange='setGrade'></x-input-number>
 </x-cell>
 <x-cell>
-  <view slot='icon' class="title">结束时间</view>
-  <picker mode='date' bindchange='setEndTime'>
-    <view class="picker">{{data.end_time==''?'请选择结束时间':data.end_time}}</view>
+  <view slot='icon' class="title">显示天数</view>
+  <picker mode='selector' range='{{time_list}}' bindchange='setEndTime'>
+    <view class="picker">{{data.time==''?'请选择显示时间':time_list[data.time]}}</view>
+  </picker>
+</x-cell>
+<x-cell>
+  <view slot='icon' class="title">推广品牌</view>
+  <picker mode='selector' range='{{brands}}' bindchange='setBrand'>
+    <view class="picker">{{data.brand_id==''?'请选择品牌':brand_list[data.brand_id].brand_name}}</view>
   </picker>
 </x-cell>
 <!-- 详情图 -->

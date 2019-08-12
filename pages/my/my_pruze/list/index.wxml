@@ -3,7 +3,7 @@
   <view class='info'>
     <view class='title_info'>{{item.pruze_name}}</view>
     <view class='time_info'>
-      <text>参与时间:</text><text>{{item.add_time}}</text>
+      <text>发起时间:</text><text>{{item.add_time}}</text>
     </view>
     <view class='time_info'>
       <text>开奖时间:</text><text>{{item.activity_time}}</text>
