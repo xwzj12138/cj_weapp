@@ -2,3 +2,7 @@
 .title_info{font-weight: 600;font-size: 12px;}
 .time_info{color: #666;font-size: 11px;padding: 0;}
 .footer{font-size: 14px;color: #f60;}
+.x_drawer{border-radius:24rpx !important;}
+.drawer{width:625rpx;}
+.title{color: #495060;min-width: 65px;padding-right: 10px;}
+.picker{color: #aaa;}

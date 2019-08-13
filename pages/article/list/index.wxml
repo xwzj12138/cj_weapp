@@ -34,3 +34,4 @@
     <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeArticle"></x-icon><text>{{item.like_num}}</text></view>
   </view>
 </view>
+<x-loading icon='' isShow="{{show_loading}}" hint='暂时没有新的活动了！'></x-loading>

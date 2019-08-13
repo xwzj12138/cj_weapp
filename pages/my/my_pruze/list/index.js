@@ -9,7 +9,12 @@ Page({
   data: {
     current_page:0,
     data:[],
-    last_page:1
+    last_page:1,
+    show_drawer:false,
+    address_info:{},
+    form: { index: '', pruze_id:0,shipper_code: '', shipper_name:'', tracking_num:''},
+    hd_company_list:[],
+    hd_companys:[]
   },
 
   /**
@@ -39,11 +44,52 @@ Page({
    * 进入奖品详情页
    */
   goDetail:function(e){
-    let url = '/pages/index/detail/index?id=' + e.currentTarget.dataset.id;
-    //未开奖之前进入抽奖页面,否则进入发货页面
-    if (e.currentTarget.dataset.status>0){
-      url = '/pages/my/my_pruze/detail/index?id=' + e.currentTarget.dataset.id;
+    let pruze = this.data.data[e.currentTarget.dataset.index];
+    let url = '/pages/index/detail/index?id=' + pruze.id;
+    //未开奖之前进入抽奖页面,否则进入发货页面==4
+    if (pruze.status>0){
+      pruzeModel.getAddressInfo({ id: pruze.id }, (res) => {
+        this.data.form.pruze_id = pruze.id;
+        this.data.form.index = e.currentTarget.dataset.index;
+        this.data.address_info = res.data.address_info;
+        this.data.hd_companys = res.data.hd_company_list;
+        res.data.hd_company_list.forEach((item)=>{
+          this.data.hd_company_list.push(item.company_name)
+        })
+        this.setData(this.data)
+      });
+      return this.setData({ show_drawer:true})
+      // url = '/pages/my/my_pruze/detail/index?id=' + pruze.id;
     }
     wx.navigateTo({url: url});
+  },
+  /**
+   * 设置物流单号
+   */
+  inputChange:function(e){
+    this.data.form[e.detail.name] = e.detail.value;
+    this.setData(this.data)
+  },
+  /**
+   * 选择快递公司
+   */
+  selectHdCompany:function(e){
+    console.log(e)
+    this.data.form.shipper_name = e.detail.value;
+    this.setData(this.data)
+  },
+  /**
+   * 提交数据
+   */
+  handleClick:function(e){
+    let hd_comapny = this.data.hd_companys[this.data.form.shipper_name];
+    this.data.form.shipper_code = hd_comapny.company_code
+    this.data.form.shipper_name = hd_comapny.company_name
+    pruzeModel.setTrackingNum(this.data.form, (res) => {
+      this.data.data[this.data.form.index].status = 5;
+      this.data.show_drawer = false;
+      this.setData(this.data)
+      wx.showToast({ title: '设置成功' });
+    });
   }
 })

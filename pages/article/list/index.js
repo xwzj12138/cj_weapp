@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show_loading:false,
     show_login:false,
     banner_list:[],
     cate_list:[],
@@ -44,11 +45,11 @@ Page({
   getArticleList: function () {
     if(this.data.current_page==this.data.last_page){
       wx.stopPullDownRefresh()
-      return wx.showToast({ title: '没有更多数据哦!', icon:'none' });
+      return this.setData({ show_loading:true});
     }
     let param = {page:this.data.current_page+1,cate_id:this.data.cate_id};
     articleModel.getList(param,(res) => {
-      if (res.data.length == 0) return wx.showToast({ title: '已经到底了', icon: 'none' });
+      if (res.data.length == 0) return this.setData({ show_loading: true });
       this.data.current_page = res.current_page
       this.data.last_page = res.last_page
       this.data.data = this.data.data.concat(res.data)

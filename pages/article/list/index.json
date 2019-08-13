@@ -9,6 +9,7 @@
     "x-button": "/packages/button/index",
     "x-grid-group": "/packages/grid-group/index",
     "x-grid-item": "/packages/grid-item/index",
+    "x-loading": "/packages/loading/index",
     "x-icon": "/packages/icon/index"
   }
 }
