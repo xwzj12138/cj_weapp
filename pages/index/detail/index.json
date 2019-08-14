@@ -5,6 +5,7 @@
     "x-cell-group": "/packages/cell-group/index",
     "x-cell": "/packages/cell/index",
     "x-button": "/packages/button/index",
+    "x-drawer": "/packages/drawer/index",
     "x-headnav": "/packages/headnav/index"
   }
 }

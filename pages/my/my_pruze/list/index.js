@@ -46,8 +46,8 @@ Page({
   goDetail:function(e){
     let pruze = this.data.data[e.currentTarget.dataset.index];
     let url = '/pages/index/detail/index?id=' + pruze.id;
-    //未开奖之前进入抽奖页面,否则进入发货页面==4
-    if (pruze.status>0){
+    //未开奖之前进入抽奖页面,否则进入发货页面
+    if (pruze.status == 4){
       pruzeModel.getAddressInfo({ id: pruze.id }, (res) => {
         this.data.form.pruze_id = pruze.id;
         this.data.form.index = e.currentTarget.dataset.index;

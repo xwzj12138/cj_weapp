@@ -15,3 +15,4 @@ button::after{border: none;}
 .user_info{text-align: center;}
 .user_info image{border-radius: 50%;}
 .user_info>view>view:first-child{color: #f00;margin: 0 0 20px 0;}
+.drawer{width:625rpx;}

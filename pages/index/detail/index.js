@@ -127,14 +127,5 @@ Page({
     wx.switchTab({
       url: '/pages/index/index/index'
     })
-  },
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    return {
-      title: '我刚刚抽中了几个,现在等级不够帮我助力一下',
-      path: '/pages/index/detail/index?is_share=true&uid=' + this.data.userinfo.uid+'&id='+this.data.pruze_id
-    }
   }
 })

@@ -20,4 +20,4 @@ color: #fff;padding: 4px 8px;
 .brand_qrcode>view:first-child{flex: 1;}
 .brand_name{font-size: 17px;font-weight: 600;margin-bottom: 15px;}
 .brand_qrcode image{width: 100px;height: 100px;}
-.goHomeButton{position: fixed;right:20px;bottom: 30px;background: #fff;border: 3px solid #aaa;border-radius: 50%;}
+.goHomeButton{position: fixed;right:20px;bottom: 30px;background: #fff;border: 3px solid #1296db;border-radius: 50%;text-align: center;width: 41px;}
