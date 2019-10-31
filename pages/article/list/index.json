@@ -3,7 +3,6 @@
   "backgroundTextStyle": "light",
   "onReachBottomDistance": 200,
   "usingComponents": {
-    "x-login": "/packages/login/index",
     "x-cell": "/packages/cell/index",
     "x-avatar": "/packages/avatar/index",
     "x-button": "/packages/button/index",

@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "x-login": "/packages/login/index",
     "x-icon": "/packages/icon/index",
     "x-cell-group": "/packages/cell-group/index",
     "x-cell": "/packages/cell/index",

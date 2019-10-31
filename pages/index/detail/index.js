@@ -1,7 +1,6 @@
 // pages/index/detail/index.js
-import { pruze } from '../../../model/model.js'
-import { user } from '../../../model/model.js'
-import { login } from '../../../model/model.js'
+import { pruze, login } from '../../../model/model.js'
+import { user } from '../../../model/user.js'
 let loginModel = new login();
 let userModel = new user();
 let pruzeModel = new pruze();
@@ -12,7 +11,6 @@ Page({
    */
   data: {
     is_share:false,
-    show_login:false,
     pruze_id:'',
     uid:'',
     formId:'',
@@ -85,13 +83,9 @@ Page({
     options.is_share = options.is_share ? options.is_share : false;
     options.uid = options.uid?options.uid:'';
     this.setData({ pruze_id: options.id, uid: options.uid, is_share:options.is_share})
-    //判断是否登录
-    let token = loginModel.getToken()
-    if (!token) {
-      this.setData({ show_login: true })
-    } else {
-      this.getDetail();
-    }
+    loginModel.isLogin((res) => {
+      this.getDetail()
+    });
   },
   /**
    * 获取奖品详情

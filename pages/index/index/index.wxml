@@ -1,5 +1,3 @@
-<!-- 登录提示 -->
-<x-login show='{{show_login}}' bind:getuserinfo='getuserinfo'></x-login>
 <!-- 奖品列表 -->
 <x-card x-class='body' wx:for='{{goodsList.data}}' wx:key='{{index}}' data-id='{{item.id}}' data-grade='{{item.grade}}' bindtap='goDetail'>
   <view slot='image' class='head'>

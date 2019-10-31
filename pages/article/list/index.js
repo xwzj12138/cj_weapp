@@ -1,8 +1,9 @@
 // pages/article/list/index.js
-import { article } from '../../../model/model.js'
-import { login } from '../../../model/model.js'
-let articleModel = new article();
+import { article, login } from '../../../model/model.js'
+import { user } from '../../../model/user.js'
 let loginModel = new login();
+let articleModel = new article();
+let userModel = new user();
 Page({
 
   /**
@@ -10,7 +11,6 @@ Page({
    */
   data: {
     show_loading:false,
-    show_login:false,
     banner_list:[],
     cate_list:[],
     cate_id:0,
@@ -23,19 +23,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //判断是否登录
-    let token = loginModel.getToken()
-    if (!token) {
-      this.setData({ show_login: true })
-    } else {
-      this.getuserinfo()
-    }
+    loginModel.isLogin((res)=>{
+      this.getHomeInfo();
+    });
   },
   /**
    * 授权登录成功回调，文章列表及banner图
    */
-  getuserinfo: function () {
-    this.setData({ show_login: false })
+  getHomeInfo: function () {
     this.getArticleList();
     this.getBannerList();
   },

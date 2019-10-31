@@ -1,5 +1,6 @@
 // pages/article/detail/index.js
-import { article } from '../../../model/model.js'
+import { article, login } from '../../../model/model.js'
+let loginModel = new login();
 let articleModel = new article();
 Page({
 
@@ -14,8 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    articleModel.detail({ id: options.id }, (res) => {
-      this.setData(res);
+    loginModel.isLogin((res) => {
+      articleModel.detail({ id: options.id }, (res) => {
+        this.setData(res);
+      });
     });
   },
   /**

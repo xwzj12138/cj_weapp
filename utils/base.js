@@ -14,7 +14,6 @@ export class base{
       url: url,
       data: params.data,
       method: params.type,
-      header: {'content-type': 'application/json'},
       success: function (res) {
         if(res.data.code!=200) {
           return wx.showToast({

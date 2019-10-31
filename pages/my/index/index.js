@@ -1,5 +1,7 @@
 // pages/my/index/index.js
-import { user } from '../../../model/model.js'
+import { user } from '../../../model/user.js'
+import {login} from '../../../model/model.js';
+let loginModel = new login();
 let userModel = new user();
 Page({
 
@@ -22,7 +24,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getUserInfo()
+    loginModel.isLogin((res) => {
+      this.getUserInfo();
+    });
   },
   /**
    * 获取用户信息
@@ -40,6 +44,18 @@ Page({
     this.getUserInfo();
   },
 
+  /**
+   * 更新用户信息
+   */
+  updateUserInfo(e){
+    let param = { nickname: e.detail.userInfo.nickName, avatar: e.detail.userInfo.avatarUrl, gender: e.detail.userInfo.gender};
+    userModel.updateUserInfo(param,(res)=>{
+      this.data.userinfo.nickname = param.nickname
+      this.data.userinfo.avatar = param.avatar
+      this.data.userinfo.gender = param.gender
+      this.setData(this.data)
+    })
+  },
   /**
    * 用户点击右上角分享
    */

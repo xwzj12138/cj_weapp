@@ -1,10 +1,16 @@
-<x-cell x-class='userinfo_body'>
+<x-cell x-class='userinfo_body' wx:if='{{userinfo.avatar}}'>
   <x-avatar size='82' src='{{userinfo.avatar}}' slot='icon'></x-avatar>
   <view class='userinfo'>
     <view>{{userinfo.nickname}}</view>
     <view>等级：{{userinfo.grade}}</view>
   </view>
   <x-button slot='footer' open-type='share' inline type='warning' size='56' shape='circle' font_size='12'>邀请好友升级</x-button>
+</x-cell>
+<x-cell x-class='userinfo_body' wx:else>
+  <x-avatar size='82' slot='icon'></x-avatar>
+  <view class='userinfo'>
+    <x-button open-type='getUserInfo' inline type='warning' size='56' shape='circle' font_size='12' bind:getuserinfo="updateUserInfo">授权获取用户信息</x-button>
+  </view>
 </x-cell>
 <x-grid-group>
   <x-grid-item title='我参与' data-page='/pages/my/participant/list/index' catchtap='gridClick'>

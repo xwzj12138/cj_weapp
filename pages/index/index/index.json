@@ -3,7 +3,6 @@
   "backgroundTextStyle":"light",
   "onReachBottomDistance":200,
   "usingComponents": {
-    "x-login": "/packages/login/index",
     "x-card": "/packages/card/index",
     "x-loading": "/packages/loading/index"
   }

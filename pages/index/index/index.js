@@ -1,7 +1,6 @@
 // pages/index/index/index.js
-import { login } from './../../../model/model.js'
-import { pruze } from './../../../model/model.js'
-import { user } from './../../../model/model.js'
+import { pruze, login } from './../../../model/model.js'
+import { user } from './../../../model/user.js'
 let userModel = new user();
 let pruzeModel = new pruze();
 let loginModel = new login();
@@ -14,7 +13,6 @@ Page({
   data: {
     show_loading:false,
     userinfo:{},
-    show_login:false,
     goodsList: { current_page: 0, last_page:1, data: [] }
   },
   /**
@@ -30,13 +28,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //判断是否登录
-    let token = loginModel.getToken()
-    if (!token) {
-      this.setData({ show_login: true })
-    } else {
+    loginModel.isLogin((res) => {
       this.getuserinfo()
-    }
+    });
   },
   /**
    * 授权登录成功回调，获取奖品列表
