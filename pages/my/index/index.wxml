@@ -1,3 +1,4 @@
+<official-account></official-account>
 <x-cell x-class='userinfo_body' wx:if='{{userinfo.avatar}}'>
   <x-avatar size='82' src='{{userinfo.avatar}}' slot='icon'></x-avatar>
   <view class='userinfo'>

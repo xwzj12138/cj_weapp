@@ -1,10 +1,12 @@
 // packages/headnav/index.js
 Component({
   lifetimes:{
-    ready() {
+    created() {
       wx.getSystemInfo({
         success: (res) => {
-          this.setData({ statusBarHeight: res.statusBarHeight })
+          let custom = wx.getMenuButtonBoundingClientRect();
+          let CustomBar = custom.bottom - custom.top + res.statusBarHeight;
+          this.setData({ StatusBar: res.statusBarHeight, CustomBar: CustomBar})
         }
       })
     }
@@ -18,7 +20,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    statusBarHeight:20
+    StatusBar:0,
+    CustomBar:0
   },
 
   /**

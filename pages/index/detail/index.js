@@ -10,7 +10,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    is_share:false,
     pruze_id:'',
     uid:'',
     formId:'',
@@ -114,12 +113,10 @@ Page({
       wx.switchTab({ url: '/pages/index/index/index' });
     })
   },
-  /**
-   * 回到首页
-   */
-  goHome: function () {
-    wx.switchTab({
-      url: '/pages/index/index/index'
-    })
+  onShareAppMessage:function(res){
+    return {
+      title:this.data.userinfo.nickname+'邀请您参与抽奖',
+      path:'/pages/index/index/index'
+    }
   }
 })

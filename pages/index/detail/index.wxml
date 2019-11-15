@@ -46,5 +46,3 @@
   <view>商品详情</view>
   <image wx:for='{{pruze_info.pruze_detail}}' src='{{item}}' mode='widthFix' wx:key='{{index}}'></image>
 </view>
-<!-- 返回抽奖列表页面 -->
-<view class="goHomeButton" wx:if='{{is_share}}'><x-icon name='home' size='86' color="#1296db" catchtap='goHome'></x-icon></view>
