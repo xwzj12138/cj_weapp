@@ -1,0 +1,3 @@
+<!-- 商品卡片 -->
+<x-card type='inline-block' wx:for='{{data}}' imgUrl='{{item.image}}' title='{{item.product_name}}' catchtap='goDetail' 
+data-id='{{item.id}}' price='{{item.price}}' otherPrice='{{item.market_price}}'></x-card>

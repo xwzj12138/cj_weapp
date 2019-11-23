@@ -20,7 +20,7 @@
     <x-button wx:if="{{item.tel}}" slot='footer' inline size='66' type='info' data-index="{{index}}" bind:click="contact">联系他</x-button>
   </x-cell>
   <view class="article">
-    <view data-index='{{index}}' catchtap="goDetail">{{item.title}}</view>
+    <view data-index='{{index}}' catchtap="goDetail"><text>{{item.title}}</text></view>
     <view class="article_image">
       <image wx:for='{{item.images}}' wx:for-item='value' wx:for-index='i' wx:key='{{value}}' data-index="{{index}}" data-src="{{value}}" catchtap="showImage" src="{{value}}" lazy-load wx:if='{{i<4}}'></image>
     </view>

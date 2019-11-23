@@ -23,7 +23,9 @@
     "pages/publish/pruze/index",
     "pages/my/brand/list/index",
     "pages/my/brand/detail/index",
-    "pages/notice/index"
+    "pages/notice/index",
+    "pages/product/list/index",
+    "pages/product/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -53,6 +55,12 @@
         "text": "发布",
         "iconPath": "/static/tabbar/publish.png",
         "selectedIconPath": "/static/tabbar/select_publish.png"
+      },
+      {
+        "pagePath": "pages/product/list/index",
+        "text": "商城",
+        "iconPath": "/static/tabbar/shopping.png",
+        "selectedIconPath": "/static/tabbar/select_shopping.png"
       },
       {
         "pagePath": "pages/my/index/index",

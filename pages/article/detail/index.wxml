@@ -7,7 +7,7 @@
     <x-button wx:if="{{data.tel}}" slot='footer' inline size='66' type='info' bind:click="contact">联系他</x-button>
   </x-cell>
   <!-- 文章内容 -->
-  <view class="article_content">{{data.title}}</view>
+  <view class="article_content"><text>{{data.title}}</text></view>
   <view class="article_image">
     <image wx:for='{{data.images}}' wx:key='{{index}}' src="{{item}}" data-src="{{item}}" catchtap="showImage"></image>
   </view>

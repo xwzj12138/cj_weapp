@@ -8,20 +8,23 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    title:{
-      type:String
+    imgUrl: {
+      type: String
     },
-    description:{
-      type:String
+    title: {
+      type: String
     },
-    type:{
-      type:String,
+    description: {
+      type: String
     },
-    price:{
-      type:Number
+    type: {
+      type: String,
     },
-    number:{
-      type:Number
+    price: {
+      type: Number
+    },
+    number: {
+      type: Number
     },
     otherPrice: {
       type: Number

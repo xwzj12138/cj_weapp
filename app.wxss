@@ -20,3 +20,5 @@ color: #fff;padding: 4px 8px;
 .brand_qrcode>view:first-child{flex: 1;}
 .brand_name{font-size: 17px;font-weight: 600;margin-bottom: 15px;}
 .brand_qrcode image{width: 100px;height: 100px;}
+.display_flex{display: flex;}
+.box{justify-content: space-between;}
