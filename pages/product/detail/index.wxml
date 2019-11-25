@@ -1,2 +1,13 @@
-<!--pages/product/detail/index.wxml-->
-<text>pages/product/detail/index.wxml</text>
+<!-- 商品轮播图 -->
+<swiper indicator-dots autoplay style='height:750rpx;'>
+  <swiper-item wx:for="{{detail.product_detail}}" wx:key='{{index}}'>
+    <image src="{{item}}" style='width:100%;height:100%;' mode="scaleToFill"/>
+  </swiper-item>
+</swiper>
+<!-- 价格相关 -->
+<view>
+  <text>￥</text>
+  <text>{{detail.price}}</text>
+  <text>{{detail.market_price}}</text>
+</view>
+<view style='padding:2px 8px;'>{{detail.product_name}}</view>

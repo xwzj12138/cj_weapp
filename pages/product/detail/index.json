@@ -1,3 +1,11 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "x-tabbar": "/packages/tabbar/index",
+    "x-tabbar-item": "/packages/tabbar-item/index",
+    "x-tabbar-flex-item": "/packages/tabbar-flex-item/index",
+    "x-icon": "/packages/icon/index",
+    "x-loading": "/packages/loading/index",
+    "x-grid-group": "/packages/grid-group/index",
+    "x-grid-item": "/packages/grid-item/index"
+  }
 }

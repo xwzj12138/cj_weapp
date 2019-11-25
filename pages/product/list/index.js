@@ -29,13 +29,25 @@ Page({
     product.getList(param,(res)=>{
       res.data = this.data.data.concat(res.data);
       this.setData(res)
+      wx.stopPullDownRefresh();
     });
   },
+  
+  /**
+   * 进入产品详情页
+   */
+  goDetail: function (e) {
+    wx.navigateTo({
+      url: '/pages/product/detail/index?id=' + e.currentTarget.dataset.id,
+    })
+  },
+
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({current_page: 0,data: [],last_page: 1});
+    this.getProductList();
   },
 
   /**
