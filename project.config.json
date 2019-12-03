@@ -48,6 +48,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 3,
 			"list": [
@@ -77,6 +81,12 @@
 					"name": "商品详情页",
 					"pathName": "pages/product/detail/index",
 					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的页面",
+					"pathName": "pages/my/index/index",
 					"scene": null
 				}
 			]

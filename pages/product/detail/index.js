@@ -1,5 +1,7 @@
 // pages/product/detail/index.js
 import product from '../../../model/product.js';
+import { login } from '../../../model/model.js';
+let loginModel = new login();
 Page({
 
   /**
@@ -7,6 +9,7 @@ Page({
    */
   data: {
     id:0,
+    price_array:[],
     detail:{}
   },
 
@@ -15,7 +18,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData(options);
-    this.getDetail();
+    loginModel.isLogin((res) => {
+      this.getDetail();
+    });
   },
 
   /**
@@ -24,7 +29,7 @@ Page({
   getDetail:function(){
     let param = {id:this.data.id};
     product.getDetail(param,(res)=>{
-      this.setData({detail:res.data});
+      this.setData({ detail: res.data, price_array: res.data.price.split('.')});
     });
   },
 

@@ -1,5 +1,7 @@
 // pages/product/list/index.js
 import product from '../../../model/product.js';
+import { login } from '../../../model/model.js';
+let loginModel = new login();
 Page({
 
   /**
@@ -15,7 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getProductList();
+    loginModel.isLogin((res) => {
+      this.getProductList();
+    });
   },
   /**
    * 获取产品列表

@@ -9,7 +9,8 @@
 <!-- 价格相关 -->
 <view class="goods_detail_price">
   <text>￥</text>
-  <text>{{detail.price}}</text>
+  <text>{{price_array[0]}}</text>
+  <text>.{{price_array[1]}}</text>
   <text>原价：{{detail.market_price}}</text>
 </view>
 
