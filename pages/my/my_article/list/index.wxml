@@ -1,7 +1,7 @@
 <!-- 文章列表 -->
 <view wx:for='{{data}}' wx:key='{{index}}' class="article_body" data-index='{{index}}' catchtap="goDetail">
   <view class="article">
-    <view>{{item.title}}</view>
+    <view><text>{{item.title}}</text></view>
     <view class="article_image">
       <image wx:for='{{item.images}}' wx:for-item='value' wx:for-index='i' wx:key='{{value}}' src="{{value}}" lazy-load wx:if='{{i<4}}'></image>
     </view>
