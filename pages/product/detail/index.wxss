@@ -1,1 +1,8 @@
 /* pages/product/detail/index.wxss */
+page{background: #fff;}
+.goods_detail_price{color: #FF9600;font-size: 14px;padding: 4px 5px;}
+.goods_detail_price>text:nth-child(2){font-size: 42rpx;margin:0 10px 0 3px;}
+.goods_detail_price>text:nth-child(3){color: #888888;text-decoration: line-through;}
+.goods_title{color:#353535;font-size: 28rpx;font-weight:600;padding: 0 21rpx 0 24rpx;}
+.tb_bg1{height:80% !important;background:#FFD04A;border-radius:100rpx 0 0 100rpx;color:#000;}
+.tb_bg2{height:80% !important;background:#FA6400;border-radius:0 100rpx 100rpx 0;color:#fff;}

@@ -4,10 +4,17 @@
     <image src="{{item}}" style='width:100%;height:100%;' mode="scaleToFill"/>
   </swiper-item>
 </swiper>
+<!-- 标题 -->
+<view class="goods_title">{{detail.product_name}}</view>
 <!-- 价格相关 -->
-<view>
+<view class="goods_detail_price">
   <text>￥</text>
   <text>{{detail.price}}</text>
-  <text>{{detail.market_price}}</text>
+  <text>原价：{{detail.market_price}}</text>
 </view>
-<view style='padding:2px 8px;'>{{detail.product_name}}</view>
+
+<x-tabbar>
+  <x-tabbar-item width='120' icon='share' title='分享' open_type='share'></x-tabbar-item>
+  <x-tabbar-flex-item x-class='tb_bg1' title='加入购物车'></x-tabbar-flex-item>
+  <x-tabbar-flex-item x-class='tb_bg2' title='立即购买'></x-tabbar-flex-item>
+</x-tabbar>
