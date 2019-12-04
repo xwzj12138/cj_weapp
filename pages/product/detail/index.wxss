@@ -3,7 +3,7 @@ page{background: #fff;}
 .goods_detail_price{color: #FF9600;font-size: 42rpx;padding: 4px 5px;}
 .goods_detail_price>text:nth-child(2){font-size: 60rpx;}
 .goods_detail_price>text:nth-child(3){font-size: 44rpx;margin-right:6px;}
-.goods_detail_price>text:last-child{color: #888888;text-decoration: line-through;}
+.goods_detail_price>text:last-child{color: #888888;text-decoration: line-through;font-size: 28rpx}
 .goods_title{color:#353535;font-size: 30rpx;font-weight:600;padding:28rpx 21rpx 15rpx 24rpx;word-break: break-all;}
 .tb_bg1{height:80% !important;background:#FFD04A;border-radius:100rpx 0 0 100rpx;color:#000;}
 .tb_bg2{height:80% !important;background:#FA6400;border-radius:0 100rpx 100rpx 0;color:#fff;}
