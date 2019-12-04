@@ -32,7 +32,16 @@ Page({
       this.setData({ detail: res.data, price_array: res.data.price.split('.')});
     });
   },
-
+  /**
+   * 收藏商品
+   */
+  collectGoods:function(){
+    let param = { id: this.data.id };
+    product.collect(param, (res) => {
+      this.data.detail.is_collect = !this.data.detail.is_collect;
+      this.setData(this.data);
+    });
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

@@ -16,4 +16,8 @@ export default new class product extends base {
   pay(param, callback) {
     this.request({ url: 'index/v1/product/pay', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
+  //收藏商品
+  collect(param,callback){
+    this.request({ url: 'index/v1/collect/add', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  }
 }
