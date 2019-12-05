@@ -25,7 +25,7 @@
 <x-drawer type='bottom' show='{{show_product_attr}}'>
   <view class="product_attr">
     <view class="display_flex preview">
-      <image src="{{detail.product_detail[0]}}"></image>
+      <image src="{{attr_value==null?detail.image:attr_value.image}}"></image>
       <view>
         <text>￥</text>
         <text>{{attr_value==null?detail.price:attr_value.price}}</text>
