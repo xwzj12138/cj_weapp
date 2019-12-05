@@ -70,7 +70,6 @@ Page({
         this.data.attr_value = e;
       }
     });
-    console.log(this.data.buy_info)
     this.setData(this.data)
   },
 
