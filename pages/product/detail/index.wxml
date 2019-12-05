@@ -19,6 +19,29 @@
 <x-tabbar>
   <x-tabbar-item width='120' icon='share' title='分享' open_type='share'></x-tabbar-item>
   <x-tabbar-item title="{{detail.is_collect?'取消收藏':'收藏'}}" width='120' icon="{{detail.is_collect?'favorfill':'favor'}}" catchtap='collectGoods'></x-tabbar-item>
-  <x-tabbar-flex-item x-class='tb_bg1' title='加入购物车'></x-tabbar-flex-item>
-  <x-tabbar-flex-item x-class='tb_bg2' title='立即购买'></x-tabbar-flex-item>
+  <x-tabbar-flex-item x-class='tb_bg2' title='立即购买' catchtap='showProductAttr'></x-tabbar-flex-item>
 </x-tabbar>
+
+<x-drawer type='bottom' show='{{show_product_attr}}'>
+  <view class="product_attr">
+    <view class="display_flex preview">
+      <image src="{{detail.product_detail[0]}}"></image>
+      <view>
+        <text>￥</text>
+        <text>{{attr_value==null?detail.price:attr_value.price}}</text>
+      </view>
+      <view><x-icon name='roundclose' size='64' color="#f2f2f2" catchtap="showProductAttr"></x-icon></view>
+    </view>
+    <!-- 规格信息 -->
+    <view wx:for='{{detail.sku_list}}' wx:key='{{index}}' class="attr">
+      <view>{{item.attr_name}}</view>
+      <view>
+        <text wx:for='{{item.sku_values}}' wx:for-index="k" wx:for-item="value" wx:key='{{k}}' class="{{select_attr_ids[index]==value.id?'attr_select':''}}" data-id="{{value.id}}" data-index="{{index}}" catchtap="selectAttr">{{value.attr_value}}</text>
+      </view>
+    </view>
+    <x-cell title='购买数量'>
+      <x-input-number max='100' min='1' value='{{buy_info.buy_num}}' slot='footer' bindchange='setBuyNumber'></x-input-number>
+    </x-cell>
+    <view style="padding:10px;"><x-button bind:click="submitOrder" shape="circle" type='success'>确认</x-button></view>
+  </view>
+</x-drawer>
