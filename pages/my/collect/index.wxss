@@ -1,1 +1,7 @@
-/* pages/my/collect/index.wxss */
+@import '../../../packages/common/index.wxss';
+.goods_image{width: 80px;height: 80px;border-radius: 6px;overflow: hidden;flex-shrink: 0;}
+.goods_title{color:#353535;font-size: 30rpx;font-weight:600;word-break: break-all;}
+.goods_info{padding:0 15rpx;height: 80px;}
+.goods_price_tag{font-size: 24rpx;margin-right:12px;}
+.goods_info .goods_price_tag:last-child{color:#FF9600;}
+.goods_info>view:last-child{font-size: 28rpx;text-decoration: line-through;margin-top: 10px;}

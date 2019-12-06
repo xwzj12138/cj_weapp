@@ -1,7 +1,7 @@
 /* 将cell设为flex布局且内容居中显示 */
+@import '../common/index.wxss';
 .cell-item {
   position: relative;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 30rpx;
@@ -35,7 +35,7 @@
   right: 30rpx;
   margin: auto;
 }
-.cell-icon{margin-right:5px}
+.cell-icon{margin-right:5px;flex-shrink: 0;}
 .cell-icon:empty{display:none}
 .cell-bd{flex:1}
 .cell-text{line-height:24px;font-size:14px}

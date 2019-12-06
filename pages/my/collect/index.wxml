@@ -1,2 +1,14 @@
-<!--pages/my/collect/index.wxml-->
-<text>pages/my/collect/index.wxml</text>
+<!-- 商品列表 -->
+<x-cell wx:for="{{data}}" wx:key='{{index}}' data-id='{{item.id}}' catchtap='goDetail'>
+  <image slot='icon' class="goods_image" src="{{item.image}}"></image>
+  <view class="goods_info">
+    <view class="goods_title">{{item.product_name}}</view>
+    <view>
+      <text class="goods_price_tag">￥{{item.price}}</text>
+      <text class="goods_price_tag" wx:if='{{item.price-item.collect_price>0}}'>比收藏时降了￥{{item.price-item.collect_price}}</text>
+    </view>
+    <view>市场价￥{{item.market_price}}</view>
+  </view>
+</x-cell>
+<!-- 提示信息 -->
+<x-blank-hint wx:if='{{is_null}}' button_url='/pages/product/list/index' button_name='去添加收藏吧'></x-blank-hint>

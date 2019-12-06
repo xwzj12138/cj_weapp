@@ -87,6 +87,13 @@
 					"id": -1,
 					"name": "我的页面",
 					"pathName": "pages/my/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收藏列表",
+					"pathName": "pages/my/collect/index",
 					"scene": null
 				}
 			]

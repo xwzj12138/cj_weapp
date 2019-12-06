@@ -1,66 +1,44 @@
 // pages/my/collect/index.js
+import product from '../../../model/product.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    is_null:false,
+    current_page: 0,
+    data: [],
+    last_page: 1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getCollectList();
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 获取收藏列表
    */
-  onReady: function () {
-
+  getCollectList(){
+    //没有数据停止刷新
+    if (this.data.current_page == this.data.last_page) return wx.stopPullDownRefresh();
+    //获取数据
+    let param = { page: this.data.current_page+1};
+    product.collectList(param,(res)=>{
+      res.data = this.data.data.concat(res.data);
+      this.setData(res);
+      wx.stopPullDownRefresh();
+    });
   },
-
   /**
-   * 生命周期函数--监听页面显示
+   * 进入商品详情页
    */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  goDetail:function(e){
+    wx.navigateTo({
+      url: '/pages/product/detail/index?id=' + e.currentTarget.dataset.id,
+    });
   }
 })

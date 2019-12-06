@@ -20,4 +20,8 @@ export default new class product extends base {
   collect(param,callback){
     this.request({ url: 'index/v1/collect/add', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
+  //收藏列表
+  collectList(param, callback){
+    this.request({ url: 'index/v1/collect/get', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  }
 }
