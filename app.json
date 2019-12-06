@@ -25,7 +25,8 @@
     "pages/my/brand/detail/index",
     "pages/notice/index",
     "pages/product/list/index",
-    "pages/product/detail/index"
+    "pages/product/detail/index",
+    "pages/my/collect/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

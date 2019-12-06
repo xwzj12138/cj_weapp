@@ -13,17 +13,33 @@
     <x-button open-type='getUserInfo' inline type='warning' size='56' shape='circle' font_size='12' bind:getuserinfo="updateUserInfo">授权获取用户信息</x-button>
   </view>
 </x-cell>
-<x-grid-group>
-  <x-grid-item title='我参与' data-page='/pages/my/participant/list/index' catchtap='gridClick'>
-    <view class='cooperation'>{{userinfo.participant_num}}</view>
-  </x-grid-item>
-  <x-grid-item title='余额' data-page='/pages/my/money/index/index?now_brokerage={{userinfo.now_brokerage}}' catchtap='gridClick'>
-    <view class='cooperation'>{{userinfo.now_brokerage}}</view>
-  </x-grid-item>
-  <x-grid-item title='等级积分' data-page='/pages/my/userinfo/index' catchtap='gridClick'>
-    <view class='cooperation'>{{userinfo.integral}}</view>
-  </x-grid-item>
-</x-grid-group>
+<view class="grid_group_cart cart_style">
+  <x-cell menuArrow title='我的收入' url='/pages/my/money/index/index?now_brokerage={{userinfo.now_brokerage}}' value='提现' isLastCell='{{false}}'></x-cell>
+  <x-grid-group>
+    <x-grid-item title='我参与' data-page='/pages/my/participant/list/index' catchtap='gridClick'>
+      <view class='cooperation'>{{userinfo.participant_num}}</view>
+    </x-grid-item>
+    <x-grid-item title='余额' data-page='/pages/my/money/index/index?now_brokerage={{userinfo.now_brokerage}}' catchtap='gridClick'>
+      <view class='cooperation'>{{userinfo.now_brokerage}}</view>
+    </x-grid-item>
+    <x-grid-item title='等级积分' data-page='/pages/my/userinfo/index' catchtap='gridClick'>
+      <view class='cooperation'>{{userinfo.integral}}</view>
+    </x-grid-item>
+  </x-grid-group>
+</view>
+
+<!-- 订单收藏相关 -->
+<view class="cart_style" style="margin:20px 50px 10px 50px;">
+  <x-grid-group itemNum='2'>
+    <x-grid-item title='我的订单' data-page='0' catchtap='gridClick'>
+      <x-icon name='send' color="#67d6b6" size="56"></x-icon>
+    </x-grid-item>
+    <x-grid-item title='我的收藏' data-page='/pages/my/collect/index' catchtap='gridClick'>
+      <x-icon name='favor' color="#fb7653" size="56"></x-icon>
+    </x-grid-item>
+  </x-grid-group>
+</view>
+
 <x-cell-group menuCard>
   <x-cell menuArrow title='我的文章' url='/pages/my/my_article/list/index'></x-cell>
   <x-cell menuArrow title='我的奖品' url='/pages/my/my_pruze/list/index'></x-cell>

@@ -1,0 +1,2 @@
+.userinfo_body{background-color: #f7db9a !important;padding: 30px !important;}
+.cart_style{background: #fff;border-radius: 5px;box-shadow: 0px 0px 4px #888;overflow: hidden;margin: -20px 20px 20px;position: relative;}
