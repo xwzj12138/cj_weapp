@@ -37,16 +37,28 @@ Page({
    * 获取参与纪录数据
    */
   getParticipant:function(){
+    if (this.data.current_page >= this.data.last_page) {
+      return wx.stopPullDownRefresh();
+    }
     let param = { type: this.data.type,page:this.data.current_page+1}
     //最后一页时直接不请求数据
     if (this.data.current_page < this.data.last_page) {
       userModel.participant(param, (res) => {
-        this.data.current_page = res.current_page
-        this.data.last_page = res.last_page
-        this.data.data = this.data.data.concat(res.data)
-        this.setData(this.data)
+        if(res.current_page>1){
+          res.data = this.data.data.concat(res.data);
+        }
+        this.setData(res)
+        wx.stopPullDownRefresh();
       })
     }
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.setData({ current_page: 0, last_page: 1 });
+    this.getParticipant();
   },
 
   /**

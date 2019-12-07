@@ -28,12 +28,13 @@
     "pages/product/detail/index",
     "pages/my/collect/index",
     "pages/my/order/list/index",
-    "pages/product/submit_order/index"
+    "pages/product/submit_order/index",
+    "pages/my/order/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#1296db",
-    "navigationBarTitleText": "抽乐",
+    "navigationBarTitleText": "摩推科技",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",

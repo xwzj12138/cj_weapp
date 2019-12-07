@@ -1,6 +1,5 @@
 {
   "enablePullDownRefresh": true,
-  "backgroundTextStyle": "light",
   "usingComponents": {
     "x-avatar": "/packages/avatar/index",
     "x-cell": "/packages/cell/index",
