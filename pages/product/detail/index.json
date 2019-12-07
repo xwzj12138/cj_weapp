@@ -7,6 +7,7 @@
     "x-icon": "/packages/icon/index",
     "x-input-number": "/packages/input-number/index",
     "x-cell": "/packages/cell/index",
-    "x-button": "/packages/button/index"
+    "x-button": "/packages/button/index",
+    "x-nav": "/packages/nav/index"
   }
 }

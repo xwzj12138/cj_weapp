@@ -22,3 +22,5 @@ color: #fff;padding: 4px 8px;
 .brand_qrcode image{width: 100px;height: 100px;}
 .display_flex{display: flex;}
 .box{justify-content: space-between;}
+.postage{font-size: 28rpx;padding:28rpx 21rpx 15rpx 24rpx;color: #888888;border-top: 16rpx solid #f6f6f6;border-bottom: 16rpx solid #f6f6f6;}
+.postage text{margin-right: 10px;}

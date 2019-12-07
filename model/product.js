@@ -24,4 +24,8 @@ export default new class product extends base {
   collectList(param, callback){
     this.request({ url: 'index/v1/collect/get', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
+  //订单预览
+  order_preview(param, callback){
+    this.request({ url: 'index/v1/product/order_preview', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  }
 }

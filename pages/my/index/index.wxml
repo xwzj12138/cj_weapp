@@ -31,7 +31,7 @@
 <!-- 订单收藏相关 -->
 <view class="cart_style" style="margin:20px 50px 10px 50px;">
   <x-grid-group itemNum='2'>
-    <x-grid-item title='我的订单' data-page='0' catchtap='gridClick'>
+    <x-grid-item title='我的订单' data-page='/pages/my/order/list/index' catchtap='gridClick'>
       <x-icon name='send' color="#67d6b6" size="56"></x-icon>
     </x-grid-item>
     <x-grid-item title='我的收藏' data-page='/pages/my/collect/index' catchtap='gridClick'>

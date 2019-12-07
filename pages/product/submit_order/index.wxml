@@ -1,0 +1,39 @@
+<!-- 收货信息 -->
+<x-cell url='/pages/my/address/list/index' menuArrow isLastCell='{{false}}'>
+  <view wx:if='{{!address_info.consignee_name}}' style="color:#F23120;">请设置收货地址</view>
+  <view  wx:else>
+    <view class='userinfo'>
+      <text>{{address_info.consignee_name}}</text><text>{{address_info.consignee_tel}}</text>
+    </view>
+    <view class='address'>
+      <text>{{address_info.province}}</text><text>{{address_info.city}}</text><text>{{address_info.county}}</text><text>{{address_info.address}}</text>
+    </view>
+  </view>
+</x-cell>
+<!-- 商品信息 -->
+<x-cell wx:for="{{product_list}}" wx:key='{{index}}'>
+  <image slot='icon' class="goods_image" src="{{item.image}}"></image>
+  <view class="goods_info">
+    <view class="goods_title">{{item.product_name}}</view>
+    <view>规格：{{item.attr_info}}</view>
+    <view>
+      <text class="goods_price_tag">￥{{item.price}}</text>
+      <text class="goods_price_tag">购买数量：{{item.buy_num}}</text>
+    </view>
+  </view>
+</x-cell>
+<!-- 快递费 -->
+<view class="postage">
+  <text>运费</text>
+  <text>￥{{form.postage==0?'包邮':form.postage}}</text>
+</view>
+<!-- 底部tabbar操作栏 -->
+<x-tabbar>
+  <x-tabbar-item>
+    <view class="tab_price">
+      <text>实付款：</text>
+      <text>￥{{form.pay_money}}</text>
+    </view>
+  </x-tabbar-item>
+  <x-tabbar-flex-item class='tb_bg2' title='提交订单' catchtap='pay'></x-tabbar-flex-item>
+</x-tabbar>

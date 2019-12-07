@@ -1,6 +1,5 @@
 // pages/my/address/list/index.js
-import { address } from '../../../../model/model.js'
-let addressModel = new address();
+import userAddress from '../../../../model/userAddress.js';
 Page({
 
   /**
@@ -36,7 +35,7 @@ Page({
         }
       }
       this.setData(this.data)
-      addressModel.setDefault({id:info.id})
+      userAddress.setDefault({id:info.id})
     }
   },
   /**
@@ -49,7 +48,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    addressModel.getList((res) => {
+    userAddress.getList((res) => {
       this.setData({ data: res.data})
     })
   }

@@ -10,3 +10,4 @@ box-sizing: border-box;}
 .x-image{width:100%;height:100%;}
 .x-bg-white {background-color: #fff;}
 .x-color{color: #495060;}
+.x-line-between{height:16rpx;background:#F6F6F6;}

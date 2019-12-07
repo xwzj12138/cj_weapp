@@ -9,6 +9,7 @@ Page({
    */
   data: {
     attr_value:null,
+    nav: [{ "name": "商品详情" }],
     select_attr_ids:[],
     buy_info: { buy_num: 1, source: 0, product_id: 0, sku_id: 0, attr_val_path:''},
     show_product_attr:false,
@@ -85,7 +86,12 @@ Page({
    * 提交订单
    */
   submitOrder:function(){
-    console.log(this.data.buy_info)
+    if (this.data.buy_info.sku_id<=0) return wx.showToast({title: '请选择规格信息',icon:'none'});
+    return wx.navigateTo({
+      url: '/pages/product/submit_order/index?attr_val_path=' + this.data.buy_info.attr_val_path + '&buy_num=' +
+      this.data.buy_info.buy_num + '&product_id=' + this.data.buy_info.product_id + '&sku_id=' +
+        this.data.buy_info.sku_id + '&source=' + this.data.buy_info.source + '&postage=' + this.data.detail.postage
+    });
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作

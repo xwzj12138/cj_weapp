@@ -1,6 +1,5 @@
 // pages/my/address/detail/index.js
-import { address } from '../../../../model/model.js'
-let addressModel = new address();
+import userAddress from '../../../../model/userAddress.js';
 Page({
 
   /**
@@ -40,13 +39,13 @@ Page({
    */
   handleClick: function (e) {
     if(this.data.form.id){
-      return addressModel.update(this.data.form, (res) => {
+      return userAddress.update(this.data.form, (res) => {
         wx.navigateBack({
           delta: 1
         })
       })
     }
-    return addressModel.add(this.data.form, (res) => {
+    return userAddress.add(this.data.form, (res) => {
       wx.navigateBack({
         delta: 1
       })
@@ -56,7 +55,7 @@ Page({
    * 删除数据
    */
   delAddress:function(){
-    addressModel.del({ id: this.data.form.id },(res)=>{
+    userAddress.del({ id: this.data.form.id },(res)=>{
       wx.navigateBack({
         delta:1
       })

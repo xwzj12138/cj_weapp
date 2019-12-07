@@ -1,6 +1,6 @@
 <x-cell-group>
   <x-cell wx:for='{{data}}' wx:key='{{index}}'>
-    <x-icon slot='icon' name="{{item.is_default==1?'roundcheck':'round'}}" size='46' data-index='{{index}}' bindtap='setDefault'></x-icon>
+    <x-icon slot='icon' name="{{item.is_default==1?'roundcheck':'round'}}" size='46' data-index='{{index}}' catchtap="setDefault"></x-icon>
     <view data-index='{{index}}' bindtap='goDetail'>
       <view class='userinfo'>
         <text>{{item.consignee_name}}</text><text>{{item.consignee_tel}}</text><text wx:if='{{item.is_default==1}}'>默认地址</text>
