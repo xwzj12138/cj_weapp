@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pay_status: ['待支付', '待发货','订单已取消', '待收货', '待评论', '已完成', '申请退款中', '拒绝退款', '退款中','退款成功'],
     current_page: 0,
     data: [],
     last_page: 1
@@ -50,7 +51,26 @@ Page({
     this.setData({current_page: 0,last_page: 1});
     this.getOrderList();
   },
-
+  /**
+   * 取消订单
+   */
+  cancel:function(e){
+    let param = { id: e.currentTarget.dataset.id};
+    order.cancel(param,(res)=>{
+      this.data.data[e.currentTarget.dataset.index].status = 2;
+      this.setData(this.data)
+    });
+  },
+  /**
+   * 支付
+   */
+  pay: function (e) {
+    let param = { id: e.currentTarget.dataset.id };
+    order.pay(param, (res) => {
+      this.data.data[e.currentTarget.dataset.index].status = 1;
+      this.setData(this.data)
+    });
+  },
   /**
    * 页面上拉触底事件的处理函数
    */
