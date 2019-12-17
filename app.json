@@ -29,7 +29,9 @@
     "pages/my/collect/index",
     "pages/my/order/list/index",
     "pages/product/submit_order/index",
-    "pages/my/order/detail/index"
+    "pages/my/order/detail/index",
+    "pages/product/comment/index",
+    "pages/my/order/comment/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

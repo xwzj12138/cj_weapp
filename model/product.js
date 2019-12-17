@@ -28,4 +28,8 @@ export default new class product extends base {
   order_preview(param, callback){
     this.request({ url: 'index/v1/product/order_preview', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
+  //评论列表
+  commentList(param, callback) {
+    this.request({ url: 'index/v1/product/commentList', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  }
 }

@@ -1,0 +1,8 @@
+<!-- 评论相关 -->
+<x-cell title='商品评论（{{total}}）' ></x-cell>
+<view wx:for='{{data}}' wx:key='{{index}}'>
+  <x-cell title='{{item.nickname}}'>
+    <image slot='icon' src="{{item.avatar}}" style="width:45rpx;height:45rpx;border-radius:45rpx;"></image>
+  </x-cell>
+  <view style="font-size:14px;color:#888;margin:0 10px 5px 10px;">{{item.content}}</view>
+</view>

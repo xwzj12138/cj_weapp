@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    is_null:false,
     pay_status: ['待支付', '待发货','订单已取消', '待收货', '待评论', '已完成', '申请退款中', '拒绝退款', '退款中','退款成功'],
     current_page: 0,
     data: [],
@@ -28,6 +29,9 @@ Page({
     }
     let param = { page : this.data.current_page + 1};
     order.getAll(param,(res)=>{
+      if(res.data.length==0){
+        res.is_null = true;
+      }
       if(res.data.current_page>1){
         res.data = this.data.data.concat(res.data);
       }
@@ -70,6 +74,13 @@ Page({
       this.data.data[e.currentTarget.dataset.index].status = 1;
       this.setData(this.data)
     });
+  },
+
+  /**
+   * 进去评论页面
+   */
+  goComment:function(e){
+    wx.navigateTo({ url: '/pages/my/order/comment/index?id=' + e.currentTarget.dataset.id});
   },
   /**
    * 页面上拉触底事件的处理函数

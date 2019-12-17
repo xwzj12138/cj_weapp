@@ -28,6 +28,7 @@ Page({
     //获取数据
     let param = { page: this.data.current_page+1};
     product.collectList(param,(res)=>{
+      if(res.data.length==0) res.is_null = true;
       res.data = this.data.data.concat(res.data);
       this.setData(res);
       wx.stopPullDownRefresh();

@@ -1,0 +1,15 @@
+<!-- 商品相关 -->
+<view wx:for='{{goods_list}}'  wx:key="{{index}}">
+  <x-cell>
+    <image slot='icon' class="goods_image" src="{{item.image}}" class="goods_image"></image>
+    <view class="goods_info">
+      <view class="goods_title">{{item.product_name}}</view>
+      <view style="font-size:30rpx;padding:5px 0 5px 0;">规格：{{item.attr_value}}</view>
+      <view>
+        <text class="goods_price_tag">￥{{item.price}}</text>
+      </view>
+    </view>
+  </x-cell>
+  <view class="goods_title">商品评分：<x-rate value="{{item.product_score}}" bind:change="onChange1"></x-rate></view>
+  <view class="goods_title">物流评分：<x-rate value="{{item.express_score}}" bind:change="onChange1"></x-rate></view>
+</view>

@@ -94,6 +94,14 @@
 					"id": -1,
 					"name": "收藏列表",
 					"pathName": "pages/my/collect/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/order/comment/index",
+					"pathName": "pages/my/order/comment/index",
+					"query": "id=5",
 					"scene": null
 				}
 			]
