@@ -3,6 +3,6 @@
   "onReachBottomDistance": 200,
   "usingComponents": {
     "x-cell": "/packages/cell/index",
-    "x-loading": "/packages/loading/index"
+    "x-blank-hint": "/packages/blank-hint/index"
   }
 }

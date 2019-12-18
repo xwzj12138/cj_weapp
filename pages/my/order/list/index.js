@@ -87,5 +87,11 @@ Page({
    */
   onReachBottom: function () {
     this.getOrderList();
+  },
+  onShow:function(){
+    if (getApp().globalData.is_refresh){
+      getApp().globalData.is_refresh = false;
+      this.onPullDownRefresh();
+    }
   }
 })

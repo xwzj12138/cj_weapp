@@ -4,3 +4,4 @@
 .goods_price_tag{font-size: 24rpx;margin-right:12px;}
 .goods_info .goods_price_tag:last-child{color:#FF9600;}
 .goods_info>view:last-child{font-size: 28rpx;margin-top: 6px;}
+.score{padding: 5px 15px;}

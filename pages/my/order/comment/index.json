@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "x-cell": "/packages/cell/index",
-    "x-rate": "/packages/rate/index"
+    "x-rate": "/packages/rate/index",
+    "x-input": "/packages/input/index",
+    "x-button": "/packages/button/index",
+    "x-upload": "/packages/upload/index"
   }
 }

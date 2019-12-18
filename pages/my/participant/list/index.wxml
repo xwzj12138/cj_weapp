@@ -11,4 +11,5 @@
   </view>
   <view slot='footer' class="footer {{item.status>1?'success':item.status==1?'no_success':''}}">{{status_list[item.status]}}</view>
 </x-cell>
-<x-loading icon='' isShow="{{data.length==0}}" hint='没有数据哦！'></x-loading>
+<!-- 提示信息 -->
+<x-blank-hint wx:if='{{data.length==0}}' button_url='/pages/index/index/index' button_name='去参与抽奖'></x-blank-hint>
