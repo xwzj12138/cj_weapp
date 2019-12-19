@@ -36,6 +36,10 @@ export class pruze extends base {
   setTrackingNum(param, callback) {
     this.request({ url: 'index/v1/pruze/setTrackingNum', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } });
   }
+  //参与详情
+  participantDetail(param, callback) {
+    this.request({ url: 'index/v1/pruze/participant_detail', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } });
+  }
 }
 
 export class login extends base {

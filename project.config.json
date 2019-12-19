@@ -22,7 +22,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.7",
+	"libVersion": "2.9.4",
 	"appid": "wxea2586a42af671d8",
 	"projectname": "cj_shop",
 	"debugOptions": {

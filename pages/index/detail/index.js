@@ -12,7 +12,6 @@ Page({
   data: {
     pruze_id:'',
     uid:'',
-    formId:'',
     videoAd: '',
     userinfo:'',
     pruze_info: {
@@ -28,16 +27,19 @@ Page({
    * 显示广告
    */
   showAd(e) {
-    this.setData({ formId: e.detail.formId})
+    //订阅通知消息
+    wx.requestSubscribeMessage({tmplIds: ['u93dbusp5sqJHvpu2WaGFhNX_LHHIooWxvS2xeuUGyo']});
+    //不需要观看广告
     if(this.data.pruze_info.ad_id==''){
       return this.participant();
     }
+    //观看广告参与抽奖
     if (this.data.videoAd) {
       this.data.videoAd.show().catch((err) => {
         wx.showToast({title:'参与失败',icon: 'none'})
-      })
+      });
     }else{
-      wx.showToast({ title: '网络加载慢,请稍后再试', icon: 'none' })
+      wx.showToast({ title: '网络加载慢,请稍后再试', icon: 'none' });
     }
   },
   /**
@@ -71,19 +73,17 @@ Page({
   participant:function(){
     pruzeModel.participant({ id: this.data.pruze_info.id, form_id: this.data.formId }, (res) => {
       this.data.pruze_info.is_participant = true
-      this.setData({ pruze_info: this.data.pruze_info })
-      wx.showToast({title: '参与成功', icon: 'none' })
+      this.setData({ pruze_info: this.data.pruze_info });
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    options.is_share = options.is_share ? options.is_share : false;
     options.uid = options.uid?options.uid:'';
-    this.setData({ pruze_id: options.id, uid: options.uid, is_share:options.is_share})
+    this.setData({ pruze_id: options.id, uid: options.uid})
     loginModel.isLogin((res) => {
-      this.getDetail()
+      this.getDetail();
     });
   },
   /**
