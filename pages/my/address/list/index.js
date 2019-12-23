@@ -49,7 +49,7 @@ Page({
    */
   onShow: function () {
     userAddress.getList((res) => {
-      this.setData({ data: res.data})
+      this.setData({ data: res})
     })
   }
 })

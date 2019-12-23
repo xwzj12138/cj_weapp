@@ -28,24 +28,9 @@ Page({
       return wx.stopPullDownRefresh();
     }
     userModel.getBills(param, (res) => {
-      this.data.current_page = res.current_page
-      this.data.last_page = res.last_page
-      this.data.data = this.data.data.concat(res.data)
-      this.setData(this.data)
-      wx.stopPullDownRefresh()
-    })
-  },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+      res.data = this.data.data.concat(res.data);
+      this.setData(res);
+      wx.stopPullDownRefresh();
+    });
   }
 })

@@ -1,12 +1,12 @@
 <!-- 奖品列表 -->
-<x-card x-class='body' wx:for='{{goodsList.data}}' wx:key='{{index}}' data-id='{{item.id}}' data-grade='{{item.grade}}' bindtap='goDetail'>
+<x-card x-class='body' wx:for='{{data}}' wx:key='{{index}}' data-id='{{item.id}}' data-grade='{{item.grade}}' bindtap='goDetail'>
   <view slot='image' class='head'>
     <image src='{{item.image}}' mode="widthFix"></image>
     <text class='tag'>{{item.brand_name}}  赞助</text>
   </view>
   <view class='title_info'>{{item.pruze_name}}</view>
   <view class='time_info'>
-    <text>{{item.activity_time}}</text><text>自动开奖</text><text>限{{item.grade}}级用户</text>
+    <text>{{item.end_time}}</text><text>自动开奖</text><text>限{{item.grade}}级用户</text>
     <text class='detail_buttom'>免费抽</text>
   </view>
 </x-card>

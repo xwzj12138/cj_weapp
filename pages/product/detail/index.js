@@ -35,7 +35,7 @@ Page({
   getDetail:function(){
     let param = { id: this.data.buy_info.product_id};
     product.getDetail(param,(res)=>{
-      this.setData({ detail: res.data, price_array: res.data.price.split('.')});
+      this.setData({ detail: res, price_array: res.price.split('.')});
     });
   },
   /**

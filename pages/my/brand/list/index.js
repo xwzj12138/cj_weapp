@@ -21,7 +21,7 @@ Page({
    */
   getBrandList:function(){
     brandModel.getList((res) => {
-      this.setData({ data: res.data});
+      this.setData({ data: res});
     });
   },
   /**

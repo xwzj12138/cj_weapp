@@ -2,7 +2,7 @@
 <!-- 封面图 -->
 <x-cell>
   <view slot='icon' class="title">封面图</view>
-  <x-upload urlList="{{data.image==''?[]:[data.image]}}" uploadApi='{{upload_api}}' formData='{{formData}}' bindaddFile='uploadImage'></x-upload>
+  <x-upload urlList="{{data.image==''?[]:[data.image]}}" uploadApi='{{upload_api}}' formData='{{formData}}' data-type='image' bindupload='uploadImage'></x-upload>
 </x-cell>
 <x-cell>
   <view slot='icon' class="title">等级</view>
@@ -24,5 +24,5 @@
 <x-cell>
   <view slot='icon' class="title">详情图</view>
 </x-cell>
-<x-upload urlList="{{data.pruze_detail}}" uploadApi='{{upload_api}}' limit='8' formData='{{formData}}' bindaddFile='uploadDetailImage'></x-upload>
+<x-upload urlList="{{data.pruze_detail}}" uploadApi='{{upload_api}}' limit='8' formData='{{formData}}' data-type='detail' bindupload='uploadImage'></x-upload>
 <x-button type="primary" bind:click="handleClick" shape="circle">提交</x-button>

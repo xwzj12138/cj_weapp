@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
     //获取分类列表
     articleModel.getCateList({},(res)=>{
-      this.setData({data:res.data})
+      this.setData({data:res})
     });
   },
   /**

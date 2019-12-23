@@ -26,13 +26,13 @@ Page({
   getOrderGoodsList:function(){
     let param = {id:this.data.id};
     order.goodsList(param,(res)=>{
-      res.data.goods_list.forEach((e,i)=>{
-        res.data.goods_list[i].product_score = 5;
-        res.data.goods_list[i].express_score = 5;
-        res.data.goods_list[i].content = '';
-        res.data.goods_list[i].image_list = [];
+      res.goods_list.forEach((e,i)=>{
+        res.goods_list[i].product_score = 5;
+        res.goods_list[i].express_score = 5;
+        res.goods_list[i].content = '';
+        res.goods_list[i].image_list = [];
       });
-      this.setData(res.data)
+      this.setData(res);
     });
   },
   /**

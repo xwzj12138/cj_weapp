@@ -13,7 +13,9 @@ Page({
   data: {
     show_loading:false,
     userinfo:{},
-    goodsList: { current_page: 0, last_page:1, data: [] }
+    current_page:0,
+    last_page: 1,
+    data: []
   },
   /**
    * 进入详情页面
@@ -38,7 +40,7 @@ Page({
   getuserinfo: function () {
     //获取用户信息
     userModel.getGlobalUserinfo((res) => {
-      this.setData({ userinfo: res })
+      this.setData({ userinfo: res });
     })
     this.getPruzeList();
   },
@@ -46,18 +48,16 @@ Page({
    * 获取奖品列表
    */
   getPruzeList:function(){
-    let param = { page: this.data.goodsList.current_page+1}
-    if (this.data.goodsList.current_page == this.data.goodsList.last_page){
+    if (this.data.current_page == this.data.last_page) {
       //提示没有数据了
       wx.stopPullDownRefresh()
-      return this.setData({ show_loading:true})
+      return this.setData({ show_loading: true })
     }
+    let param = { page: this.data.current_page+1}
     pruzeModel.getList(param,(res) => {
-      this.data.show_loading = res.data.length==0?true:false
-      this.data.goodsList.current_page = res.current_page
-      this.data.goodsList.last_page = res.last_page
-      this.data.goodsList.data = this.data.goodsList.data.concat(res.data)
-      this.setData({ goodsList: this.data.goodsList, show_loading: this.data.show_loading })
+      res.show_loading = res.data.length == 0 ? true : false;
+      res.data = this.data.data.concat(res.data)
+      this.setData(res)
       wx.stopPullDownRefresh()
     })
   },
@@ -65,7 +65,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({ goodsList: { current_page: 0, last_page:1, data: [] }})
+    this.setData({ current_page: 0, last_page: 1, data: [] })
     this.getuserinfo()
   },
 

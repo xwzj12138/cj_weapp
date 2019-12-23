@@ -2,7 +2,7 @@
 <image src='{{pruze_info.image}}' style='width:100%;' mode="widthFix"></image>
 <view class='title'>{{pruze_info.pruze_name}}</view>
 <view class='time_info'>
-  <text>{{pruze_info.activity_time}}</text><text>自动开奖</text>
+  <text>{{pruze_info.end_time}}</text><text>自动开奖</text>
 </view>
 <view class='time_info brand_info' wx:if='{{pruze_info.brand_name}}'>
   <text>发起方</text><text></text><text>{{pruze_info.brand_name}}</text>
@@ -24,7 +24,7 @@
 <view class='brand_qrcode user_info' wx:if='{{pruze_info.status>0}}'>
   <view>
     <view wx:if='{{!pruze_info.success}}'>抱歉！您没有中奖哦！</view>
-    <view class='brand_name'>中奖用户</view>
+    <view class='brand_name'>{{pruze_info.success?'恭喜您中奖了':'中奖用户'}}</view>
     <image src='{{pruze_info.success_user.avatar}}'></image>
     <view>{{pruze_info.success_user.nickname}}</view>
   </view>

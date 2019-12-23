@@ -55,7 +55,7 @@ Page({
    */
   getBannerList:function(){
     articleModel.getBanners( (res) => {
-      this.setData(res.data)
+      this.setData(res)
     });
   },
   /**

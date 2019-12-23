@@ -33,7 +33,7 @@ Page({
    */
   getUserInfo:function(){
     userModel.myinfo((res) => {
-      this.setData({ userinfo: res.data })
+      this.setData({ userinfo: res })
       wx.stopPullDownRefresh()
     })
   },

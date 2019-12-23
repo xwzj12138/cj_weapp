@@ -30,9 +30,13 @@ Page({
     this.setData(this.data)
   },
   /**
-   * 上传图片
+   * 上传图片相关
    */
-  addFile:function(e){
+  upload:function(e){
+    if (e.detail.click_type == 'del') {
+      this.data.data.pruze_detail.splice(e.detail.index, 1);
+      return this.setData(this.data);
+    }
     this.data.data.images.push(e.detail.uploadResult.data.longUrl)
     this.setData(this.data)
   },

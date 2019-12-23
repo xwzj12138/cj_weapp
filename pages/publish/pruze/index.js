@@ -27,24 +27,25 @@ Page({
     this.setData(this.data);
     //获取品牌列表
     brandModel.getList((res)=>{
-      res.data.forEach((item)=>{
+      res.forEach((item)=>{
         this.data.brands.push(item.brand_name);
       });
-      this.setData({ brand_list: res.data, brands:this.data.brands});
+      this.setData({ brand_list: res, brands:this.data.brands});
     });
   },
   /**
-   * 上传封面图
+   * 上传图片
    */
   uploadImage:function(e){
-    this.data.data.image = e.detail.uploadResult.data.longUrl;
-    this.setData(this.data)
-  },
-  /**
-   * 上传详情图
-   */
-  uploadDetailImage: function (e) {
-    this.data.data.pruze_detail.push(e.detail.uploadResult.data.longUrl);
+    if (e.detail.click_type=='del'){
+      this.data.data.pruze_detail.splice(e.detail.index,1);
+      return this.setData(this.data);
+    }
+    if (e.currentTarget.dataset.type=='image'){
+      this.data.data.image = e.detail.uploadResult.data.longUrl;
+    }else{
+      this.data.data.pruze_detail.push(e.detail.uploadResult.data.longUrl);
+    }
     this.setData(this.data)
   },
   /**

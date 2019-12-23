@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
     //获取通知信息内容
     noticeModel.detail({id:options.id},(res)=>{
-      this.setData({ content: res.data.content});
+      this.setData({ content: res.content});
     });
   },
 

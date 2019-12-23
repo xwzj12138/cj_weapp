@@ -26,10 +26,10 @@ Page({
   orderPreview(){
     product.order_preview(this.data.form,(res)=>{
       //计算支付价格
-      res.data.forEach((e)=>{
+      res.forEach((e)=>{
         this.data.form.pay_money += e.price
       });
-      this.setData({ product_list: res.data,form:this.data.form});
+      this.setData({ product_list: res,form:this.data.form});
     });
   },
 
@@ -47,7 +47,7 @@ Page({
    */
   onShow: function () {
     userAddress.getDefault((res)=>{
-      this.setData({ address_info:res.data})
+      this.setData({ address_info:res})
     });
   },
 

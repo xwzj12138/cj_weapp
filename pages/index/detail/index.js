@@ -18,7 +18,7 @@ Page({
       id: '',
       is_participant: false,
       image: '',
-      title: '', activity_time: '', status: 0,
+      title: '', end_time: '', status: 0,
       brand_name: '', qrcode: '',
       pruze_detail: []
     }
@@ -28,7 +28,7 @@ Page({
    */
   showAd(e) {
     //订阅通知消息
-    wx.requestSubscribeMessage({tmplIds: ['u93dbusp5sqJHvpu2WaGFhNX_LHHIooWxvS2xeuUGyo']});
+    wx.requestSubscribeMessage({ tmplIds: ['hmMrlW7_Ksp1TytiPVh_dD34LaOwQCh7Um_cEKJvMQw']});
     //不需要观看广告
     if(this.data.pruze_info.ad_id==''){
       return this.participant();
@@ -96,9 +96,9 @@ Page({
     });
     //获取奖品详情
     pruzeModel.getDetail({ id: this.data.pruze_id, super_uid:this.data.uid}, (res) => {
-      this.setData({ pruze_info: res.data })
-      if (res.data.ad_id != '' && !res.data.is_participant) {
-        this.loadVidelAd(res.data.ad_id)
+      this.setData({ pruze_info: res })
+      if (res.ad_id != '' && !res.is_participant) {
+        this.loadVidelAd(res.ad_id)
       }
     })
   },

@@ -12,7 +12,7 @@ export class user extends base {
       return callback(appinfo.globalData.userInfo)
     }
     return this.myinfo((res) => {
-      callback(res.data)
+      callback(res)
     });
   }
   //获取用户信息

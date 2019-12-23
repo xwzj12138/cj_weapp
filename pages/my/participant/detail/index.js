@@ -17,12 +17,13 @@ Page({
   onLoad: function (options) {
     //获取奖品信息
     prizeModel.participantDetail({id:options.id},(res)=>{
+      console.log(res)
       let kd_info = [];
-      res.data.kd_info.forEach((e)=>{
+      res.kd_info.forEach((e)=>{
         kd_info.unshift(e);
       });
-      res.data.kd_info = kd_info;
-      this.setData({ pruze_info:res.data});
+      res.kd_info = kd_info;
+      this.setData({ pruze_info:res});
     });
   }
 })

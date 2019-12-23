@@ -17,7 +17,7 @@ Page({
   onLoad: function (options) {
     loginModel.isLogin((res) => {
       articleModel.detail({ id: options.id }, (res) => {
-        this.setData(res);
+        this.setData({ data: res});
       });
     });
   },

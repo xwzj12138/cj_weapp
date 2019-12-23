@@ -20,11 +20,11 @@ export class base{
             title: res.data.msg,
             icon: 'none',
             success: (cer) => {
-              params.errCallBack && params.errCallBack(res.data);
+              params.errCallBack && params.errCallBack(res.data.data);
             }
           })
         }
-        params.sCallBack && params.sCallBack(res.data);
+        params.sCallBack && params.sCallBack(res.data.data);
       },
       fail: function (err) {
         return wx.showToast({title: err,icon:'none'})
