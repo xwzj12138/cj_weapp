@@ -1,9 +1,6 @@
 // pages/share/help/index.js
-import { pruze, login } from '../../../model/model.js'
-import { user } from '../../../model/user.js'
-let userModel = new user();
-let pruzeModel = new pruze();
-let loginModel = new login();
+import pruze from '../../../model/pruze.js';
+import user from '../../../model/user.js'
 Page({
 
   /**
@@ -38,19 +35,17 @@ Page({
   onLoad: function (options) {
     this.data.userinfo.uid = options.uid
     this.setData({ userinfo: this.data.userinfo})
-    loginModel.isLogin((res) => {
-      this.getuserinfo()
-    });
+    this.getuserinfo();
   },
   /**
   * 授权登录成功回调，获取奖品列表
   */
   getuserinfo: function () {
     //获取用户信息
-    userModel.getByIdUserInfo({ id: this.data.userinfo.uid }, (res) => {
+    user.getByIdUserInfo({ id: this.data.userinfo.uid }, (res) => {
       this.setData({ userinfo: res.data, show_login: false })
     })
-    pruzeModel.getList({page:1},(res) => {
+    user.getList({page:1},(res) => {
       this.data.goodsList.current_page = res.current_page
       this.data.goodsList.data = this.data.goodsList.data.concat(res.data)
       this.setData({ goodsList: this.data.goodsList })
@@ -60,7 +55,7 @@ Page({
    * 助力
    */
   helpFriend:function(){
-    userModel.help({id:this.data.userinfo.uid},(res) => {
+    user.help({id:this.data.userinfo.uid},(res) => {
       wx.switchTab({
         url: '/pages/index/index/index',
       })

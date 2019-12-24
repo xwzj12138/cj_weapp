@@ -1,7 +1,6 @@
 // pages/publish/article/index.js
 import { config } from '../../../utils/config.js'
-import { article } from '../../../model/model.js'
-let articleModel = new article();
+import article from '../../../model/article.js'
 Page({
 
   /**
@@ -56,7 +55,7 @@ Page({
       success: (res)=> {
         this.data.data.latitude = res.latitude
         this.data.data.longitude = res.longitude
-        articleModel.publish(this.data.data, (res) => {
+        article.publish(this.data.data, (res) => {
           wx.reLaunch({ url: '/pages/article/list/index' });
         });
       }

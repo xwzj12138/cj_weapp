@@ -1,6 +1,5 @@
 // pages/my/my_pruze/list/index.js
-import {pruze} from '../../../../model/model.js'
-let pruzeModel = new pruze();
+import pruze from '../../../../model/pruze.js';
 Page({
 
   /**
@@ -31,7 +30,7 @@ Page({
     if (this.data.current_page == this.data.last_page) return wx.stopPullDownRefresh();
     //获取我的发布文章
     let param = { page: this.data.current_page + 1 }
-    pruzeModel.myPublish(param,(res)=>{
+    pruze.myPublish(param,(res)=>{
       res.data = this.data.data.concat(res.data);
       this.setData(res);
       wx.stopPullDownRefresh();
@@ -45,7 +44,7 @@ Page({
     let url = '/pages/index/detail/index?id=' + pruze.id;
     //未开奖之前进入抽奖页面,否则进入发货页面
     if (pruze.status == 4){
-      pruzeModel.getAddressInfo({ id: pruze.id }, (res) => {
+      pruze.getAddressInfo({ id: pruze.id }, (res) => {
         this.data.form.pruze_id = pruze.id;
         this.data.form.index = e.currentTarget.dataset.index;
         this.data.address_info = res.data.address_info;
@@ -82,7 +81,7 @@ Page({
     let hd_comapny = this.data.hd_companys[this.data.form.shipper_name];
     this.data.form.shipper_code = hd_comapny.company_code
     this.data.form.shipper_name = hd_comapny.company_name
-    pruzeModel.setTrackingNum(this.data.form, (res) => {
+    pruze.setTrackingNum(this.data.form, (res) => {
       this.data.data[this.data.form.index].status = 5;
       this.data.show_drawer = false;
       this.setData(this.data)

@@ -1,6 +1,5 @@
 // pages/my/money/withdraw/index.js
-import { user } from '../../../../model/user.js'
-let userModel = new user();
+import user from '../../../../model/user.js'
 Page({
 
   /**
@@ -37,7 +36,7 @@ Page({
     if (this.data.data.money>this.data.now_brokerage) return wx.showToast({ title: '余额不足', icon: 'none' });
     if (this.data.data.account == '') return wx.showToast({ title: '请输入微信账号', icon: 'none' });
     if (this.data.data.real_name =='') return wx.showToast({ title: '请输入名称', icon: 'none' });
-    userModel.withdrawDeposit(this.data.data,(res)=>{
+    user.withdrawDeposit(this.data.data,(res)=>{
       wx.showToast({
         title: '提交成功',
       });

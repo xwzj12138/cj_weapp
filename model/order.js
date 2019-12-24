@@ -1,6 +1,6 @@
-import {base} from '../utils/base.js';
+import {auth} from './auth.js';
 
-export default new class order extends base{
+export default new class order extends auth{
   constructor(){
     super();
   }

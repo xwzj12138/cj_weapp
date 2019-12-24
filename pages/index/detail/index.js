@@ -1,10 +1,7 @@
 // pages/index/detail/index.js
-import { pruze, login } from '../../../model/model.js'
-import { user } from '../../../model/user.js'
+import pruze from '../../../model/pruze.js';
+import user from '../../../model/user.js'
 import userAddress from '../../../model/userAddress.js';
-let loginModel = new login();
-let userModel = new user();
-let pruzeModel = new pruze();
 Page({
 
   /**
@@ -65,7 +62,7 @@ Page({
    * 参与抽奖
    */
   participant:function(){
-    pruzeModel.participant({ id: this.data.pruze_info.id, form_id: this.data.formId }, (res) => {
+    pruze.participant({ id: this.data.pruze_info.id, form_id: this.data.formId }, (res) => {
       this.data.pruze_info.is_participant = true
       this.setData({ pruze_info: this.data.pruze_info });
     })
@@ -76,20 +73,18 @@ Page({
   onLoad: function (options) {
     options.uid = options.uid?options.uid:'';
     this.setData({ pruze_id: options.id, uid: options.uid})
-    loginModel.isLogin((res) => {
-      this.getDetail();
-    });
+    this.getDetail();
   },
   /**
    * 获取奖品详情
    */
   getDetail:function(){
     //获取用户信息
-    userModel.getGlobalUserinfo((res) => {
+    user.getGlobalUserinfo((res) => {
       this.setData({ userinfo: res })
     });
     //获取奖品详情
-    pruzeModel.getDetail({ id: this.data.pruze_id, super_uid:this.data.uid}, (res) => {
+    pruze.getDetail({ id: this.data.pruze_id, super_uid:this.data.uid}, (res) => {
       this.setData({ pruze_info: res })
       if (res.ad_id != '' && !res.is_participant) {
         this.loadVidelAd(res.ad_id)
@@ -103,10 +98,13 @@ Page({
     if (this.data.pruze_info.default_address == null) {
       return wx.showToast({ title: '请添加收货地址', icon: 'none' })
     }
-    pruzeModel.setPruzeAdress({ pruze_id: this.data.pruze_info.id, address_id: this.data.pruze_info.default_address.id }, (res) => {
+    pruze.setPruzeAdress({ pruze_id: this.data.pruze_info.id, address_id: this.data.pruze_info.default_address.id }, (res) => {
       wx.switchTab({ url: '/pages/index/index/index' });
     });
   },
+  /**
+   * 选择地址返回是重新加载地址信息
+   */
   onShow:function(){
     this.getDetaultAddress();
   },

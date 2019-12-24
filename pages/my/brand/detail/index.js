@@ -1,7 +1,6 @@
 // pages/my/brand/detail/index.js
-import {brand} from '../../../../model/model.js';
+import brand from '../../../../model/brand.js';
 import { config } from '../../../../utils/config.js'
-let brandModel = new brand();
 Page({
 
   /**
@@ -49,12 +48,14 @@ Page({
     if (this.data.form.brand_name == '') return wx.showToast({ title: '请输入品牌名称', icon: 'none' });
     if (this.data.form.qrcode == '') return wx.showToast({ title: '请上传品牌logo', icon: 'none' });
     if(this.data.form.id>0){
-      return brandModel.update(this.data.form, (res) => {
-        wx.switchTab({ url: '/pages/my/index/index' });
+      return brand.update(this.data.form, (res) => {
+        getApp().globalData.is_refresh = true;
+        wx.navigateBack({});
       });
     }
-    brandModel.add(this.data.form, (res) => {
-      wx.switchTab({ url: '/pages/my/index/index' });
+    brand.add(this.data.form, (res) => {
+      getApp().globalData.is_refresh = true;
+      wx.navigateBack({});
     });
   }
 })

@@ -1,7 +1,5 @@
 // pages/product/detail/index.js
 import product from '../../../model/product.js';
-import { login } from '../../../model/model.js';
-let loginModel = new login();
 Page({
 
   /**
@@ -24,9 +22,7 @@ Page({
     this.data.buy_info.product_id = options.id
     if (options.source) this.data.buy_info.source = options.source
     this.setData(this.data);
-    loginModel.isLogin((res) => {
-      this.getDetail();
-    });
+    this.getDetail();
   },
 
   /**

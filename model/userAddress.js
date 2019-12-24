@@ -1,6 +1,6 @@
-import { base } from '../utils/base.js'
+import { auth } from './auth.js';
 
-export default new class address extends base {
+export default new class address extends auth {
   constructor() {
     super();
   }

@@ -39,17 +39,26 @@ Page({
     }
   },
   /**
-   * 生命周期函数--监听页面加载
+   * 页面加载触发
    */
-  onLoad: function (options) {
+  onLoad:function(){
+    this.getAddressList();
   },
-
   /**
-   * 生命周期函数--监听页面显示
+   * 获取地址列表
    */
-  onShow: function () {
+  getAddressList: function () {
     userAddress.getList((res) => {
       this.setData({ data: res})
     })
+  },
+  /**
+   * 页面显示触发
+   */
+  onShow: function () {
+    if (getApp().globalData.is_refresh) {
+      getApp().globalData.is_refresh = false;
+      this.getAddressList();
+    }
   }
 })

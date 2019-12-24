@@ -1,6 +1,5 @@
 // pages/publish/index/index.js
-import {article} from '../../../model/model.js'
-let articleModel = new article();
+import article from '../../../model/article.js'
 Page({
 
   /**
@@ -15,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     //获取分类列表
-    articleModel.getCateList({},(res)=>{
+    article.getCateList({},(res)=>{
       this.setData({data:res})
     });
   },

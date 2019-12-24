@@ -40,15 +40,13 @@ Page({
   handleClick: function (e) {
     if(this.data.form.id){
       return userAddress.update(this.data.form, (res) => {
-        wx.navigateBack({
-          delta: 1
-        })
+        getApp().globalData.is_refresh = true;
+        wx.navigateBack({});
       })
     }
     return userAddress.add(this.data.form, (res) => {
-      wx.navigateBack({
-        delta: 1
-      })
+      getApp().globalData.is_refresh = true;
+      wx.navigateBack({});
     })
   },
   /**
@@ -56,9 +54,8 @@ Page({
    */
   delAddress:function(){
     userAddress.del({ id: this.data.form.id },(res)=>{
-      wx.navigateBack({
-        delta:1
-      })
+      getApp().globalData.is_refresh = true;
+      wx.navigateBack({});
     })
   },
   /**

@@ -1,9 +1,7 @@
 // pages/publish/pruze/index.js
 import { config } from '../../../utils/config.js'
-import { pruze } from '../../../model/model.js'
-import { brand } from '../../../model/model.js';
-let brandModel = new brand();
-let pruzeModel = new pruze();
+import pruze from '../../../model/pruze.js'
+import brand from '../../../model/brand.js';
 Page({
 
   /**
@@ -26,7 +24,7 @@ Page({
     this.data.upload_api = config.restUrl + 'index/v1/upload';
     this.setData(this.data);
     //获取品牌列表
-    brandModel.getList((res)=>{
+    brand.getList((res)=>{
       res.forEach((item)=>{
         this.data.brands.push(item.brand_name);
       });
@@ -86,7 +84,7 @@ Page({
     if (this.data.data.pruze_detail.length == 0) return wx.showToast({ title: '请上传详情图', icon: 'none' });
     this.data.data.time++
     this.data.data.brand_id = this.data.brand_list[this.data.data.brand_id].id
-    pruzeModel.publish(this.data.data,(res)=>{
+    pruze.publish(this.data.data,(res)=>{
       wx.reLaunch({url: '/pages/index/index/index'});
     })
   }

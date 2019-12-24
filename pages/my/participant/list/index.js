@@ -1,6 +1,5 @@
 // pages/my/participant/index.js
-import { user } from '../../../../model/user.js'
-let userModel = new user();
+import user from '../../../../model/user.js'
 Page({
 
   /**
@@ -43,7 +42,7 @@ Page({
     let param = { type: this.data.type,page:this.data.current_page+1}
     //最后一页时直接不请求数据
     if (this.data.current_page < this.data.last_page) {
-      userModel.participant(param, (res) => {
+      user.participant(param, (res) => {
         if(res.current_page>1){
           res.data = this.data.data.concat(res.data);
         }

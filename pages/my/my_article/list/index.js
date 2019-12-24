@@ -1,6 +1,5 @@
 // pages/my/my_article/list/index.js
-import { article } from '../../../../model/model.js'
-let articleModel = new article();
+import article from '../../../../model/article.js'
 Page({
 
   /**
@@ -27,7 +26,7 @@ Page({
       return wx.showToast({ title: '没有更多数据哦!', icon: 'none' });
     }
     let param = { page: this.data.current_page + 1 };
-    articleModel.myList(param, (res) => {
+    article.myList(param, (res) => {
       this.data.current_page = res.current_page
       this.data.last_page = res.last_page
       this.data.data = this.data.data.concat(res.data)
@@ -48,7 +47,7 @@ Page({
    */
   topArticle: function (e) {
     let param = { id: e.currentTarget.dataset.id };
-    articleModel.top(param, (res) => {
+    article.top(param, (res) => {
       wx.showToast({title: '顶置成功'});
     });
   },

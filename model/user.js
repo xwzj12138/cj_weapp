@@ -1,13 +1,13 @@
-import { base } from '../utils/base.js'
+import { auth } from './auth.js';
 
 
-export class user extends base {
+export default new class user extends auth {
   constructor() {
     super();
   }
   //获取缓存的用户信息
   getGlobalUserinfo(callback) {
-    let appinfo = getApp()
+    let appinfo = getApp();
     if (appinfo.globalData.userInfo) {
       return callback(appinfo.globalData.userInfo)
     }

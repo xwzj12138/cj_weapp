@@ -9,7 +9,6 @@ export class base{
     if (!params.type) {
       params.type = 'GET';
     }
-    params.data.token = wx.getStorageSync('token').token
     wx.request({
       url: url,
       data: params.data,
@@ -22,13 +21,13 @@ export class base{
             success: (cer) => {
               params.errCallBack && params.errCallBack(res.data.data);
             }
-          })
+          });
         }
         params.sCallBack && params.sCallBack(res.data.data);
       },
       fail: function (err) {
         return wx.showToast({title: err,icon:'none'})
       }
-    })
+    });
   }
 }

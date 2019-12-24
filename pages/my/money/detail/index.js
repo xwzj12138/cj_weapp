@@ -1,6 +1,5 @@
 // pages/my/money/detail/index.js
-import { user } from '../../../../model/user.js'
-let userModel = new user();
+import user from '../../../../model/user.js'
 Page({
 
   /**
@@ -27,7 +26,7 @@ Page({
     if (this.data.current_page == this.data.last_page) {
       return wx.stopPullDownRefresh();
     }
-    userModel.getBills(param, (res) => {
+    user.getBills(param, (res) => {
       res.data = this.data.data.concat(res.data);
       this.setData(res);
       wx.stopPullDownRefresh();

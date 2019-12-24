@@ -1,6 +1,5 @@
 // pages/my/friend_list/index.js
-import { user } from '../../../model/user.js'
-let userModel = new user();
+import user from '../../../model/user.js'
 Page({
 
   /**
@@ -16,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    userModel.getGlobalUserinfo((res)=>{
+    user.getGlobalUserinfo((res)=>{
       this.setData({ userinfo:res})
     })
     this.friend_list()
@@ -29,7 +28,7 @@ Page({
       return '';
     }
     let param = { page: this.data.current_page + 1 }
-    userModel.getfriend_list(param,(res)=>{
+    user.getfriend_list(param,(res)=>{
       this.data.current_page = res.current_page
       this.data.last_page = res.last_page
       this.data.data = this.data.data.concat(res.data)
@@ -40,7 +39,7 @@ Page({
    * 助力
    */
   helpFriend: function (e) {
-    userModel.help({ id: e.currentTarget.dataset.uid }, (res) => {
+    user.help({ id: e.currentTarget.dataset.uid }, (res) => {
       wx.showToast({
         title: '助力成功',
       })

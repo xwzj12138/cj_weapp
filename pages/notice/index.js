@@ -1,6 +1,5 @@
 // pages/notice/index.js
-import { notice } from '../../model/model.js';
-let noticeModel = new notice();
+import notice from '../../model/notice.js';
 Page({
 
   /**
@@ -15,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     //获取通知信息内容
-    noticeModel.detail({id:options.id},(res)=>{
+    notice.detail({id:options.id},(res)=>{
       this.setData({ content: res.content});
     });
   },

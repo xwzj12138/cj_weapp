@@ -1,6 +1,5 @@
 // pages/my/cooperation/index.js
-import { cooperation } from '../../../model/model.js'
-let cooperationModel = new cooperation();
+import cooperation from '../../../model/cooperation.js'
 Page({
 
   /**
@@ -26,16 +25,10 @@ Page({
    * 提交数据
    */
   handleClick:function(e){
-    cooperationModel.add(this.data.form,(res)=>{
+    cooperation.add(this.data.form,(res)=>{
       wx.navigateBack({
         delta:1
       })
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
   }
 })

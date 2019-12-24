@@ -1,9 +1,6 @@
 // pages/index/index/index.js
-import { pruze, login } from './../../../model/model.js'
-import { user } from './../../../model/user.js'
-let userModel = new user();
-let pruzeModel = new pruze();
-let loginModel = new login();
+import pruze from '../../../model/pruze.js';
+import user from './../../../model/user.js'
 
 Page({
 
@@ -30,18 +27,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    loginModel.isLogin((res) => {
-      this.getuserinfo()
-    });
+    this.getuserinfo();
   },
   /**
    * 授权登录成功回调，获取奖品列表
    */
   getuserinfo: function () {
     //获取用户信息
-    userModel.getGlobalUserinfo((res) => {
+    user.getGlobalUserinfo((res) => {
       this.setData({ userinfo: res });
-    })
+    });
     this.getPruzeList();
   },
   /**
@@ -54,7 +49,7 @@ Page({
       return this.setData({ show_loading: true })
     }
     let param = { page: this.data.current_page+1}
-    pruzeModel.getList(param,(res) => {
+    pruze.getList(param,(res) => {
       res.show_loading = res.data.length == 0 ? true : false;
       res.data = this.data.data.concat(res.data)
       this.setData(res)

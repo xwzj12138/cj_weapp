@@ -88,6 +88,9 @@ Page({
   onReachBottom: function () {
     this.getOrderList();
   },
+  /**
+   * 页面显示触发
+   */
   onShow:function(){
     if (getApp().globalData.is_refresh){
       getApp().globalData.is_refresh = false;

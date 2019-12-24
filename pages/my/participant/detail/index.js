@@ -1,6 +1,5 @@
 // pages/my/participant/detail/index.js
-import { pruze } from '../../../../model/model.js'
-let prizeModel = new pruze()
+import pruze from '../../../../model/pruze.js';
 Page({
 
   /**
@@ -16,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     //获取奖品信息
-    prizeModel.participantDetail({id:options.id},(res)=>{
+    pruze.participantDetail({id:options.id},(res)=>{
       console.log(res)
       let kd_info = [];
       res.kd_info.forEach((e)=>{

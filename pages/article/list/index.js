@@ -1,9 +1,5 @@
 // pages/article/list/index.js
-import { article, login } from '../../../model/model.js'
-import { user } from '../../../model/user.js'
-let loginModel = new login();
-let articleModel = new article();
-let userModel = new user();
+import article from '../../../model/article.js';
 Page({
 
   /**
@@ -23,9 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    loginModel.isLogin((res)=>{
-      this.getHomeInfo();
-    });
+    this.getHomeInfo();
   },
   /**
    * 授权登录成功回调，文章列表及banner图
@@ -43,7 +37,7 @@ Page({
       return this.setData({ show_loading:true});
     }
     let param = {page:this.data.current_page+1,cate_id:this.data.cate_id};
-    articleModel.getList(param,(res) => {
+    article.getList(param,(res) => {
       if (res.data.length == 0) return this.setData({ show_loading: true });
       res.data = this.data.data.concat(res.data)
       this.setData(res)
@@ -54,7 +48,7 @@ Page({
    * 获取banner图列表
    */
   getBannerList:function(){
-    articleModel.getBanners( (res) => {
+    article.getBanners( (res) => {
       this.setData(res)
     });
   },
@@ -73,7 +67,7 @@ Page({
     let article = this.data.data[e.currentTarget.dataset.index];
     article.like_num++;
     let param = { id: article.id };
-    articleModel.like(param, (res) => {
+    article.like(param, (res) => {
       this.data.data[e.currentTarget.dataset.index] = article
       this.setData(this.data)
       wx.showToast({title: '成功'})
@@ -86,7 +80,7 @@ Page({
     let article = this.data.data[index];
     article.browse_num++;
     let param = { id: article.id };
-    articleModel.browse(param, (res) => {
+    article.browse(param, (res) => {
       this.data.data[index] = article
       this.setData(this.data)
     });

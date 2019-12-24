@@ -1,7 +1,5 @@
 // pages/article/detail/index.js
-import { article, login } from '../../../model/model.js'
-let loginModel = new login();
-let articleModel = new article();
+import article from '../../../model/article.js';
 Page({
 
   /**
@@ -15,10 +13,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    loginModel.isLogin((res) => {
-      articleModel.detail({ id: options.id }, (res) => {
-        this.setData({ data: res});
-      });
+    article.detail({ id: options.id }, (res) => {
+      this.setData({ data: res });
     });
   },
   /**
@@ -26,7 +22,7 @@ Page({
    */
   likeArticle: function (e) {
     let param = { id: this.data.data.id };
-    articleModel.like(param, (res) => {
+    article.like(param, (res) => {
       this.data.data.like_num++
       this.setData(this.data);
       wx.showToast({ title: '成功' });

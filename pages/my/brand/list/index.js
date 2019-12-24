@@ -1,6 +1,5 @@
 // pages/my/brand/list/index.js
-import {brand} from '../../../../model/model.js';
-let brandModel = new brand();
+import brand from '../../../../model/brand.js';
 Page({
 
   /**
@@ -20,7 +19,7 @@ Page({
    * 获取品牌列表
    */
   getBrandList:function(){
-    brandModel.getList((res) => {
+    brand.getList((res) => {
       this.setData({ data: res});
     });
   },
@@ -34,5 +33,14 @@ Page({
       url = url + '?id=' + item.id + '&brand_name=' + item.brand_name + '&qrcode=' + item.qrcode + '&intro=' + item.intro;
     }
     wx.navigateTo({ url: url });
+  },
+  /**
+   * 页面显示触发
+   */
+  onShow: function () {
+    if (getApp().globalData.is_refresh) {
+      getApp().globalData.is_refresh = false;
+      this.getBrandList();
+    }
   }
 })
