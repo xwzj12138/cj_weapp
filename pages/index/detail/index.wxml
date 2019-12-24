@@ -30,7 +30,7 @@
   </view>
 </view>
 <!-- 设置收货地址 -->
-<x-cell-group menuCard wx:if='{{pruze_info.status==2 && pruze_info.success}}'>
+<x-cell-group menuCard wx:if='{{pruze_info.status==1 && pruze_info.success}}'>
   <x-cell menuArrow url='/pages/my/address/list/index'>
     <view wx:if='{{pruze_info.default_address==null}}'>还没有地址哦</view>
     <view wx:else>

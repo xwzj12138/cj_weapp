@@ -1,6 +1,7 @@
 // pages/index/detail/index.js
 import { pruze, login } from '../../../model/model.js'
 import { user } from '../../../model/user.js'
+import userAddress from '../../../model/userAddress.js';
 let loginModel = new login();
 let userModel = new user();
 let pruzeModel = new pruze();
@@ -14,14 +15,7 @@ Page({
     uid:'',
     videoAd: '',
     userinfo:'',
-    pruze_info: {
-      id: '',
-      is_participant: false,
-      image: '',
-      title: '', end_time: '', status: 0,
-      brand_name: '', qrcode: '',
-      pruze_detail: []
-    }
+    pruze_info: { default_address: null}
   },
   /**
    * 显示广告
@@ -111,8 +105,25 @@ Page({
     }
     pruzeModel.setPruzeAdress({ pruze_id: this.data.pruze_info.id, address_id: this.data.pruze_info.default_address.id }, (res) => {
       wx.switchTab({ url: '/pages/index/index/index' });
-    })
+    });
   },
+  onShow:function(){
+    this.getDetaultAddress();
+  },
+  /**
+   * 获取默认地址
+   */
+  getDetaultAddress:function(){
+    if(this.data.pruze_info.id){
+      userAddress.getDefault((res) => {
+        this.data.pruze_info.default_address = res
+        this.setData(this.data);
+      });
+    }
+  },
+  /**
+   * 分享设置
+   */
   onShareAppMessage:function(res){
     return {
       title:this.data.userinfo.nickname+'邀请您参与抽奖',
