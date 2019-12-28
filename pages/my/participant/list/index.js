@@ -65,5 +65,14 @@ Page({
    */
   onReachBottom: function () {
     this.getParticipant()
+  },
+  /**
+   * 页面显示触发
+   */
+  onShow:function(){
+    if (getApp().globalData.is_refresh){
+      getApp().globalData.is_refresh = false;
+      this.onPullDownRefresh();
+    }
   }
 })

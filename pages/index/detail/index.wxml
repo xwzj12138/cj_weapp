@@ -24,8 +24,8 @@
 <!-- 已开奖显示中奖用户及当前用户是否中奖 -->
 <view class='brand_qrcode user_info' wx:if='{{pruze_info.status>0}}'>
   <view>
-    <view wx:if='{{!pruze_info.success}}'>抱歉！您没有中奖哦！</view>
-    <view class='brand_name'>{{pruze_info.success?'恭喜您中奖了':'中奖用户'}}</view>
+    <view>{{pruze_info.success?'恭喜您中奖了':'抱歉！您没有中奖哦！'}}</view>
+    <view class='brand_name'>中奖用户</view>
     <view class="lucky_user_list">
       <image wx:for='{{pruze_info.lucky_user_list}}' wx:key='{{item.avatar}}' src="{{item.avatar?item.avatar:'../../../static/logo.png'}}"></image>
     </view>
