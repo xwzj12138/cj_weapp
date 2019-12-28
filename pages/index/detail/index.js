@@ -21,7 +21,7 @@ Page({
     //订阅通知消息
     wx.requestSubscribeMessage({ tmplIds: ['hmMrlW7_Ksp1TytiPVh_dD34LaOwQCh7Um_cEKJvMQw']});
     //不需要观看广告
-    if(this.data.pruze_info.ad_id==''){
+    if(!this.data.pruze_info.ad_id){
       return this.participant();
     }
     //观看广告参与抽奖

@@ -16,7 +16,8 @@
 </view>
 <!-- 未开奖时显示参与邀请按钮 -->
 <view wx:if='{{pruze_info.status==0}}'>
-  <view class='hint'>{{pruze_info.is_participant==false?'观看完整视频广告，参与抽奖':'邀请好友可提高等级哦'}}<text></text></view>
+  <view class='hint' wx:if='{{pruze_info.is_participant==true}}'>邀请好友可提高等级哦</view>
+  <view class='hint' wx:elif='{{pruze_info.ad_id}}'>观看完整视频广告，参与抽奖</view>
   <button wx:if='{{pruze_info.is_participant}}' class='participant' open-type="share">邀请好友</button>
   <button wx:else class='participant' bindtap="showAd">参与抽奖</button>
 </view>
@@ -25,7 +26,9 @@
   <view>
     <view wx:if='{{!pruze_info.success}}'>抱歉！您没有中奖哦！</view>
     <view class='brand_name'>{{pruze_info.success?'恭喜您中奖了':'中奖用户'}}</view>
-    <image src='{{pruze_info.success_user.avatar}}'></image>
+    <view class="lucky_user_list">
+      <image wx:for='{{pruze_info.lucky_user_list}}' wx:key='{{item.avatar}}' src="{{item.avatar?item.avatar:'../../../static/logo.png'}}"></image>
+    </view>
     <view>{{pruze_info.success_user.nickname}}</view>
   </view>
 </view>

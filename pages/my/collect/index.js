@@ -29,7 +29,7 @@ Page({
     let param = { page: this.data.current_page+1};
     product.collectList(param,(res)=>{
       if(res.data.length==0) res.is_null = true;
-      res.data = this.data.data.concat(res.data);
+      if(res.data.current_page>1) res.data = this.data.data.concat(res.data);
       this.setData(res);
       wx.stopPullDownRefresh();
     });
@@ -46,6 +46,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    this.getCollectList();
+  },
+  /**
+   * 下拉刷新事件
+   */
+  onPullDownRefresh:function(){
+    this.setData({current_page: 0,last_page: 1});
     this.getCollectList();
   }
 })

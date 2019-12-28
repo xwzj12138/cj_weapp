@@ -16,3 +16,4 @@ button::after{border: none;}
 .user_info image{border-radius: 50%;}
 .user_info>view>view:first-child{color: #f00;margin: 0 0 20px 0;}
 .drawer{width:625rpx;}
+.lucky_user_list>image{display: inline-block;width:50px;height:50px;}

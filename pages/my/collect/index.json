@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh": true,
   "onReachBottomDistance": 200,
   "usingComponents": {
     "x-cell": "/packages/cell/index",
