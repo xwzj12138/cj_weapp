@@ -15,7 +15,7 @@
       <text>快递公司:</text><text>{{pruze_info.shipper_name}}</text>
     </view>
     <view class='time_info' wx:if='{{pruze_info.status>1}}'>
-      <text>快递单号:</text><text selectable>{{pruze_info.tracking_num}}</text>
+      <text>快递单号:</text><text selectable>{{pruze_info.express_number}}</text>
     </view>
   </view>
 </x-cell>

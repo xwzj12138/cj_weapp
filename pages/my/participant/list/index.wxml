@@ -6,7 +6,7 @@
       <text>参与时间:</text><text>{{item.add_time}}</text>
     </view>
     <view class='time_info'>
-      <text>开奖时间:</text><text>{{item.activity_time}}</text>
+      <text>开奖时间:</text><text>{{item.end_time}}</text>
     </view>
   </view>
   <view slot='footer' class="footer {{item.status>1?'success':item.status==1?'no_success':''}}">{{status_list[item.status]}}</view>
