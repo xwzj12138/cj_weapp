@@ -6,7 +6,7 @@
       <text>发起时间:</text><text>{{item.add_time}}</text>
     </view>
     <view class='time_info'>
-      <text>开奖时间:</text><text>{{item.activity_time}}</text>
+      <text>开奖时间:</text><text>{{item.end_time}}</text>
     </view>
   </view>
   <view slot='footer' class="footer" wx:if='{{item.status==4}}'>待发货</view>
