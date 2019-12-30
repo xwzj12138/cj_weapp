@@ -27,7 +27,7 @@ Page({
     product.order_preview(this.data.form,(res)=>{
       //计算支付价格
       res.forEach((e)=>{
-        this.data.form.pay_money += e.price
+        this.data.form.pay_money = this.data.form.pay_money + e.price * this.data.form.buy_num
       });
       this.setData({ product_list: res,form:this.data.form});
     });

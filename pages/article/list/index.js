@@ -64,12 +64,10 @@ Page({
    * 点赞文章
    */
   likeArticle:function(e){
-    let article = this.data.data[e.currentTarget.dataset.index];
-    article.like_num++;
-    let param = { id: article.id };
+    let param = { id: this.data.data[e.currentTarget.dataset.index].id };
     article.like(param, (res) => {
-      this.data.data[e.currentTarget.dataset.index] = article
-      this.setData(this.data)
+      this.data.data[e.currentTarget.dataset.index].like_num++;
+      this.setData(this.data);
       wx.showToast({title: '成功'})
     });
   },
@@ -118,7 +116,6 @@ Page({
    * 联系用户
    */
   contact:function(e){
-    console.log(e.currentTarget.dataset.index)
     wx.makePhoneCall({
       phoneNumber: this.data.data[e.currentTarget.dataset.index].tel,
     })

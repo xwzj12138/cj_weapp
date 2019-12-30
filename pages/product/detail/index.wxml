@@ -15,7 +15,7 @@
 </view>
 <view class="postage">
   <text>运费</text>
-  <text>￥{{detail.postage==0?'包邮':detail.postage}}</text>
+  <text>{{detail.postage==0?'包邮':'￥'+detail.postage}}</text>
 </view>
 <!-- 评论相关 -->
 <x-cell title='商品评论（{{detail.comment_num}}）' value='查看全部' menuArrow url='/pages/product/comment/index?id={{detail.id}}'></x-cell>

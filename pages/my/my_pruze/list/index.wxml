@@ -12,8 +12,6 @@
   <view slot='footer' class="footer" wx:if='{{item.status==4}}'>待发货</view>
 </x-cell>
 <x-loading icon='' isShow="{{data.length==0}}" hint='没有数据哦！'></x-loading>
-<!-- 没有数据提示前往发布-->
-<x-button wx:if='{{data.length==0}}' type="success" bind:click="goArticle" shape='circle'>前往发布</x-button>
 <x-drawer type='center' show='{{show_drawer}}' x-class='x_drawer'>
   <view class='drawer'>
     <x-cell-group>
@@ -32,3 +30,5 @@
     <x-button type="primary" bind:click="handleClick" shape="circle">提交</x-button>
   </view>
 </x-drawer>
+<!-- 没有数据提示前往发布-->
+<x-blank-hint wx:if='{{data.length==0}}' button_url='/pages/publish/index/index' button_name='发起抽奖'></x-blank-hint>

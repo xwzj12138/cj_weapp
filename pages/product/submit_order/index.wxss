@@ -11,7 +11,7 @@ page{
 .goods_info{padding:0 15rpx;height: 80px;}
 .goods_price_tag{font-size: 24rpx;margin-right:12px;}
 .goods_info .goods_price_tag:last-child{color:#FF9600;}
-.goods_info>view:nth-child(2){font-size: 28rpx;margin-top: 10px;}
+.goods_info>view:nth-child(2){font-size: 28rpx;margin-top: 8px;}
 .tab_price{height: 50px;line-height: 50px;padding: 0 10px;}
 .tab_price>text:last-child{font-size: 18px;color: #ff6b4e;}
 .tb_bg2{background:#FA6400;color:#fff;}

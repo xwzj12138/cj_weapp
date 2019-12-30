@@ -25,7 +25,7 @@
 <!-- 快递费 -->
 <view class="postage">
   <text>运费</text>
-  <text>￥{{form.postage==0?'包邮':form.postage}}</text>
+  <text>{{form.postage==0?'包邮':'￥'+form.postage}}</text>
 </view>
 <!-- 底部tabbar操作栏 -->
 <x-tabbar>

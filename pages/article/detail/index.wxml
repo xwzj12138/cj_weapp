@@ -9,7 +9,7 @@
   <!-- 文章内容 -->
   <view class="article_content"><text>{{data.title}}</text></view>
   <view class="article_image">
-    <image wx:for='{{data.images}}' wx:key='{{index}}' src="{{item}}" data-src="{{item}}" catchtap="showImage"></image>
+    <image wx:for='{{data.images}}' wx:key='{{index}}' src="{{item}}" data-src="{{item}}" catchtap="showImage" mode="widthFix"></image>
   </view>
   <!-- 点赞数及浏览数 -->
   <view class="browse_like">

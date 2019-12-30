@@ -6,6 +6,7 @@
     "x-loading": "/packages/loading/index",
     "x-drawer": "/packages/drawer/index",
     "x-icon": "/packages/icon/index",
-    "x-button": "/packages/button/index"
+    "x-button": "/packages/button/index",
+    "x-blank-hint": "/packages/blank-hint/index"
   }
 }

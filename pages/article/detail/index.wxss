@@ -7,4 +7,4 @@
 .browse_like text{margin-left: 5px;}
 .article_content{padding: 0 30rpx;font-size: 13px;}
 .article_image{padding:5px 5px;}
-.article_image image{display: inline-block;margin-right: 5px;width:23%;height:80px;}
+.article_image image{display: inline-block;margin-right: 5px;width:23%;}

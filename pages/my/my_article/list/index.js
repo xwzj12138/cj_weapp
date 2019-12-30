@@ -27,10 +27,8 @@ Page({
     }
     let param = { page: this.data.current_page + 1 };
     article.myList(param, (res) => {
-      this.data.current_page = res.current_page
-      this.data.last_page = res.last_page
-      this.data.data = this.data.data.concat(res.data)
-      this.setData(this.data)
+      res.data = this.data.data.concat(res.data);
+      this.setData(res);
       wx.stopPullDownRefresh()
     });
   },
@@ -50,14 +48,6 @@ Page({
     article.top(param, (res) => {
       wx.showToast({title: '顶置成功'});
     });
-  },
-  /**
-   * 进入发布页面
-   */
-  goArticle:function(){
-    wx.switchTab({
-      url: '/pages/publish/index/index'
-    })
   },
   /**
    * 页面上拉触底事件的处理函数
