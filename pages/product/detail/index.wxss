@@ -13,5 +13,5 @@ page{background: #fff;}
 .preview>view:nth-child(3){padding: 10rpx;}
 .attr{border-bottom: 1px solid rgba(230,230,230,1);padding: 24rpx 25rpx;color: #353535;}
 .attr>view:first-child{margin-bottom: 24rpx;}
-.attr text{background:#F2F2F2;color:#666666;font-size:28rpx;font-weight:400;padding: 14rpx 17rpx;margin-right:16rpx;border-radius: 10rpx;}
+.attr text{background:#F2F2F2;color:#666666;font-size:28rpx;font-weight:400;padding: 14rpx 17rpx;margin:5px 16rpx 3px 0;border-radius: 10rpx;display: inline-block;}
 .attr_select{background: #E2FFF5 !important;border:1px solid #24BA85;color:#24BA85 !important; }
