@@ -6,7 +6,7 @@ page{
 .userinfo>text:nth-child(3){background: #ff6b4e;border-radius: 5px;color: #fff;font-size: 10px;font-weight: 400;padding: 0 5px;}
 .address{margin-bottom: 10rpx;}
 .address text{font-size: 11px;margin-right: 3px;}
-.goods_image{width: 80px;height: 80px;border-radius: 6px;overflow: hidden;flex-shrink: 0;}
+.goods_image{width: 80px;height: 80px;border-radius: 6px;overflow: hidden;}
 .goods_title{color:#353535;font-size: 30rpx;font-weight:600;word-break: break-all;}
 .goods_info{padding:0 15rpx;height: 80px;}
 .goods_price_tag{font-size: 24rpx;margin-right:12px;}

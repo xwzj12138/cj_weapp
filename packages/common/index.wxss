@@ -1,6 +1,6 @@
 .x-flex{display: flex;display: -webkit-flex;box-sizing: border-box;}
 .x-flex-center{align-items: center;justify-content: center;}
-.x-flex-image{width: 100px;height: 100px;flex-shrink: 0;}
+.x-flex-image{width: 100px;height: 100px;}
 .x-flex-wrap{flex-wrap: wrap;}
 .x-flex-item-center{align-items: center;}
 .x-text-center{text-align: center;}
