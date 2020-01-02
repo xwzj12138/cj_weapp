@@ -1,5 +1,5 @@
 .info{margin:0 3px;}
-.title_info{font-weight: 600;font-size: 12px;}
+.title_info{font-weight: 600;font-size: 12px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;text-overflow:ellipsis;overflow: hidden;padding: 0;}
 .time_info{color: #666;font-size: 11px;padding: 0;}
 .footer{font-size: 14px;color: #f60;}
 .x_drawer{border-radius:24rpx !important;}

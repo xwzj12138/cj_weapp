@@ -8,6 +8,14 @@
     <view class='time_info'>
       <text>开奖时间:</text><text>{{item.end_time}}</text>
     </view>
+    <view class='time_info'>
+      <text>奖品数：</text>
+      <text>{{item.pruze_num}}</text>
+    </view>
+    <view class='time_info'>
+      <text>参与数：</text>
+      <text>{{item.pruze_num}}</text>
+    </view>
   </view>
   <view slot='footer' class="footer" wx:if='{{item.status==4}}'>待发货</view>
 </x-cell>
