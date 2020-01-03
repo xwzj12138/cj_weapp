@@ -1,0 +1,11 @@
+{
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 200,
+  "usingComponents": {
+    "x-cell": "/packages/cell/index",
+    "x-input": "/packages/input/index",
+    "x-drawer": "/packages/drawer/index",
+    "x-icon": "/packages/icon/index",
+    "x-button": "/packages/button/index"
+  }
+}

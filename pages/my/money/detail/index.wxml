@@ -4,3 +4,5 @@
   <view class="bill_remark bill_time">{{item.add_time}}</view>
   <view slot='footer' class="bill_money">{{item.pm==0?'-':'+'}}{{item.number}}</view>
 </x-cell>
+<!-- 提示信息 -->
+<x-blank-hint wx:if='{{is_null}}' button_url='/pages/publish/index/index' button_name='去发布奖品'></x-blank-hint>

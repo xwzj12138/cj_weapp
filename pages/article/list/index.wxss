@@ -9,4 +9,4 @@
 .browse_like{display:flex;color: #1296db;margin: 3px 30rpx;font-size: 15px;}
 .browse_like>view{flex: 1;}
 .browse_like text{margin-left: 5px;}
-.article_image image{display: inline-block;margin-right: 5px;width:23%;}
+.article_image image{display: inline-block;width:23%;}

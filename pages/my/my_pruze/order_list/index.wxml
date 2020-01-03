@@ -1,0 +1,33 @@
+<x-cell-group>
+  <x-cell wx:for='{{data}}' wx:key='{{item.id}}'>
+    <view data-index='{{index}}' bindtap='showDrawer'>
+      <view class='userinfo'>
+        <text>{{item.consignee_name}}</text><text>{{item.consignee_tel}}</text>
+      </view>
+      <view class='address'>
+        <text>{{item.province}}</text><text>{{item.city}}</text><text>{{item.county}}</text><text>{{item.address}}</text>
+      </view>
+    </view>
+    <view slot='footer' class="footer" wx:if='{{item.status==4}}'>待发货</view>
+  </x-cell>
+</x-cell-group>
+
+<x-drawer type='center' show='{{show_drawer}}' x-class='x_drawer'>
+  <view class='drawer'>
+    <x-cell-group>
+      <x-cell>
+        <view>收件人：<text class="consignee">{{data[select_index].consignee_name}}</text></view>
+        <view>地址信息：<text selectable class="address">{{data[select_index].province+data[select_index].city+data[select_index].county+data[select_index].address}}</text></view>
+      </x-cell>
+      <x-cell>
+        <view slot='icon' class="title">物流公司</view>
+        <picker mode='selector' range='{{company_list}}' bindchange='selectHdCompany'>
+          <view class="picker">{{form.index===''?'请选择物流公司':company_list[form.index]}}</view>
+        </picker>
+      </x-cell>
+      <x-input title='物流单号' name='express_number' placeholder='请输入物流单号' bind:change='inputChange'></x-input>
+    </x-cell-group>
+    <view class="closeDrawer"><x-icon name='roundclose' color='#666' bindtap="closeDrawer" size='56'></x-icon></view>
+    <x-button type="primary" bind:click="handleClick" shape="circle">提交</x-button>
+  </view>
+</x-drawer>

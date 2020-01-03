@@ -28,10 +28,6 @@ export default new class pruze extends auth {
   publish(param, callback) {
     this.request({ url: 'index/v1/pruze/add', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } });
   }
-  //获取奖品信息（设置发货信息页面）
-  getAddressInfo(param, callback) {
-    this.request({ url: 'index/v1/pruze/addressInfo', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } });
-  }
   //设置物流信息
   setTrackingNum(param, callback) {
     this.request({ url: 'index/v1/pruze/setTrackingNum', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } });
@@ -39,5 +35,13 @@ export default new class pruze extends auth {
   //参与详情
   participantDetail(param, callback) {
     this.request({ url: 'index/v1/pruze/participant_detail', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } });
+  }
+  //获取订单列表
+  getOrderList(param,callback){
+    this.request({ url: 'index/v1/pruze/orderList', type: 'POST', data: param, sCallBack: (res) => { callback && callback(res); } });
+  }
+  //获取快递公司
+  getHdCompanyList(callback){
+    this.request({ url: 'index/v1/HdCompany/get', type: 'POST', data: {}, sCallBack: (res) => { callback && callback(res); } });
   }
 }

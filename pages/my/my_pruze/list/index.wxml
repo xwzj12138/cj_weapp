@@ -11,32 +11,15 @@
     <view class='time_info'>
       <text>奖品数：</text>
       <text>{{item.pruze_num}}</text>
-    </view>
-    <view class='time_info'>
       <text>参与数：</text>
       <text>{{item.pruze_num}}</text>
     </view>
+    <view class='time_info'>
+      <text>状态</text>
+      <text class="footer">{{item.status==0?'未开奖':item.no_send_num>0?'待发货':'完成'}}</text>
+    </view>
   </view>
-  <view slot='footer' class="footer" wx:if='{{item.status==4}}'>待发货</view>
 </x-cell>
 <x-loading icon='' isShow="{{data.length==0}}" hint='没有数据哦！'></x-loading>
-<x-drawer type='center' show='{{show_drawer}}' x-class='x_drawer'>
-  <view class='drawer'>
-    <x-cell-group>
-      <x-cell>
-        <view>收件人：<text class="consignee">{{address_info.consignee_name}}</text></view>
-        <view>地址信息：<text selectable class="address">{{address_info.province+address_info.city+address_info.county+address_info.address}}</text></view>
-      </x-cell>
-      <x-cell>
-        <view slot='icon' class="title">物流公司</view>
-        <picker mode='selector' range='{{hd_company_list}}' bindchange='selectHdCompany'>
-          <view class="picker">{{form.shipper_name==''?'请选择物流公司':hd_company_list[form.shipper_name]}}</view>
-        </picker>
-      </x-cell>
-      <x-input title='物流单号' name='tracking_num' placeholder='请输入物流单号' bind:change='inputChange'></x-input>
-    </x-cell-group>
-    <x-button type="primary" bind:click="handleClick" shape="circle">提交</x-button>
-  </view>
-</x-drawer>
 <!-- 没有数据提示前往发布-->
 <x-blank-hint wx:if='{{data.length==0}}' button_url='/pages/publish/index/index' button_name='发起抽奖'></x-blank-hint>
