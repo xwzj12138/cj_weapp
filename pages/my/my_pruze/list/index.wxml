@@ -1,25 +1,27 @@
-<x-cell wx:for='{{data}}' wx:key='{{index}}' data-index='{{index}}' bindtap='goDetail'>
-  <image slot='icon' src='{{item.image}}' style='width:90px;height:90px;'></image>
-  <view class='info'>
-    <view class='title_info'>{{item.pruze_name}}</view>
-    <view class='time_info'>
-      <text>发起时间:</text><text>{{item.add_time}}</text>
+<x-cell-group>
+  <x-cell wx:for='{{data}}' wx:key='{{index}}' data-index='{{index}}' bindtap='goDetail'>
+    <image slot='icon' src='{{item.image}}' style='width:90px;height:90px;'></image>
+    <view class='info'>
+      <view class='title_info'>{{item.pruze_name}}</view>
+      <view class='time_info'>
+        <text>发起时间:</text><text>{{item.add_time}}</text>
+      </view>
+      <view class='time_info'>
+        <text>开奖时间:</text><text>{{item.end_time}}</text>
+      </view>
+      <view class='time_info'>
+        <text>奖品数：</text>
+        <text>{{item.pruze_num}}</text>
+        <text>参与数：</text>
+        <text>{{item.pruze_num}}</text>
+      </view>
+      <view class='time_info'>
+        <text>状态</text>
+        <text class="footer">{{item.status==0?'未开奖':item.no_send_num>0?'待发货':'完成'}}</text>
+      </view>
     </view>
-    <view class='time_info'>
-      <text>开奖时间:</text><text>{{item.end_time}}</text>
-    </view>
-    <view class='time_info'>
-      <text>奖品数：</text>
-      <text>{{item.pruze_num}}</text>
-      <text>参与数：</text>
-      <text>{{item.pruze_num}}</text>
-    </view>
-    <view class='time_info'>
-      <text>状态</text>
-      <text class="footer">{{item.status==0?'未开奖':item.no_send_num>0?'待发货':'完成'}}</text>
-    </view>
-  </view>
-</x-cell>
+  </x-cell>
+</x-cell-group>
 <x-loading icon='' isShow="{{data.length==0}}" hint='没有数据哦！'></x-loading>
 <!-- 没有数据提示前往发布-->
 <x-blank-hint wx:if='{{data.length==0}}' button_url='/pages/publish/index/index' button_name='发起抽奖'></x-blank-hint>

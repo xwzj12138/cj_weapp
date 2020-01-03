@@ -31,7 +31,7 @@ Page({
     //获取我的发布文章
     let param = { page: this.data.current_page + 1 }
     pruze.myPublish(param,(res)=>{
-      res.data = this.data.data.concat(res.data);
+      if (res.current_page > 1) res.data = [...this.data.data, ...res.data];
       this.setData(res);
       wx.stopPullDownRefresh();
     });
@@ -61,5 +61,5 @@ Page({
    */
   onReachBottom: function () {
     this.getMyPublish();
-  },
+  }
 })

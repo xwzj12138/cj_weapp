@@ -37,21 +37,6 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    this.setData({ current_page: 0, last_page: 1 });
-    this.getOderList();
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    this.getOrderList ();
-  },
-
-  /**
    * 获取中奖用户列表
    */
   getOrderList : function () {
@@ -59,7 +44,7 @@ Page({
     if (this.data.current_page == this.data.last_page) return wx.stopPullDownRefresh();
     let param = {id:this.data.pruze_id};
     pruze.getOrderList(param,(res)=>{
-      res.data = [...this.data.data,...res.data];
+      if (res.current_page > 1) res.data = [...this.data.data, ...res.data];
       this.setData(res);
       wx.stopPullDownRefresh();
     });
@@ -116,4 +101,18 @@ Page({
       wx.showToast({ title: '设置成功' });
     });
   },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.setData({ current_page: 0, last_page: 1 });
+    this.getOrderList();
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.getOrderList();
+  }
 })
