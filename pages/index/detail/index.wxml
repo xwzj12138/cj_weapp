@@ -1,5 +1,5 @@
 <!-- 商品详情 -->
-<image src='{{pruze_info.image}}' style='width:100%;' mode="widthFix"></image>
+<image src='{{pruze_info.image}}' style='width:100%;max-height:320px;' mode="widthFix"></image>
 <view class='title'>{{pruze_info.pruze_name}}</view>
 <view class='time_info'>
   <text>{{pruze_info.end_time}}</text><text>自动开奖</text>

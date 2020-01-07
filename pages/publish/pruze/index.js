@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time_list:['1天','2天','3天','4天','5天','6天','7天'],
+    time_list:['1天','2天','3天','4天','5天','6天','7天','8天','9天'],
     brand_list:[],
     brands:[],
     formData: { token: '' },
@@ -71,6 +71,7 @@ Page({
    * 设置品牌
    */
   setBrand:function(e){
+    console.log(e.detail.value)
     this.data.data.brand_id = e.detail.value
     this.setData(this.data)
   },
@@ -83,7 +84,7 @@ Page({
     if (this.data.data.end_time == '') return wx.showToast({ title: '请选择结束时间', icon: 'none' });
     if (this.data.data.pruze_detail.length == 0) return wx.showToast({ title: '请上传详情图', icon: 'none' });
     this.data.data.time++
-    this.data.data.brand_id = this.data.brand_list[this.data.data.brand_id].id
+    if(this.data.data.brand_id!=='') this.data.data.brand_id = this.data.brand_list[this.data.data.brand_id].id;
     pruze.publish(this.data.data,(res)=>{
       wx.reLaunch({url: '/pages/index/index/index'});
     })
