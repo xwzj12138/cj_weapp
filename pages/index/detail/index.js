@@ -19,7 +19,7 @@ Page({
    */
   showAd(e) {
     //订阅通知消息
-    wx.requestSubscribeMessage({ tmplIds: ['hmMrlW7_Ksp1TytiPVh_dD34LaOwQCh7Um_cEKJvMQw']});
+    wx.requestSubscribeMessage({ tmplIds:this.data.pruze_info.tmplIds});
     //不需要观看广告
     if(!this.data.pruze_info.ad_id){
       return this.participant();
