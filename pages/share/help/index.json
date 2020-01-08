@@ -1,10 +1,7 @@
 {
-  "navigationStyle":"custom",
-  "navigationBarTextStyle": "white",
   "usingComponents": {
     "x-icon": "/packages/icon/index",
     "x-button": "/packages/button/index",
-    "x-card": "/packages/card/index",
-    "x-headnav": "/packages/headnav/index"
+    "x-card": "/packages/card/index"
   }
 }

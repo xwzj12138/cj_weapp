@@ -126,7 +126,7 @@ Page({
   onShareAppMessage:function(res){
     return {
       title:this.data.userinfo.nickname+'邀请您参与抽奖',
-      path:'/pages/index/index/index'
+      path:'/pages/share/help/index?uid='+this.data.userinfo.uid
     }
   }
 })

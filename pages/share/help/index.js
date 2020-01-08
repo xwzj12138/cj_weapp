@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userinfo: { uid:0},
+    share_user: { uid: 0},
+    userinfo: {},
     goodsList: { current_page: 1, data: [] }
   },
   /**
@@ -16,25 +17,25 @@ Page({
   goHome:function(){
     wx.switchTab({
       url: '/pages/index/index/index'
-    })
+    });
   },
   /**
   * 进入详情页面
   */
   goDetail: function (e) {
     if (e.currentTarget.dataset.grade > this.data.userinfo.grade) {
-      wx.showToast({ title: '您的等级不够，分享好友提升一下吧！', icon: 'none' })
+      wx.showToast({ title: '您的等级不够，分享好友提升一下吧！', icon: 'none' });
     }
     wx.navigateTo({
-      url: '/pages/index/detail/index?id=' + e.currentTarget.dataset.id,
-    })
+      url: '/pages/index/detail/index?id=' + e.currentTarget.dataset.id
+    });
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.userinfo.uid = options.uid
-    this.setData({ userinfo: this.data.userinfo})
+    this.data.share_user.uid = options.uid;
+    this.setData({ share_user: this.data.share_user});
     this.getuserinfo();
   },
   /**
@@ -42,28 +43,27 @@ Page({
   */
   getuserinfo: function () {
     //获取用户信息
-    user.getByIdUserInfo({ id: this.data.userinfo.uid }, (res) => {
-      this.setData({ userinfo: res.data, show_login: false })
-    })
-    user.getList({page:1},(res) => {
-      this.data.goodsList.current_page = res.current_page
-      this.data.goodsList.data = this.data.goodsList.data.concat(res.data)
-      this.setData({ goodsList: this.data.goodsList })
-    })
+    user.getByIdUserInfo({ id: this.data.share_user.uid }, (res) => {
+      this.setData({ userinfo: res.user, share_user: res.share_user });
+    });
+    pruze.getList({page:1},(res) => {
+      if (res.current_page > 1) res.data = [...this.data.goodsList.data, ...res.data];
+      this.setData({ goodsList: res });
+    });
   },
   /**
    * 助力
    */
   helpFriend:function(){
-    user.help({id:this.data.userinfo.uid},(res) => {
+    user.help({ id: this.data.share_user.uid},(res) => {
       wx.switchTab({
-        url: '/pages/index/index/index',
+        url: '/pages/index/index/index'
       })
     },(err)=>{
       setTimeout(function () {
         wx.switchTab({
-          url: '/pages/index/index/index',
-        })
+          url: '/pages/index/index/index'
+        });
       }, 1500)
     })
   }

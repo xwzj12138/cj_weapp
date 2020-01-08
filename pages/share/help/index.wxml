@@ -1,16 +1,12 @@
-<!-- 头部view -->
-<x-headnav>
-  <x-icon name='home' size='56' catchtap='goHome'></x-icon>
-</x-headnav>
 <!-- 助力view -->
 <view wx:if='{{!show_login}}' class='share_user_info'>
-  <image src='{{userinfo.avatar}}'></image>
-  <view>参与失败了</view>
-  <view>亲们帮我加油呗，我的等级为：{{userinfo.grade}}</view>
+  <image src='{{share_user.avatar}}'></image>
+  <view>等级不够，参与抽奖失败了</view>
+  <view>亲们帮我加油呗，我的等级为：{{share_user.grade}}</view>
   <x-button type='warning' size='86' shape='circle' catchtap='helpFriend'>帮他助力</x-button>
 </view>
 <!-- 奖品列表 -->
-<x-card x-class='body' wx:for='{{goodsList.data}}' wx:key='{{index}}' data-id='{{item.id}}' data-grade='{{item.grade}}' bindtap='goDetail'>
+<x-card x-class='body' wx:for='{{goodsList.data}}' wx:key='pruze' data-id='{{item.id}}' data-grade='{{item.grade}}' bindtap='goDetail'>
   <view slot='image' class='head'>
     <image src='{{item.image}}' style='height:250px;width:100%;'></image>
     <text class='tag'>{{item.brand_name}}  赞助</text>
