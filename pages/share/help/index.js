@@ -34,7 +34,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.share_user.uid = options.uid;
+    this.data.share_user.uid = options.share_uid;
     this.setData({ share_user: this.data.share_user});
     this.getuserinfo();
   },

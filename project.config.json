@@ -59,7 +59,7 @@
 					"id": 0,
 					"name": "助力页面",
 					"pathName": "pages/share/help/index",
-					"query": "uid=2",
+					"query": "share_uid=1",
 					"scene": null
 				},
 				{

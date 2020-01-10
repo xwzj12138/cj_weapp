@@ -25,15 +25,16 @@ export default new class login extends base {
   authLogin(callback) {
     wx.login({
       success: res => {
+        let app = getApp();
         this.request({
           url: 'other/v1/login/auth',
           type: 'POST',
-          data: { code: res.code },
+          data: { code: res.code, source: app.globalData.source, share_uid: app.globalData.share_uid},
           sCallBack: (result) => {
             wx.setStorageSync('token', result)
             callback && callback(result)
           }
-        })
+        });
       }
     })
   }
