@@ -11,7 +11,8 @@ export default new class login extends base {
   }
   getStorageSync(callback) {
     let storeage = wx.getStorageSync('token');
-    if (storeage) {
+    if (storeage && (storeage.expire_time-5*60) > (Date.parse(new Date()))/1000) {
+      this.is_request = false;
       return callback && callback(storeage);
     }
     if (this.is_request) {
