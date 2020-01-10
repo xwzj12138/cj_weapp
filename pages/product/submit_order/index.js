@@ -7,7 +7,7 @@ Page({
    */
   data: {
     form: { attr_val_path: "", buy_num: 0, product_id: 0, sku_id: 0, source: 0, postage:0,pay_money:0},
-    address_info:{},
+    address_info:null,
     product_list:[]
   },
 
@@ -37,9 +37,15 @@ Page({
    * 支付
    */
   pay:function(){
-    if(!this.data.address_info.id) return wx.showToast({title: '请设置收货地址',icon:'none'});
+    if(this.data.address_info==null) return wx.showToast({title: '请设置收货地址',icon:'none'});
     product.pay(this.data.form,(res)=>{
-      console.log(res);
+      res.success = (result)=>{
+        wx.redirectTo({ url: '/pages/my/order/list/index'});
+      }
+      res.fail = (result) => {
+        wx.showToast({title: '支付失败',icon:'none'});
+      }
+      wx.requestPayment(res);
     });
   },
   /**
@@ -49,12 +55,5 @@ Page({
     userAddress.getDefault((res)=>{
       this.setData({ address_info:res})
     });
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

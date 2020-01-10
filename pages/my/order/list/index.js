@@ -71,8 +71,14 @@ Page({
   pay: function (e) {
     let param = { id: e.currentTarget.dataset.id };
     order.pay(param, (res) => {
-      this.data.data[e.currentTarget.dataset.index].status = 1;
-      this.setData(this.data)
+      res.success = (result) => {
+        this.data.data[e.currentTarget.dataset.index].status = 1;
+        this.setData(this.data)
+      }
+      res.fail = (result) => {
+        wx.showToast({ title: '支付失败', icon: 'none' });
+      }
+      wx.requestPayment(res);
     });
   },
 
