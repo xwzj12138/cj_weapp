@@ -24,19 +24,19 @@
   <view>订单号：</view>
   <view>{{data.status==0?'未支付':data.out_trade_no}}</view>
 </view>
-<view class="display_flex order_info">
+<view class="display_flex order_info" wx:if='{{data.status!=2}}'>
   <view>下单时间：</view>
   <view>{{data.status==0?'未支付':data.add_time}}</view>
 </view>
-<view class="display_flex order_info">
+<view class="display_flex order_info" wx:if='{{data.status!=2}}'>
   <view>发货时间：</view>
   <view>{{data.status==0?'未支付':data.delivery_time==0?'待发货':data.delivery_time}}</view>
 </view>
-<view class="display_flex order_info">
+<view class="display_flex order_info" wx:if='{{data.status!=2}}'>
   <view>物流公司：</view>
   <view>{{data.status==0?'未支付':data.company_name?data.company_name:'待发货'}}</view>
 </view>
-<view class="display_flex order_info">
+<view class="display_flex order_info" wx:if='{{data.status!=2}}'>
   <view>快递单号：</view>
   <view>{{data.status==0?'未支付':data.express_number?data.express_number:'待发货'}}</view>
 </view>
