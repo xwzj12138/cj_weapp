@@ -1,9 +1,9 @@
 <!-- 文章列表 -->
-<view wx:for='{{data}}' wx:key='{{index}}' class="article_body" data-index='{{index}}' catchtap="goDetail">
+<view wx:for='{{data}}' wx:key='article' class="article_body" data-index='{{index}}' catchtap="goDetail">
   <view class="article">
     <view><text>{{item.title}}</text></view>
     <view class="article_image">
-      <image wx:for='{{item.images}}' wx:for-item='value' wx:for-index='i' wx:key='{{value}}' src="{{value}}" lazy-load wx:if='{{i<4}}' mode="widthFix"></image>
+      <image wx:for='{{item.images}}' wx:for-item='value' wx:for-index='i' wx:key='article_image' src="{{value}}" lazy-load wx:if='{{i<4}}' mode="widthFix"></image>
     </view>
     <view class="article_lable">{{item.add_time}}发布</view>
     <view wx:if='{{item.uid>0}}' class="article_lable"><x-icon name='locationfill' color='#f60' size='32'></x-icon>{{item.publish_address}}</view>
@@ -11,9 +11,9 @@
   <view class="browse_like">
     <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
     <view><x-icon name='appreciate' color='#666' size='40'></x-icon><text>{{item.like_num}}</text></view>
-    <!-- <view class="top_view">
-      <text data-id="{{item.id}}" catchtap="topArticle">顶置</text>
-    </view> -->
+    <view class="top_view">
+      <text data-id="{{item.id}}" data-index="{{index}}" catchtap="topArticle">{{item.top_time==0?'顶置':'重新顶置'}}</text>
+    </view>
   </view>
 </view>
 <!-- 没有数据提示前往发布-->

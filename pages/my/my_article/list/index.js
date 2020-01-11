@@ -46,7 +46,20 @@ Page({
   topArticle: function (e) {
     let param = { id: e.currentTarget.dataset.id };
     article.top(param, (res) => {
-      wx.showToast({title: '顶置成功'});
+      res.success = (result) => {
+        let article = this.data.data[e.currentTarget.dataset.index];
+        article.top_time = Date.parse(new Date());
+        //删除原来的文章
+        this.data.data.splice(e.currentTarget.dataset.index,1);
+        //将顶置的文章添加到首位
+        this.data.data.unshift(article);
+        this.setData(this.data)
+        wx.showToast({ title: '顶置成功' });
+      }
+      res.fail = (result) => {
+        wx.showToast({ title: '支付失败', icon: 'none' });
+      }
+      wx.requestPayment(res);
     });
   },
   /**
