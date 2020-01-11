@@ -22,8 +22,7 @@ export default new class user extends auth {
       type: 'POST',
       data: {},
       sCallBack: (res) => {
-        let appinfo = getApp()
-        appinfo.globalData.userInfo = res.data
+        getApp().globalData.userInfo = res.data
         callback(res)
       }
     });

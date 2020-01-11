@@ -32,16 +32,16 @@ Page({
    * 获取文章列表
    */
   getArticleList: function () {
-    if(this.data.current_page==this.data.last_page){
+    if(this.data.current_page>=this.data.last_page){
       wx.stopPullDownRefresh()
       return this.setData({ show_loading:true});
     }
     let param = {page:this.data.current_page+1,cate_id:this.data.cate_id};
     article.getList(param,(res) => {
       if (res.data.length == 0) return this.setData({ show_loading: true });
-      res.data = this.data.data.concat(res.data)
-      this.setData(res)
-      wx.stopPullDownRefresh()
+      if (res.current_page > 1) res.data = [...this.data.data,...res.data];
+      this.setData(res);
+      wx.stopPullDownRefresh();
     });
   },
   /**
@@ -95,9 +95,7 @@ Page({
    * 进入banner详情页
    */
   goBannerDetail:function(e){
-    wx.navigateTo({
-      url: e.currentTarget.dataset.detail_url,
-    })
+    wx.navigateTo({url: e.currentTarget.dataset.detail_url});
   },
   /**
    * 显示图片
@@ -124,7 +122,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({ data: [], current_page:0,last_page:1})
+    this.setData({ current_page:0,last_page:1});
+    this.getHomeInfo();
     this.getArticleList();
   },
 
