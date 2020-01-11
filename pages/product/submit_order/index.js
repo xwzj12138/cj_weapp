@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    form: { attr_val_path: "", buy_num: 0, product_id: 0, sku_id: 0, source: 0, postage:0,pay_money:0},
+    form: { attr_val_path: "", buy_num: 0, product_id: 0, sku_id: 0, source: 0, postage: 0, pay_money: 0, source:0},
     address_info:null,
     product_list:[]
   },
@@ -16,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     options.pay_money = 0;
+    options.source = getApp().globalData.source;
     this.setData({ form:options});
     this.orderPreview();
   },
