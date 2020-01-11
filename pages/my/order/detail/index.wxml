@@ -1,7 +1,7 @@
 <!-- 最新物流信息 -->
 <x-cell label="{{data.logistics_information?data.logistics_information.time:''}}">
   <x-icon slot='icon' name='deliver' color='#24BA85' size="50"></x-icon>
-  <view style="font-size:24rpx;color:#24BA85;">{{data.logistics_information?data.logistics_information.info:'未发货'}}</view>
+  <view style="font-size:24rpx;color:#24BA85;">{{data.status>2?data.traces.AcceptStation:'未发货'}}</view>
 </x-cell>
 <!-- 收货地址 -->
 <x-cell label="{{data.consignee_info.city+data.consignee_info.county+data.consignee_info.address}}">

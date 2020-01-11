@@ -1,12 +1,12 @@
 <!-- 订单列表 -->
-<view wx:for="{{data}}" wx:key='{{index}}' data-id='{{item.id}}' catchtap='goDetail'>
+<view wx:for="{{data}}" wx:key='order' data-id='{{item.id}}' catchtap='goDetail'>
 <!-- 订单信息 -->
   <x-cell>
     <view style="font-size:28rpx;">订单号：{{item.out_trade_no}}</view>
     <view style="font-size:28rpx;font-weight:500;color:#FF9600;" slot='footer'>{{pay_status[item.status]}}</view>
   </x-cell>
   <!-- 商品相关 -->
-  <x-cell wx:for='{{item.goods_list}}'  wx:for-index="k" wx:for-item="v" wx:key='{{k}}'>
+  <x-cell wx:for='{{item.goods_list}}'  wx:for-index="k" wx:for-item="v" wx:key='order_goods'>
     <image slot='icon' class="goods_image" src="{{v.image}}"></image>
     <view class="goods_info">
       <view class="goods_title">{{v.product_name}}</view>

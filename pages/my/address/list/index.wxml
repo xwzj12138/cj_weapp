@@ -1,5 +1,5 @@
 <x-cell-group>
-  <x-cell wx:for='{{data}}' wx:key='{{index}}'>
+  <x-cell wx:for='{{data}}' wx:key='order'>
     <x-icon slot='icon' name="{{item.is_default==1?'roundcheck':'round'}}" size='46' data-index='{{index}}' catchtap="setDefault"></x-icon>
     <view data-index='{{index}}' bindtap='goDetail'>
       <view class='userinfo'>

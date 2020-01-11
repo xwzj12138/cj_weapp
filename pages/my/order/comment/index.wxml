@@ -1,5 +1,5 @@
 <!-- 商品相关 -->
-<view wx:for='{{goods_list}}'  wx:key="{{index}}">
+<view wx:for='{{goods_list}}'  wx:key="comment">
   <x-cell>
     <image slot='icon' class="goods_image" src="{{item.image}}" class="goods_image"></image>
     <view class="goods_info">
