@@ -57,7 +57,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title:'我刚刚抽中了几个,现在等级不够帮我助力一下',
-      path:'/pages/share/help/index?uid='+this.data.userinfo.uid
+      path:'/pages/share/help/index?share_uid='+this.data.userinfo.uid
     }
   }
 })
