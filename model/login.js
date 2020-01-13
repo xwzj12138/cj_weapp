@@ -18,7 +18,7 @@ export default new class login extends base {
     if (this.is_request) {
       return setTimeout(() => {
         this.getStorageSync(callback)
-      }, 100);
+      }, 500);
     }
     this.is_request = true;
     this.authLogin(callback);
