@@ -9,6 +9,12 @@
   <x-input-number max='9999' min='0' value='{{data.grade}}' step='1' bindchange='setGrade'></x-input-number>
 </x-cell>
 <x-cell>
+  <view slot='icon' class="title">奖品数量</view>
+  <picker mode='selector' range='{{[1,2,3,4,5,6,7,8,9,10]}}' bindchange='setPruzeNum'>
+    <view class="picker">{{data.pruze_num}}</view>
+  </picker>
+</x-cell>
+<x-cell>
   <view slot='icon' class="title">显示天数</view>
   <picker mode='selector' range='{{time_list}}' bindchange='setEndTime'>
     <view class="picker">{{data.time==''?'请选择显示时间':time_list[data.time]}}</view>

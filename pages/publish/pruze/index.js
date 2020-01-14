@@ -13,7 +13,7 @@ Page({
     brands:[],
     formData: { token: '' },
     upload_api: '',
-    data: { pruze_name: '', image: '', grade: 0, brand_id: '', time: '', pruze_detail:[]}
+    data: { pruze_name: '', image: '', grade: 0, brand_id: '', time: '', pruze_detail: [], pruze_num:1}
   },
 
   /**
@@ -65,6 +65,13 @@ Page({
    */
   setEndTime:function(e){
     this.data.data.time = e.detail.value
+    this.setData(this.data)
+  },
+  /**
+   * 设置奖品数量
+   */
+  setPruzeNum:function(e){
+    this.data.data.pruze_num = e.detail.value*1 + 1
     this.setData(this.data)
   },
   /**
