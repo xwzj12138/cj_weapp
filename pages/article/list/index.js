@@ -25,8 +25,8 @@ Page({
    * 授权登录成功回调，文章列表及banner图
    */
   getHomeInfo: function () {
-    this.getArticleList();
     this.getBannerList();
+    this.getArticleList();
   },
   /**
    * 获取文章列表
