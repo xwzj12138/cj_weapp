@@ -42,9 +42,11 @@ Page({
   * 授权登录成功回调，获取奖品列表
   */
   getuserinfo: function () {
+    wx.showLoading({title: '数据加载中'});
     //获取用户信息
     user.getByIdUserInfo({ id: this.data.share_user.uid }, (res) => {
       this.setData({ userinfo: res.user, share_user: res.share_user });
+      wx.hideLoading();
     });
     pruze.getList({page:1},(res) => {
       if (res.current_page > 1) res.data = [...this.data.goodsList.data, ...res.data];

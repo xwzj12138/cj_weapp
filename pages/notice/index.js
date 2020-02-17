@@ -17,12 +17,5 @@ Page({
     notice.detail({id:options.id},(res)=>{
       this.setData({ content: res.content});
     });
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

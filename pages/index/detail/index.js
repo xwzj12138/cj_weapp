@@ -79,9 +79,11 @@ Page({
    * 获取奖品详情
    */
   getDetail:function(){
+    wx.showLoading({title: '数据加载中'});
     //获取用户信息
     user.getGlobalUserinfo((res) => {
-      this.setData({ userinfo: res })
+      this.setData({ userinfo: res });
+      wx.hideLoading();
     });
     //获取奖品详情
     pruze.getDetail({ id: this.data.pruze_id, super_uid:this.data.uid}, (res) => {

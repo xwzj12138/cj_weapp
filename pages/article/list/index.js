@@ -19,12 +19,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getHomeInfo();
-  },
-  /**
-   * 授权登录成功回调，文章列表及banner图
-   */
-  getHomeInfo: function () {
     this.getBannerList();
     this.getArticleList();
   },
@@ -48,8 +42,10 @@ Page({
    * 获取banner图列表
    */
   getBannerList:function(){
+    wx.showLoading({title: '数据加载中'});
     article.getBanners( (res) => {
-      this.setData(res)
+      this.setData(res);
+      wx.hideLoading();
     });
   },
   /**
