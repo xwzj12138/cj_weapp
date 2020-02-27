@@ -71,11 +71,11 @@ Page({
    * 浏览文章
    */
   browseArticle:function(index){
-    let article = this.data.data[index];
-    article.browse_num++;
-    let param = { id: article.id };
+    let article_data = this.data.data[index];
+    article_data.browse_num++;
+    let param = { id: article_data.id };
     article.browse(param, (res) => {
-      this.data.data[index] = article
+      this.data.data[index] = article_data
       this.setData(this.data)
     });
   },
