@@ -32,7 +32,10 @@ Page({
     }
     let param = {page:this.data.current_page+1,cate_id:this.data.cate_id};
     article.getList(param,(res) => {
-      if (res.data.length == 0) return this.setData({ show_loading: true });
+      if (res.data.length == 0) {
+        wx.stopPullDownRefresh();
+        return this.setData({ show_loading: true });
+      }
       if (res.current_page > 1) res.data = [...this.data.data,...res.data];
       this.setData(res);
       wx.stopPullDownRefresh();
@@ -119,7 +122,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.setData({ current_page:0,last_page:1});
-    this.getHomeInfo();
+    this.getBannerList();
     this.getArticleList();
   },
 
