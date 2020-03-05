@@ -10,3 +10,4 @@
 .browse_like>view{flex: 1;}
 .browse_like text{margin-left: 5px;}
 .article_image image{display: inline-block;width:23%;}
+.select_bg{background: #f6f6f6;}

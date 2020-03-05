@@ -56,7 +56,10 @@ Page({
         this.data.data.latitude = res.latitude
         this.data.data.longitude = res.longitude
         article.publish(this.data.data, (res) => {
-          wx.reLaunch({ url: '/pages/article/list/index' });
+          wx.showToast({title: '提交成功，等待审核'});
+          setTimeout((res)=>{
+            wx.reLaunch({ url: '/pages/article/list/index' });
+          },1)
         });
       }
     })

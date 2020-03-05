@@ -1,4 +1,4 @@
-<view class="gridItem {{lastColumn?'lastColumn':''}} {{isLast?'last':''}}" style='width:{{1/itemNum*100}}%;'>
+<view class="x-class gridItem {{lastColumn?'lastColumn':''}} {{isLast?'last':''}}" style='width:{{1/itemNum*100}}%;'>
   <view class="{{isColumn?'column':''}}">
     <view>
       <image wx:if='{{url}}' src='{{url}}'></image>

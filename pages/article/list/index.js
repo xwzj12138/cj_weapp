@@ -119,7 +119,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.setData({ current_page:0,last_page:1});
-    this.getHomeInfo();
+    this.getBannerList();
     this.getArticleList();
   },
 

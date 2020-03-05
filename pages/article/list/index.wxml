@@ -7,7 +7,7 @@
 <!-- 文章分类 -->
 <view style="background:#fff;margin-top:5px;">
   <x-grid-group itemNum='4'>
-    <x-grid-item wx:for='{{cate_list}}' wx:key='cate' url='{{item.image}}' title='{{item.cate_name}}' data-id='{{item.id}}' catchtap='select_cate'></x-grid-item>
+    <x-grid-item wx:for='{{cate_list}}' wx:key='cate' url='{{item.image}}' title='{{item.cate_name}}' data-id='{{item.id}}' catchtap='select_cate' x-class="{{cate_id==item.id?'select_bg':''}}"></x-grid-item>
   </x-grid-group>
 </view>
 <!-- 文章列表 -->

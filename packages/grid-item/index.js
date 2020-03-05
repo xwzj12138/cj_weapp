@@ -1,5 +1,6 @@
 // packages/grid-item/index.js
 Component({
+  externalClasses: ['x-class'],
   options: {multipleSlots: true},
   relations: {
     '../grid-group/index': {
