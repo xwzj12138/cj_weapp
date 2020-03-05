@@ -16,12 +16,7 @@ Page({
   onLoad: function (options) {
     //获取奖品信息
     pruze.participantDetail({id:options.id},(res)=>{
-      console.log(res)
-      let kd_info = [];
-      res.kd_info.forEach((e)=>{
-        kd_info.unshift(e);
-      });
-      res.kd_info = kd_info;
+      res.kd_info = res.kd_info.reverse();
       this.setData({ pruze_info:res});
     });
   }

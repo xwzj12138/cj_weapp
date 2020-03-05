@@ -81,7 +81,6 @@ Page({
       wx.requestPayment(res);
     });
   },
-
   /**
    * 进去评论页面
    */

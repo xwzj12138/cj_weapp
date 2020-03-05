@@ -32,7 +32,10 @@ Page({
     }
     let param = {page:this.data.current_page+1,cate_id:this.data.cate_id};
     article.getList(param,(res) => {
-      if (res.data.length == 0) return this.setData({ show_loading: true });
+      if (res.data.length == 0) {
+        wx.stopPullDownRefresh();
+        return this.setData({ show_loading: true });
+      }
       if (res.current_page > 1) res.data = [...this.data.data,...res.data];
       this.setData(res);
       wx.stopPullDownRefresh();
@@ -71,11 +74,11 @@ Page({
    * 浏览文章
    */
   browseArticle:function(index){
-    let article = this.data.data[index];
-    article.browse_num++;
-    let param = { id: article.id };
+    let article_data = this.data.data[index];
+    article_data.browse_num++;
+    let param = { id: article_data.id };
     article.browse(param, (res) => {
-      this.data.data[index] = article
+      this.data.data[index] = article_data
       this.setData(this.data)
     });
   },

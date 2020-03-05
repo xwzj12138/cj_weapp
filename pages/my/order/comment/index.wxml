@@ -14,7 +14,7 @@
   <view class="goods_title score" >商品评分：<x-rate value="{{item.product_score}}" name='product_score' data-index='{{index}}' bind:change="inputChange"></x-rate></view>
   <view class="goods_title score">物流评分：<x-rate value="{{item.express_score}}" name='express_score' data-index='{{index}}' bind:change="inputChange"></x-rate></view>
   <view></view>
-  <x-upload urlList='{{item.image_list}}' data-index='{{index}}' bindupload='upload' limit='5' uploadApi='https://test.xwzj88.cn/api/index/v1/upload?token={{token}}'></x-upload>
+  <x-upload urlList='{{item.image_list}}' data-index='{{index}}' bindupload='upload' limit='5' uploadApi='https://motui.xwzj88.cn/api/index/v1/upload?token={{token}}'></x-upload>
 </view>
 
 <x-button bind:click="submit" type="primary">提交</x-button>
