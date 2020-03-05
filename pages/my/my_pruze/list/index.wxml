@@ -22,6 +22,5 @@
     </view>
   </x-cell>
 </x-cell-group>
-<x-loading icon='' isShow="{{data.length==0}}" hint='没有数据哦！'></x-loading>
 <!-- 没有数据提示前往发布-->
 <x-blank-hint wx:if='{{data.length==0}}' button_url='/pages/publish/index/index' button_name='发起抽奖'></x-blank-hint>
