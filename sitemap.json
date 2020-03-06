@@ -1,7 +1,44 @@
 {
-  "desc": "关于本文件的更多信息，请参考文档 https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html",
-  "rules": [{
-  "action": "disallow",
-  "page": "pages/index/index/index"
-  }]
+  "rules": [
+    {"action": "allow","page": "pages/article/list/index"},
+    {"action": "allow","page": "pages/article/detail/index"},
+    {"action": "allow","page": "pages/index/index/index"},
+    {"action": "allow","page": "pages/index/detail/index"},
+    {"action": "allow","page": "pages/product/list/index"},
+    {"action": "allow","page": "pages/product/detail/index"},
+    {"action": "disallow","page": "pages/publish/index/index"},
+    {"action": "disallow","page": "pages/publish/article/index"},
+    {
+      "action": "disallow",
+      "page": "pages/my/address/detail/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/my/address/list/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/my/index/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/my/cooperation/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/my/participant/list/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/my/order/comment/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/my/order/detail/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/my/my_pruze/order_list/index"
+    }
+  ]
 }

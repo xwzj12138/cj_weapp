@@ -1,5 +1,5 @@
 <!-- 奖品列表 -->
-<x-card x-class='body' wx:for='{{data}}' wx:key='{{index}}' data-id='{{item.id}}' data-grade='{{item.grade}}' bindtap='goDetail'>
+<x-card x-class='body' wx:for='{{data}}' wx:key='pruze_list' data-id='{{item.id}}' data-grade='{{item.grade}}' bindtap='goDetail'>
   <view slot='image' class='head'>
     <image src='{{item.image}}' mode="widthFix" style="max-height:320px;"></image>
     <text class='tag' wx:if='{{item.brand_name!=null}}'>{{item.brand_name}}  赞助</text>
