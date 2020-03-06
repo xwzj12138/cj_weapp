@@ -45,6 +45,9 @@ Page({
       }
       res.fail = (result) => {
         wx.showToast({title: '支付失败',icon:'none'});
+        setTimeout((res) => {
+          wx.reLaunch({ url: '/pages/my/order/list/index' });
+        }, 1100);
       }
       wx.requestPayment(res);
     });

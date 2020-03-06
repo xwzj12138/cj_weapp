@@ -54,7 +54,7 @@ Page({
             wx.switchTab({
               url: '/pages/article/list/index',
             });
-          },1300);
+          },1100);
         });
       }
     })
