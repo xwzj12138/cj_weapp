@@ -26,9 +26,10 @@ Page({
    */
   handleClick:function(e){
     cooperation.add(this.data.form,(res)=>{
-      wx.navigateBack({
-        delta:1
-      })
+      wx.showToast({ title: '提交成功，工作人员会尽快联系您！' });
+      setTimeout((res) => {
+        wx.navigateBack({ delta: 1 })
+      }, 1500);
     })
   }
 })

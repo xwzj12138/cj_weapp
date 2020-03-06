@@ -55,7 +55,7 @@ Page({
    * 选择分类
    */
   select_cate:function(e){
-    if (e.currentTarget.dataset.id == this.data.cate_id) return ;
+    if (e.currentTarget.dataset.id == this.data.cate_id) e.currentTarget.dataset.id = '';
     this.setData({cate_id: e.currentTarget.dataset.id, current_page: 0,data: [],last_page: 1})
     this.getArticleList();
   },
@@ -107,7 +107,7 @@ Page({
         //记录浏览量
         this.browseArticle(e.currentTarget.dataset.index)
       }
-    })
+    });
   },
   /**
    * 联系用户

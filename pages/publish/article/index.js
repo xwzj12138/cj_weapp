@@ -33,17 +33,10 @@ Page({
    */
   upload:function(e){
     if (e.detail.click_type == 'del') {
-      this.data.data.pruze_detail.splice(e.detail.index, 1);
+      this.data.data.images.splice(e.detail.index, 1);
       return this.setData(this.data);
     }
     this.data.data.images.push(e.detail.uploadResult.data.longUrl)
-    this.setData(this.data)
-  },
-  /**
-   * 删除图片
-   */
-  delFile:function(e){
-    this.data.data.images.splice(e.detail.index,1)
     this.setData(this.data)
   },
   /**
@@ -58,8 +51,10 @@ Page({
         article.publish(this.data.data, (res) => {
           wx.showToast({title: '提交成功，等待审核'});
           setTimeout((res)=>{
-            wx.reLaunch({ url: '/pages/article/list/index' });
-          },1)
+            wx.switchTab({
+              url: '/pages/article/list/index',
+            });
+          },1300);
         });
       }
     })
