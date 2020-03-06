@@ -6,7 +6,7 @@ export default new class article extends auth {
   constructor() { super(); }
   // 获取文章列表
   getList(param, callback) {
-    this.request({ url: 'index/v1/article/getList', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+    this.http({ url: 'index/v1/article/getList', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
   //点赞
   like(param, callback) {
@@ -18,7 +18,7 @@ export default new class article extends auth {
   }
   //获取banner图列表
   getBanners(callback) {
-    this.request({ url: 'index/v1/article/getBanners', type: 'POST', data: {}, sCallBack: (res) => { callback(res); } })
+    this.http({ url: 'index/v1/article/getBanners', type: 'POST', data: {}, sCallBack: (res) => { callback(res); } })
   }
   //设置浏览量
   browse(param, callback) {

@@ -11,4 +11,7 @@ export class auth extends base {
       super.request(params);
     });
   }
+  http(params) {
+    super.request(params);
+  }
 }
