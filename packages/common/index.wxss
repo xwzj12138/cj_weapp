@@ -11,3 +11,7 @@ box-sizing: border-box;}
 .x-bg-white {background-color: #fff;}
 .x-color{color: #495060;}
 .x-line-between{height:16rpx;background:#F6F6F6;}
+.article_row1,.article_row2,.article_row3{display: -webkit-box;-webkit-box-orient: vertical;text-overflow:ellipsis;overflow: hidden;word-wrap: break-word;}
+.article_row1{-webkit-line-clamp:1;}
+.article_row2{-webkit-line-clamp:2;}
+.article_row3{-webkit-line-clamp:3;}

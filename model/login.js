@@ -32,7 +32,7 @@ export default new class login extends base {
           type: 'POST',
           data: { code: res.code, source: app.globalData.source, share_uid: app.globalData.share_uid},
           sCallBack: (result) => {
-            wx.setStorageSync('token', result)
+            wx.setStorageSync('token',result);
             callback && callback(result)
           }
         });

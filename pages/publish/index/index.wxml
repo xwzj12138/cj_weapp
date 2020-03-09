@@ -1,3 +1,9 @@
-<x-grid-group>
-  <x-grid-item wx:for='{{data}}' wx:key='publish_cat' url='{{item.image}}' title='{{item.cate_name}}' data-id='{{item.id}}' catchtap='goPublish'></x-grid-item>
+<x-grid-group wx:if='{{!userinfo.avatar && !userinfo.nickname}}'>
+  <x-grid-item wx:for='{{data}}' wx:key='publish_cat' img_url='{{item.image}}' title='{{item.cate_name}}' data-id='{{item.id}}'
+   bind:getuserinfo="updateUserInfo" openType='getUserInfo'></x-grid-item>
+</x-grid-group>
+
+<x-grid-group wx:else>
+   <x-grid-item wx:for='{{data}}' wx:key='publish_cat' img_url='{{item.image}}' title='{{item.cate_name}}' data-id='{{item.id}}'
+   bind:click="goPublish"></x-grid-item>
 </x-grid-group>
