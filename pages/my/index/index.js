@@ -22,6 +22,7 @@ Page({
    */
   onLoad: function (options) {
     this.getUserInfo();
+    wx.showShareMenu({ withShareTicket: true });
   },
   /**
    * 获取用户信息

@@ -44,5 +44,11 @@ Page({
     wx.makePhoneCall({
       phoneNumber: this.data.data.tel,
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

@@ -23,6 +23,7 @@ Page({
     if (options.source) this.data.buy_info.source = options.source
     this.setData(this.data);
     this.getDetail();
+    wx.showShareMenu({ withShareTicket: true });
   },
 
   /**

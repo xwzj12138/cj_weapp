@@ -16,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     this.getProductList();
+    wx.showShareMenu({ withShareTicket: true });
   },
   /**
    * 获取产品列表
