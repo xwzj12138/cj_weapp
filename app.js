@@ -8,7 +8,7 @@ App({
     if (e.query.share_uid) this.globalData.share_uid = e.query.share_uid;
     //获取登录
     login.getStorageSync((res)=>{
-      this.globalData.userInfo = {uid:res.uid};
+      this.globalData.userInfo = res;
     });
   },
   globalData: {

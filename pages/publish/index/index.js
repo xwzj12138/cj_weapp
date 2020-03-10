@@ -15,11 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let storeage = wx.getStorageSync('token');
-    this.setData({ userinfo:storeage})
     //获取分类列表
     article.getCateList({},(res)=>{
-      this.setData({data:res})
+      this.setData({ data: res, userinfo: getApp().globalData.userInfo})
     });
   },
   /**
