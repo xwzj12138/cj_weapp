@@ -12,7 +12,7 @@
 </view>
 <!-- 文章列表 -->
 <view wx:for='{{data}}' wx:key='article' class="article_body">
-  <x-cell wx:if='{{item.uid>0}}'>
+  <x-cell wx:if='{{item.uid>0}}' data-index='{{index}}' catchtap="goDetail">
     <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon'></x-avatar>
     <view class="nickname">{{item.nickname?item.nickname:''}}</view>
     <view class="article_cate">{{item.cate_name}}</view>
