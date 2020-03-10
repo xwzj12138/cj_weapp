@@ -101,9 +101,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    return { 
+    return {
       title: this.data.detail.product_name,
-      path: 'pages/product/detail/index?id=' + this.data.buy_info.product_id +'&source=2',
+      path: '/pages/product/detail/index?share_uid=' + getApp().globalData.userInfo.uid + '&id=' + this.data.buy_info.product_id,
       imageUrl: this.data.detail.image
     }
   }

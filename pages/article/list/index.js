@@ -137,6 +137,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '我刚刚抽中了几个,现在等级不够帮我助力一下',
+      path: '/pages/share/help/index?share_uid=' + getApp().globalData.userInfo.uid
+    }
   }
 })
