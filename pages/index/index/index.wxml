@@ -7,7 +7,7 @@
   <view class='title_info'>{{item.pruze_name}}</view>
   <view class='time_info'>
     <text>{{item.end_time}}</text><text>自动开奖</text><text>限{{item.grade}}级用户</text>
-    <text class='detail_buttom'>免费抽</text>
+    <text class='detail_buttom'>{{item.is_end?'活动已结束':'免费抽'}}</text>
   </view>
 </x-card>
 <x-loading icon='' isShow="{{show_loading}}" hint='暂时没有新的活动了！'></x-loading>

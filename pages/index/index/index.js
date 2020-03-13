@@ -50,8 +50,14 @@ Page({
     }
     let param = { page: this.data.current_page+1}
     pruze.getList(param,(res) => {
+      let now_time = (new Date()).getTime();
+      res.data.forEach((e,index)=>{
+        res.data[index].is_end = Date.parse(e.end_time)<now_time;
+      });
+      if(res.current_page>1){
+        res.data = [...this.data.data,...res.data];
+      }
       res.show_loading = res.data.length == 0 ? true : false;
-      res.data = this.data.data.concat(res.data)
       this.setData(res)
       wx.stopPullDownRefresh()
     })
