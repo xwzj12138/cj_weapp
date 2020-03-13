@@ -12,11 +12,11 @@
 </view>
 <!-- 文章列表 -->
 <view wx:for='{{data}}' wx:key='article' class="article_body">
-  <x-cell wx:if='{{item.uid>0}}' data-index='{{index}}' catchtap="goDetail">
-    <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon'></x-avatar>
-    <view class="nickname">{{item.nickname?item.nickname:''}}</view>
-    <view class="article_cate">{{item.cate_name}}</view>
-    <view class="article_cate" wx:if='{{item.top_time>0}}'>顶置</view>
+  <x-cell wx:if='{{item.uid>0}}'>
+    <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon' data-index='{{index}}' catchtap="goDetail"></x-avatar>
+    <view class="nickname" data-index='{{index}}' catchtap="goDetail">{{item.nickname?item.nickname:''}}</view>
+    <view class="article_cate" data-index='{{index}}' catchtap="goDetail">{{item.cate_name}}</view>
+    <view class="article_cate" wx:if='{{item.top_time>0}}' data-index='{{index}}' catchtap="goDetail">顶置</view>
     <x-button wx:if="{{item.tel}}" slot='footer' inline size='66' type='info' data-index="{{index}}" bind:click="contact">联系他</x-button>
   </x-cell>
   <view class="article">
