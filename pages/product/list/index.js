@@ -6,6 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    banner_list:[],
+    cat_list:[],
+    cate_id:0,
     current_page: 0,
     data: [],
     last_page: 1
@@ -15,9 +18,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getHomeInf();
     this.getProductList();
     wx.showShareMenu({ withShareTicket: true });
   },
+
+  /**
+   * 获取banner图及商品分类列表
+   */
+  getHomeInf:function(){
+    product.getHomeInfo((res) => {
+      this.setData(res)
+    });
+  },
+
   /**
    * 获取产品列表
    */
@@ -26,9 +40,11 @@ Page({
       wx.stopPullDownRefresh();
       return this.setData({ show_loading: true });
     }
-    let param = { page: this.data.current_page + 1 };
+    let param = { page: this.data.current_page + 1, cate_id: this.data.cate_id};
     product.getList(param,(res)=>{
-      res.data = this.data.data.concat(res.data);
+      if(res.current_page>1){
+        res.data = [...this.data.data, ...res.data];
+      }
       this.setData(res)
       wx.stopPullDownRefresh();
     });
@@ -44,10 +60,26 @@ Page({
   },
 
   /**
+   * 进入banner详情页
+   */
+  goBannerDetail: function (e) {
+    wx.navigateTo({ url: e.currentTarget.dataset.detail_url });
+  },
+
+  /**
+   * 选择分类事件
+   */
+  tabSelect(e){
+    this.setData({ cate_id: e.detail.data.id, current_page: 0,last_page: 1});
+    this.getProductList();
+  },
+
+  /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({current_page: 0,data: [],last_page: 1});
+    this.setData({current_page: 0,last_page: 1});
+    this.getHomeInf();
     this.getProductList();
   },
 
@@ -55,7 +87,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getProductList();
   },
 
   /**

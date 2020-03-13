@@ -5,6 +5,10 @@ export default new class product extends auth {
     super();
   }
   //获取产品列表
+  getHomeInfo(callback) {
+    this.request({ url: 'index/v1/product/homeInfo', type: 'POST', data: {}, sCallBack: (res) => { callback(res); } });
+  }
+  //获取产品列表
   getList(param, callback) {
     this.request({ url: 'index/v1/product/search', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
