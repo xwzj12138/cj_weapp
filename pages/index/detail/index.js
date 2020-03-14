@@ -101,8 +101,9 @@ Page({
       return wx.showToast({ title: '请添加收货地址', icon: 'none' })
     }
     pruze.setPruzeAdress({ pruze_id: this.data.pruze_info.id, address_id: this.data.pruze_info.default_address.id }, (res) => {
-      getApp().globalData.is_refresh = true;
-      wx.navigateBack({});
+      this.data.pruze_info.status = 4;
+      this.setData({ pruze_info:this.data.pruze_info})
+      wx.showToast({title: '提交成功'});
     });
   },
   /**
