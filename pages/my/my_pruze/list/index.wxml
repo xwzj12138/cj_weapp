@@ -13,7 +13,7 @@
         <text>奖品数：</text>
         <text>{{item.pruze_num}}</text>
         <text>参与数：</text>
-        <text>{{item.pruze_num}}</text>
+        <text>{{item.participant_num}}</text>
       </view>
       <view class='time_info'>
         <text>状态</text>
