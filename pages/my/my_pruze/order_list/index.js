@@ -78,7 +78,7 @@ Page({
    */
   inputChange: function (e) {
     this.data.form.express_number = e.detail.value;
-    this.setData(this.data)
+    this.setData(this.data);
   },
   /**
    * 选择快递公司
@@ -97,8 +97,14 @@ Page({
     pruze.setTrackingNum(this.data.form, (res) => {
       this.data.data[this.data.select_index].status = 5;
       this.data.show_drawer = false;
-      this.setData(this.data)
+      this.setData(this.data);
       wx.showToast({ title: '设置成功' });
+      //返回上一个页面时设置刷新处理
+      let is_refresh = true;
+      this.data.data.forEach((e)=>{
+        if (e.status == 4) is_refresh = false;
+      });
+      getApp().globalData.is_refresh = is_refresh;
     });
   },
   /**

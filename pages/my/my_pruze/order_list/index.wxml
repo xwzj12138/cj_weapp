@@ -1,5 +1,5 @@
 <x-cell-group>
-  <x-cell wx:for='{{data}}' wx:key='{{item.id}}'>
+  <x-cell wx:for='{{data}}' wx:key='pruze_order'>
     <view data-index='{{index}}' bindtap='showDrawer'>
       <view class='userinfo'>
         <text>{{item.consignee_name}}</text><text>{{item.consignee_tel}}</text>
