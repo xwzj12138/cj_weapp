@@ -18,7 +18,7 @@ color: #fff;padding: 4px 8px;
 .brand_info text:nth-child(2){border-right: 1px solid #666;margin: 0 4px 0 8px;font-size: 10px;}
 .brand_qrcode{display: flex;margin: 10px;align-items: center;font-size: 11px;box-shadow: #666 0 0 4px;padding: 5px 8px;border-radius: 5px;background: #fff;color: #666;}
 .brand_qrcode>view:first-child{flex: 1;}
-.brand_name{font-size: 17px;font-weight: 600;margin-bottom: 15px;color: #000;}
+.brand_name{font-size: 17px;font-weight: 600;margin-bottom: 6px;color: #000;}
 .brand_qrcode image{width: 100px;height: 100px;}
 .display_flex{display: flex;}
 .box{justify-content: space-between;}
