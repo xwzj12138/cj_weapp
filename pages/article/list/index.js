@@ -138,8 +138,8 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '我刚刚抽中了几个,现在等级不够帮我助力一下',
-      path: '/pages/share/help/index?share_uid=' + getApp().globalData.userInfo.uid
+      title: '信息免费发布平台自媒体推广助手',
+      path: '/pages/article/list/index?share_uid=' + getApp().globalData.userInfo.uid
     }
   }
 })
