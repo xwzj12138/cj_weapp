@@ -67,5 +67,15 @@ Page({
    */
   onReachBottom: function () {
     this.getArticleList();
+  },
+  /**
+   * 删除文章
+   */
+  deleteArticle(e){
+    let param = { id: this.data.data[e.currentTarget.dataset.index].id};
+    article.del(param,(res)=>{
+      this.data.data.splice(e.currentTarget.dataset.index,1);
+      this.setData({ data:this.data.data});
+    });
   }
 })

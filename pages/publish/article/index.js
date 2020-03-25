@@ -44,6 +44,7 @@ Page({
    */
   handleClick:function(){
     if (this.data.data.title == '') return wx.showToast({ title: '请输入标题', icon: 'none' });
+    if (this.data.data.tel.length > 15) return wx.showToast({ title: '手机号错误', icon: 'none' });
     wx.getLocation({
       success: (res)=> {
         this.data.data.latitude = res.latitude
@@ -56,6 +57,9 @@ Page({
             });
           },1100);
         });
+      },
+      fail:(err)=>{
+        wx.openSetting();
       }
     })
   }

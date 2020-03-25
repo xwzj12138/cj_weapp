@@ -1,6 +1,6 @@
 <!-- 文章列表 -->
-<view wx:for='{{data}}' wx:key='article' class="article_body" data-index='{{index}}' catchtap="goDetail">
-  <view class="article">
+<view wx:for='{{data}}' wx:key='article' class="article_body">
+  <view class="article" data-index='{{index}}' catchtap="goDetail">
     <view><text>{{item.title}}</text></view>
     <view class="article_image">
       <image wx:for='{{item.images}}' wx:for-item='value' wx:for-index='i' wx:key='article_image' src="{{value}}" lazy-load wx:if='{{i<4}}' mode="widthFix"></image>
@@ -15,6 +15,7 @@
      <text style="background-color:#666;" wx:if='{{item.status<2}}'>{{item.status==0?'待审核':'审核不通过'}}</text>
       <text wx:else data-id="{{item.id}}" data-index="{{index}}" catchtap="topArticle">{{item.top_time==0?'1元顶置':'重新顶置'}}</text>
     </view>
+    <view data-index='{{index}}' catchtap="deleteArticle"><x-icon name='deletefill' color='#f60' size='40'></x-icon></view>
   </view>
 </view>
 <!-- 没有数据提示前往发布-->
