@@ -59,7 +59,11 @@ Page({
         });
       },
       fail:(err)=>{
-        wx.openSetting();
+        wx.openSetting({
+          fail:(set_err)=>{
+            wx.showToast({ title: '请在系统设置中打开定位功能', icon: 'none' });
+          }
+        });
       }
     })
   }
