@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userinfo:{},
+    userinfo: { nickname: '', avatar:''},
     data:[]
   },
 
@@ -38,7 +38,7 @@ Page({
     user.updateUserInfo(param, (res) => {
       this.data.userinfo.nickname = param.nickname
       this.data.userinfo.avatar = param.avatar;
-      this.setData(this.data);
+      this.setData(this.data)
       wx.setStorage({key: 'token', data: this.data.userinfo});
       this.goPublish(e);
     })

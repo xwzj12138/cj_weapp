@@ -45,11 +45,13 @@ Page({
   handleClick:function(){
     if (this.data.data.title == '') return wx.showToast({ title: '请输入标题', icon: 'none' });
     if (this.data.data.tel.length > 15) return wx.showToast({ title: '手机号错误', icon: 'none' });
+    wx.showLoading({title: '提交中', mask:true});
     wx.getLocation({
       success: (res)=> {
         this.data.data.latitude = res.latitude
         this.data.data.longitude = res.longitude
         article.publish(this.data.data, (res) => {
+          wx.hideLoading();
           wx.showToast({title: '提交成功，等待审核'});
           setTimeout((res)=>{
             wx.switchTab({
@@ -59,6 +61,7 @@ Page({
         });
       },
       fail:(err)=>{
+        wx.hideLoading();
         wx.openSetting({
           fail:(set_err)=>{
             wx.showToast({ title: '请在系统设置中打开定位功能', icon: 'none' });
