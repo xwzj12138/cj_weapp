@@ -30,17 +30,17 @@ module.exports = Behavior({
 
       this.triggerEvent('click');
     },
-    bindgetuserinfo({ detail = {} } = {}) {
-      this.triggerEvent('getuserinfo', detail);
+    bindgetuserinfo(e) {
+      this.triggerEvent('getuserinfo', e.detail);
     },
-    bindcontact({ detail = {} } = {}) {
-      this.triggerEvent('contact', detail);
+    bindcontact(e) {
+      this.triggerEvent('contact', e.detail);
     },
-    bindgetphonenumber({ detail = {} } = {}) {
-      this.triggerEvent('getphonenumber', detail);
+    bindgetphonenumber(e) {
+      this.triggerEvent('getphonenumber', e.detail);
     },
-    binderror({ detail = {} } = {}) {
-      this.triggerEvent('error', detail);
+    binderror(e) {
+      this.triggerEvent('error', e.detail);
     }
   }
 });
