@@ -35,7 +35,9 @@ Page({
    */
   updateUserInfo:function(e){
     let param = { nickname: e.detail.userInfo.nickName, avatar: e.detail.userInfo.avatarUrl, gender: e.detail.userInfo.gender };
+    wx.showLoading({ title: '提交中', mask: true });
     user.updateUserInfo(param, (res) => {
+      wx.hideLoading();
       this.data.userinfo.nickname = param.nickname
       this.data.userinfo.avatar = param.avatar;
       this.setData(this.data)
