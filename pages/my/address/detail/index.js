@@ -38,6 +38,12 @@ Page({
    * 提交数据
    */
   handleClick: function (e) {
+    if (this.data.form.consignee_name == '') return wx.showToast({ title: '请输入收货人名称', icon: 'none' });
+    if (this.data.form.consignee_name.length > 30) return wx.showToast({ title: '收货人名称不能超过30字符', icon: 'none' });
+    if (this.data.form.consignee_tel=='') return wx.showToast({ title: '请输入收件人电话', icon: 'none' });
+    if (this.data.form.consignee_tel.length > 15) return wx.showToast({ title: '收件人电话错误', icon: 'none' });
+    if (this.data.form.province == ''|| this.data.form.city == ''||this.data.form.county == '') return wx.showToast({ title: '请选择省市区', icon: 'none' });
+    if (this.data.form.address=='') return wx.showToast({ title: '请输入详细地址', icon: 'none' });
     if(this.data.form.id){
       return userAddress.update(this.data.form, (res) => {
         getApp().globalData.is_refresh = true;
@@ -62,8 +68,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options){
-      this.setData({form:options})
+    if(options.id){
+      this.setData({ form:options});
     }
   }
 })

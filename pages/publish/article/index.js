@@ -44,6 +44,7 @@ Page({
    */
   handleClick:function(){
     if (this.data.data.title == '') return wx.showToast({ title: '请输入标题', icon: 'none' });
+    if (this.data.data.title.length>255) return wx.showToast({ title: '标题不能超过255字符', icon: 'none' });
     if (this.data.data.tel.length > 15) return wx.showToast({ title: '手机号错误', icon: 'none' });
     wx.showLoading({title: '提交中', mask:true});
     wx.getLocation({
