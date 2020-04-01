@@ -40,9 +40,7 @@ Page({
     wx.showLoading({ title: '提交中', mask: true });
     user.updateUserInfo(param, (res) => {
       wx.hideLoading();
-      this.data.userinfo.nickname = param.nickname
-      this.data.userinfo.avatar = param.avatar;
-      this.setData(this.data)
+      this.setData({ userinfo:param})
       wx.setStorage({key: 'token', data: this.data.userinfo});
       this.goPublish(e);
     })
