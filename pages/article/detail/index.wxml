@@ -8,6 +8,8 @@
   </x-cell>
   <!-- 文章内容 -->
   <view class="article_content"><text selectable>{{data.title}}</text></view>
+  <!-- 任务详情 -->
+  <view wx:if='{{data.task_detail}}' class="article_content"><text selectable>{{data.task_detail.task_content}}</text></view>
   <view class="article_image">
     <image wx:for='{{data.images}}' wx:key='article_image' src="{{item}}" data-src="{{item}}" catchtap="showImage" mode="widthFix"></image>
   </view>
@@ -17,3 +19,8 @@
     <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeArticle"></x-icon><text>{{data.like_num}}</text></view>
   </view>
 </view>
+<!-- 接收任务按钮 -->
+<x-tabbar wx:if='{{data.task_detail}}'>
+  <x-tabbar-flex-item title="{{'剩余任务数：'+data.task_detail.task_num}}"></x-tabbar-flex-item>
+  <x-tabbar-item  x-class='bg1' title='申请任务' width='250'></x-tabbar-item>
+</x-tabbar>

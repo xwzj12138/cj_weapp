@@ -13,12 +13,15 @@ Component({
       type: String,
       value: ''
     },
-    icon:{
-      type:String
+    icon: {
+      type: String
     },
-    iconSize:{
-      type:Number,
-      value:46
+    iconSize: {
+      type: Number,
+      value: 46
+    },
+    open_type: {
+      type: String
     }
   },
 

@@ -1,6 +1,6 @@
 // packages/goods-action/index.js
 Component({
-  externalClasses:['x-class'],
+  externalClasses: ['x-class'],
   /**
    * 组件的属性列表
    */

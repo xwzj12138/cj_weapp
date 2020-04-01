@@ -3,6 +3,9 @@
     "x-cell": "/packages/cell/index",
     "x-avatar": "/packages/avatar/index",
     "x-button": "/packages/button/index",
-    "x-icon": "/packages/icon/index"
+    "x-icon": "/packages/icon/index",
+    "x-tabbar": "/packages/tabbar/index",
+    "x-tabbar-item": "/packages/tabbar-item/index",
+    "x-tabbar-flex-item": "/packages/tabbar-flex-item/index"
   }
 }

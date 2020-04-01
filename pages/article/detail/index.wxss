@@ -8,3 +8,4 @@
 .article_content{padding: 0 30rpx;font-size: 13px;}
 .article_image{padding:5px 5px;}
 .article_image image{display: inline-block;margin-right: 5px;width:23%;}
+.bg1{height:90rpx !important;background:#FFD04A;border-radius:90rpx;font-size:28rpx;color:#000;margin-right: 10px;}
