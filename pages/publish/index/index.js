@@ -17,7 +17,9 @@ Page({
   onLoad: function (options) {
     //获取分类列表
     article.getCateList({},(res)=>{
-      this.setData({ data: res, userinfo: getApp().globalData.userInfo})
+      let param = { data: re};
+      if (getApp().globalData.userInfo) param.userinfo = getApp().globalData.userInfo;
+      this.setData(param);
     });
   },
   /**
