@@ -9,7 +9,7 @@ Page({
   data: {
     formData:{token:''},
     upload_api: '',
-    data: { cate_id: 0, images: [], title: '', tel: '', latitude: 0, longitude:0}
+    data: { cate_id: 0, images: [], title: '', tel: '', latitude: 0, longitude: 0, task_content: '', total_task_num: 1, every_task_price:1}
   },
 
   /**
@@ -46,6 +46,13 @@ Page({
     if (this.data.data.title == '') return wx.showToast({ title: '请输入标题', icon: 'none' });
     if (this.data.data.title.length>255) return wx.showToast({ title: '标题不能超过255字符', icon: 'none' });
     if (this.data.data.tel.length > 15) return wx.showToast({ title: '手机号错误', icon: 'none' });
+    if(this.data.data.cate_id==7){
+      if (this.data.data.task_content == '') return wx.showToast({ title: '请输入任务内容', icon: 'none' });
+      if (this.data.data.task_content.length > 255) return wx.showToast({ title: '任务内容不能超过255字符', icon: 'none' });
+      if (this.data.data.total_task_num < 1 || this.data.data.total_task_num > 65535) return wx.showToast({ title: '任务数只能在1~65535之间', icon: 'none' });
+      if (this.data.data.every_task_price > 0) return wx.showToast({ title: '任务单价必须大于0', icon: 'none' });
+    }
+    
     wx.showLoading({title: '提交中', mask:true});
     wx.getLocation({
       success: (res)=> {
