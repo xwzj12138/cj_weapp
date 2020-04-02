@@ -1,5 +1,6 @@
 // pages/my/my_article/list/index.js
 import article from '../../../../model/article.js'
+import pay from '../../../../model/pay.js'
 Page({
 
   /**
@@ -44,8 +45,10 @@ Page({
    * 顶置文章
    */
   topArticle: function (e) {
+    wx.showLoading({ title: '提交中', mask: true });
     let param = { id: e.currentTarget.dataset.id };
     article.top(param, (res) => {
+      wx.hideLoading();
       res.success = (result) => {
         let article = this.data.data[e.currentTarget.dataset.index];
         article.top_time = Date.parse(new Date());
@@ -57,6 +60,8 @@ Page({
         wx.showToast({ title: '顶置成功' });
       }
       res.fail = (result) => {
+        let param = { id: res.pay_id };
+        pay.cancel(param);
         wx.showToast({ title: '支付失败', icon: 'none' });
       }
       wx.requestPayment(res);

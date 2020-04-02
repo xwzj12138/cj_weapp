@@ -1,6 +1,7 @@
 // pages/publish/article/index.js
 import { config } from '../../../utils/config.js'
-import article from '../../../model/article.js'
+import article from '../../../model/article.js';
+import pay from '../../../model/pay.js';
 Page({
 
   /**
@@ -47,36 +48,76 @@ Page({
     if (this.data.data.title.length>255) return wx.showToast({ title: '标题不能超过255字符', icon: 'none' });
     if (this.data.data.tel.length > 15) return wx.showToast({ title: '手机号错误', icon: 'none' });
     if(this.data.data.cate_id==7){
-      console.log(this.data.data)
       if (this.data.data.task_content == '') return wx.showToast({ title: '请输入任务内容', icon: 'none' });
       if (this.data.data.task_content.length > 255) return wx.showToast({ title: '任务内容不能超过255字符', icon: 'none' });
       if (this.data.data.total_task_num < 1 || this.data.data.total_task_num > 65535) return wx.showToast({ title: '任务数只能在1~65535之间', icon: 'none' });
       if (this.data.data.every_task_price <= 0) return wx.showToast({ title: '任务单价必须大于0', icon: 'none' });
+      //发布任务时提示用户需要支付金额
+      wx.showModal({
+        title: '提示',
+        content: '发布任务大厅需要支付相关任务金额,是否确认发布',
+        success:(res)=> {
+          if (res.confirm) {
+            this.submit();
+          }
+        }
+      })
+    } else {
+      this.submit();
     }
     
-    wx.showLoading({title: '提交中', mask:true});
+  },
+  /**
+   * 提交
+   */
+  submit:function(){
+    wx.showLoading({ title: '提交中', mask: true });
     wx.getLocation({
-      success: (res)=> {
+      success: (res) => {
         this.data.data.latitude = res.latitude
         this.data.data.longitude = res.longitude
         article.publish(this.data.data, (res) => {
-          wx.hideLoading();
-          wx.showToast({title: '提交成功，等待审核'});
-          setTimeout((res)=>{
-            wx.switchTab({
-              url: '/pages/article/list/index',
-            });
-          },1100);
+          if(this.data.data.cate_id==7){
+            this.wechatPay(res);
+          }else{
+            this.submitAfter();
+          }
         });
       },
-      fail:(err)=>{
+      fail: (err) => {
         wx.hideLoading();
         wx.openSetting({
-          fail:(set_err)=>{
+          fail: (set_err) => {
             wx.showToast({ title: '请在系统设置中打开定位功能', icon: 'none' });
           }
         });
       }
     })
+  },
+  /**
+   * 发起支付
+   */
+  wechatPay:function(pay_info){
+    pay_info.success = (result)=>{
+      this.submitAfter();
+    }
+    pay_info.fail = (err) => {
+      let param = { id: pay_info.pay_id };
+      pay.cancel(param);
+      wx.showToast({ title: '支付失败', icon: 'none' });
+    }
+    wx.requestPayment(pay_info);
+  },
+  /**
+   * 提交后跳转页面
+   */
+  submitAfter:function(){
+    wx.hideLoading();
+    wx.showToast({ title: '提交成功，等待审核' });
+    setTimeout((res) => {
+      wx.switchTab({
+        url: '/pages/article/list/index',
+      });
+    }, 1100);
   }
 })
