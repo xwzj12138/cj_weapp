@@ -104,7 +104,7 @@ Page({
     pay_info.fail = (err) => {
       let param = { id: pay_info.pay_id };
       pay.cancel(param);
-      wx.showToast({ title: '支付失败', icon: 'none' });
+      wx.reLaunch({ url: '/pages/my/my_article/list/index'});
     }
     wx.requestPayment(pay_info);
   },

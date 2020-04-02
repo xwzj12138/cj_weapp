@@ -12,7 +12,8 @@
     <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
     <view><x-icon name='appreciate' color='#666' size='40'></x-icon><text>{{item.like_num}}</text></view>
     <view class="top_view">
-     <text style="background-color:#666;" wx:if='{{item.status<2}}'>{{item.status==0?'待审核':'审核不通过'}}</text>
+      <text wx:if='{{item.status==0}}' data-id="{{item.id}}" data-index="{{index}}" catchtap="payTaskMoney">支付任务金额</text>
+      <text wx:elif='{{item.status<3}}' style="background-color:#666;" >{{item.status==1?'待审核':'审核不通过'}}</text>
       <text wx:else data-id="{{item.id}}" data-index="{{index}}" catchtap="topArticle">{{item.top_time==0?'1元顶置':'重新顶置'}}</text>
     </view>
     <view data-index='{{index}}' catchtap="deleteArticle"><x-icon name='deletefill' color='#f60' size='40'></x-icon></view>

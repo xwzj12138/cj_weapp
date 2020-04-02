@@ -40,6 +40,10 @@ export default new class article extends auth {
   top(param, callback) {
     this.request({ url: 'index/v1/article/top', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
+  //支付任务金额
+  payTaskMoney(param, callback) {
+    this.request({ url: 'index/v1/article/pay_task_money', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
   //删除文章
   del(param, callback) {
     this.request({ url: 'index/v1/article/delete', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })

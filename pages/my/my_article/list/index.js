@@ -42,6 +42,26 @@ Page({
     })
   },
   /**
+   * 支付任务金额
+   */
+  payTaskMoney:function(e){
+    wx.showLoading({ title: '提交中', mask: true });
+    let param = { id: e.currentTarget.dataset.id };
+    article.payTaskMoney(param, (res) => {
+      wx.hideLoading();
+      res.success = (result) => {
+        this.data.data[e.currentTarget.dataset.index].status = 1;
+        this.setData(this.data)
+      }
+      res.fail = (result) => {
+        let param = { id: res.pay_id };
+        pay.cancel(param);
+        wx.showToast({ title: '支付失败', icon: 'none' });
+      }
+      wx.requestPayment(res);
+    });
+  },
+  /**
    * 顶置文章
    */
   topArticle: function (e) {
