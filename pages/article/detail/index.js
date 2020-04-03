@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    apply_list: {current_page: 0,data: [],last_page: 1},
     data:null
   },
 
@@ -15,6 +16,9 @@ Page({
   onLoad: function (options) {
     article.detail({ id: options.id }, (res) => {
       this.setData({ data: res });
+      if (res.cate_id==7){
+        this.apply_list();
+      }
     });
   },
   /**
@@ -44,6 +48,37 @@ Page({
     wx.makePhoneCall({
       phoneNumber: this.data.data.tel,
     })
+  },
+  /**
+   * 领取任务
+   */
+  getTask: function (e) {
+    let param = { id: this.data.data.id };
+    article.getTask(param, (res) => {
+      this.data.data.task_detail.is_get_task = true;
+      this.setData(this.data);
+      wx.showToast({ title: '成功' });
+    });
+  },
+  /**
+   * 申请列表
+   */
+  apply_list:function(){
+    if (this.data.apply_list.current_page >= this.data.apply_list.last_page) {
+      return wx.stopPullDownRefresh()
+    }
+    let param = { id: this.data.data.id, page: this.data.apply_list.current_page + 1};
+    article.applyList(param, (res) => {
+      if (res.current_page > 1) res.data = [...this.data.apply_list.data, ...res.data];
+      this.setData({ apply_list: res});
+      wx.stopPullDownRefresh();
+    });
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.apply_list();
   },
   /**
    * 用户点击右上角分享

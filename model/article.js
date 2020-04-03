@@ -44,6 +44,18 @@ export default new class article extends auth {
   payTaskMoney(param, callback) {
     this.request({ url: 'index/v1/article/pay_task_money', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
+  //领取任务
+  getTask(param, callback) {
+    this.request({ url: 'index/v1/article/getTask', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
+  //提交任务截图
+  submitTaskScreenshot(param, callback) {
+    this.request({ url: 'index/v1/article/submitTaskScreenshot', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
+  //任务申请列表
+  applyList(param, callback) {
+    this.request({ url: 'index/v1/article/apply_list', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
   //删除文章
   del(param, callback) {
     this.request({ url: 'index/v1/article/delete', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })

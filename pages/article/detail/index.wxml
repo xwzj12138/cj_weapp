@@ -19,8 +19,17 @@
     <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeArticle"></x-icon><text>{{data.like_num}}</text></view>
   </view>
 </view>
+<view style="padding:4px 7px;font-size:12px;">参与列表</view>
+<!-- 参与列表 -->
+<x-cell wx:for='{{apply_list.data}}' wx:key='task_apply'>
+  <x-avatar shape='square' size='35' src='{{item.avatar}}' slot='icon'></x-avatar>
+  <view class="nickname">{{item.nickname?item.nickname:''}}</view>
+</x-cell>
 <!-- 接收任务按钮 -->
-<x-tabbar wx:if='{{data.task_detail}}'>
+<x-tabbar wx:if='{{data.task_detail}}' isLastCell='{{false}}'>
   <x-tabbar-flex-item title="{{'剩余任务数：'+data.task_detail.task_num}}"></x-tabbar-flex-item>
-  <x-tabbar-item  x-class='bg1' title='申请任务' width='250'></x-tabbar-item>
+  <block wx:if='{{data.task_detail.current_user==false}}'>
+    <x-tabbar-item wx:if='{{data.task_detail.is_get_task==false}}' x-class='bg1' title='申请任务' width='250' catchtap='getTask'></x-tabbar-item>
+    <x-tabbar-item wx:else  x-class='bg1' title='提交截图完成任务' width='280'></x-tabbar-item>
+  </block>
 </x-tabbar>
