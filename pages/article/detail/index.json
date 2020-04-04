@@ -6,6 +6,8 @@
     "x-icon": "/packages/icon/index",
     "x-tabbar": "/packages/tabbar/index",
     "x-tabbar-item": "/packages/tabbar-item/index",
-    "x-tabbar-flex-item": "/packages/tabbar-flex-item/index"
+    "x-tabbar-flex-item": "/packages/tabbar-flex-item/index",
+    "x-upload": "/packages/upload/index",
+    "x-drawer": "/packages/drawer/index"
   }
 }

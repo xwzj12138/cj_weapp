@@ -1,11 +1,16 @@
 // pages/article/detail/index.js
 import article from '../../../model/article.js';
+import {config} from '../../../utils/config.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    show_submit:false,
+    upload_api:'',
+    submit_images:[],
+    upload_formData: { token: ''},
     apply_list: {current_page: 0,data: [],last_page: 1},
     data:null
   },
@@ -14,12 +19,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.upload_formData.token = wx.getStorageSync('token').token;
+    this.data.upload_api = config.restUrl + 'index/v1/upload';
     article.detail({ id: options.id }, (res) => {
       this.setData({ data: res });
       if (res.cate_id==7){
         this.apply_list();
       }
     });
+    this.setData(this.data)
   },
   /**
    * 点赞文章
@@ -72,6 +80,34 @@ Page({
       if (res.current_page > 1) res.data = [...this.data.apply_list.data, ...res.data];
       this.setData({ apply_list: res});
       wx.stopPullDownRefresh();
+    });
+  },
+  /**
+   * 显示或隐藏提交截图页面
+   */
+  showSubmit:function(){
+    this.setData({ show_submit:!this.data.show_submit});
+  },
+  /**
+   * 上传截图
+   */
+  upload:function(e){
+    if (e.detail.click_type == 'del') {
+      this.data.submit_images.splice(e.detail.index, 1);
+      return this.setData({ submit_images: this.data.submit_images });
+    }
+    this.data.submit_images.push(e.detail.uploadResult.data.longUrl);
+    this.setData({ submit_images: this.data.submit_images});
+  },
+  /**
+   * 提交或取消提交
+   */
+  submitImage:function(e){
+    if (this.data.submit_images.length == 0) return wx.showToast({ title: '至少上传一张截图', icon: 'none' }); 
+    let param = { id: this.data.data.id,task_evidences:this.data.submit_images}
+    article.submitTaskScreenshot(param,(res)=>{
+      this.data.data.task_detail.get_task_status = 2;
+      this.setData({ show_submit: false, data:this.data.data});
     });
   },
   /**

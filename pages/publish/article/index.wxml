@@ -2,12 +2,10 @@
 <x-input type='textarea' name='title' placeholder='请输入标题' bind:change='inputChange' maxlength='255'></x-input>
 <!-- 手机号 -->
 <x-input title='联系方式:' name='tel' type="number" placeholder='请输入联系方式' bind:change='inputChange'></x-input>
-<!-- 任务内容 -->
-<x-input name='task_content' type='textarea' placeholder='请输入任务内容' bind:change='inputChange' wx:if='{{data.cate_id==7}}' maxlength='255'></x-input>
 <!-- 任务数 -->
 <x-input title='任务数:' name='total_task_num' type="number" value="{{data.total_task_num}}" placeholder='请输入任务数' bind:change='inputChange' wx:if='{{data.cate_id==7}}'></x-input>
 <!-- 任务单价 -->
-<x-input title='任务单价:' name='every_task_price' type="digit" value="{{data.every_task_price}}" placeholder='请输入任务单价' bind:change='inputChange' wx:if='{{data.cate_id==7}}'></x-input>
+<x-input title='任务单价（元）:' name='every_task_price' type="digit" value="{{data.every_task_price}}" placeholder='请输入任务单价' bind:change='inputChange' wx:if='{{data.cate_id==7}}'></x-input>
 <!-- 图片列表 -->
 <x-upload urlList='{{data.images}}' bindupload='upload' limit='8' uploadApi='{{upload_api}}' formData='{{formData}}'></x-upload>
 

@@ -9,3 +9,8 @@
 .article_image{padding:5px 5px;}
 .article_image image{display: inline-block;margin-right: 5px;width:23%;}
 .bg1{height:90rpx !important;background:#FFD04A;border-radius:90rpx;font-size:28rpx;color:#000;margin-right: 10px;}
+.apply_info{padding:4px 7px;font-size:12px;}
+.apply_info>text:last-child{color: #666;margin-left: 5px;}
+.drawer_body{width: 690rpx;height: 820rpx;padding: 10rpx;position: relative;}
+.submitBody{position: absolute;bottom: 10rpx;width: 100%;display: flex;}
+.submitBody>view{flex: 1;}

@@ -10,7 +10,7 @@ Page({
   data: {
     formData:{token:''},
     upload_api: '',
-    data: { cate_id: 0, images: [], title: '', tel: '', latitude: 0, longitude: 0, task_content: '', total_task_num: 1, every_task_price:1}
+    data: { cate_id: 0, images: [], title: '', tel: '', latitude: 0, longitude: 0,  total_task_num: 1, every_task_price:1}
   },
 
   /**
@@ -48,14 +48,13 @@ Page({
     if (this.data.data.title.length>255) return wx.showToast({ title: '标题不能超过255字符', icon: 'none' });
     if (this.data.data.tel.length > 15) return wx.showToast({ title: '手机号错误', icon: 'none' });
     if(this.data.data.cate_id==7){
-      if (this.data.data.task_content == '') return wx.showToast({ title: '请输入任务内容', icon: 'none' });
-      if (this.data.data.task_content.length > 255) return wx.showToast({ title: '任务内容不能超过255字符', icon: 'none' });
       if (this.data.data.total_task_num < 1 || this.data.data.total_task_num > 65535) return wx.showToast({ title: '任务数只能在1~65535之间', icon: 'none' });
-      if (this.data.data.every_task_price <= 0) return wx.showToast({ title: '任务单价必须大于0', icon: 'none' });
+      if (this.data.data.every_task_price <= 0.1) return wx.showToast({ title: '任务单价至少0.1元', icon: 'none' });
       //发布任务时提示用户需要支付金额
+      let pay_money = Math.round(this.data.data.total_task_num * this.data.data.every_task_price * 100) / 100;
       wx.showModal({
         title: '提示',
-        content: '发布任务大厅需要支付相关任务金额,是否确认发布',
+        content: '您的发布的任务需要支付' + pay_money+'元,是否确认发布',
         success:(res)=> {
           if (res.confirm) {
             this.submit();
