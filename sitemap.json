@@ -39,6 +39,14 @@
     {
       "action": "disallow",
       "page": "pages/my/my_pruze/order_list/index"
+    },
+    {
+      "action":"disallow",
+      "page":"pages/my/my_article/list/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/my/my_article/task_audit/index"
     }
   ]
 }

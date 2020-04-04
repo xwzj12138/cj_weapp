@@ -1,0 +1,4 @@
+/* pages/my/my_article/task_audit/index.wxss */
+.drawer_body{width: 690rpx;height: 820rpx;padding: 10rpx;position: relative;}
+.submitBody{position: absolute;bottom: 10rpx;width: 100%;display: flex;}
+.submitBody>view{flex: 1;}

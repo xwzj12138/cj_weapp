@@ -2,7 +2,6 @@
   "usingComponents": {
     "x-avatar": "/packages/avatar/index",
     "x-icon": "/packages/icon/index",
-    "x-blank-hint": "/packages/blank-hint/index",
-    "x-button": "/packages/button/index"
+    "x-blank-hint": "/packages/blank-hint/index"
   }
 }

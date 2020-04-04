@@ -1,0 +1,17 @@
+<x-cell wx:for='{{data}}' wx:key='task_apply' label='参与时间：{{item.add_time}}' title="{{item.nickname?item.nickname:''}}" 
+value="{{item.status==1?'待提交':item.status==2?'待审核':item.status==3?'审核通过':'审核不通过'}}" menuArrow data-index='{{index}}' catchtap='auditTask'>
+  <x-avatar shape='square' size='35' src='{{item.avatar}}' slot='icon'></x-avatar>
+</x-cell>
+
+<x-drawer type='center' show='{{show_submit}}'>
+  <view class='drawer_body'>
+    <!-- 图片列表 -->
+    <x-upload urlList='{{show_info.submit_images}}' limit='{{show_info.submit_images.length}}'></x-upload>
+    <view class="submitBody" wx:if='{{show_info.status<3}}'>
+      <view><x-button type='info' data-status="4" bind:click="auditTask">不通过</x-button></view>
+      <view><x-button type='warning' data-status="3" bind:click="auditTask">通过</x-button></view>
+    </view>
+  </view>
+</x-drawer>
+<!-- 没有数据提示前往分享推广-->
+<x-blank-hint wx:if='{{data.length==0}}' linkType='redirectTo' button_url="{{'/pages/article/detail/index?id='+task_id}}" button_name='分享推广'></x-blank-hint>

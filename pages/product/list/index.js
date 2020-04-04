@@ -36,7 +36,7 @@ Page({
    * 获取产品列表
    */
   getProductList(){
-    if (this.data.current_page == this.data.last_page) {
+    if (this.data.current_page >= this.data.last_page) {
       wx.stopPullDownRefresh();
       return this.setData({ show_loading: true });
     }
@@ -45,7 +45,7 @@ Page({
       if(res.current_page>1){
         res.data = [...this.data.data, ...res.data];
       }
-      this.setData(res)
+      this.setData(res);
       wx.stopPullDownRefresh();
     });
   },
@@ -78,7 +78,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({current_page: 0,last_page: 1});
+    this.data.current_page = 0;
     this.getHomeInf();
     this.getProductList();
   },

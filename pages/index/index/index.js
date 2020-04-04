@@ -28,6 +28,7 @@ Page({
    */
   onLoad: function (options) {
     this.getuserinfo();
+    this.getPruzeList();
   },
   /**
    * 授权登录成功回调，获取奖品列表
@@ -37,13 +38,12 @@ Page({
     user.getGlobalUserinfo((res) => {
       this.setData({ userinfo: res });
     });
-    this.getPruzeList();
   },
   /**
    * 获取奖品列表
    */
   getPruzeList:function(){
-    if (this.data.current_page == this.data.last_page) {
+    if (this.data.current_page >= this.data.last_page) {
       //提示没有数据了
       wx.stopPullDownRefresh()
       return this.setData({ show_loading: true })
@@ -58,16 +58,17 @@ Page({
         res.data = [...this.data.data,...res.data];
       }
       res.show_loading = res.data.length == 0 ? true : false;
-      this.setData(res)
-      wx.stopPullDownRefresh()
+      this.setData(res);
+      wx.stopPullDownRefresh();
     })
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({ current_page: 0, last_page: 1, data: [] })
-    this.getuserinfo()
+    this.data.current_page = 0;
+    this.getuserinfo();
+    this.getPruzeList();
   },
 
   /**

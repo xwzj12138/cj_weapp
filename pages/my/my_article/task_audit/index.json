@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "x-avatar": "/packages/avatar/index",
+    "x-drawer": "/packages/drawer/index",
+    "x-upload": "/packages/upload/index",
+    "x-button": "/packages/button/index",
+    "x-cell": "/packages/cell/index",
+    "x-blank-hint": "/packages/blank-hint/index"
+  }
+}

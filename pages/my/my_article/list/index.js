@@ -38,7 +38,15 @@ Page({
    */
   goDetail: function (e) {
     wx.navigateTo({
-      url: '/pages/article/detail/index?id=' + this.data.data[e.currentTarget.dataset.index].id,
+      url: '/pages/article/detail/index?id=' + e.currentTarget.dataset.id,
+    });
+  },
+  /**
+   * 进入任务审核页面
+   */
+  goTaskAudit:function(e){
+    wx.navigateTo({
+      url: '/pages/my/my_article/task_audit/index?id=' + e.currentTarget.dataset.id,
     })
   },
   /**
@@ -97,10 +105,18 @@ Page({
    * 删除文章
    */
   deleteArticle(e){
-    let param = { id: this.data.data[e.currentTarget.dataset.index].id};
-    article.del(param,(res)=>{
-      this.data.data.splice(e.currentTarget.dataset.index,1);
-      this.setData({ data:this.data.data});
+    wx.showModal({
+      title: '提示',
+      content: '删除后不可恢复，是否确定删除?',
+      success: (res) => {
+        if (res.confirm) {
+          let param = { id: this.data.data[e.currentTarget.dataset.index].id };
+          article.del(param, (res) => {
+            this.data.data.splice(e.currentTarget.dataset.index, 1);
+            this.setData({ data: this.data.data });
+          });
+        }
+      }
     });
   }
 })

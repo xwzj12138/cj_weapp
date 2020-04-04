@@ -122,7 +122,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: this.data.data.title,
-      path: '/pages/article/list/index?share_uid=' + getApp().globalData.userInfo.uid
+      path: '/pages/article/detail/index?id=' + this.data.data.id+'&share_uid=' + getApp().globalData.userInfo.uid
     }
   }
 })

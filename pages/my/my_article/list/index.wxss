@@ -5,9 +5,11 @@
 .article>view:nth-child(3){font-size: 10px;color:#666;margin: 3px 0;}
 .article>view:nth-child(4){font-size:10px;color:#1296db;margin: 3px 0;}
 .browse_like{display:flex;color: #1296db;margin: 3px 30rpx;font-size: 15px;}
-.browse_like>view{flex: 1;}
-.browse_like>view:nth-child(3){width: 128px;flex: none;}
-.browse_like>view:last-child{width: 28px;flex: none;}
+.browse_like>view:first-child{margin-right:3px;}
+.audit_button,.top_view{flex: 1;text-align: center;}
+.audit_button>text{background-color:#1296db;color: #fff; }
+.browse_like>view:last-child{width: 28px;}
 .browse_like text{margin-left: 5px;}
 .article_image image{display: inline-block;margin-right: 5px;width:23%;}
-.top_view text{color: #fff;background: #f90;padding: 3px 5px;border-radius: 5px;font-size: 12px;}
+.top_view text{color: #fff;background: #f90;}
+.top_view>text,.audit_button>text{padding: 3px 5px;border-radius: 5px;font-size: 12px;}
