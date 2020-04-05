@@ -63,9 +63,11 @@ Page({
   getTask: function (e) {
     let param = { id: this.data.data.id };
     article.getTask(param, (res) => {
+      this.data.apply_list.current_page = 0;
       this.data.data.task_detail.is_get_task = true;
       this.setData(this.data);
       wx.showToast({ title: '成功' });
+      this.apply_list();
     });
   },
   /**
