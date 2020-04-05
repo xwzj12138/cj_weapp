@@ -1,4 +1,6 @@
 {
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 200,
   "usingComponents": {
     "x-blank-hint": "/packages/blank-hint/index"
   }

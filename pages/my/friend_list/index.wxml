@@ -1,5 +1,5 @@
 <x-cell-group>
-  <x-cell wx:for='{{data}}' wx:key='{{index}}'>
+  <x-cell wx:for='{{data}}' wx:key='friend'>
     <view slot='icon' class='avatar'>
       <x-avatar shape='square' size='72' src='{{item.avatar}}'></x-avatar>
       <view>{{item.nickname}}</view>
