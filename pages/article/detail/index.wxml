@@ -29,6 +29,7 @@ value="{{item.status==0?'待提交':'待审核'}}">
 </x-cell>
 <!-- 接收任务按钮 -->
 <x-tabbar wx:if='{{data.task_detail}}' isLastCell='{{false}}'>
+  <x-tabbar-item width='120' icon='share' title='分享' open_type='share'></x-tabbar-item>
   <x-tabbar-flex-item title="{{'剩余任务数：'+data.task_detail.task_num}}"></x-tabbar-flex-item>
   <block wx:if='{{data.task_detail.current_user==false}}'>
     <x-tabbar-item wx:if='{{data.task_detail.get_task_status==0}}' x-class='bg1' title='申请任务' width='250' catchtap='getTask'></x-tabbar-item>

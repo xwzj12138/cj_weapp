@@ -11,9 +11,7 @@ export default new class user extends auth {
     if (appinfo.globalData.userInfo) {
       return callback(appinfo.globalData.userInfo)
     }
-    return this.myinfo((res) => {
-      callback(res)
-    });
+    return this.myinfo(callback);
   }
   //获取用户信息
   myinfo(callback) {
@@ -22,8 +20,8 @@ export default new class user extends auth {
       type: 'POST',
       data: {},
       sCallBack: (res) => {
-        getApp().globalData.userInfo = res.data
-        callback(res)
+        getApp().globalData.userInfo = res;
+        callback(res);
       }
     });
   }

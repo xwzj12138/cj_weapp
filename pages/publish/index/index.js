@@ -17,10 +17,18 @@ Page({
   onLoad: function (options) {
     //获取分类列表
     article.getCateList({},(res)=>{
-      let param = { data: res};
-      if (getApp().globalData.userInfo) param.userinfo = getApp().globalData.userInfo;
-      this.setData(param);
+      this.setData({ data: res });
     });
+    //获取用户信息
+    this.getUserInfo();
+  },
+  /**
+   * 获取用户信息
+   */
+  getUserInfo: function () {
+    user.getGlobalUserinfo((res) => {
+      this.setData({ userinfo: res });
+    })
   },
   /**
    * 进入发布页面
