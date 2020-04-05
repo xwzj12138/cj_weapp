@@ -52,7 +52,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({current_page: 0,last_page: 1});
+    this.data.current_page = 0;
+    this.data.last_page = 1;
     this.getMyPublish();
   },
 

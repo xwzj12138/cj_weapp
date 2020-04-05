@@ -37,20 +37,20 @@
     <x-grid-item title='我的收藏' data-page='/pages/my/collect/index' catchtap='gridClick'>
       <x-icon name='favor' color="#fb7653" size="56"></x-icon>
     </x-grid-item>
+    <x-grid-item title='我的奖品' data-page='/pages/my/my_pruze/list/index' catchtap='gridClick'>
+      <x-icon name='present' color="#d81e06" size="56"></x-icon>
+    </x-grid-item>
     <x-grid-item title='我的文章' data-page='/pages/my/my_article/list/index' catchtap='gridClick'>
       <x-icon name='edit' color="#1afa29" size="56"></x-icon>
     </x-grid-item>
-    <x-grid-item title='我的奖品' data-page='/pages/my/my_pruze/list/index' catchtap='gridClick'>
-      <x-icon name='present' color="#d81e06" size="56"></x-icon>
+    <x-grid-item title='我申请的任务' data-page='/pages/my/my_apply_task/index' catchtap='gridClick'>
+      <x-icon name='calendar' color="#1296db" size="56"></x-icon>
     </x-grid-item>
     <x-grid-item title='好友列表' data-page='/pages/my/friend_list/index' catchtap='gridClick'>
       <x-icon name='friend' color="#1296db" size="56"></x-icon>
     </x-grid-item>
     <x-grid-item title='收货地址' data-page='/pages/my/address/list/index' catchtap='gridClick'>
       <x-icon name='addressbook' size="56"></x-icon>
-    </x-grid-item>
-    <x-grid-item title='我申请的任务' data-page='/pages/my/my_apply_task/index' catchtap='gridClick'>
-      <x-icon name='calendar' color="#1296db" size="56"></x-icon>
     </x-grid-item>
   </x-grid-group>
 </view>

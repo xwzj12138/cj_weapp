@@ -64,7 +64,8 @@ Page({
     let param = { id: this.data.data.id };
     article.getTask(param, (res) => {
       this.data.apply_list.current_page = 0;
-      this.data.data.task_detail.is_get_task = true;
+      this.data.apply_list.last_page = 1;
+      this.data.data.task_detail.get_task_status = 1;
       this.setData(this.data);
       wx.showToast({ title: '成功' });
       this.apply_list();

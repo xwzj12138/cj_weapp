@@ -56,6 +56,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.data.current_page = 0;
+    this.data.last_page = 1;
     this.getApplyList();
   },
 
