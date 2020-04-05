@@ -49,7 +49,7 @@ Page({
     if (this.data.data.tel.length > 15) return wx.showToast({ title: '手机号错误', icon: 'none' });
     if(this.data.data.cate_id==7){
       if (this.data.data.total_task_num < 1 || this.data.data.total_task_num > 65535) return wx.showToast({ title: '任务数只能在1~65535之间', icon: 'none' });
-      if (this.data.data.every_task_price <= 0.1) return wx.showToast({ title: '任务单价至少0.1元', icon: 'none' });
+      if (this.data.data.every_task_price <= 0.01) return wx.showToast({ title: '任务单价至少0.1元', icon: 'none' });
       //发布任务时提示用户需要支付金额
       let pay_money = Math.round(this.data.data.total_task_num * this.data.data.every_task_price * 100) / 100;
       wx.showModal({

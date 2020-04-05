@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "x-blank-hint": "/packages/blank-hint/index"
+  }
+}

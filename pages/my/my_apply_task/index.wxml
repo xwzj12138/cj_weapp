@@ -1,0 +1,13 @@
+<!-- 文章列表 -->
+<view wx:for='{{data}}' wx:key='article' class="article_body">
+  <view class="article" data-id='{{item.id}}' catchtap="goDetail">
+    <view><text>{{item.title}}</text></view>
+    <view class="article_image">
+      <image wx:for='{{item.images}}' wx:for-item='value' wx:for-index='i' wx:key='article_image' src="{{value}}" lazy-load wx:if='{{i<4}}' mode="widthFix"></image>
+    </view>
+    <view class="article_lable">申请时间：{{item.add_time}}</view>
+    <view>任务状态：{{task_status[item.status]}}</view>
+  </view>
+</view>
+<!-- 没有数据提示前往发布-->
+<x-blank-hint wx:if='{{data.length==0}}' button_url='/pages/article/list/index' button_name='前往领取'></x-blank-hint>

@@ -56,13 +56,13 @@ export default new class article extends auth {
   applyList(param, callback) {
     this.request({ url: 'index/v1/article/apply_list', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
-  //获取任务截图
-  getTaskEvidences(param, callback) {
-    this.request({ url: 'index/v1/article/get_task_evidences', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
-  }
   //审核任务
   auditTask(param, callback) {
     this.request({ url: 'index/v1/article/audit_task', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
+  }
+  //当前用户申请的任务列表
+  myApplyTaskList(param, callback) {
+    this.request({ url: 'index/v1/article/my_apply_list', type: 'POST', data: param, sCallBack: (res) => { callback(res); } })
   }
   //删除文章
   del(param, callback) {

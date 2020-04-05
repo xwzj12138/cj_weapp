@@ -41,13 +41,9 @@ Page({
   auditTask:function(e){
     if (e.currentTarget.dataset.index!=undefined){
       this.data.show_info.index = e.currentTarget.dataset.index;
-      //获取任务截图
-      let param = { id: this.data.data[e.currentTarget.dataset.index].id}
-      return article.getTaskEvidences(param,(res)=>{
-        this.data.show_info.status = res.status; 
-        this.data.show_info.submit_images = res.task_evidences;
-        this.setData({ show_submit: true, show_info: this.data.show_info });
-      })
+      this.data.show_info.status = this.data.data[e.currentTarget.dataset.index].status;
+      this.data.show_info.submit_images = this.data.data[e.currentTarget.dataset.index].task_evidences;
+      return this.setData({ show_submit: true, show_info: this.data.show_info });
     }
     let param = { id: this.data.data[this.data.show_info.index].id, status: e.currentTarget.dataset.status };
     article.auditTask(param, (res) => {

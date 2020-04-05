@@ -33,7 +33,8 @@
     "pages/product/comment/index",
     "pages/my/order/comment/index",
     "pages/my/my_pruze/order_list/index",
-    "pages/my/my_article/task_audit/index"
+    "pages/my/my_article/task_audit/index",
+    "pages/my/my_apply_task/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
