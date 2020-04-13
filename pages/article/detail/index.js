@@ -65,7 +65,7 @@ Page({
     article.getTask(param, (res) => {
       this.data.apply_list.current_page = 0;
       this.data.apply_list.last_page = 1;
-      this.data.data.task_detail.get_task_status = 1;
+      this.data.data.get_task_status = 1;
       this.setData(this.data);
       wx.showToast({ title: '成功' });
       this.apply_list();
@@ -109,7 +109,7 @@ Page({
     if (this.data.submit_images.length == 0) return wx.showToast({ title: '至少上传一张截图', icon: 'none' }); 
     let param = { id: this.data.data.id,task_evidences:this.data.submit_images}
     article.submitTaskScreenshot(param,(res)=>{
-      this.data.data.task_detail.get_task_status = 2;
+      this.data.data.get_task_status = 2;
       this.setData({ show_submit: false, data:this.data.data});
     });
   },
