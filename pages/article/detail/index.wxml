@@ -47,3 +47,4 @@ value="{{item.status==0?'待提交':'待审核'}}">
     </view>
   </view>
 </x-drawer>
+<view wx:if='{{data.total_task_num>0}}' style="height:90rpx"></view>
