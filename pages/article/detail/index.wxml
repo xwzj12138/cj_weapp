@@ -24,7 +24,7 @@
 </view>
 <!-- 参与列表 -->
 <x-cell wx:for='{{apply_list.data}}' wx:key='task_apply' label='参与时间：{{item.add_time}}' title="{{item.nickname?item.nickname:''}}" 
-value="{{item.status==0?'待提交':'待审核'}}">
+value="{{task_status[item.status]}}">
   <x-avatar shape='square' size='35' src='{{item.avatar}}' slot='icon'></x-avatar>
 </x-cell>
 <!-- 接收任务按钮 -->

@@ -11,6 +11,7 @@ Page({
     upload_api:'',
     submit_images:[],
     upload_formData: { token: ''},
+    task_status: ['待领取', '待提交截图', '待审核', '审核成功','审核失败'],
     apply_list: {current_page: 0,data: [],last_page: 1},
     data:null
   },
