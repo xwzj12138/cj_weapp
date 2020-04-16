@@ -15,7 +15,7 @@
     <view class="top_view">
       <text wx:if='{{item.status==0}}' data-id="{{item.id}}" data-index="{{index}}" catchtap="payTaskMoney">支付任务金额</text>
       <text wx:elif='{{item.status<3}}' style="background-color:#666;" >{{item.status==1?'待审核':'审核不通过'}}</text>
-      <text wx:else data-id="{{item.id}}" data-index="{{index}}" catchtap="topArticle">{{item.top_time==0?'1元顶置':'重新顶置'}}</text>
+      <text wx:else data-id="{{item.id}}" data-index="{{index}}" catchtap="topArticle">{{item.top_time==0?top_article_money+'元顶置':'重新顶置'}}</text>
     </view>
     <view data-index='{{index}}' catchtap="deleteArticle"><x-icon name='deletefill' color='#f60' size='40'></x-icon></view>
   </view>

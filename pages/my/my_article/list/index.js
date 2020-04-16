@@ -9,7 +9,8 @@ Page({
   data: {
     current_page: 0,
     data: [],
-    last_page: 1
+    last_page: 1,
+    top_article_money:1
   },
 
   /**
