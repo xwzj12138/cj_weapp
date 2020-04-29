@@ -4,39 +4,56 @@
     "pages/article/detail/index",
     "pages/index/index/index",
     "pages/index/detail/index",
-    "pages/my/address/detail/index",
-    "pages/my/address/list/index",
-    "pages/my/userinfo/index",
     "pages/my/index/index",
-    "pages/my/cooperation/index",
-    "pages/my/participant/list/index",
     "pages/share/help/index",
-    "pages/my/friend_list/index",
-    "pages/my/participant/detail/index",
-    "pages/my/my_article/list/index",
-    "pages/my/my_pruze/list/index",
-    "pages/my/money/index/index",
-    "pages/my/money/detail/index",
-    "pages/my/money/withdraw/index",
     "pages/publish/index/index",
     "pages/publish/article/index",
     "pages/publish/pruze/index",
-    "pages/my/brand/list/index",
-    "pages/my/brand/detail/index",
     "pages/notice/index",
     "pages/product/list/index",
     "pages/product/detail/index",
-    "pages/my/collect/index",
-    "pages/my/order/list/index",
     "pages/product/submit_order/index",
-    "pages/my/order/detail/index",
     "pages/product/comment/index",
-    "pages/my/order/comment/index",
-    "pages/my/my_pruze/order_list/index",
-    "pages/my/my_article/task_audit/index",
-    "pages/my/my_apply_task/index",
-    "pages/school/index"
+    "pages/school/index/index",
+    "pages/school/my_join/index"
   ],
+  "subpackages": [
+    {
+      "root": "my_pages",
+      "name": "my_pages",
+      "pages": [
+        "address/list/index",
+        "address/detail/index",
+        "brand/list/index",
+        "brand/detail/index",
+        "cooperation/index",
+        "friend_list/index",
+        "my_apply_task/index",
+        "my_article/list/index",
+        "my_article/task_audit/index",
+        "my_pruze/list/index",
+        "my_pruze/order_list/index",
+        "collect/index",
+        "order/list/index",
+        "order/detail/index",
+        "order/comment/index",
+        "money/index",
+        "money/withdraw/index",
+        "money/detail/index",
+        "participant/detail/index",
+        "participant/list/index",
+        "userinfo/index"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/my/index/index": {
+      "network": "all",
+      "packages": [
+        "my_pages"
+      ]
+    }
+  },
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#1296db",
@@ -67,7 +84,7 @@
         "selectedIconPath": "/static/tabbar/select_publish.png"
       },
       {
-        "pagePath": "pages/school/index",
+        "pagePath": "pages/school/index/index",
         "text": "江湖",
         "iconPath": "/static/tabbar/school.png",
         "selectedIconPath": "/static/tabbar/select_school.png"

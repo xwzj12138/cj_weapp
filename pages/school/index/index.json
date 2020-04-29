@@ -1,0 +1,12 @@
+{
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 200,
+  "usingComponents": {
+    "x-cell-group": "/packages/cell-group/index",
+    "x-cell": "/packages/cell/index",
+    "x-grid-group": "/packages/grid-group/index",
+    "x-grid-item": "/packages/grid-item/index",
+    "x-nav": "/packages/nav/index",
+    "x-icon": "/packages/icon/index"
+  }
+}

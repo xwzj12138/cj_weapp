@@ -1,0 +1,38 @@
+<!-- 订单列表 -->
+<view wx:for="{{data}}" wx:key='order' data-id='{{item.id}}' catchtap='goDetail'>
+<!-- 订单信息 -->
+  <x-cell>
+    <view style="font-size:28rpx;">订单号：{{item.out_trade_no}}</view>
+    <view style="font-size:28rpx;font-weight:500;color:#FF9600;" slot='footer'>{{pay_status[item.status]}}</view>
+  </x-cell>
+  <!-- 商品相关 -->
+  <x-cell wx:for='{{item.goods_list}}'  wx:for-index="k" wx:for-item="v" wx:key='order_goods'>
+    <image slot='icon' class="goods_image" src="{{v.image}}"></image>
+    <view class="goods_info">
+      <view class="goods_title">{{v.product_name}}</view>
+      <view class="goods_attr">
+        <view>{{v.attr_value}}</view>
+        <view><text>X</text><text>{{v.buy_num}}</text></view>
+      </view>
+      <view>
+        <text class="goods_price_tag">￥{{v.price}}</text>
+      </view>
+    </view>
+  </x-cell>
+  <!-- 订单统计相关 -->
+  <x-cell isLastCell='{{false}}'>
+    <view style="font-size:28rpx;">订单合计：￥{{item.pay_money}}</view>
+    <view style="font-size:28rpx;" slot='footer'>共{{item.goods_list.length}}件商品</view>
+  </x-cell>
+  <!-- 未付款时显示 -->
+  <x-cell isLastCell='{{false}}' wx:if='{{item.status==0 || item.status==3 || item.status==4}}'>
+    <view slot='footer' class="pay_cancel">
+      <text data-id="{{item.id}}" data-index="{{index}}" catchtap="cancel" wx:if='{{item.status==0}}' class="cancel_button">取消订单</text>
+      <text data-id="{{item.id}}" data-index="{{index}}" catchtap="pay" wx:if='{{item.status==0}}' class="pay_button">现在付款</text>
+      <text data-id="{{item.id}}" data-index="{{index}}" catchtap="goComment" wx:if='{{item.status==3}}' class="pay_button">确认收货</text>
+      <text data-id="{{item.id}}" data-index="{{index}}" catchtap="goComment" wx:if='{{item.status==4}}' class="pay_button">去评论</text>
+    </view>
+  </x-cell>
+</view>
+<!-- 提示信息 -->
+<x-blank-hint wx:if='{{is_null}}' button_url='/pages/product/list/index' button_name='选购商品'></x-blank-hint>

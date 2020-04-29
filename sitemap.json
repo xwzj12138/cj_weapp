@@ -10,11 +10,11 @@
     {"action": "disallow","page": "pages/publish/article/index"},
     {
       "action": "disallow",
-      "page": "pages/my/address/detail/index"
+      "page": "my_pages/address/detail/index"
     },
     {
       "action": "disallow",
-      "page": "pages/my/address/list/index"
+      "page": "my_pages/address/list/index"
     },
     {
       "action": "disallow",
