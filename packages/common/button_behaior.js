@@ -8,6 +8,15 @@ module.exports = Behavior({
       type: Number,
       value: 96,
     },
+    // 链接类型，可选值为 navigateTo，redirectTo，switchTab，reLaunch
+    linkType: {
+      type: String,
+      value: 'navigateTo'
+    },
+    url: {
+      type: String,
+      value: ''
+    },
     openType: String,
     appParameter: String,
     hoverStopPropagation: Boolean,
@@ -27,6 +36,12 @@ module.exports = Behavior({
   methods: {
     handleTap() {
       if (this.data.disabled) return false;
+      //如果用户设置了跳转页面直接跳转
+      if (this.data.url && this.data.url !== 'true' && this.data.url !== 'false' ){
+        if (['navigateTo', 'redirectTo', 'switchTab', 'reLaunch'].indexOf(this.data.linkType) !== -1) {
+          return wx[this.data.linkType].call(wx, { url:this.data.url });;
+        }
+      }
 
       this.triggerEvent('click');
     },

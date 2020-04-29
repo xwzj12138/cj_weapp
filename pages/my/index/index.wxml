@@ -14,42 +14,49 @@
   </view>
 </x-cell>
 <view class="grid_group_cart cart_style">
-  <x-cell menuArrow title='我的收入' url='/pages/my/money/index/index?now_brokerage={{userinfo.now_brokerage}}' value='提现' isLastCell='{{false}}'></x-cell>
   <x-grid-group>
-    <x-grid-item title='我参与' data-page='/pages/my/participant/list/index' catchtap='gridClick'>
+    <x-grid-item title='我参与' url='/pages/my/participant/list/index'>
       <view class='cooperation'>{{userinfo.participant_num}}</view>
     </x-grid-item>
-    <x-grid-item title='余额' data-page='/pages/my/money/index/index?now_brokerage={{userinfo.now_brokerage}}' catchtap='gridClick'>
+    <x-grid-item title='余额' url='/pages/my/money/index/index?now_brokerage={{userinfo.now_brokerage}}'>
       <view class='cooperation'>{{userinfo.now_brokerage}}</view>
     </x-grid-item>
-    <x-grid-item title='等级积分' data-page='/pages/my/userinfo/index' catchtap='gridClick'>
+    <x-grid-item title='等级积分' url='/pages/my/userinfo/index'>
       <view class='cooperation'>{{userinfo.integral}}</view>
+    </x-grid-item>
+  </x-grid-group>
+  <x-grid-group itemNum='2'>
+    <x-grid-item title='商城' url='/pages/product/list/index'>
+      <x-icon name='shop' color="#1296db" size="65"></x-icon>
+    </x-grid-item>
+    <x-grid-item title='我的门派' url='/pages/school/index' linkType='switchTab'>
+      <x-icon name='group_fill' color="#E46129" size="65"></x-icon>
     </x-grid-item>
   </x-grid-group>
 </view>
 
-<!-- 订单收藏相关 -->
+<!-- 第二个卡片 -->
 <view class="cart_style" style="margin:20px 10px 10px 10px;">
   <x-grid-group itemNum='4'>
-    <x-grid-item title='我的订单' data-page='/pages/my/order/list/index' catchtap='gridClick'>
+    <x-grid-item title='我的订单' url='/pages/my/order/list/index'>
       <x-icon name='send' color="#67d6b6" size="56"></x-icon>
     </x-grid-item>
-    <x-grid-item title='我的收藏' data-page='/pages/my/collect/index' catchtap='gridClick'>
+    <x-grid-item title='我的收藏' url='/pages/my/collect/index'>
       <x-icon name='favor' color="#fb7653" size="56"></x-icon>
     </x-grid-item>
-    <x-grid-item title='我的奖品' data-page='/pages/my/my_pruze/list/index' catchtap='gridClick'>
+    <x-grid-item title='我的奖品' url='/pages/my/my_pruze/list/index'>
       <x-icon name='present' color="#d81e06" size="56"></x-icon>
     </x-grid-item>
-    <x-grid-item title='我的文章' data-page='/pages/my/my_article/list/index' catchtap='gridClick'>
+    <x-grid-item title='我的文章' url='/pages/my/my_article/list/index'>
       <x-icon name='edit' color="#1afa29" size="56"></x-icon>
     </x-grid-item>
-    <x-grid-item title='我申请的任务' data-page='/pages/my/my_apply_task/index' catchtap='gridClick'>
+    <x-grid-item title='申请的任务' url='/pages/my/my_apply_task/index'>
       <x-icon name='calendar' color="#1296db" size="56"></x-icon>
     </x-grid-item>
-    <x-grid-item title='好友列表' data-page='/pages/my/friend_list/index' catchtap='gridClick'>
+    <x-grid-item title='好友列表' url='/pages/my/friend_list/index'>
       <x-icon name='friend' color="#1296db" size="56"></x-icon>
     </x-grid-item>
-    <x-grid-item title='收货地址' data-page='/pages/my/address/list/index' catchtap='gridClick'>
+    <x-grid-item title='收货地址' url='/pages/my/address/list/index'>
       <x-icon name='addressbook' size="56"></x-icon>
     </x-grid-item>
   </x-grid-group>

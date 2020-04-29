@@ -34,7 +34,8 @@
     "pages/my/order/comment/index",
     "pages/my/my_pruze/order_list/index",
     "pages/my/my_article/task_audit/index",
-    "pages/my/my_apply_task/index"
+    "pages/my/my_apply_task/index",
+    "pages/school/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -66,10 +67,10 @@
         "selectedIconPath": "/static/tabbar/select_publish.png"
       },
       {
-        "pagePath": "pages/product/list/index",
-        "text": "商城",
-        "iconPath": "/static/tabbar/shopping.png",
-        "selectedIconPath": "/static/tabbar/select_shopping.png"
+        "pagePath": "pages/school/index",
+        "text": "江湖",
+        "iconPath": "/static/tabbar/school.png",
+        "selectedIconPath": "/static/tabbar/select_school.png"
       },
       {
         "pagePath": "pages/my/index/index",

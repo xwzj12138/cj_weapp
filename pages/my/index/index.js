@@ -8,14 +8,6 @@ Page({
   data: {
     userinfo: {nickname: '', grade:0,avatar:''}
   },
-  /**
-   * 进入我参与或中奖纪录列表
-   */
-  gridClick:function(e){
-    wx.navigateTo({
-      url: e.currentTarget.dataset.page,
-    })
-  },
 
   /**
    * 生命周期函数--监听页面加载
