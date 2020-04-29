@@ -2,7 +2,7 @@
   <x-cell menuArrow title='我加入的' url='/pages/school/my_join/index' value='14个门派'></x-cell>
 </x-cell-group>
 <x-nav tab-list="{{navList}}"></x-nav>
-<view wx:for='{{data}}'>
+<view wx:for='{{data}}' wx:key='school_theme'>
   <view class="article">
     <view>{{item.title}}</view>
     <image src="{{item.first_image}}" lazy-load mode="widthFix"></image>

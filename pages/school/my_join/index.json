@@ -1,4 +1,6 @@
 {
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 200,
   "usingComponents": {
     "x-nav":"/packages/nav/index"
   }
