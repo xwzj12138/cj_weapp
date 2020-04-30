@@ -1,5 +1,6 @@
 ::-webkit-scrollbar {display: none;}
 page{background-color: #f3f3f3;font-family:PingFang SC;}
+page>view{background-color: #fff;}
 .body{margin:10px;border-radius:15rpx;overflow: hidden;box-shadow: #666 0 0 3px;}
 .head{position: relative;}
 .tag{position: absolute;bottom: 0;left: 0;width:100%;
@@ -25,4 +26,3 @@ color: #fff;padding: 4px 8px;
 .postage{font-size: 28rpx;padding:28rpx 21rpx 15rpx 24rpx;color: #888888;border-top: 16rpx solid #f6f6f6;border-bottom: 16rpx solid #f6f6f6;}
 .postage text{margin-right: 10px;}
 .swiper{height: 370rpx;}
-.circular_bead{border-radius: 5px;overflow: hidden;}

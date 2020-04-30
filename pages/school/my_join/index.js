@@ -58,6 +58,7 @@ Page({
    */
   tabSelect: function (e) {
     this.setData({ nav_index: e.detail.index})
+    this.onLoad(e.detail)
   },
 
   /**

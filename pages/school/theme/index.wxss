@@ -1,0 +1,4 @@
+/* pages/school/theme/index.wxss */
+.description{font-size: 26rpx;padding: 8px 10px;}
+.description>view:first-child{margin-bottom: 5px;}
+.description image{width: 100%;}

@@ -3,7 +3,8 @@
   "onReachBottomDistance": 200,
   "usingComponents": {
     "x-cell": "/packages/cell/index",
-    "x-nav":"/packages/nav/index",
-    "x-avatar": "/packages/avatar/index"
+    "x-avatar": "/packages/avatar/index",
+    "x-button":"/packages/button/index",
+    "x-icon": "/packages/icon/index"
   }
 }

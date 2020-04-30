@@ -15,7 +15,9 @@
     "pages/product/submit_order/index",
     "pages/product/comment/index",
     "pages/school/index/index",
-    "pages/school/my_join/index"
+    "pages/school/my_join/index",
+    "pages/school/theme/index",
+    "pages/school/detail/index"
   ],
   "subpackages": [
     {

@@ -1,4 +1,4 @@
-// pages/school/index.js
+// pages/school/detail/index.js
 import school from '../../../model/school.js'
 Page({
 
@@ -6,34 +6,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    school_list: { current_page: 0, last_page: 1, total:0,data:[]},
-    navList: [{ "name": "热门讨论主题" }],
-    current_page: 0,
-    data: [],
-    last_page: 1,
-    show_loading: false
+    show_loading:false,
+    school_info:{id:0},
+    current_page:0,
+    last_page:1,
+    data:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getJoinSchoolList();
-    this.getHotThemeList();
+    this.data.school_info.id = options.id;
+    this.getSchoolDetail();
+    this.getschoolThemeList();
   },
   /**
-   * 获取加入的门派列表
+   * 获取门派详情
    */
-  getJoinSchoolList: function () {
-    school.myJoinSchool({ page: 1 }, (res) => {
-      res.data.unshift({ id: 0, cover_image: '../../../static/tabbar/select_school.png', school_name: '江湖' })
-      this.setData({ school_list: res });
+  getSchoolDetail:function(){
+    let param = {id:this.data.school_info.id};
+    school.getDetail(param,(res)=>{
+      this.setData({ school_info:res});
     });
   },
   /**
-   * 获取热门主题列表
+   * 获取主题列表
    */
-  getHotThemeList: function () {
+  getschoolThemeList: function () {
     if (this.data.current_page >= this.data.last_page) {
       wx.stopPullDownRefresh();
       return this.setData({ show_loading: true });
@@ -50,9 +50,9 @@ Page({
   /**
    * 点赞门派主题
    */
-  likeSchoolTheme: function (e) {
-    let param = { id: this.data.data[e.currentTarget.dataset.index].id };
-    school.likeTheme(param, (res) => {
+  likeSchoolTheme:function(e){
+    let param = { id: this.data.data[e.currentTarget.dataset.index].id};
+    school.likeTheme(param,(res)=>{
       this.data.data[e.currentTarget.dataset.index].like_num++;
       this.setData(this.data);
       wx.showToast({ title: '成功' })
@@ -61,8 +61,8 @@ Page({
   /**
    * 门派点击事件
    */
-  goDetail:function(e){
-    wx.navigateTo({url: e.currentTarget.dataset.page});
+  goDetail: function(e) {
+    wx.navigateTo({ url: e.currentTarget.dataset.page });
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -70,15 +70,15 @@ Page({
   onPullDownRefresh: function () {
     this.data.current_page = 0;
     this.data.last_page = 1;
-    this.getJoinSchoolList();
-    this.getHotThemeList();
+    this.getSchoolDetail();
+    this.getschoolThemeList();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getHotThemeList();
+    this.getschoolThemeList();
   },
 
   /**

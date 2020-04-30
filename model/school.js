@@ -44,4 +44,12 @@ export default new class school extends auth{
   getMember(param, callback) {
     this.request({ url: 'index/v1/school/getMember', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
+  //获取某个门派详情
+  getDetail(param, callback) {
+    this.request({ url: 'index/v1/school/detail', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  }
+  //点赞门派主题或帖子
+  likeTheme(param, callback) {
+    this.request({ url: 'index/v1/school/likeTheme', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  }
 }

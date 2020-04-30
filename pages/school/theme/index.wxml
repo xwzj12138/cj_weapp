@@ -1,0 +1,10 @@
+<!-- 标题 -->
+<view class="title_info">{{theme_info.title}}</view>
+<!-- 发布者信息 -->
+<x-cell title='{{theme_info.nickname}}' label='{{theme_info.add_time}}发布'>
+  <x-avatar shape='square' size='62' src='{{theme_info.cover_image}}' slot='icon'></x-avatar>
+</x-cell>
+<view class="description">
+  <view>{{theme_info.description}}</view>
+  <image wx:for='{{theme_info.images}}' src="{{item}}"></image>
+</view>

@@ -1,15 +1,10 @@
-<x-cell-group>
-  <x-cell menuArrow title='我加入的' url='/pages/school/my_join/index' value='{{school_list.total}}个门派'></x-cell>
-</x-cell-group>
-<!-- 加入的门派列表，只显示前15条 -->
-<scroll-view scroll-x='{{true}}'>
-  <view wx:for='{{school_list.data}}' wx:key='school_list' class="school_list" 
-  data-page="{{item.id==0?'/pages/school/my_join/index?index=1':'/pages/school/detail/index?id='+item.id}}" catchtap="goDetail">
-    <image src="{{item.cover_image}}" mode='widthFix'></image>
-    <view>{{item.school_name}}</view>
-  </view>
-</scroll-view>
-<x-nav tab-list="{{navList}}"></x-nav>
+<x-cell title='{{school_info.school_name}}' label='{{school_info.add_time}}创建'>
+  <x-avatar shape='square' size='62' src='{{school_info.cover_image}}' slot='icon'></x-avatar>
+  <x-button wx:if='{{school_info.join_status==0}}' slot='footer' inline size='52' type='info' bind:click="joinSchool">加入</x-button>
+  <x-button wx:else slot='footer' inline size='52' bind:click="joinSchool">已加入</x-button>
+</x-cell>
+<x-cell menuArrow label='{{school_info.intro}}'></x-cell>
+<!-- 主题列表 -->
 <view wx:for='{{data}}' wx:key='school_theme'>
   <view class="article" data-page="/pages/school/theme/index?id={{item.id}}" catchtap="goDetail">
     <view>{{item.title}}</view>
