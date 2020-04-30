@@ -1,1 +1,7 @@
 <x-nav tab-list="{{navList}}" bindtabSelect="tabSelect"></x-nav>
+<!-- 门派列表 -->
+<block wx:for='{{nav_index==0?my_join_school.data:school_list.data}}' wx:key='join_school'>
+  <x-cell  menuArrow title='{{item.school_name}}' url='/pages/school/my_join/index' value='{{item.member_num}}个成员'>
+    <image slot='icon' src="{{item.cover_image}}" class="circular_bead" style="width:100rpx;" mode="widthFix"></image>
+  </x-cell>
+</block>

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    school_list: [],
+    school_list: { current_page: 0, last_page: 1, total:0,data:[]},
     navList: [{ "name": "热门讨论主题" }],
     current_page: 0,
     data: [],
@@ -18,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getJoinSchoolList();
+    this.getJoinSchoolList();
     this.getHotThemeList();
   },
   /**
@@ -26,7 +26,7 @@ Page({
    */
   getJoinSchoolList: function () {
     school.myJoinSchool({ page: 1 }, (res) => {
-      this.setData({ school_list: res.data });
+      this.setData({ school_list: res });
     });
   },
   /**
@@ -42,11 +42,19 @@ Page({
       if (res.current_page > 1) {
         res.data = [...this.data.data, ...res.data];
       }
+      // for(let i=0;i<10;i++){
+      //   res.data.push(res.data[0]);
+      // }
       this.setData(res);
       wx.stopPullDownRefresh();
     });
   },
-
+  /**
+   * 门派点击事件
+   */
+  goDetail:function(e){
+    wx.navigateTo({url: e.currentTarget.dataset.page});
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

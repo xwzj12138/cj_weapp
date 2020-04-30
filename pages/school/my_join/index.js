@@ -57,7 +57,7 @@ Page({
    * 选择nav事件
    */
   tabSelect: function (e) {
-    this.data.nav_index = e.detail.index;
+    this.setData({ nav_index: e.detail.index})
   },
 
   /**

@@ -1,6 +1,9 @@
 /* pages/school/index/index.wxss */
 page>view{background: #fff;}
-.article{padding: 30rpx;font-size: 13px;display: flex;}
+scroll-view{width: 100%;white-space: nowrap;margin-bottom: 2px;background: #fff;padding-bottom: 2px;}
+.school_list{width: 100px;display: inline-block;text-align: center;font-size: 30rpx;}
+.school_list>image{width: 90%;border-radius: 5px;}
+.article{padding: 30rpx;font-size: 30rpx;display: flex;}
 .article>view:first-child{
   flex: 1;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:3;
 text-overflow:ellipsis;overflow: hidden;word-wrap: break-word;
