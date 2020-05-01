@@ -1,0 +1,11 @@
+<x-input value='{{form.school_name}}' name='school_name' title='门派名:' placeholder='请输入门派名' bind:change='inputChange' maxlength="20"></x-input>
+<!-- 封面图 -->
+<x-cell>
+  <view slot='icon' class="title">封面图</view>
+  <x-upload urlList="{{form.cover_image==''?[]:[form.cover_image]}}" uploadApi='{{upload_api}}' formData='{{formData}}' bindupload='uploadImage'></x-upload>
+</x-cell>
+<!-- 简介 -->
+<x-input type='textarea' name='intro' value='{{form.intro}}' placeholder='请输入简介' bind:change='inputChange' maxlength="200"></x-input>
+<view style='text-align: center;'>
+  <x-button type="primary" open-type="getPhoneNumber" bind:getphonenumber="getPhone">提交</x-button>
+</view>

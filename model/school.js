@@ -8,7 +8,7 @@ export default new class school extends auth{
   apply(param, callback) {
     this.request({ url: 'index/v1/school/apply', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
-  //获取当前用户加入的门派列表
+  //'获取当前用户加入的门派列表'
   myJoinSchool(param, callback) {
     this.request({ url: 'index/v1/school/myJoinSchool', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
@@ -36,9 +36,9 @@ export default new class school extends auth{
   themeCommentList(param, callback) {
     this.request({ url: 'index/v1/school/themeCommentList', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
-  //获取当前用户门派的主题或帖子列表
-  getMyTheme(param, callback) {
-    this.request({ url: 'index/v1/school/getMyTheme', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  //获取当前用户创建的门派
+  mySchool(callback) {
+    this.request({ url: 'index/v1/school/mySchool', type: 'POST', data: {}, sCallBack: (res) => { callback(res); } });
   }
   //获取某个门派成员列表
   getMember(param, callback) {
@@ -51,5 +51,9 @@ export default new class school extends auth{
   //点赞门派主题或帖子
   likeTheme(param, callback) {
     this.request({ url: 'index/v1/school/likeTheme', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  }
+  //加入门派
+  joinSchool(param, callback) {
+    this.request({ url: 'index/v1/school/join', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
 }

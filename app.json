@@ -44,7 +44,9 @@
         "money/detail/index",
         "participant/detail/index",
         "participant/list/index",
-        "userinfo/index"
+        "userinfo/index",
+        "school/my_school/index",
+        "school/apply/index"
       ]
     }
   ],

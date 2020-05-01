@@ -1,0 +1,11 @@
+/* pages/school/detail/index.wxss */
+.article{padding: 30rpx;font-size: 30rpx;display: flex;}
+.article>view:first-child{
+  flex: 1;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:3;
+text-overflow:ellipsis;overflow: hidden;word-wrap: break-word;
+}
+.article>image{width: 180rpx;}
+.browse_like{display:flex;color: #1296db;margin: 3px 30rpx;font-size: 15px;}
+.browse_like>view{flex: 1;}
+.browse_like text{margin-left: 5px;}
+.select_bg{background: #f6f6f6 !important;}

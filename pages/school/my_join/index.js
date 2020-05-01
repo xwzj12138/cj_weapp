@@ -17,7 +17,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getMyJoinTheme();
+    if(options.index){
+      this.setData({ nav_index: options.index*1 });
+      this.searchSchool();
+    }else{
+      this.getMyJoinTheme();
+    }
   },
   /**
    * 获取我加入的门派列表

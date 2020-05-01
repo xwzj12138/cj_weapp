@@ -1,0 +1,11 @@
+{
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 200,
+  "usingComponents": {
+    "x-cell": "/packages/cell/index",
+    "x-avatar": "/packages/avatar/index",
+    "x-button": "/packages/button/index",
+    "x-icon": "/packages/icon/index",
+    "x-blank-hint": "/packages/blank-hint/index"
+  }
+}

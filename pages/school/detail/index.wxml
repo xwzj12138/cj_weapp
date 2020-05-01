@@ -3,7 +3,7 @@
   <x-button wx:if='{{school_info.join_status==0}}' slot='footer' inline size='52' type='info' bind:click="joinSchool">加入</x-button>
   <x-button wx:else slot='footer' inline size='52' bind:click="joinSchool">已加入</x-button>
 </x-cell>
-<x-cell menuArrow label='{{school_info.intro}}'></x-cell>
+<x-cell label='{{school_info.intro}}'></x-cell>
 <!-- 主题列表 -->
 <view wx:for='{{data}}' wx:key='school_theme'>
   <view class="article" data-page="/pages/school/theme/index?id={{item.id}}" catchtap="goDetail">

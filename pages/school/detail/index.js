@@ -59,10 +59,22 @@ Page({
     });
   },
   /**
-   * 门派点击事件
+   * 门派主题或帖子点击事件
    */
   goDetail: function(e) {
     wx.navigateTo({ url: e.currentTarget.dataset.page });
+  },
+  /**
+   * 加入或者退出门派
+   */
+  joinSchool:function(){
+    let param = { id: this.data.school_info.id};
+    school.joinSchool(param,(res)=>{
+      this.data.school_info.join_status = this.data.school_info.join_status==0?1:0;
+      this.setData({school_info:this.data.school_info})
+      let title = this.data.school_info.join_status == 0 ? '成功退出门派' : '加入成功';
+      wx.showToast({ title: title});
+    });
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
