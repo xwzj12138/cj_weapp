@@ -6,7 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    theme_info:{id:0}
+    comment_content:'',
+    theme_info:{id:0},
+    current_page: 0,
+    data: [],
+    last_page: 1,
+    show_loading: false
   },
 
   /**
@@ -15,6 +20,7 @@ Page({
   onLoad: function (options) {
     this.data.theme_info.id = options.id;
     this.getThemeDetail();
+    this.getCommentList();
   },
 
   /**
@@ -26,19 +32,39 @@ Page({
       this.setData({ theme_info:res});
     });
   },
-
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 获取评论列表
    */
-  onPullDownRefresh: function () {
-
+  getCommentList:function(){
+    if (this.data.current_page >= this.data.last_page) {
+      wx.stopPullDownRefresh();
+      return this.setData({ show_loading: true });
+    }
+    let param = { id: this.data.theme_info.id,page:this.data.current_page+1};
+    school.themeCommentList(param,(res)=>{
+      if (res.current_page > 1) {
+        res.data = [...this.data.data, ...res.data];
+      }
+      this.setData(res);
+      wx.stopPullDownRefresh();
+    });
   },
-
   /**
-   * 页面上拉触底事件的处理函数
+   * 设置评论内容
    */
-  onReachBottom: function () {
-
+  handleInputChange:function(e){
+    this.setData({ comment_content: e.detail.value});
+  },
+  /**
+   * 评论你
+   */
+  commentTheme:function(){
+    if (this.data.comment_content.length==0) return wx.showToast({title: '内容不能为空',icon:'none'});
+    let param = { school_theme_id: this.data.theme_info.id, content:this.data.comment_content};
+    school.commentTheme(param,(res)=>{
+      this.data.data.push(res)
+      this.setData({comment_content:'',data:this.data.data})
+    });
   },
 
   /**

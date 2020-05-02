@@ -2,13 +2,17 @@
 <view class="title_info">{{theme_info.title}}</view>
 <!-- 发布者信息 -->
 <x-cell title='{{theme_info.nickname}}' label='{{theme_info.add_time}}发布'>
-  <x-avatar shape='square' size='62' src='{{theme_info.cover_image}}' slot='icon'></x-avatar>
+  <x-avatar shape='square' size='45' src='{{theme_info.avatar}}' slot='icon'></x-avatar>
 </x-cell>
 <view class="description">
   <view>{{theme_info.description}}</view>
   <image wx:for='{{theme_info.images}}' src="{{item}}"></image>
 </view>
+<x-cell wx:for='{{data}}' title='{{item.nickname}}' label='{{item.content}}'>
+  <x-avatar slot='icon' size='40' src='{{item.avatar}}'></x-avatar>
+</x-cell>
+<view style="height:57px;"></view>
 <x-tabbar>
-  <view class="comment_input"><input name='content' placeholder="请输入评论"></input></view>
-  <view class="x_button"><x-button>发送</x-button></view>
+  <input class="comment_input" name='comment_content' value="{{comment_content}}" placeholder="请输入评论" bindinput="handleInputChange" maxlength="250"></input>
+  <view class="x_button"><x-button bind:click='commentTheme'>发送</x-button></view>
 </x-tabbar>
