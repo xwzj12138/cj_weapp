@@ -1,4 +1,7 @@
 /* pages/school/theme/index.wxss */
+.title_info{padding: 5px 10px;font-weight: 600;}
 .description{font-size: 26rpx;padding: 8px 10px;}
 .description>view:first-child{margin-bottom: 5px;}
 .description image{width: 100%;}
+.comment_input{flex: 1;padding: 16px 15px;font-size: 16px;}
+.x_button{width: 60px;}

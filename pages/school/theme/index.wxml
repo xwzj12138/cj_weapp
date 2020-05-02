@@ -8,3 +8,7 @@
   <view>{{theme_info.description}}</view>
   <image wx:for='{{theme_info.images}}' src="{{item}}"></image>
 </view>
+<x-tabbar>
+  <view class="comment_input"><input name='content' placeholder="请输入评论"></input></view>
+  <view class="x_button"><x-button>发送</x-button></view>
+</x-tabbar>

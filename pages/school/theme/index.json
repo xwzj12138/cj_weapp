@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "x-cell": "/packages/cell/index"
+    "x-cell": "/packages/cell/index",
+    "x-tabbar": "/packages/tabbar/index",
+    "x-button": "/packages/button/index"
   }
 }

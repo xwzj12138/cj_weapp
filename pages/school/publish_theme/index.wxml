@@ -1,0 +1,9 @@
+<x-input value='{{form.title}}' name='title' placeholder='请输入标题' bind:change='inputChange' maxlength="50"></x-input>
+<!-- 简介 -->
+<x-input type='textarea' name='description' value='{{form.description}}' placeholder='请输入简介' bind:change='inputChange' maxlength="300"></x-input>
+<!-- 图片列表 -->
+<x-upload urlList='{{data.images}}' bindupload='upload' limit='8' uploadApi='{{upload_api}}' formData='{{formData}}'></x-upload>
+<x-cell label='第一张图将作为封面图展示'></x-cell>
+<view style='text-align: center;'>
+  <x-button type="primary"  bind:click="submit">提交</x-button>
+</view>

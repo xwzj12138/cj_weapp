@@ -16,3 +16,5 @@
     <view><x-icon name='messagefill' color='#666' size='40'></x-icon><text>{{item.comment_num}}</text></view>
   </view>
 </view>
+<!-- 添加主题按钮 -->
+<view class='addButton'><x-icon size='98' name='roundaddfill' catchtap="goPublishTheme"></x-icon></view>

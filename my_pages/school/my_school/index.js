@@ -42,7 +42,7 @@ Page({
       wx.stopPullDownRefresh();
       return this.setData({ show_loading: true });
     }
-    let param = { id: this.data.school_info.id, page: this.data.current_page + 1 }
+    let param = { school_id: this.data.school_info.id, page: this.data.current_page + 1 }
     school.getTheme(param, (res) => {
       if (res.current_page > 1) {
         res.data = [...this.data.data, ...res.data];

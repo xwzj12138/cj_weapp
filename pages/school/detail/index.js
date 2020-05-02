@@ -38,7 +38,7 @@ Page({
       wx.stopPullDownRefresh();
       return this.setData({ show_loading: true });
     }
-    let param = { page: this.data.current_page + 1 };
+    let param = { school_id:this.data.school_info.id, page: this.data.current_page + 1 };
     school.getTheme(param, (res) => {
       if (res.current_page > 1) {
         res.data = [...this.data.data, ...res.data];
@@ -92,7 +92,25 @@ Page({
   onReachBottom: function () {
     this.getschoolThemeList();
   },
-
+  /**
+   * 进入发布主题页面
+   */
+  goPublishTheme:function(){
+    if (this.data.school_info.join_status == 0) return wx.showToast({ title: '您还没有加入该门派!', icon: 'none' });
+    wx.navigateTo({ url: '/pages/school/publish_theme/index?id=' + this.data.school_info.id});
+  },
+  /**
+   * 页面显示时触发
+   */
+  onShow: function () {
+    console.log('school-detail', getApp().globalData.is_refresh)
+    if (getApp().globalData.is_refresh) {
+      getApp().globalData.is_refresh = false;
+      this.data.current_page = 0;
+      this.data.last_page = 1;
+      this.getschoolThemeList();
+    }
+  },
   /**
    * 用户点击右上角分享
    */
