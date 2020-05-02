@@ -18,7 +18,8 @@
     "pages/school/my_join/index",
     "pages/school/theme/index",
     "pages/school/detail/index",
-    "pages/school/publish_theme/index"
+    "pages/school/publish_theme/index",
+    "pages/school/member/index"
   ],
   "subpackages": [
     {

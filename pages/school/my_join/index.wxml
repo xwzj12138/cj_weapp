@@ -5,3 +5,4 @@
     <x-avatar shape='square' size='52' src='{{item.cover_image}}' slot='icon'></x-avatar>
   </x-cell>
 </block>
+<x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多门派了！'></x-loading>

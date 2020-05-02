@@ -4,6 +4,11 @@
   <x-button wx:else slot='footer' inline size='52' bind:click="joinSchool">已加入</x-button>
 </x-cell>
 <x-cell label='{{school_info.intro}}'></x-cell>
+<x-cell menuArrow value='门派成员' url='/pages/school/member/index?id={{school_info.id}}'>
+  <view>
+    <x-avatar wx:for='{{school_info.member_list}}' wx:key='school_member' src="{{item.avatar}}" size='36' x-class="{{index>0?'x_avatar':''}}"></x-avatar>
+  </view>
+</x-cell>
 <!-- 主题列表 -->
 <view wx:for='{{data}}' wx:key='school_theme'>
   <view class="article" data-page="/pages/school/theme/index?id={{item.id}}" catchtap="goDetail">
@@ -16,5 +21,6 @@
     <view><x-icon name='messagefill' color='#666' size='40'></x-icon><text>{{item.comment_num}}</text></view>
   </view>
 </view>
+<x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的主题了！'></x-loading>
 <!-- 添加主题按钮 -->
 <view class='addButton'><x-icon size='98' name='roundaddfill' catchtap="goPublishTheme"></x-icon></view>

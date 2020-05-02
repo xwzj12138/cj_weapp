@@ -16,3 +16,4 @@
   <input class="comment_input" name='comment_content' value="{{comment_content}}" placeholder="请输入评论" bindinput="handleInputChange" maxlength="250"></input>
   <view class="x_button"><x-button bind:click='commentTheme'>发送</x-button></view>
 </x-tabbar>
+<x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多评论！'></x-loading>

@@ -7,7 +7,7 @@ Page({
    */
   data: {
     show_loading:false,
-    school_info:{id:0},
+    school_info: { id: 0, member_list:[]},
     current_page:0,
     last_page:1,
     data:[]

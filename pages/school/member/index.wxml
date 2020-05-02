@@ -1,0 +1,4 @@
+<x-cell wx:for='{{data}}' wx:key='school_member' title='{{item.nickname}}' value='{{item.add_time}}加入'>
+  <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon'></x-avatar>
+</x-cell>
+<x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的成员了！'></x-loading>

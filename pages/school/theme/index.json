@@ -3,6 +3,7 @@
     "x-avatar": "/packages/avatar/index",
     "x-cell": "/packages/cell/index",
     "x-tabbar": "/packages/tabbar/index",
+    "x-loading": "/packages/loading/index",
     "x-button": "/packages/button/index"
   }
 }

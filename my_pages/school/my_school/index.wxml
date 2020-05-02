@@ -4,6 +4,11 @@
     <x-button slot='footer' inline size='52' type='info' bind:click="schoolApply">{{audit_status_list[school_info.status]}}</x-button>
   </x-cell>
   <x-cell label='{{school_info.intro}}'></x-cell>
+  <x-cell menuArrow value='门派成员' url='/pages/school/member/index?id={{school_info.id}}'>
+  <view>
+    <x-avatar wx:for='{{school_info.member_list}}' wx:key='school_member' src="{{item.avatar}}" size='36' x-class="{{index>0?'x_avatar':''}}"></x-avatar>
+  </view>
+</x-cell>
   <!-- 主题列表 -->
   <view wx:for='{{data}}' wx:key='school_theme'>
     <view class="article" data-page="/pages/school/theme/index?id={{item.id}}" catchtap="goDetail">
@@ -19,3 +24,4 @@
 </view>
 <!-- 提示信息 -->
 <x-blank-hint wx:else button_url='/my_pages/school/apply/index' linkType='navigateTo' button_name='创建门派'></x-blank-hint>
+<x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多主题了！'></x-loading>

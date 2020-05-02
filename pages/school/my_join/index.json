@@ -4,6 +4,7 @@
   "usingComponents": {
     "x-cell": "/packages/cell/index",
     "x-nav":"/packages/nav/index",
+    "x-loading": "/packages/loading/index",
     "x-avatar": "/packages/avatar/index"
   }
 }

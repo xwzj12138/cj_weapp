@@ -1,2 +1,3 @@
 .userinfo_body{background-color: #f7db9a !important;padding:10px 5px 30px 10px !important;}
 .cart_style{background: #fff;border-radius: 5px;box-shadow: 0px 0px 4px #888;overflow: hidden;margin: -20px 20px 20px;position: relative;}
+.x_avatar{margin-left:-10px;}

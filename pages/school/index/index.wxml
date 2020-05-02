@@ -21,3 +21,4 @@
     <view><x-icon name='messagefill' color='#666' size='40'></x-icon><text>{{item.comment_num}}</text></view>
   </view>
 </view>
+<x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的主题了！'></x-loading>

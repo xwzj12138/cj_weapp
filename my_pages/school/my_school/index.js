@@ -8,7 +8,7 @@ Page({
   data: {
     audit_status_list: ['待审核', '审核通过', '审核不通过', '重新申请'],
     show_loading: false,
-    school_info: { id: 0 },
+    school_info: { id: 0, member_list: []},
     current_page: 0,
     last_page: 1,
     data: []
