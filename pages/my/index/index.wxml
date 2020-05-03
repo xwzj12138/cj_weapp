@@ -21,7 +21,7 @@
     <x-grid-item title='余额' url='/my_pages/money/index/index?now_brokerage={{userinfo.now_brokerage}}'>
       <view class='cooperation'>{{userinfo.now_brokerage}}</view>
     </x-grid-item>
-    <x-grid-item title='等级积分' url='/pages/my/userinfo/index'>
+    <x-grid-item title='等级积分' url='/my_pages/userinfo/index'>
       <view class='cooperation'>{{userinfo.integral}}</view>
     </x-grid-item>
   </x-grid-group>

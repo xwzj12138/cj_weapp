@@ -1,5 +1,5 @@
 <!-- 收货信息 -->
-<x-cell url='/pages/my/address/list/index' menuArrow isLastCell='{{false}}'>
+<x-cell url='/my_pages/address/list/index' menuArrow isLastCell='{{false}}'>
   <view wx:if='{{!address_info.consignee_name}}' style="color:#F23120;">请设置收货地址</view>
   <view  wx:else>
     <view class='userinfo'>

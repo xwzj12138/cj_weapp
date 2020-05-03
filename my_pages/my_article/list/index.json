@@ -3,6 +3,7 @@
   "usingComponents": {
     "x-avatar": "/packages/avatar/index",
     "x-icon": "/packages/icon/index",
+    "x-loading": "/packages/loading/index",
     "x-blank-hint": "/packages/blank-hint/index"
   }
 }

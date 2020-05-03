@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show_loading:false,
     current_page: 0,
     data: [],
     last_page: 1,
@@ -25,7 +26,7 @@ Page({
   getArticleList: function () {
     if (this.data.current_page == this.data.last_page) {
       wx.stopPullDownRefresh()
-      return wx.showToast({ title: '没有更多数据哦!', icon: 'none' });
+      return this.setData({ show_loading:true})
     }
     let param = { page: this.data.current_page + 1 };
     article.myList(param, (res) => {

@@ -3,6 +3,6 @@
   <view>{{now_brokerage}}</view>
 </view>
 <x-cell-group>
-  <x-cell menuArrow title='提现' url='/pages/my/money/withdraw/index?now_brokerage={{now_brokerage}}'></x-cell>
-  <x-cell menuArrow title='余额明细' url='/pages/my/money/detail/index'></x-cell>
+  <x-cell menuArrow title='提现' url='/my_pages/money/withdraw/index?now_brokerage={{now_brokerage}}'></x-cell>
+  <x-cell menuArrow title='余额明细' url='/my_pages/money/detail/index'></x-cell>
 </x-cell-group>

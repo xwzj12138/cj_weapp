@@ -22,3 +22,4 @@
 </view>
 <!-- 没有数据提示前往发布-->
 <x-blank-hint wx:if='{{data.length==0}}' button_url='/pages/publish/index/index' button_name='前往发布'></x-blank-hint>
+<x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多主题了！'></x-loading>

@@ -35,4 +35,4 @@
   </x-cell>
 </view>
 <!-- 提示信息 -->
-<x-blank-hint wx:if='{{is_null}}' button_url='/pages/product/list/index' button_name='选购商品'></x-blank-hint>
+<x-blank-hint wx:if='{{is_null}}'  linkType='navigateTo' button_url='/pages/product/list/index' button_name='选购商品'></x-blank-hint>
