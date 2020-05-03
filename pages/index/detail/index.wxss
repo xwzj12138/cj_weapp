@@ -1,3 +1,4 @@
+page>view{background-color: #f3f3f3;}
 .title{font-size: 16px;font-weight: 600;margin: 10px;}
 .participant{
   width:120px;height:120px;border-radius:50%;margin:0 auto;line-height:100px;background:#ff785a;

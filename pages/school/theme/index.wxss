@@ -3,5 +3,5 @@
 .description{font-size: 26rpx;padding: 8px 10px;}
 .description>view:first-child{margin-bottom: 5px;}
 .description image{width: 100%;}
-.comment_input{flex: 1;margin: 16px 15px;font-size: 16px;}
+.comment_input{flex: 1;margin: 0 8px;font-size: 16px;height:30px;}
 .x_button{width: 60px;padding-right:16px;}

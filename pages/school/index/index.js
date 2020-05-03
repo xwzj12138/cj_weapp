@@ -25,9 +25,11 @@ Page({
    * 获取加入的门派列表
    */
   getJoinSchoolList: function () {
+    wx.showLoading({ mask: true });
     school.myJoinSchool({ page: 1 }, (res) => {
       res.data.unshift({ id: 0, cover_image: '../../../static/tabbar/select_school.png', school_name: '江湖' })
       this.setData({ school_list: res });
+      wx.hideLoading();
     });
   },
   /**

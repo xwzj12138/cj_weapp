@@ -25,8 +25,10 @@ Page({
    * 获取门派详情
    */
   getSchoolDetail:function(){
+    wx.showLoading({mask: true });
     let param = {id:this.data.school_info.id};
     school.getDetail(param,(res)=>{
+      wx.hideLoading();
       this.setData({ school_info:res});
     });
   },
@@ -117,7 +119,7 @@ Page({
     let userinfo = getApp().globalData.userInfo
     return {
       title: userinfo.nickname+'邀请您加入' + this.data.school_info.school_name,
-      path: '/pages/school/detail/index?share_uid=' + userinfo.uid
+      path: '/pages/school/detail/index?share_uid=' + userinfo.uid+'&id='+this.data.school_info.id
     }
   }
 })

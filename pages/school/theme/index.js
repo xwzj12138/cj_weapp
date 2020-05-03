@@ -73,7 +73,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: this.data.theme_info.title,
-      path: '/pages/school/detail/index?share_uid=' + getApp().globalData.userInfo.uid
+      path: '/pages/school/detail/index?share_uid=' + getApp().globalData.userInfo.uid + '&id=' + this.data.theme_info.id
     }
   }
 })
