@@ -15,3 +15,4 @@ box-sizing: border-box;}
 .article_row1{-webkit-line-clamp:1;}
 .article_row2{-webkit-line-clamp:2;}
 .article_row3{-webkit-line-clamp:3;}
+.width_100{width: 100%;}

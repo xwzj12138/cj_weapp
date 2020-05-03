@@ -25,15 +25,14 @@ Page({
    */
   getOrderList:function(){
     if(this.data.current_page>=this.data.last_page) {
-      return wx.stopPullDownRefresh();
+      wx.stopPullDownRefresh();
+      return this.setData({is_null:true});
     }
     let param = { page : this.data.current_page + 1};
     order.getAll(param,(res)=>{
-      if(res.data.length==0){
-        res.is_null = true;
-      }
+      res.is_null = res.data.length == 0;
       if(res.data.current_page>1){
-        res.data = this.data.data.concat(res.data);
+        res.data = [...this.data.data,...res.data];
       }
       this.setData(res);
       wx.stopPullDownRefresh();

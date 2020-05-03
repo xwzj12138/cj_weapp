@@ -93,6 +93,7 @@ Page({
     this.data.data.time++
     if(this.data.data.brand_id!=='') this.data.data.brand_id = this.data.brand_list[this.data.data.brand_id].id;
     pruze.publish(this.data.data,(res)=>{
+      getApp().globalData.is_refresh = true;
       wx.reLaunch({url: '/pages/index/index/index'});
     })
   }

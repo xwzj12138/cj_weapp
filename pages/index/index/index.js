@@ -80,6 +80,18 @@ Page({
   },
 
   /**
+   * 页面显示时触发
+   */
+  onShow: function () {
+    if (getApp().globalData.is_refresh) {
+      getApp().globalData.is_refresh = false;
+      this.data.current_page = 0;
+      this.data.last_page = 1;
+      this.getPruzeList();
+    }
+  },
+
+  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {

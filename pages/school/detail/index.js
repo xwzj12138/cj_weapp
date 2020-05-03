@@ -103,7 +103,6 @@ Page({
    * 页面显示时触发
    */
   onShow: function () {
-    console.log('school-detail', getApp().globalData.is_refresh)
     if (getApp().globalData.is_refresh) {
       getApp().globalData.is_refresh = false;
       this.data.current_page = 0;
@@ -115,6 +114,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    let userinfo = getApp().globalData.userInfo
+    return {
+      title: userinfo.nickname+'邀请您加入' + this.data.school_info.school_name,
+      path: '/pages/school/detail/index?share_uid=' + userinfo.uid
+    }
   }
 })

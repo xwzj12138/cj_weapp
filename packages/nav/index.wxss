@@ -1,4 +1,5 @@
 /* packages/nav/index.wxss */
+@import '../common/index.wxss';
 .nav {
   white-space: nowrap;
   display: flex;

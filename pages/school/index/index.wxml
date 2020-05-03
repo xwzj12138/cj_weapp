@@ -2,7 +2,7 @@
   <x-cell menuArrow title='我加入的' url='/pages/school/my_join/index' value='{{school_list.total}}个门派'></x-cell>
 </x-cell-group>
 <!-- 加入的门派列表，只显示前15条 -->
-<scroll-view scroll-x='{{true}}'>
+<scroll-view scroll-x='{{true}}' enable-flex='true'>
   <view wx:for='{{school_list.data}}' wx:key='school_list' class="school_list" 
   data-page="{{item.id==0?'/pages/school/my_join/index?index=1':'/pages/school/detail/index?id='+item.id}}" catchtap="goDetail">
     <image src="{{item.cover_image}}"></image>

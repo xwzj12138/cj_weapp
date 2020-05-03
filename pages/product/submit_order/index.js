@@ -41,12 +41,12 @@ Page({
     if(this.data.address_info==null) return wx.showToast({title: '请设置收货地址',icon:'none'});
     product.pay(this.data.form,(res)=>{
       res.success = (result)=>{
-        wx.redirectTo({ url: '/pages/my/order/list/index'});
+        wx.redirectTo({ url: '/my_pages/order/list/index'});
       }
       res.fail = (result) => {
         wx.showToast({title: '支付失败',icon:'none'});
         setTimeout((res) => {
-          wx.reLaunch({ url: '/pages/my/order/list/index' });
+          wx.reLaunch({ url: '/my_pages/order/list/index' });
         }, 1100);
       }
       wx.requestPayment(res);

@@ -8,45 +8,95 @@
     {"action": "allow","page": "pages/product/detail/index"},
     {"action": "disallow","page": "pages/publish/index/index"},
     {"action": "disallow","page": "pages/publish/article/index"},
+    {"action": "disallow","page": "my_pages/address/detail/index"},
+    {"action": "disallow","page": "my_pages/address/list/index"},
     {
       "action": "disallow",
-      "page": "my_pages/address/detail/index"
+      "page": "my_pages/brand/detail/index"
     },
     {
       "action": "disallow",
-      "page": "my_pages/address/list/index"
+      "page": "my_pages/brand/list/index"
     },
     {
       "action": "disallow",
-      "page": "pages/my/index/index"
+      "page": "my_pages/collect/list/index"
     },
     {
       "action": "disallow",
-      "page": "pages/my/cooperation/index"
+      "page": "my_pages/cooperation/list/index"
     },
     {
       "action": "disallow",
-      "page": "pages/my/participant/list/index"
+      "page": "my_pages/index/index"
     },
     {
       "action": "disallow",
-      "page": "pages/my/order/comment/index"
+      "page": "my_pages/friend_list/index"
     },
     {
       "action": "disallow",
-      "page": "pages/my/order/detail/index"
+      "page": "my_pages/participant/list/index"
     },
     {
       "action": "disallow",
-      "page": "pages/my/my_pruze/order_list/index"
+      "page": "my_pages/order/comment/index"
+    },
+    {
+      "action": "disallow",
+      "page": "my_pages/order/detail/index"
+    },
+    {
+      "action": "disallow",
+      "page": "my_pages/my_pruze/order_list/index"
     },
     {
       "action":"disallow",
-      "page":"pages/my/my_article/list/index"
+      "page":"my_pages/my_article/list/index"
     },
     {
       "action": "disallow",
-      "page": "pages/my/my_article/task_audit/index"
+      "page": "my_pages/my_article/task_audit/index"
+    },
+    {
+      "action": "disallow",
+      "page": "my_pages/money/detail/index"
+    },
+    {
+      "action": "disallow",
+      "page": "my_pages/money/index/index"
+    },
+    {
+      "action": "disallow",
+      "page": "my_pages/money/withdraw/index"
+    },
+    {
+      "action": "disallow",
+      "page": "my_pages/my_apply_task/index"
+    },
+    {
+      "action": "disallow",
+      "page": "my_pages/school/apply/index"
+    },
+    {
+      "action": "disallow",
+      "page": "my_pages/school/my_school/index"
+    },
+    {
+      "action": "disallow",
+      "page": "my_pages/userinfo/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/school/publish_theme/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/school/member/index"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/product/submit_order/index"
     }
   ]
 }

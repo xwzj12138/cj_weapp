@@ -4,7 +4,7 @@
     <x-button slot='footer' inline size='52' type='info' bind:click="schoolApply">{{audit_status_list[school_info.status]}}</x-button>
   </x-cell>
   <x-cell label='{{school_info.intro}}'></x-cell>
-  <x-cell menuArrow value='门派成员' url='/pages/school/member/index?id={{school_info.id}}'>
+  <x-cell wx:if='{{school_info.status==1}}' menuArrow value='门派成员' url='/pages/school/member/index?id={{school_info.id}}'>
   <view>
     <x-avatar wx:for='{{school_info.member_list}}' wx:key='school_member' src="{{item.avatar}}" size='36' x-class="{{index>0?'x_avatar':''}}"></x-avatar>
   </view>

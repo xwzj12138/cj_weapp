@@ -94,6 +94,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    let userinfo = getApp().globalData.userInfo
+    return {
+      title: userinfo.nickname + '邀请您创建门派',
+      path: '/pages/school/index/index?share_uid=' + userinfo.uid
+    }
   }
 })

@@ -43,6 +43,7 @@ Page({
     product.collect(param, (res) => {
       this.data.detail.is_collect = !this.data.detail.is_collect;
       this.setData(this.data);
+      getApp().globalData.is_refresh = true;
     });
   },
 

@@ -2,3 +2,5 @@
   <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon'></x-avatar>
 </x-cell>
 <x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的成员了！'></x-loading>
+<!-- 没有数据提示前往发布-->
+<x-blank-hint wx:if='{{data.length==0}}' linkType='navigateTo' button_url='/pages/school/detail/index?id={{school_id}}' button_name='分享门派'></x-blank-hint>

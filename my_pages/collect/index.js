@@ -24,12 +24,15 @@ Page({
    */
   getCollectList(){
     //没有数据停止刷新
-    if (this.data.current_page == this.data.last_page) return wx.stopPullDownRefresh();
+    if (this.data.current_page == this.data.last_page) {
+      wx.stopPullDownRefresh();
+      return this.setData({ is_null:true});
+    }
     //获取数据
     let param = { page: this.data.current_page+1};
     product.collectList(param,(res)=>{
-      if(res.data.length==0) res.is_null = true;
-      if(res.data.current_page>1) res.data = this.data.data.concat(res.data);
+      res.is_null = res.data.length == 0;
+      if (res.data.current_page > 1) res.data = [...this.data.data, ...res.data];
       this.setData(res);
       wx.stopPullDownRefresh();
     });
@@ -54,5 +57,16 @@ Page({
   onPullDownRefresh:function(){
     this.setData({current_page: 0,last_page: 1});
     this.getCollectList();
-  }
+  },
+  /**
+   * 页面显示时触发
+   */
+  onShow: function () {
+    if (getApp().globalData.is_refresh) {
+      getApp().globalData.is_refresh = false;
+      this.data.current_page = 0;
+      this.data.last_page = 1;
+      this.getCollectList();
+    }
+  },
 })
