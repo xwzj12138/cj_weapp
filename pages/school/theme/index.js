@@ -62,7 +62,7 @@ Page({
     if (this.data.comment_content.length==0) return wx.showToast({title: '内容不能为空',icon:'none'});
     let param = { school_theme_id: this.data.theme_info.id, content:this.data.comment_content};
     school.commentTheme(param,(res)=>{
-      this.data.data.push(res)
+      this.data.data.unshift(res)
       this.setData({comment_content:'',data:this.data.data})
     });
   },

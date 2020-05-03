@@ -18,7 +18,7 @@ Page({
   goDetail:function(e){
     let page = '/pages/index/detail/index?id=' + e.currentTarget.dataset.pruze_id;
     if (e.currentTarget.dataset.status>2){
-      page = '/pages/my/participant/detail/index?id=' + e.currentTarget.dataset.id;
+      page = '/my_pages/participant/detail/index?id=' + e.currentTarget.dataset.id;
     }
     wx.navigateTo({
       url: page

@@ -15,7 +15,7 @@
 </x-cell>
 <view class="grid_group_cart cart_style">
   <x-grid-group>
-    <x-grid-item title='我参与' url='/pages/my/participant/list/index'>
+    <x-grid-item title='我参与' url='/my_pages/participant/list/index'>
       <view class='cooperation'>{{userinfo.participant_num}}</view>
     </x-grid-item>
     <x-grid-item title='余额' url='/my_pages/money/index/index?now_brokerage={{userinfo.now_brokerage}}'>

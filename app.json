@@ -41,7 +41,7 @@
         "order/list/index",
         "order/detail/index",
         "order/comment/index",
-        "money/index",
+        "money/index/index",
         "money/withdraw/index",
         "money/detail/index",
         "participant/detail/index",
