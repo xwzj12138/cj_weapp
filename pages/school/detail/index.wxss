@@ -1,8 +1,8 @@
 /* pages/school/detail/index.wxss */
-.article{padding: 30rpx;font-size: 30rpx;display: flex;}
+.article{padding: 30rpx;font-size: 37rpx;display: flex;}
 .article>view:first-child{
   flex: 1;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:3;
-text-overflow:ellipsis;overflow: hidden;word-wrap: break-word;
+text-overflow:ellipsis;overflow: hidden;word-wrap: break-word;line-height: 1.6;
 }
 .article>image{width: 180rpx;}
 .browse_like{display:flex;color: #1296db;margin: 3px 30rpx;font-size: 15px;}

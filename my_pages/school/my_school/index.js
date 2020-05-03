@@ -31,6 +31,7 @@ Page({
         //用户已经创建门派并且审核通过，获取门派主题列表
         this.getThemeList();
       }
+      wx.stopPullDownRefresh();
     });
   },
 

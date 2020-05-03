@@ -2,10 +2,10 @@
 scroll-view{width: 100%;white-space: nowrap;margin-bottom: 2px;background: #fff;padding-bottom: 2px;height: 275rpx;}
 .school_list{width: 100px;display: inline-block;text-align: center;font-size: 30rpx;}
 .school_list>image{width: 90px;height:90px;border-radius: 5px;}
-.article{padding: 30rpx;font-size: 30rpx;display: flex;}
+.article{padding: 30rpx;font-size: 37rpx;display: flex;}
 .article>view:first-child{
   flex: 1;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:3;
-text-overflow:ellipsis;overflow: hidden;word-wrap: break-word;
+text-overflow:ellipsis;overflow: hidden;word-wrap: break-word;line-height: 1.6;
 }
 .article>image{width: 180rpx;height: 180rpx;}
 .browse_like{display:flex;color: #1296db;margin: 3px 30rpx;font-size: 15px;}

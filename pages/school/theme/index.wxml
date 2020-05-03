@@ -6,7 +6,7 @@
 </x-cell>
 <view class="description">
   <view>{{theme_info.description}}</view>
-  <image wx:for='{{theme_info.images}}' src="{{item}}"></image>
+  <image wx:for='{{theme_info.images}}' src="{{item}}" show-menu-by-longpress></image>
 </view>
 <x-cell wx:for='{{data}}' title='{{item.nickname}}' label='{{item.content}}'>
   <x-avatar slot='icon' size='40' src='{{item.avatar}}'></x-avatar>
