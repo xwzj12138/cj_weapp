@@ -9,5 +9,5 @@ text-overflow:ellipsis;overflow: hidden;word-wrap: break-word;
 .browse_like>view{flex: 1;}
 .browse_like text{margin-left: 5px;}
 .select_bg{background: #f6f6f6 !important;}
-.addButton{position: fixed;bottom: 10px;left: 50%;margin-left: -49rpx;}
+.addButton{position: fixed;bottom: 10px;left: 50%;margin-left: -49rpx;background: none;}
 .x_avatar{margin-left:-10px;}
