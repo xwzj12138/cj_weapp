@@ -12,4 +12,4 @@
     <x-button slot='footer' inline type='warning' size='56' shape='circle' data-uid='{{item.uid}}' catchtap='helpFriend'>助力</x-button>
   </x-cell>
 </x-cell-group>
-<x-loading icon='' isShow="{{data.length==0}}" hint='还没有好友哦，分享一下吧！'></x-loading>
+<x-loading icon='' isShow="{{is_null}}" hint='还没有好友哦，分享一下吧！'></x-loading>

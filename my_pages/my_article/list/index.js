@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    is_null:false,
     show_loading:false,
     current_page: 0,
     data: [],
@@ -30,7 +31,8 @@ Page({
     }
     let param = { page: this.data.current_page + 1 };
     article.myList(param, (res) => {
-      res.data = this.data.data.concat(res.data);
+      res.is_null = res.current_page == 1 && res.data.length == 0;
+      if (res.current_page>1) res.data = [...this.data.data,...res.data];
       this.setData(res);
       wx.stopPullDownRefresh()
     });

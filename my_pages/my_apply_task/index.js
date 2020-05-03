@@ -27,9 +27,8 @@ Page({
     }
     let param = {page:this.data.current_page+1}
     article.myApplyTaskList(param,(res)=>{
-      if(res.current_page>1){
-        res.data = [...this.data.data,...res.data];
-      }
+      res.is_null = res.current_page == 1 && res.data.length == 0;
+      if (res.current_page > 1) res.data = [...this.data.data, ...res.data];
       this.setData(res);
       wx.stopPullDownRefresh();
     });

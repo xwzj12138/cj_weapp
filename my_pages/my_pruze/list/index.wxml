@@ -23,4 +23,4 @@
   </x-cell>
 </x-cell-group>
 <!-- 没有数据提示前往发布-->
-<x-blank-hint wx:if='{{data.length==0}}' button_url='/pages/publish/index/index' button_name='发起抽奖'></x-blank-hint>
+<x-blank-hint wx:if='{{is_null}}' button_url='/pages/publish/index/index' button_name='发起抽奖'></x-blank-hint>

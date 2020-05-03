@@ -7,6 +7,7 @@ Page({
    */
   data: {
     is_null:false,
+    show_loading: false,
     pay_status: ['待支付', '待发货','订单已取消', '待收货', '待评论', '已完成', '申请退款中', '拒绝退款', '退款中','退款成功'],
     current_page: 0,
     data: [],
@@ -26,14 +27,12 @@ Page({
   getOrderList:function(){
     if(this.data.current_page>=this.data.last_page) {
       wx.stopPullDownRefresh();
-      return this.setData({is_null:true});
+      return this.setData({ show_loading:true});
     }
     let param = { page : this.data.current_page + 1};
     order.getAll(param,(res)=>{
-      res.is_null = res.data.length == 0;
-      if(res.data.current_page>1){
-        res.data = [...this.data.data,...res.data];
-      }
+      res.is_null = res.current_page == 1 && res.data.length == 0;
+      if (res.current_page > 1) res.data = [...this.data.data, ...res.data];
       this.setData(res);
       wx.stopPullDownRefresh();
     });

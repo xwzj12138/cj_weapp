@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show_loading:false,
+    is_null:false,
     userinfo:{},
     current_page: 0,
     last_page: 1,
@@ -25,15 +27,16 @@ Page({
    */
   friend_list:function(){
     if (this.data.current_page == this.data.last_page) {
-      return '';
+      wx.stopPullDownRefresh();
+      return this.setData({ show_loading: true });
     }
     let param = { page: this.data.current_page + 1 }
     user.getfriend_list(param,(res)=>{
-      this.data.current_page = res.current_page
-      this.data.last_page = res.last_page
-      this.data.data = this.data.data.concat(res.data)
-      this.setData(this.data)
-    })
+      res.is_null = res.current_page == 1 && res.data.length == 0;
+      if (res.current_page > 1) res.data = [...this.data.data, ...res.data];
+      this.setData(res);
+      wx.stopPullDownRefresh();
+    });
   },
   /**
    * 助力

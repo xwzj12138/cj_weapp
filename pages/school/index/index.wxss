@@ -4,8 +4,7 @@ scroll-view{width: 100%;white-space: nowrap;margin-bottom: 2px;background: #fff;
 .school_list>image{width: 90px;height:90px;border-radius: 5px;}
 .article{padding: 30rpx;font-size: 37rpx;display: flex;}
 .article>view:first-child{
-  flex: 1;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:3;
-text-overflow:ellipsis;overflow: hidden;word-wrap: break-word;line-height: 1.6;
+  flex: 1;overflow: hidden;line-height: 1.4;
 }
 .article>image{width: 180rpx;height: 180rpx;}
 .browse_like{display:flex;color: #1296db;margin: 3px 30rpx;font-size: 15px;}

@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    is_null:false,
     current_page:0,
     data:[],
     last_page:1,
@@ -31,6 +32,7 @@ Page({
     //获取我的发布文章
     let param = { page: this.data.current_page + 1 }
     pruze.myPublish(param,(res)=>{
+      res.is_null = res.current_page == 1 && res.data.length == 0;
       if (res.current_page > 1) res.data = [...this.data.data, ...res.data];
       this.setData(res);
       wx.stopPullDownRefresh();

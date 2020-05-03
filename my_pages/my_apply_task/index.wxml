@@ -10,4 +10,4 @@
   </view>
 </view>
 <!-- 没有数据提示前往发布-->
-<x-blank-hint wx:if='{{data.length==0}}' button_url='/pages/article/list/index' button_name='前往领取'></x-blank-hint>
+<x-blank-hint wx:if='{{is_null}}' button_url='/pages/article/list/index' button_name='前往领取'></x-blank-hint>

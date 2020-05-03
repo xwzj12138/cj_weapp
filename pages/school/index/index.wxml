@@ -13,7 +13,7 @@
 <view wx:for='{{data}}' wx:key='school_theme'>
   <view class="article" data-page="/pages/school/theme/index?id={{item.id}}" catchtap="goDetail">
     <view>{{item.title}}</view>
-    <image src="{{item.first_image}}" lazy-load></image>
+    <image src="{{item.first_image}}" lazy-load  mode="widthFix"></image>
   </view>
   <view class="browse_like">
     <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>

@@ -10,5 +10,6 @@
     <view>市场价￥{{item.market_price}}</view>
   </view>
 </x-cell>
+<x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的商品了！'></x-loading>
 <!-- 提示信息 -->
 <x-blank-hint wx:if='{{is_null}}' linkType='navigateTo' button_url='/pages/product/list/index'  button_name='去添加收藏吧'></x-blank-hint>
