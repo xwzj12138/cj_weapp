@@ -70,7 +70,7 @@ Page({
    * 加入或者退出门派
    */
   joinSchool:function(){
-    wx.showLoading({title: '提交交中',mask:true});
+    wx.showLoading({title: '提交中',mask:true});
     let param = { id: this.data.school_info.id};
     school.joinSchool(param,(res)=>{
       this.data.school_info.join_status = this.data.school_info.join_status==0?1:0;

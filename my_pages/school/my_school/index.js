@@ -82,5 +82,13 @@ Page({
       getApp().globalData.is_refresh = false;
       this.getMySchool();
     }
+  },
+  /**
+   * 进入主题详情页
+   */
+  goDetail:function(e){
+    wx.navigateTo({
+      url: e.currentTarget.dataset.page,
+    });
   }
 })
