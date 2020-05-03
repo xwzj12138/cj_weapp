@@ -66,7 +66,15 @@ Page({
       this.setData({comment_content:'',data:this.data.data})
     });
   },
-
+  /**
+   * 显示图片
+   */
+  showImage: function (e) {
+    wx.previewImage({
+      current: this.data.theme_info.images[e.currentTarget.dataset.index],
+      urls: this.data.theme_info.images
+    });
+  },
   /**
    * 用户点击右上角分享
    */
