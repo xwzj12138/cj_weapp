@@ -70,11 +70,13 @@ Page({
    * 加入或者退出门派
    */
   joinSchool:function(){
+    wx.showLoading({title: '提交交中',mask:true});
     let param = { id: this.data.school_info.id};
     school.joinSchool(param,(res)=>{
       this.data.school_info.join_status = this.data.school_info.join_status==0?1:0;
       this.setData({school_info:this.data.school_info})
       let title = this.data.school_info.join_status == 0 ? '成功退出门派' : '加入成功';
+      wx.hideLoading();
       wx.showToast({ title: title});
     });
   },
