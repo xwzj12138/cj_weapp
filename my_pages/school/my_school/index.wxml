@@ -3,9 +3,8 @@
     <x-avatar shape='square' size='62' src='{{school_info.cover_image}}' slot='icon'></x-avatar>
   </x-cell>
   <x-cell label='{{school_info.intro}}'></x-cell>
-  <x-cell label='{{audit_status_list[school_info.status]}}' 
-  menuArrow='{{school_info.status==2}}'
-  url="{{(school_info.status==0|| school_info.status==3)?'':'/my_pages/school/apply/index'}}"></x-cell>
+  <x-cell wx:if='{{school_info.status==0}}' label='待审核,客服人员会尽快审核'></x-cell>
+  <x-cell wx:if='{{school_info.status==2}}' label='审核未通过点击重新创建' menuArrow url='/my_pages/school/apply/index'></x-cell>
   <x-cell wx:if='{{school_info.status==1}}' menuArrow value='门派成员' url='/pages/school/member/index?id={{school_info.id}}'>
   <view>
     <x-avatar wx:for='{{school_info.member_list}}' wx:key='school_member' src="{{item.avatar}}" size='36' x-class="{{index>0?'x_avatar':''}}"></x-avatar>
