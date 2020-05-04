@@ -5,7 +5,7 @@
   <x-upload urlList="{{form.cover_image==''?[]:[form.cover_image]}}" uploadApi='{{upload_api}}' formData='{{formData}}' bindupload='uploadImage'></x-upload>
 </x-cell>
 <!-- 简介 -->
-<x-input type='textarea' name='intro' value='{{form.intro}}' placeholder='请输入简介' bind:change='inputChange' maxlength="200"></x-input>
+<x-input type='textarea' height='150px' name='intro' value='{{form.intro}}' placeholder='请输入简介' bind:change='inputChange' maxlength="200"></x-input>
 <view style='text-align: center;'>
   <x-button type="primary" open-type="getPhoneNumber" bind:getphonenumber="getPhone">提交</x-button>
 </view>

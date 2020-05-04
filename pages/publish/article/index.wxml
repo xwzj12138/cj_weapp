@@ -1,5 +1,5 @@
 <!-- 文章标题 -->
-<x-input type='textarea' name='title' placeholder='请输入标题' bind:change='inputChange' maxlength='255'></x-input>
+<x-input type='textarea' height='150px' name='title' placeholder='请输入标题' bind:change='inputChange' maxlength='255'></x-input>
 <!-- 手机号 -->
 <x-input title='联系方式:' name='tel' type="number" placeholder='请输入联系方式' bind:change='inputChange'></x-input>
 <!-- 任务数 -->

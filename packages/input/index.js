@@ -49,6 +49,10 @@ Component({
       value: {
         type: String,
         value: ''
+      },
+      height:{
+        type:String,
+        value:'61px'
       }
     },
 
