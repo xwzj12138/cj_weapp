@@ -46,12 +46,21 @@ Page({
    * 获取用户手机号
    */
   getPhone:function(e){
-    wx.login({
-      success: res =>{
-        this.data.form.code = res.code;
+    wx.checkSession({
+      success:(res)=>{
         this.data.form.iv = e.detail.iv;
         this.data.form.encryptedData = e.detail.encryptedData;
         this.submit();
+      },
+      fail:(err)=>{
+        wx.login({
+          success: res => {
+            this.data.form.code = res.code;
+            this.data.form.iv = e.detail.iv;
+            this.data.form.encryptedData = e.detail.encryptedData;
+            this.submit();
+          }
+        });
       }
     });
   },

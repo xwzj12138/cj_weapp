@@ -69,5 +69,5 @@ Page({
       this.data.last_page = 1;
       this.getCollectList();
     }
-  },
+  }
 })

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    audit_status_list: ['待审核', '审核通过', '审核不通过', '重新申请'],
+    audit_status_list: ['待审核,客服人员会尽快审核', '审核通过', '审核未通过点击重新创建'],
     show_loading: false,
     school_info: { id: 0, member_list: []},
     current_page: 0,
@@ -51,14 +51,6 @@ Page({
       this.setData(res);
       wx.stopPullDownRefresh();
     });
-  },
-
-  /**
-   * 申请创建门派
-   */
-  schoolApply:function(){
-    if (this.data.school_info.status == 0 || this.data.school_info.status == 3) return;
-    wx.navigateTo({url: '/my_pages/school/apply/index'});
   },
 
   /**
