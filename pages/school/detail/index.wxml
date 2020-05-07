@@ -23,4 +23,4 @@
 </view>
 <x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的主题了！'></x-loading>
 <!-- 添加主题按钮 -->
-<view class='addButton'><x-icon size='98' name='roundaddfill' catchtap="goPublishTheme"></x-icon></view>
+<view class='addButton' wx:if='{{school_info.join_status!=0}}'><x-icon size='98' name='roundaddfill' catchtap="goPublishTheme"></x-icon></view>
