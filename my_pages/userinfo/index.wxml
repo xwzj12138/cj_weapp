@@ -7,10 +7,10 @@
     <view>每日可参与：{{userinfo.participant_limit}}</view>
     <view>每日可发布文章：{{userinfo.publish_limit}}</view>
   </view>
-  <x-button slot='footer' open-type='share' inline type='warning' size='76' shape='circle'>邀请好友升级</x-button>
+  <x-button wx:if='{{userinfo.is_sign_in==false}}' slot='footer' inline type='warning' size='76' shape='circle' bindclick='signIn'>观看视频签到</x-button>
 </x-cell>
 
-<view class='rules' wx:for='{{grade_list.data}}' wx:key='{{index}}'>
+<view class='rules' wx:for='{{grade_list.data}}' wx:key='grade_list'>
   <view>所需等级：{{item.grade}}</view>
   <view>1，每天可以给{{item.help_limit}}个好友助力</view>
   <view>2，每天可以参与{{item.participant_limit}}个抽奖</view>

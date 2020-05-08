@@ -4,7 +4,7 @@ page>view{background-color: #fff;}
 .body{margin:10px;border-radius:15rpx;overflow: hidden;box-shadow: #666 0 0 3px;}
 .head{position: relative;}
 .tag{position: absolute;bottom: 0;left: 0;width:100%;
-background:linear-gradient(to right,rgba(102,102,102,0.7),rgba(255,255,255,0.3),rgba(255,255,255,0));
+background:linear-gradient(to right,rgba(102,102,102,0.7),rgba(119, 115, 115, 0.5),rgba(255,255,255,0.3),rgba(255,255,255,0));
 color: #fff;padding: 4px 8px;
 }
 .detail_buttom{background: #f60;color:#fff;padding: 3px 5px;border-radius: 10px;float: right;margin: 0 5px 5px 0;}

@@ -9,16 +9,21 @@
     <view>{{item.school_name}}</view>
   </view>
 </scroll-view>
+<!-- 热门讨论主题列表 -->
 <x-nav tab-list="{{navList}}"></x-nav>
-<view wx:for='{{data}}' wx:key='school_theme'>
-  <view class="article" data-page="/pages/school/theme/index?id={{item.id}}" catchtap="goDetail">
-    <view>{{item.title}}</view>
-    <image src="{{item.first_image}}" lazy-load  mode="widthFix"></image>
+<block wx:for='{{data}}' wx:key='school_theme'>
+  <view>
+    <view class="article" data-page="/pages/school/theme/index?id={{item.id}}" catchtap="goDetail">
+      <view>{{item.title}}</view>
+      <image src="{{item.first_image}}" lazy-load  mode="widthFix"></image>
+    </view>
+    <view class="browse_like">
+      <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
+      <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeSchoolTheme"></x-icon><text>{{item.like_num}}</text></view>
+      <view><x-icon name='messagefill' color='#666' size='40'></x-icon><text>{{item.comment_num}}</text></view>
+    </view>
   </view>
-  <view class="browse_like">
-    <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
-    <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeSchoolTheme"></x-icon><text>{{item.like_num}}</text></view>
-    <view><x-icon name='messagefill' color='#666' size='40'></x-icon><text>{{item.comment_num}}</text></view>
-  </view>
-</view>
+  <ad wx:if='{{index>0 && index%ad_number==0}}' unit-id="adunit-c69384a5acc60967"></ad>
+</block>
+<ad wx:if='{{navList.length<ad_number}}' unit-id="adunit-c69384a5acc60967"></ad>
 <x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的主题了！'></x-loading>

@@ -11,7 +11,8 @@ Page({
     current_page: 0,
     data: [],
     last_page: 1,
-    show_loading: false
+    show_loading: false,
+    ad_number:8
   },
 
   /**
@@ -27,7 +28,7 @@ Page({
   getJoinSchoolList: function () {
     wx.showLoading({ mask: true });
     school.myJoinSchool({ page: 1 }, (res) => {
-      res.data.unshift({ id: 0, cover_image: '../../../static/tabbar/select_school.png', school_name: '江湖' })
+      res.data.unshift({ id: 0, cover_image: '../../../static/tabbar/select_school.png', school_name:'江湖'})
       this.setData({ school_list: res });
       wx.hideLoading();
     });

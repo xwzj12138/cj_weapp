@@ -44,7 +44,12 @@
   </x-cell>
   <x-button type='warning' size='86' shape='circle' catchtap='setAddress'>确认地址</x-button>
 </x-cell-group>
+<!-- 商品详情 -->
 <view class='product_detail'>
-  <view>商品详情</view>
+  <x-nav tab-list="{{navList}}"></x-nav>
+  <block wx:if='{{pruze_info.ad_info}}'>
+    <ad wx:if='{{pruze_info.ad_info.type==1}}' unit-id="{{pruze_info.ad_info.ad_id}}"></ad>
+    <video wx:if='{{pruze_info.ad_info.type==5}}' unit-id="{{pruze_info.ad_info.ad_id}}"></video>
+  </block>
   <image wx:for='{{pruze_info.pruze_detail}}' src='{{item}}' mode='widthFix' wx:key='{{index}}'></image>
 </view>

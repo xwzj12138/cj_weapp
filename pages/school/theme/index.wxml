@@ -8,6 +8,7 @@
   <view>{{theme_info.description}}</view>
   <image wx:for='{{theme_info.images}}' wx:key='theme_image' src="{{item}}" show-menu-by-longpress mode="widthFix" data-index="{{index}}" catchtap="showImage"></image>
 </view>
+<ad unit-id="adunit-23de4c118db64189"></ad>
 <x-cell wx:for='{{data}}' wx:key='comment_list' title='{{item.nickname}}' label='{{item.content}}'>
   <x-avatar slot='icon' size='40' src='{{item.avatar}}'></x-avatar>
 </x-cell>

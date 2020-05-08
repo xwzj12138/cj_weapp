@@ -10,8 +10,8 @@ page>view{background-color: #f3f3f3;}
   position: relative;box-shadow: #666 0 0 1px;padding: 3px 5px;text-align: center;background:#fff;font-size: 14px;
 }
 .hint text{position:absolute;bottom:-30px;left:50%;border:15px solid;margin-left:-15px;border-color:#fff transparent transparent transparent;border-radius:5px;}
-.product_detail{padding: 0 10px;}
-.product_detail image{width: 100%;}
+.product_detail{margin-top: 15px;}
+.product_detail>image{width: 100%;}
 button::after{border: none;}
 .user_info{text-align: center;}
 .user_info image{border-radius: 50%;}

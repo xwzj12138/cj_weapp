@@ -8,11 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    navList: [{ "name": "商品详情" }],
     pruze_id:'',
     uid:'',
     videoAd: '',
     userinfo:'',
-    pruze_info: { default_address: null}
+    pruze_info: { default_address: null,ad_info:null}
   },
   /**
    * 显示广告

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userinfo: {nickname: '', grade:0,avatar:''}
+    userinfo: { nickname: '', grade: 0, avatar: '', is_sign_in:true}
   },
 
   /**

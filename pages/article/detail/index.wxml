@@ -19,6 +19,7 @@
     <view wx:if='{{data.total_task_num}}'>任务单价<text>{{data.every_task_price}}</text></view>
   </view>
 </view>
+<ad unit-id="{{ad_id}}"></ad>
 <view wx:if='{{data.total_task_num}}' class="apply_info">
 <text>参与列表</text><text>提交审核后三日内管理员未审核，自动审核通过</text>
 </view>

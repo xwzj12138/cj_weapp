@@ -7,7 +7,7 @@ Page({
    */
   data: {
     comment_content:'',
-    theme_info:{id:0},
+    theme_info: { id: 0, join_status:0},
     current_page: 0,
     data: [],
     last_page: 1,
@@ -56,9 +56,20 @@ Page({
     this.setData({ comment_content: e.detail.value});
   },
   /**
-   * 评论你
+   * 评论
    */
   commentTheme:function(){
+    if (this.data.theme_info.join_status == 0) {
+      return wx.showModal({
+        title: '提示', cancelText: '取消', confirmText:'前往门派',
+        content: '还没有加入主题所属门派无法评论',
+        success:(res)=> {
+          if (res.confirm) {
+            wx.navigateTo({ url: '/pages/school/detail/index?id=' + this.data.theme_info.school_id});
+          }
+        }
+      });
+    }
     if (this.data.comment_content.length==0) return wx.showToast({title: '内容不能为空',icon:'none'});
     let param = { school_theme_id: this.data.theme_info.id, content:this.data.comment_content};
     school.commentTheme(param,(res)=>{

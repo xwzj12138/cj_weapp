@@ -65,4 +65,8 @@ export default new class user extends auth {
   updateUserInfo(param,callback){
     this.request({ url: 'index/v1/user/update', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
+  //修改用户信息
+  signIn(callback) {
+    this.request({ url: 'index/v1/user/sign_in', type: 'POST', data: {}, sCallBack: (res) => { callback(res); } });
+  }
 }

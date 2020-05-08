@@ -5,32 +5,31 @@
   </swiper-item>
 </swiper>
 <!-- 文章分类 -->
-<view style="background:#fff;margin-top:5px;">
-  <x-grid-group itemNum='4'>
-    <x-grid-item wx:for='{{cate_list}}' wx:key='cate' img_url='{{item.image}}' title='{{item.cate_name}}' data-id='{{item.id}}' catchtap='select_cate' x-class="{{cate_id==item.id?'select_bg':''}}"></x-grid-item>
-  </x-grid-group>
-</view>
+<x-nav tab-list="{{cate_list}}" key='cate_name' bindtabSelect="select_cate"></x-nav>
 <!-- 文章列表 -->
-<view wx:for='{{data}}' wx:key='article' class="article_body">
-  <x-cell wx:if='{{item.uid>0}}'>
-    <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon' data-index='{{index}}' catchtap="goDetail"></x-avatar>
-    <view class="nickname" data-index='{{index}}' catchtap="goDetail">{{item.nickname?item.nickname:''}}</view>
-    <view class="article_cate" data-index='{{index}}' catchtap="goDetail">{{item.cate_name}}</view>
-    <view class="article_cate" wx:if='{{item.top_time}}' data-index='{{index}}' catchtap="goDetail">顶置</view>
-    <view class="article_cate" wx:if='{{item.task_num>0}}' data-index='{{index}}' catchtap="goDetail">{{item.every_task_price}}元待领取</view>
-    <x-button wx:if="{{item.tel}}" slot='footer' inline size='66' type='info' data-index="{{index}}" bind:click="contact">联系他</x-button>
-  </x-cell>
-  <view class="article">
-    <view data-index='{{index}}' catchtap="goDetail"><text>{{item.title}}</text></view>
-    <view class="article_image">
-      <image wx:for='{{item.images}}' wx:for-item='value' wx:for-index='i' wx:key='article_image' data-index="{{index}}" data-src="{{value}}" catchtap="showImage" src="{{value}}" lazy-load wx:if='{{i<4}}' mode="widthFix"></image>
+<block wx:for='{{data}}' wx:key='article'>
+  <view class="article_body">
+    <x-cell wx:if='{{item.uid>0}}'>
+      <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon' data-index='{{index}}' catchtap="goDetail"></x-avatar>
+      <view class="nickname" data-index='{{index}}' catchtap="goDetail">{{item.nickname?item.nickname:''}}</view>
+      <view class="article_cate" data-index='{{index}}' catchtap="goDetail">{{item.cate_name}}</view>
+      <view class="article_cate" wx:if='{{item.top_time}}' data-index='{{index}}' catchtap="goDetail">顶置</view>
+      <view class="article_cate" wx:if='{{item.task_num>0}}' data-index='{{index}}' catchtap="goDetail">{{item.every_task_price}}元待领取</view>
+      <x-button wx:if="{{item.tel}}" slot='footer' inline size='66' type='info' data-index="{{index}}" bind:click="contact">联系他</x-button>
+    </x-cell>
+    <view class="article">
+      <view data-index='{{index}}' catchtap="goDetail"><text>{{item.title}}</text></view>
+      <view class="article_image">
+        <image wx:for='{{item.images}}' wx:for-item='value' wx:for-index='i' wx:key='article_image' data-index="{{index}}" data-src="{{value}}" catchtap="showImage" src="{{value}}" lazy-load wx:if='{{i<4}}' mode="widthFix"></image>
+      </view>
+      <view class="article_lable">{{item.add_time}}发布</view>
+      <view wx:if='{{item.uid>0}}' class="article_lable"><x-icon name='locationfill' color='#f60' size='32'></x-icon>{{item.publish_address}}</view>
     </view>
-    <view class="article_lable">{{item.add_time}}发布</view>
-    <view wx:if='{{item.uid>0}}' class="article_lable"><x-icon name='locationfill' color='#f60' size='32'></x-icon>{{item.publish_address}}</view>
+    <view class="browse_like">
+      <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
+      <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeArticle"></x-icon><text>{{item.like_num}}</text></view>
+    </view>
   </view>
-  <view class="browse_like">
-    <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
-    <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeArticle"></x-icon><text>{{item.like_num}}</text></view>
-  </view>
-</view>
+  <ad wx:if='{{index%ad_number==0}}' unit-id="adunit-5e183817a11ccd83"></ad>
+</block>
 <x-loading icon='' isShow="{{show_loading}}" hint='暂时没有新的活动了！'></x-loading>

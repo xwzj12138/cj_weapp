@@ -37,7 +37,7 @@ Component({
       this.setData({
         TabCur: e.currentTarget.dataset.index,
         scrollLeft: (e.currentTarget.dataset.index - 1) * 50 - 30
-      })
+      });
       let data = this.data.tabList[e.currentTarget.dataset.index]
       this.triggerEvent('tabSelect', { index: e.currentTarget.dataset.index, data: data})
     },

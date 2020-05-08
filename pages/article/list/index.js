@@ -10,6 +10,7 @@ Page({
     banner_list:[],
     cate_list:[],
     cate_id:0,
+    ad_number:8,
     current_page:0,
     data:[],
     last_page:1
@@ -55,8 +56,10 @@ Page({
    * 选择分类
    */
   select_cate:function(e){
-    if (e.currentTarget.dataset.id == this.data.cate_id) e.currentTarget.dataset.id = '';
-    this.setData({cate_id: e.currentTarget.dataset.id, current_page: 0,data: [],last_page: 1})
+    if (e.detail.data.id == this.data.cate_id) return;
+    this.data.cate_id = e.detail.data.id;
+    this.data.current_page = 0;
+    this.data.last_page = 1;
     this.getArticleList();
   },
   /**

@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userinfo: {},
+    userinfo: { is_sign_in:true},
+    videoAd:null,
     grade_list: {current_page:1,data:[]}
   },
 
@@ -18,6 +19,8 @@ Page({
       this.setData({ userinfo: res })
     })
     this.getGradeList();
+    // 加载视频组件
+    this.loadVidelAd();
   },
   /**
    * 获取等级规则信息
@@ -30,12 +33,55 @@ Page({
     })
   },
   /**
-   * 页面上拉触底事件的处理函数
+   * 签到触发事件
    */
-  onReachBottom: function () {
-
+  signIn: function () {
+    if (this.data.videoAd) {
+      this.data.videoAd.show().catch(() => {
+        // 失败重试
+        this.data.videoAd.load()
+          .then(() => this.data.videoAd.show())
+          .catch(err => {
+            wx.showToast({ title: '签到失败', icon: 'none' })
+          });
+      });
+    }
   },
-
+  /**
+   * 加载广告插件
+   */
+  loadVidelAd() {
+    // 在页面onLoad回调事件中创建激励视频广告实例
+    if (wx.createRewardedVideoAd) {
+      let videoAd = wx.createRewardedVideoAd({
+        adUnitId: 'adunit-fccf065088fb0505'
+      })
+      videoAd.onLoad(() => {
+        this.data.videoAd = videoAd;
+      })
+      videoAd.onError((err) => {
+        wx.showToast({ title: err.errMsg, icon: 'none' })
+      })
+      videoAd.onClose((res) => {
+        // isEnded：true有效观看完整视屏 false：无效观看
+        if (res.isEnded) {
+          this.signInSuccess();
+        } else {
+          wx.showToast({ title: '网络异常', icon: 'none' })
+        }
+      })
+    }
+  },
+  /**
+   * 记录签到
+   */
+  signInSuccess:function(){
+    user.signIn((res)=>{
+      this.setData({ userinfo:res})
+      getApp().globalData.userInfo = res;
+      wx.showToast({ title: '签到成功' })
+    });
+  },
   /**
    * 用户点击右上角分享
    */

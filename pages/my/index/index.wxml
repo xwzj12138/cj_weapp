@@ -65,4 +65,7 @@
 <x-cell-group menuCard>
   <x-cell menuArrow title='推广品牌' url='/my_pages/brand/list/index'></x-cell>
   <x-cell menuArrow title='商务合作' url='/my_pages/cooperation/index'></x-cell>
+  <x-cell wx:if='{{!userinfo.is_sign_in}}' menuArrow title='签到' url='/my_pages/userinfo/index'></x-cell>
 </x-cell-group>
+
+<ad unit-id="adunit-28b08dad1462fe96"></ad>
