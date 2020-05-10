@@ -56,4 +56,12 @@ export default new class school extends auth{
   joinSchool(param, callback) {
     this.request({ url: 'index/v1/school/join', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
+  //设置门派成员状态
+  setMemberStatus(param, callback) {
+    this.request({ url: 'index/v1/school/setMemberStatus', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  }
+  //审核主题
+  auditTheme(param, callback) {
+    this.request({ url: 'index/v1/school/auditTheme', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  }
 }

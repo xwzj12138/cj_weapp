@@ -64,11 +64,10 @@ Component({
 
       if (!url || url === 'true' || url === 'false') return;
 
-      if (['navigateTo', 'redirectTo', 'switchTab', 'reLaunch'].indexOf(this.data.linkType) === -1) {
-        warn('linkType 属性可选值为 navigateTo，redirectTo，switchTab，reLaunch', this.data.linkType);
-        return;
+      if (['navigateTo', 'redirectTo', 'switchTab', 'reLaunch'].indexOf(this.data.linkType) !== -1) {
+        return wx[this.data.linkType].call(wx, { url });
       }
-      wx[this.data.linkType].call(wx, { url });
+      this.triggerEvent('click');
     },
     updateIsLastCell(isLastCell) {
       this.setData({ isLastCell });

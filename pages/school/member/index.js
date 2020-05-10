@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    status_list: ['有效', '踢出', '禁言', '永久踢出'],
     school_id:0,
+    is_manage:false,
     current_page: 0,
     data: [],
     last_page: 1,
@@ -44,5 +46,15 @@ Page({
    */
   onReachBottom: function () {
     this.getSchoolMember();
+  },
+  /**
+   * 设置状态
+   */
+  setStatus:function(e){
+    let param = { status: e.detail.value*1 + 1, id: this.data.data[e.currentTarget.dataset.index].id}
+    school.setMemberStatus(param,()=>{
+      this.data.data[e.currentTarget.dataset.index].status = param.status;
+      this.setData({data:this.data.data});
+    });
   }
 })

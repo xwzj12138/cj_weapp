@@ -1,6 +1,16 @@
-<x-cell wx:for='{{data}}' wx:key='school_member' title='{{item.nickname}}' value='{{item.add_time}}加入'>
-  <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon'></x-avatar>
-</x-cell>
+<block wx:if='{{is_manage}}'>
+    <x-cell wx:for='{{data}}' wx:key='school_member' title='{{item.nickname}}' label='{{item.add_time}}加入'  menuArrow>
+    <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon'></x-avatar>
+    <picker slot='footer' mode='selector' range='{{status_list}}' data-index="{{index}}" bindchange='setStatus'>
+      <view class="picker">{{status_list[item.status-1]}}</view>
+    </picker>
+  </x-cell>
+</block>
+<block wx:else>
+  <x-cell wx:for='{{data}}' wx:key='school_member' title='{{item.nickname}}' label='{{item.add_time}}加入' >
+    <x-avatar shape='square' size='52' src='{{item.avatar}}' slot='icon'></x-avatar>
+  </x-cell>
+</block>
 <x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的成员了！'></x-loading>
 <!-- 没有数据提示前往发布-->
 <x-blank-hint wx:if='{{data.length==0}}' linkType='navigateTo' button_url='/pages/school/detail/index?id={{school_id}}' button_name='分享门派'></x-blank-hint>
