@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    order_type:1,
+    navList: [{ "name": "最新主题", order_type: 1 }, { "name": "热门主题", order_type:2}],
     show_loading:false,
     school_info: { id: 0, member_list: [], join_status:0},
     current_page:0,
@@ -41,7 +43,7 @@ Page({
       wx.stopPullDownRefresh();
       return this.setData({ show_loading: true });
     }
-    let param = { school_id:this.data.school_info.id, page: this.data.current_page + 1 };
+    let param = { school_id: this.data.school_info.id, page: this.data.current_page + 1, order_type:this.data.order_type };
     school.getTheme(param, (res) => {
       if (res.current_page > 1) {
         res.data = [...this.data.data, ...res.data];
@@ -60,6 +62,15 @@ Page({
       this.setData(this.data);
       wx.showToast({ title: '成功' })
     });
+  },
+  /**
+   * 选择主题类型
+   */
+  tabSelect:function(e){
+    this.data.order_type = e.detail.data.order_type;
+    this.data.current_page = 0;
+    this.data.last_page = 1;
+    this.getschoolThemeList();
   },
   /**
    * 门派主题或帖子点击事件

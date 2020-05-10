@@ -6,6 +6,7 @@
     "x-avatar": "/packages/avatar/index",
     "x-button":"/packages/button/index",
     "x-loading": "/packages/loading/index",
+    "x-nav": "/packages/nav/index",
     "x-icon": "/packages/icon/index"
   }
 }

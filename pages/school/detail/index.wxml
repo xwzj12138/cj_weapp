@@ -9,6 +9,7 @@
     <x-avatar wx:for='{{school_info.member_list}}' wx:key='school_member' src="{{item.avatar}}" size='36' x-class="{{index>0?'x_avatar':''}}"></x-avatar>
   </view>
 </x-cell>
+<x-nav tab-list="{{navList}}" bindtabSelect="tabSelect"></x-nav>
 <!-- 主题列表 -->
 <block wx:for='{{data}}' wx:key='school_theme'>
   <view>
