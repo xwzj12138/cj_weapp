@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    status_list: ['有效', '踢出', '禁言', '永久踢出'],
+    status_list: ['有效', '踢出/取消', '禁言', '永久踢出'],
     school_id:0,
     is_manage:false,
     current_page: 0,

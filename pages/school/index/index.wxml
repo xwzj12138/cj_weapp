@@ -25,5 +25,5 @@
   </view>
   <ad wx:if='{{index>0 && index%ad_number==0}}' unit-id="adunit-c69384a5acc60967"></ad>
 </block>
-<ad wx:if='{{navList.length<ad_number}}' unit-id="adunit-c69384a5acc60967"></ad>
+<ad wx:if='{{data.length<ad_number}}' unit-id="adunit-c69384a5acc60967"></ad>
 <x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的主题了！'></x-loading>
