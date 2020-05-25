@@ -1,5 +1,6 @@
 <x-cell title='{{school_info.school_name}}' label='{{school_info.add_time}}创建'>
   <x-avatar shape='square' size='62' src='{{school_info.cover_image}}' slot='icon'></x-avatar>
+  <x-button inline size='40' type='info' shape='circle' bind:click="showShare">分享门派</x-button>
   <x-button wx:if='{{school_info.join_status==0}}' slot='footer' inline size='52' type='info' bind:click="joinSchool">加入</x-button>
   <x-button wx:else slot='footer' inline size='52' bind:click="joinSchool">已加入</x-button>
 </x-cell>
@@ -29,3 +30,11 @@
 <x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的主题了！'></x-loading>
 <!-- 添加主题按钮 -->
 <view class='addButton' wx:if='{{school_info.join_status!=0}}'><x-icon size='98' name='roundaddfill' catchtap="goPublishTheme"></x-icon></view>
+
+<x-drawer type='bottom' show='{{showShare}}' maskShow='{{showShareImage}}'>
+  <canvas wx:if='{{showShareImage}}' type='2d' id='share_image' canvas-id='share_image' style="margin:0 auto;width:650rpx;height:800rpx;background:#fff;"></canvas>
+  <x-button wx:if='{{!showShareImage}}' type='info' open-type='share' shape='circle'>分享给好友</x-button>
+  <x-button wx:if='{{!showShareImage}}' type='info' shape='circle' bind:click="shareQrCode">合成朋友圈二维码</x-button>
+  <x-button wx:if='{{showShareImage}}' type='info' shape='circle' bind:click="DownQrCode">下载</x-button>
+  <x-button type='info' shape='circle' bind:click="showShare">取消</x-button>
+</x-drawer>

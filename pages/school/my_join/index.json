@@ -5,6 +5,7 @@
     "x-cell": "/packages/cell/index",
     "x-nav":"/packages/nav/index",
     "x-loading": "/packages/loading/index",
-    "x-avatar": "/packages/avatar/index"
+    "x-avatar": "/packages/avatar/index",
+    "x-search": "/packages/search/index"
   }
 }

@@ -3,9 +3,9 @@
       <slot name="icon"></slot>
   </view>
   <view class="cell-bd">
-    <slot></slot>
     <view wx:if="{{ title }}" class="cell-text">{{ title }}</view>
     <view wx:if="{{ label }}" class="cell-desc">{{ label }}</view>
+    <slot></slot>
   </view>
   <view class="cell-ft">
       <block wx:if="{{value}}">{{ value }}</block>

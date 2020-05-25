@@ -110,6 +110,13 @@
 					"pathName": "pages/school/index/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "门派详情",
+					"pathName": "pages/school/detail/index",
+					"query": "id=1",
+					"scene": null
 				}
 			]
 		}

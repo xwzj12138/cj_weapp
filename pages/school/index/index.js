@@ -46,6 +46,7 @@ Page({
       if (res.current_page > 1) {
         res.data = [...this.data.data, ...res.data];
       }
+      if (res.current_page == 1 && res.data.length == 0) res.show_loading = true;
       this.setData(res);
       wx.stopPullDownRefresh();
     });

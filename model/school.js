@@ -64,4 +64,8 @@ export default new class school extends auth{
   auditTheme(param, callback) {
     this.request({ url: 'index/v1/school/auditTheme', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
+  //获取分享二维码
+  getShareQrcode(param, callback) {
+    this.request({ url: 'index/v1/school/getQrCode', type: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+  }
 }

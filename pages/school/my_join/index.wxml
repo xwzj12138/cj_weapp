@@ -1,3 +1,5 @@
+<!-- 搜索门派 -->
+<x-search placeholder='搜索门派' searchIconName='search' bindonConfirm='onConfirm'></x-search>
 <x-nav tab-list="{{navList}}" bindtabSelect="tabSelect" TabCur='{{nav_index}}'></x-nav>
 <!-- 门派列表 -->
 <block wx:for='{{nav_index==0?my_join_school.data:school_list.data}}' wx:key='join_school'>

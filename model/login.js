@@ -30,7 +30,7 @@ export default new class login extends base {
         this.request({
           url: 'other/v1/login/auth',
           type: 'POST',
-          data: { code: res.code, source: app.globalData.source, share_uid: app.globalData.share_uid},
+          data: { code: res.code, source: app.globalData.source, share_uid: app.globalData.share_uid, qr_code: app.globalData.qr_code},
           sCallBack: (result) => {
             wx.setStorageSync('token',result);
             callback && callback(result)

@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    keyword:'',
     navList: [{ "name": "我加入的" }, { "name": "江湖门派" }],
     nav_index:0,
     my_join_school: {current_page: 0,last_page: 1,data: []},
@@ -32,7 +33,7 @@ Page({
       wx.stopPullDownRefresh();
       return this.setData({ show_loading: true });
     }
-    let param = { page: this.data.my_join_school.current_page + 1 };
+    let param = { page: this.data.my_join_school.current_page + 1,keyword:this.data.keyword };
     school.myJoinSchool(param, (res) => {
       if (res.current_page > 1) {
         res.data = [...this.data.my_join_school.data, ...res.data];
@@ -49,7 +50,7 @@ Page({
       wx.stopPullDownRefresh();
       return this.setData({ show_loading: true });
     }
-    let param = { page: this.data.school_list.current_page + 1 };
+    let param = { page: this.data.school_list.current_page + 1, keyword: this.data.keyword };
     school.search(param, (res) => {
       if (res.current_page > 1) {
         res.data = [...this.data.school_list.data, ...res.data];
@@ -62,10 +63,16 @@ Page({
    * 选择nav事件
    */
   tabSelect: function (e) {
-    this.setData({ nav_index: e.detail.index})
+    this.setData({ nav_index: e.detail.index,keyword:''})
     this.onLoad(e.detail)
   },
-
+  /**
+   * 搜索门派
+   */
+  onConfirm:function(e){
+    this.data.keyword = e.detail.value;
+    this.onPullDownRefresh();
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

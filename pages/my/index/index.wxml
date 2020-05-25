@@ -59,6 +59,9 @@
     <x-grid-item title='收货地址' url='/my_pages/address/list/index'>
       <x-icon name='addressbook' size="56"></x-icon>
     </x-grid-item>
+    <x-grid-item title='联系客服' openType='contact'>
+      <x-icon name='service' size="56"></x-icon>
+    </x-grid-item>
   </x-grid-group>
 </view>
 
