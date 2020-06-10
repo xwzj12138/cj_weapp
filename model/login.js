@@ -1,5 +1,4 @@
 import {base} from '../utils/base.js';
-import {config} from '../utils/config.js';
 
 export default new class login extends base {
   constructor() {
