@@ -15,6 +15,7 @@ App({
   },
   globalData: {
     is_refresh:false,
+    weapp_type:'',
     userInfo: null,
     share_uid:0,
     source:0,

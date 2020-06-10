@@ -27,8 +27,11 @@ export default new class login extends base {
     wx.login({
       success: res => {
         let app = getApp();
+        let url = 'other/v1/login/auth';
+        let system_info = wx.getSystemInfoSync();
+        if (system_info.AppPlatform && system_info.AppPlatform == 'qq') url = 'other/v1/login/qq_auth';
         this.request({
-          url: 'other/v1/login/auth',
+          url: url,
           type: 'POST',
           data: { code: res.code, source: app.globalData.source, share_uid: app.globalData.share_uid, qr_code: app.globalData.qr_code},
           sCallBack: (result) => {

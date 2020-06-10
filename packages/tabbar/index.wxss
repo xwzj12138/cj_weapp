@@ -6,3 +6,4 @@
 }
 .goods-action button{padding:0;line-height:1;background:none;font-size:12px;width:100%;}
 .goods-action button::after{border:none;}
+.goods-action>x-tabbar-flex-item{flex:1;-webkit-flex:1;height:100rpx;}
