@@ -7,7 +7,7 @@ export class auth extends base {
   }
   request(params){
     login.getStorageSync((storeage)=>{
-      params.data.token = storeage.token
+      params.header = {"token":storeage.token}
       super.request(params);
     });
   }

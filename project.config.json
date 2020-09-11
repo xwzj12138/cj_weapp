@@ -8,25 +8,33 @@
 		"es6": true,
 		"enhance": true,
 		"postcss": false,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": true,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"nodeModules": true,
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false,
 		"remoteDebugLogEnable": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.3",
 	"appid": "wx98b1ca692984b153",
-	"projectname": "cj_shop1",
+	"projectname": "cj_weapp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -103,9 +111,9 @@
 				},
 				{
 					"id": 6,
-					"name": "pages/article/detail/index",
-					"pathName": "pages/article/detail/index",
-					"query": "id=89",
+					"name": "我的余额明细",
+					"pathName": "my_pages/money/detail/index",
+					"query": "",
 					"scene": null
 				},
 				{

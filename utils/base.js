@@ -9,8 +9,10 @@ export class base{
     if (!params.type) {
       params.type = 'GET';
     }
+    if(!params.header) params.header = {"content-type":"application/json"};
     wx.request({
       url: url,
+      header:params.header,
       data: params.data,
       method: params.type,
       success: function (res) {
