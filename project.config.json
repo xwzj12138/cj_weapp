@@ -1,136 +1,137 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"enhance": true,
-		"postcss": false,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": true,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": true,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"remoteDebugLogEnable": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.10.3",
-	"appid": "wx98b1ca692984b153",
-	"projectname": "cj_weapp",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"qqappid": "1110490587",
-	"scripts": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "助力页面",
-					"pathName": "pages/share/help/index",
-					"query": "share_uid=1",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "商品分享页面",
-					"pathName": "pages/index/detail/index",
-					"query": "is_share=true&uid=1&id=1",
-					"scene": null
-				},
-				{
-					"id": 2,
-					"name": "领取页面",
-					"pathName": "pages/index/detail/index",
-					"query": "id=19&is_share=true",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "商品详情页",
-					"pathName": "pages/product/detail/index",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的页面",
-					"pathName": "pages/my/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "收藏列表",
-					"pathName": "pages/my/collect/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 6,
-					"name": "我的余额明细",
-					"pathName": "my_pages/money/detail/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 7,
-					"name": "江湖页面",
-					"pathName": "pages/school/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "门派详情",
-					"pathName": "pages/school/detail/index",
-					"query": "id=1",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": false,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": true,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": true,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "bundle": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.10.3",
+  "appid": "wx98b1ca692984b153",
+  "projectname": "cj_weapp",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "qqappid": "1110490587",
+  "scripts": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "助力页面",
+          "pathName": "pages/share/help/index",
+          "query": "share_uid=1",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "商品分享页面",
+          "pathName": "pages/index/detail/index",
+          "query": "is_share=true&uid=1&id=1",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "领取页面",
+          "pathName": "pages/index/detail/index",
+          "query": "id=19&is_share=true",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商品详情页",
+          "pathName": "pages/product/detail/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的页面",
+          "pathName": "pages/my/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "收藏列表",
+          "pathName": "pages/my/collect/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "我的余额明细",
+          "pathName": "my_pages/money/detail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "江湖页面",
+          "pathName": "pages/school/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "门派详情",
+          "pathName": "pages/school/detail/index",
+          "query": "id=1",
+          "scene": null
+        }
+      ]
+    }
+  }
 }
