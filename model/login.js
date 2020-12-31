@@ -5,37 +5,39 @@ export default new class login extends base {
     if(!login.instance){
       super();
       login.instance = this;
+      login.instance.callback_arr = [];
+      login.instance.storeage = wx.getStorageSync('token');
     }
     return login.instance;
   }
   getStorageSync(callback) {
-    let storeage = wx.getStorageSync('token');
-    if (storeage && (storeage.expire_time-5*60) > (Date.parse(new Date()))/1000) {
-      this.is_request = false;
-      return callback && callback(storeage);
+    if (this.storeage && (this.storeage.expire_time-5*60) > (Date.parse(new Date()))/1000) {
+      return callback && callback(this.storeage);
     }
-    if (this.is_request) {
-      return setTimeout(() => {
-        this.getStorageSync(callback)
-      }, 100);
+    //存贮回调
+    if (this.callback_arr.length==0) {
+      this.authLogin();
     }
-    this.is_request = true;
-    this.authLogin(callback);
+    callback &&  this.callback_arr.push(callback)
   }
-  authLogin(callback) {
+  authLogin() {
     wx.login({
       success: res => {
         let app = getApp();
-        let url = 'other/v1/login/auth';
+        let url = 'api/v1/login/weapp_login';
         let system_info = wx.getSystemInfoSync();
-        if (system_info.AppPlatform && system_info.AppPlatform == 'qq') url = 'other/v1/login/qq_auth';
+        if (system_info.AppPlatform && system_info.AppPlatform == 'qq') url = 'api/v1/login/qq_auth';
         this.request({
           url: url,
           type: 'POST',
           data: { code: res.code, source: app.globalData.source, share_uid: app.globalData.share_uid, qr_code: app.globalData.qr_code},
           sCallBack: (result) => {
+            this.storeage = result;
             wx.setStorageSync('token',result);
-            callback && callback(result)
+            this.callback_arr.forEach((callback)=>{
+              callback(result);
+            });
+            this.callback_arr = [];
           }
         });
       }
