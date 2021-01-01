@@ -4,15 +4,6 @@ Component({
   externalClasses: ['x-class'],
 
   properties: {
-    font_size:{
-      type:Number,
-      value:15
-    },
-    // default, primary, ghost, info, success, warning, error
-    type: {
-      type: String,
-      value: '',
-    },
     inline: {
       type: Boolean,
       value: false
@@ -21,22 +12,18 @@ Component({
       type: Number,
       value:96,
     },
-    // circle, square
+    // x-radius x-round x-circle
     shape: {
       type: String,
-      value: 'square'
+      value: 'x-radius'
     },
     disabled: {
-      type: Boolean,
-      value: false,
+      type: String,
+      value: '',
     },
     loading: {
       type: Boolean,
       value: false,
-    },
-    long: {
-      type: Boolean,
-      value: false
     }
   }
 });

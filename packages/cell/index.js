@@ -1,9 +1,11 @@
 // packages/cell/index.js
+var buttonBehavior = require('../common/button_behaior.js');
 const warn = (msg, getValue) => {
   console.warn(msg);
   console.log('接受到的值为：', getValue);
 };
 Component({
+  behaviors: [buttonBehavior],
   externalClasses: ['x-class'],
   relations: {
     '../cell-group/index': {
@@ -34,11 +36,6 @@ Component({
     value: {
       type: String
     },
-    // 链接类型，可选值为 navigateTo，redirectTo，switchTab，reLaunch
-    linkType: {
-      type: String,
-      value: 'navigateTo'
-    },
     url: {
       type: String,
       value: ''
@@ -59,16 +56,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    navigateTo() {
-      let url = this.data.url;
-
-      if (!url || url === 'true' || url === 'false') return;
-
-      if (['navigateTo', 'redirectTo', 'switchTab', 'reLaunch'].indexOf(this.data.linkType) !== -1) {
-        return wx[this.data.linkType].call(wx, { url });
-      }
-      this.triggerEvent('click');
-    },
     updateIsLastCell(isLastCell) {
       this.setData({ isLastCell });
     }

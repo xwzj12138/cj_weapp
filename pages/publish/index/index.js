@@ -8,7 +8,8 @@ Page({
    */
   data: {
     userinfo: { nickname: '', avatar:''},
-    data:[]
+    article_cat_list:[],
+    resources_type_list:[]
   },
 
   /**
@@ -17,7 +18,7 @@ Page({
   onLoad: function (options) {
     //获取分类列表
     article.getCateList({},(res)=>{
-      this.setData({ data: res });
+      this.setData(res);
     });
     //获取用户信息
     this.getUserInfo();

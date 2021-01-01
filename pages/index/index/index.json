@@ -1,8 +1,9 @@
 {
   "enablePullDownRefresh":true,
-  "onReachBottomDistance":200,
+  "onReachBottomDistance": 200,
   "usingComponents": {
+    "x-nav": "/packages/nav/index",
     "x-card": "/packages/card/index",
-    "x-loading": "/packages/loading/index"
+    "x-button": "/packages/button/index"
   }
 }

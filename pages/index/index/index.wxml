@@ -1,13 +1,15 @@
-<!-- 奖品列表 -->
-<x-card x-class='body' wx:for='{{data}}' wx:key='pruze_list' data-id='{{item.id}}' data-grade='{{item.grade}}' bindtap='goDetail'>
-  <view slot='image' class='head'>
-    <image src='{{item.image}}' mode="widthFix" style="max-height:320px;"></image>
-    <text class='tag' wx:if='{{item.brand_name!=null}}'>{{item.brand_name}}  赞助</text>
+<!--pages/qr_code/list/index.wxml-->
+<swiper indicator-dots='true' autoplay='true' circular='true' wx:if='{{banner_list.length>0}}' class='swiper'>
+  <swiper-item wx:for='{{banner_list}}' bindtap='goBannerDetail' item-id='{{item.detail_url}}' wx:key='banner_image' data-detail_url='{{item.detail_url}}'>
+    <image src='{{item.image}}' mode='aspectFit' style="width:100%;height:100%;"></image>
+  </swiper-item>
+</swiper>
+<x-nav tab-list="{{resources_type_list}}" bindtabSelect="selectResourcesType"></x-nav>
+<x-card type='flex' wx:for='{{data.data}}' wx:key='resources' imgUrl='{{item.qr_code}}' title='{{item.title}}'  type='inline-block'>
+  <view slot='price_front'>
+    <text class="tags">{{item.industry_value}}</text><text class="tags" wx:if='{{item.top_time>0}}'>顶置</text>
   </view>
-  <view class='title_info'>{{item.pruze_name}}</view>
-  <view class='time_info'>
-    <text>{{item.end_time}}</text><text>自动开奖</text><text>限{{item.grade}}级用户</text>
-    <text class='detail_buttom'>{{item.is_end?'已结束':'免费抽'}}</text>
-  </view>
+  <x-button slot='price_right' inline size='45' shape='x-circle' bg_color='x-bg-color2' color='x-color'>
+    {{item.resources_type==1?'加群':item.resources_type==2?'关注公众号':'进入小程序'}}
+  </x-button>
 </x-card>
-<x-loading icon='' isShow="{{show_loading}}" hint='暂时没有新的活动了！'></x-loading>

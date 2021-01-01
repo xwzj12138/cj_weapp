@@ -3,9 +3,9 @@
 .card-flex .goods_image{width: 250rpx;height:250rpx;}
 .card-flex .goods_info{flex: 1;}
 .card-flex .goods_info{padding-left:10px;}
-.card-inline-block{display:inline-block;width:50%;margin-bottom:8px;}
-.card-inline-block .goods_image{height:376rpx;}
-.goods_info{word-break: break-all;padding:0 3px;}
+.card-inline-block{display:inline-block;width:50%;margin-bottom:5px;border-right:1px solid #F0F0F0;}
+.card-inline-block .goods_image{height:376rpx;overflow: hidden;}
+.goods_info{word-break: break-all;padding:10px 5px;}
 .goods_title{font-weight:700;overflow:hidden;display:box;display:-webkit-box;text-overflow:ellipsis;line-clamp: 2;-webkit-line-clamp:2;-webkit-box-orient: vertical;box-orient:vertical;}
 .description{color:#7d7e80;padding:3px 0;}
 .goods_image image{width:100%;height:100%;}

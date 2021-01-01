@@ -29,7 +29,7 @@ export default new class login extends base {
         if (system_info.AppPlatform && system_info.AppPlatform == 'qq') url = 'api/v1/login/qq_auth';
         this.request({
           url: url,
-          type: 'POST',
+          method: 'POST',
           data: { code: res.code, source: app.globalData.source, share_uid: app.globalData.share_uid, qr_code: app.globalData.qr_code},
           sCallBack: (result) => {
             this.storeage = result;

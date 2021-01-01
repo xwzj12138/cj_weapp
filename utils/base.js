@@ -5,31 +5,23 @@ export class base{
   }
   //发送请求获取数据
   request(params){
-    var url = this.baseRequestUrl + params.url
-    if (!params.type) {
-      params.type = 'GET';
-    }
-    if(!params.header) params.header = {"content-type":"application/json"};
-    wx.request({
-      url: url,
-      header:params.header,
-      data: params.data,
-      method: params.type,
-      success: function (res) {
-        if(res.data.code!=200) {
-          return wx.showToast({
-            title: res.data.msg,
-            icon: 'none',
-            success: (cer) => {
-              params.errCallBack && params.errCallBack(res.data.result);
-            }
-          });
-        }
-        params.sCallBack && params.sCallBack(res.data.result);
-      },
-      fail: function (err) {
-        return wx.showToast({title: err,icon:'none'})
+    params.url = this.baseRequestUrl + params.url;
+    params.method = params.method?params.method:'GET';
+    params.success = (res)=>{
+      if(res.data.code!=200) {
+        return wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          success: (cer) => {
+            params.errCallBack && params.errCallBack(res.data);
+          }
+        });
       }
-    });
+      params.sCallBack && params.sCallBack(res.data.result);
+    }
+    params.fail = (error)=>{
+      return wx.showToast({title: error,icon:'none'})
+    }
+    wx.request(params);
   }
 }

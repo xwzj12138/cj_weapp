@@ -1,4 +1,4 @@
-<button class="x-btn x-class grid-item {{lastColumn?'lastColumn':''}} {{isLast?'last':''}}" style='width:{{1/itemNum*100}}%;'
+<button class="x-btn x-class grid-item x-inline {{bg_color+' '+color}} {{lastColumn?'lastColumn':''}} {{isLast?'last':''}}" style='width:{{1/itemNum*100}}%;'
 bindtap="handleTap" open-type="{{ openType }}"
     app-parameter="{{ appParameter }}" hover-stop-propagation="{{ hoverStopPropagation }}" 
    session-from="{{ sessionFrom }}" send-message-title="{{ sendMessageTitle }}" 

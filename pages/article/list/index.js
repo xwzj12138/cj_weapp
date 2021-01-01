@@ -34,8 +34,7 @@ Page({
     let param = {page:this.data.current_page+1,cate_id:this.data.cate_id};
     article.getList(param,(res) => {
       if (res.data.length == 0) {
-        wx.stopPullDownRefresh();
-        return this.setData({ show_loading: true });
+        res.show_loading = true;
       }
       if (res.current_page > 1) res.data = [...this.data.data,...res.data];
       this.setData(res);

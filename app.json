@@ -79,9 +79,9 @@
       },
       {
         "pagePath": "pages/index/index/index",
-        "text": "抽乐",
-        "iconPath": "/static/tabbar/pruze.png",
-        "selectedIconPath": "/static/tabbar/select_pruze.png"
+        "text": "资源",
+        "iconPath": "/static/tabbar/qr_code.png",
+        "selectedIconPath": "/static/tabbar/select_qr_code.png"
       },
       {
         "pagePath": "pages/publish/index/index",

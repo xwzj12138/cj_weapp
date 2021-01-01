@@ -38,7 +38,7 @@ value="{{task_status[item.status]}}">
   </block>
 </x-tabbar>
 
-<x-drawer type='center' show='{{show_submit}}'>
+<x-drawer type='center' wx:if='{{show_submit}}'>
   <view class='drawer_body'>
     <!-- 图片列表 -->
     <x-upload urlList='{{submit_images}}' bindupload='upload' limit='8' uploadApi='{{upload_api}}' formData='{{upload_formData}}'></x-upload>
