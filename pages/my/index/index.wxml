@@ -5,12 +5,12 @@
     <view>{{userinfo.nickname}}</view>
     <view>等级：{{userinfo.grade}}</view>
   </view>
-  <x-button slot='footer' open-type='share' inline type='warning' size='56' shape='circle' font_size='12'>邀请好友升级</x-button>
+  <x-button slot='footer' open-type='share' inline bg_color='x-bg-color2' color='x-color' size='56' shape='x-circle' font_size='12'>邀请好友升级</x-button>
 </x-cell>
 <x-cell x-class='userinfo_body' wx:else>
   <x-avatar size='82' slot='icon'></x-avatar>
   <view class='userinfo'>
-    <x-button open-type='getUserInfo' inline type='warning' size='56' shape='circle' font_size='12' bind:getuserinfo="updateUserInfo">授权获取用户信息</x-button>
+    <x-button open-type='getUserInfo' inline bg_color='x-bg-color2' color='x-color' size='56' shape='x-circle' font_size='12' bind:getuserinfo="updateUserInfo">授权获取用户信息</x-button>
   </view>
 </x-cell>
 <view class="grid_group_cart cart_style">

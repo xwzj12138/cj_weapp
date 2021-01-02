@@ -7,8 +7,7 @@ Page({
    */
   data: {
     userinfo: { is_sign_in:true},
-    videoAd:null,
-    grade_list: {current_page:1,data:[]}
+    videoAd:null
   },
 
   /**
@@ -18,19 +17,8 @@ Page({
     user.getGlobalUserinfo((res) => {
       this.setData({ userinfo: res })
     })
-    this.getGradeList();
     // 加载视频组件
     this.loadVidelAd();
-  },
-  /**
-   * 获取等级规则信息
-   */
-  getGradeList:function(page=1){
-    user.getGrade({page:page},(res) => {
-      this.data.grade_list.current_page = res.current_page
-      this.data.grade_list.data = this.data.grade_list.data.concat(res.data)
-      this.setData({ grade_list: this.data.grade_list })
-    })
   },
   /**
    * 签到触发事件

@@ -48,6 +48,13 @@ Page({
   goBannerDetail:function(e){
     wx.navigateTo({url: e.currentTarget.dataset.detail_url});
   },
+  /**
+   * 进入二维码详情页面
+   */
+  goDetail(e){
+    let item = this.data.data.data[e.currentTarget.dataset.index]
+    wx.navigateTo({url:'/pages/index/detail/index?detail='+JSON.stringify(item)});
+  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -68,6 +75,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title:'每日更新大量微信群，想要免费加群的进入',
+      path:'/pages/index/index/index?share_uid='+getApp().globalData.userInfo.uid
+    }
   }
 })

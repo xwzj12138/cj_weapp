@@ -16,7 +16,7 @@ export default new class user extends auth {
   //获取用户信息
   myinfo(callback) {
     this.request({
-      url: 'api/v1/user/get_info',
+      url: 'api/v1/user/index',
       method: 'POST',
       data: {},
       sCallBack: (res) => {
@@ -24,10 +24,6 @@ export default new class user extends auth {
         callback(res);
       }
     });
-  }
-  //获取等级列表
-  getGrade(param, callback) {
-    this.request({ url: 'api/v1/user/get_grade', method: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
   //获取某个用户的信息
   getByIdUserInfo(param, callback) {

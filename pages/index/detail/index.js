@@ -8,12 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navList: [{ "name": "商品详情" }],
-    pruze_id:'',
-    uid:'',
-    videoAd: '',
-    userinfo:'',
-    pruze_info: { default_address: null,ad_info:null}
+    detail:{}
   },
   /**
    * 显示广告
@@ -50,7 +45,6 @@ Page({
         wx.showToast({ title: err.errMsg, icon: 'none' })
       })
       videoAd.onClose((res) => {
-        // isEnded：true有效观看完整视屏 false：无效观看
         if (res.isEnded){
           this.participant();
         }else{
@@ -60,69 +54,11 @@ Page({
     }
   },
   /**
-   * 参与抽奖
-   */
-  participant:function(){
-    pruze.participant({ id: this.data.pruze_info.id, form_id: this.data.formId }, (res) => {
-      this.data.pruze_info.is_participant = true
-      this.setData({ pruze_info: this.data.pruze_info });
-    })
-  },
-  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    options.uid = options.uid?options.uid:'';
-    this.setData({ pruze_id: options.id, uid: options.uid})
-    this.getDetail();
-  },
-  /**
-   * 获取奖品详情
-   */
-  getDetail:function(){
-    wx.showLoading({title: '数据加载中'});
-    //获取用户信息
-    user.getGlobalUserinfo((res) => {
-      this.setData({ userinfo: res });
-      wx.hideLoading();
-    });
-    //获取奖品详情
-    pruze.getDetail({ id: this.data.pruze_id, super_uid:this.data.uid}, (res) => {
-      this.setData({ pruze_info: res })
-      if (res.ad_id != '' && !res.is_participant) {
-        this.loadVidelAd(res.ad_id)
-      }
-    })
-  },
-  /**
-   * 确认地址
-   */
-  setAddress: function () {
-    if (this.data.pruze_info.default_address == null) {
-      return wx.showToast({ title: '请添加收货地址', icon: 'none' })
-    }
-    pruze.setPruzeAdress({ pruze_id: this.data.pruze_info.id, address_id: this.data.pruze_info.default_address.id }, (res) => {
-      this.data.pruze_info.status = 4;
-      this.setData({ pruze_info:this.data.pruze_info})
-      wx.showToast({title: '提交成功'});
-    });
-  },
-  /**
-   * 选择地址返回是重新加载地址信息
-   */
-  onShow:function(){
-    this.getDetaultAddress();
-  },
-  /**
-   * 获取默认地址
-   */
-  getDetaultAddress:function(){
-    if(this.data.pruze_info.id){
-      userAddress.getDefault((res) => {
-        this.data.pruze_info.default_address = res
-        this.setData(this.data);
-      });
-    }
+    options.detail = JSON.parse(options.detail);
+    this.setData(options);
   },
   /**
    * 分享设置

@@ -9,7 +9,7 @@
   <view slot='price_front'>
     <text class="tags">{{item.industry_value}}</text><text class="tags" wx:if='{{item.top_time>0}}'>顶置</text>
   </view>
-  <x-button slot='price_right' inline size='45' shape='x-circle' bg_color='x-bg-color2' color='x-color'>
+  <x-button slot='price_right' inline size='45' shape='x-circle' bg_color='x-bg-color2' color='x-color' data-index='{{index}}' catchtap="goDetail">
     {{item.resources_type==1?'加群':item.resources_type==2?'关注公众号':'进入小程序'}}
   </x-button>
 </x-card>
