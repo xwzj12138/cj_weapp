@@ -5,6 +5,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    token:{
+      type:String,
+      value:''
+    },
     limit: {
       type: Number,
       value: 1
@@ -62,19 +66,20 @@ Component({
           }
           this.setData({ is_underway: true });
           res.tempFilePaths.forEach((item) => {
-            wx.uploadFile({
+            this.data.formData.file = wx.getFileSystemManager().readFileSync(item,'base64');
+            wx.request({
               url: this.data.uploadApi,
-              filePath: item,
-              name: this.data.name,
-              formData: this.data.formData,
-              success: (result) => {
+              method:'POST',
+              header:{token:this.data.token},
+              data:this.data.formData,
+              success:(result)=>{
                 this.setData({ is_underway: false });
-                this.triggerEvent('upload', { uploadResult: JSON.parse(result.data), index: index, click_type: 'add' });
+                this.triggerEvent('upload', { uploadResult: result.data, index: index, click_type: 'add' });
               },
               fail: (result) => {
-                this.triggerEvent('upload', { uploadResult: JSON.parse(result.data), index: index, click_type: 'add' });
+                this.triggerEvent('upload', { uploadResult: result.data, index: index, click_type: 'add' });
               }
-            })
+            });
           })
         },
       })

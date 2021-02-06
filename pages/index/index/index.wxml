@@ -7,7 +7,7 @@
 <x-nav tab-list="{{resources_type_list}}" bindtabSelect="selectResourcesType"></x-nav>
 <x-card type='flex' wx:for='{{data.data}}' wx:key='resources' imgUrl='{{item.qr_code}}' title='{{item.title}}'  type='inline-block'>
   <view slot='price_front'>
-    <text class="tags">{{item.industry_value}}</text><text class="tags" wx:if='{{item.top_time>0}}'>顶置</text>
+    <text class="tags">{{item.industry_value}}</text><text class="tag" wx:if='{{item.top_time>0}}'>顶置</text>
   </view>
   <x-button slot='price_right' inline size='45' shape='x-circle' bg_color='x-bg-color2' color='x-color' data-index='{{index}}' catchtap="goDetail">
     {{item.resources_type==1?'加群':item.resources_type==2?'关注公众号':'进入小程序'}}

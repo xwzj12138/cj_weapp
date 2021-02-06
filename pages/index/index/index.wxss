@@ -1,5 +1,0 @@
-/* pages/qr_code/list/index.wxss */
-.tags{
-  color:#FF2828;font-size: 24rpx;border:1px solid #FF2828;
-  padding: 1px 2px;border-radius:3px;margin-right:2px;
-}

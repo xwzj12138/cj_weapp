@@ -1,5 +1,5 @@
-// pages/school/my_join/index.js
-import school from '../../../model/school.js'
+// pages/sectarian/my_join/index.js
+import sectarian from '../../../model/sectarian.js'
 Page({
 
   /**
@@ -9,8 +9,8 @@ Page({
     keyword:'',
     navList: [{ "name": "我加入的" }, { "name": "江湖门派" }],
     nav_index:0,
-    my_join_school: {current_page: 0,last_page: 1,data: []},
-    school_list: { current_page: 0, last_page: 1, data: [] },
+    my_join_sectarian: {current_page: 0,last_page: 1,data: []},
+    sectarian_list: { current_page: 0, last_page: 1, data: [] },
     show_loading:false
   },
 
@@ -20,7 +20,7 @@ Page({
   onLoad: function (options) {
     if(options.index){
       this.setData({ nav_index: options.index*1 });
-      this.searchSchool();
+      this.searchSectarian();
     }else{
       this.getMyJoinTheme();
     }
@@ -29,33 +29,33 @@ Page({
    * 获取我加入的门派列表
    */
   getMyJoinTheme:function(){
-    if (this.data.my_join_school.current_page >= this.data.my_join_school.last_page) {
+    if (this.data.my_join_sectarian.current_page >= this.data.my_join_sectarian.last_page) {
       wx.stopPullDownRefresh();
       return this.setData({ show_loading: true });
     }
-    let param = { page: this.data.my_join_school.current_page + 1,keyword:this.data.keyword };
-    school.myJoinSchool(param, (res) => {
+    let param = { page: this.data.my_join_sectarian.current_page + 1,keyword:this.data.keyword };
+    sectarian.myJoinSectarian(param, (res) => {
       if (res.current_page > 1) {
-        res.data = [...this.data.my_join_school.data, ...res.data];
+        res.data = [...this.data.my_join_sectarian.data, ...res.data];
       }
-      this.setData({ my_join_school: res});
+      this.setData({ my_join_sectarian: res});
       wx.stopPullDownRefresh();
     });
   },
   /**
    * 搜索门派列表
    */
-  searchSchool:function(){
-    if (this.data.school_list.current_page >= this.data.school_list.last_page) {
+  searchSectarian:function(){
+    if (this.data.sectarian_list.current_page >= this.data.sectarian_list.last_page) {
       wx.stopPullDownRefresh();
       return this.setData({ show_loading: true });
     }
-    let param = { page: this.data.school_list.current_page + 1, keyword: this.data.keyword };
-    school.search(param, (res) => {
+    let param = { page: this.data.sectarian_list.current_page + 1, keyword: this.data.keyword };
+    sectarian.search(param, (res) => {
       if (res.current_page > 1) {
-        res.data = [...this.data.school_list.data, ...res.data];
+        res.data = [...this.data.sectarian_list.data, ...res.data];
       }
-      this.setData({ school_list: res });
+      this.setData({ sectarian_list: res });
       wx.stopPullDownRefresh();
     });
   },
@@ -78,13 +78,13 @@ Page({
    */
   onPullDownRefresh: function () {
     if(this.data.nav_index==0){
-      this.data.my_join_school.current_page = 0;
-      this.data.my_join_school.last_page = 1;
+      this.data.my_join_sectarian.current_page = 0;
+      this.data.my_join_sectarian.last_page = 1;
       return this.getMyJoinTheme();
     }
-    this.data.school_list.current_page = 0;
-    this.data.school_list.last_page = 1;
-    return this.searchSchool();
+    this.data.sectarian_list.current_page = 0;
+    this.data.sectarian_list.last_page = 1;
+    return this.searchSectarian();
   },
 
   /**
@@ -94,7 +94,7 @@ Page({
     if (this.data.nav_index == 0) {
       return this.getMyJoinTheme();
     }
-    return this.searchSchool();
+    return this.searchSectarian();
   },
 
   /**
@@ -104,7 +104,7 @@ Page({
     let userinfo = getApp().globalData.userInfo
     return {
       title: userinfo.nickname + '邀请您创建门派',
-      path: '/pages/school/index/index?share_uid=' + userinfo.uid
+      path: '/pages/sectarian/index/index?share_uid=' + userinfo.uid
     }
   }
 })

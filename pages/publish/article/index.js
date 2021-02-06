@@ -19,7 +19,7 @@ Page({
   onLoad: function (options) {
     this.data.data.cate_id = options.cate_id;
     this.data.formData.token = wx.getStorageSync('token').token;
-    this.data.upload_api = config.restUrl + 'index/v1/upload';
+    this.data.upload_api = config.uploadUrl;
     this.setData(this.data)
   },
   /**

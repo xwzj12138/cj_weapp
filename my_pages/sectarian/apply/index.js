@@ -1,16 +1,16 @@
 // my_pages/school/apply/index.js
 import { config } from '../../../utils/config.js'
-import school from '../../../model/school.js'
+import sectarian from '../../../model/sectarian.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    formData: { token: '' },
+    token: '',
     upload_api: '',
     form: {
-      id: 0, school_name: '', cover_image: '', intro: '', code: '', iv: '', encryptedData:''
+      id: 0, sectarian_name: '', cover_image: '', intro: '', code: '', iv: '', encryptedData:''
     }
   },
   /**
@@ -24,6 +24,7 @@ Page({
    * 上传封面图
    */
   uploadImage: function (e) {
+    if(e.detail.uploadResult.code!=200) return wx.showToast({title: e.detail.uploadResult.msg,icon:'none'});
     this.data.form.cover_image = e.detail.uploadResult.data.longUrl;
     this.setData(this.data);
   },
@@ -34,12 +35,12 @@ Page({
   onLoad: function (options) {
     if (options.id) {
       this.data.form.id = options.id;
-      this.data.form.school_name = options.school_name;
+      this.data.form.sectarian_name = options.sectarian_name;
       this.data.form.cover_image = options.cover_image;
       this.data.form.intro = options.intro;
     }
-    this.data.formData.token = wx.getStorageSync('token').token;
-    this.data.upload_api = config.restUrl + 'index/v1/upload';
+    this.data.token = wx.getStorageSync('token').token;
+    this.data.upload_api = config.uploadUrl;
     this.setData(this.data)
   },
   /**
@@ -68,16 +69,16 @@ Page({
    * 添加品牌
    */
   submit: function () {
-    if (this.data.form.school_name == '') return wx.showToast({ title: '请输入门派名', icon: 'none' });
+    if (this.data.form.sectarian_name == '') return wx.showToast({ title: '请输入门派名', icon: 'none' });
     if (this.data.form.cover_image == '') return wx.showToast({ title: '请上传门派封面图', icon: 'none' });
     if (this.data.form.intro == '') return wx.showToast({ title: '请输入门派简介', icon: 'none' });
     if (this.data.form.id > 0) {
-      return school.apply(this.data.form, (res) => {
+      return sectarian.apply(this.data.form, (res) => {
         getApp().globalData.is_refresh = true;
         wx.navigateBack({});
       });
     }
-    school.apply(this.data.form, (res) => {
+    sectarian.apply(this.data.form, (res) => {
       getApp().globalData.is_refresh = true;
       wx.navigateBack({});
     });

@@ -1,8 +1,8 @@
-<x-input value='{{form.school_name}}' name='school_name' title='门派名:' placeholder='请输入门派名' bind:change='inputChange' maxlength="20"></x-input>
+<x-input value='{{form.sectarian_name}}' name='sectarian_name' title='门派名:' placeholder='请输入门派名' bind:change='inputChange' maxlength="20"></x-input>
 <!-- 封面图 -->
 <x-cell>
   <view slot='icon' class="title">封面图</view>
-  <x-upload urlList="{{form.cover_image==''?[]:[form.cover_image]}}" uploadApi='{{upload_api}}' formData='{{formData}}' bindupload='uploadImage'></x-upload>
+  <x-upload urlList="{{form.cover_image==''?[]:[form.cover_image]}}" uploadApi='{{upload_api}}' token='{{token}}' bindupload='uploadImage'></x-upload>
 </x-cell>
 <!-- 简介 -->
 <x-input type='textarea' height='150px' name='intro' value='{{form.intro}}' placeholder='请输入简介' bind:change='inputChange' maxlength="200"></x-input>

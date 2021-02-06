@@ -38,7 +38,7 @@ Page({
       this.data.form.intro = options.intro;
     }
     this.data.formData.token = wx.getStorageSync('token').token;
-    this.data.upload_api = config.restUrl + 'index/v1/upload';
+    this.data.upload_api = config.uploadUrl;
     this.setData(this.data)
   },
   /**

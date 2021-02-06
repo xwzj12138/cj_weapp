@@ -6,6 +6,4 @@
 </x-cell>
 <!-- 简介 -->
 <x-input type='textarea' name='intro' value='{{form.intro}}' placeholder='请输入简介' bind:change='inputChange' maxlength="255"></x-input>
-<view style='text-align: center;'>
-  <x-button type="primary" bind:click="submit">提交</x-button>
-</view>
+<x-button bg_color='x-bg-color2' color='x-color' bind:click="submit">提交</x-button>

@@ -1,7 +1,7 @@
-/* pages/school/index/index.wxss */
+/* pages/sectarian/index/index.wxss */
 scroll-view{width: 100%;white-space: nowrap;margin-bottom: 2px;background: #fff;padding-bottom: 2px;height: 275rpx;}
-.school_list{width: 100px;display: inline-block;text-align: center;font-size: 30rpx;}
-.school_list>image{width: 90px;height:90px;border-radius: 5px;}
+.sectarian_list{width: 100px;display: inline-block;text-align: center;font-size: 30rpx;}
+.sectarian_list>image{width: 90px;height:90px;border-radius: 5px;}
 .article{padding: 30rpx;font-size: 37rpx;display: flex;}
 .article>view:first-child{
   flex: 1;overflow: hidden;line-height: 1.4;

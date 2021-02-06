@@ -21,11 +21,14 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": false,
@@ -33,12 +36,10 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true,
-    "bundle": false
+    "useApiHostProcess": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.10.3",
+  "libVersion": "2.14.3",
   "appid": "wx98b1ca692984b153",
   "projectname": "cj_weapp",
   "debugOptions": {
@@ -50,17 +51,10 @@
   "qqappid": "1110490587",
   "scripts": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
     "game": {
-      "currentL": -1,
       "list": []
     },
     "gamePlugin": {
@@ -118,9 +112,8 @@
           "scene": null
         },
         {
-          "id": 7,
-          "name": "江湖页面",
-          "pathName": "pages/school/index/index",
+          "name": "my_pages/sectarian/apply/index",
+          "pathName": "my_pages/sectarian/apply/index",
           "query": "",
           "scene": null
         },

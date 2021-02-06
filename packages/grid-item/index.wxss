@@ -4,8 +4,8 @@
 }
 .grid-item image{width: 56rpx;height: 56rpx;vertical-align:middle;}
 /* 去除最后一行底部边框 */
-.lastColumn{border-bottom: none;}
+.lastColumn{border-bottom: none !important;}
 /* 去除每一行的最后一个item的右边框 */
-.last{border-right: none;}
+.last{border-right: none !important;}
 /* 设置左右布局样式 */
 .column{display: flex;align-items:center;justify-content:center;}

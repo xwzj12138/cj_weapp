@@ -13,5 +13,5 @@
 </x-cell-group>
 
 <x-tabbar>
-  <x-tabbar-flex-item x-class='tabbar' title='添加地址' bindtap='goDetail'></x-tabbar-flex-item>
+  <x-tabbar-flex-item bg_color='x-bg-color2' color='x-color' fontSize='35rpx' title='添加地址' bindtap='goDetail'></x-tabbar-flex-item>
 </x-tabbar>

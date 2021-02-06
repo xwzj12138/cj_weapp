@@ -3,4 +3,4 @@
 <x-input right value='{{form.linkman}}' name='linkman' title='联系人' placeholder='请输入联系人' bind:change='inputChange'></x-input>
 <x-input right value='{{form.wechat}}' name='wechat' title='微信' placeholder='请输入微信联系方式' bind:change='inputChange'></x-input>
 <x-input right value='{{form.remark}}' name='remark' maxlength='250' type='textarea' title='备注' placeholder='备注信息' bind:change='inputChange'></x-input>
-<x-button bind:click="handleClick">提交</x-button>
+<x-button bind:click="handleClick" bg_color='x-bg-color2' color='x-color'>提交</x-button>

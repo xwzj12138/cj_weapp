@@ -14,12 +14,12 @@
     "pages/product/detail/index",
     "pages/product/submit_order/index",
     "pages/product/comment/index",
-    "pages/school/index/index",
-    "pages/school/my_join/index",
-    "pages/school/theme/index",
-    "pages/school/detail/index",
-    "pages/school/publish_theme/index",
-    "pages/school/member/index"
+    "pages/sectarian/index/index",
+    "pages/sectarian/my_join/index",
+    "pages/sectarian/theme/index",
+    "pages/sectarian/detail/index",
+    "pages/sectarian/publish_theme/index",
+    "pages/sectarian/member/index"
   ],
   "subpackages": [
     {
@@ -47,8 +47,8 @@
         "participant/detail/index",
         "participant/list/index",
         "userinfo/index",
-        "school/my_school/index",
-        "school/apply/index"
+        "sectarian/my_sectarian/index",
+        "sectarian/apply/index"
       ]
     }
   ],
@@ -90,10 +90,10 @@
         "selectedIconPath": "/static/tabbar/select_publish.png"
       },
       {
-        "pagePath": "pages/school/index/index",
+        "pagePath": "pages/sectarian/index/index",
         "text": "江湖",
-        "iconPath": "/static/tabbar/school.png",
-        "selectedIconPath": "/static/tabbar/select_school.png"
+        "iconPath": "/static/tabbar/sectarian.png",
+        "selectedIconPath": "/static/tabbar/select_sectarian.png"
       },
       {
         "pagePath": "pages/my/index/index",

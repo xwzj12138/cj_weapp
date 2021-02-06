@@ -1,6 +1,6 @@
-// pages/school/publish_theme/index.js
+// pages/sectarian/publish_theme/index.js
 import {config} from '../../../utils/config.js';
-import school from '../../../model/school.js'
+import sectarian from '../../../model/sectarian.js'
 Page({
 
   /**
@@ -9,14 +9,14 @@ Page({
   data: {
     formData: { token: '' },
     upload_api: '',
-    data: { school_id: 0, images: [], title: '', description: ''}
+    data: { sectarian_id: 0, images: [], title: '', description: ''}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.data.school_id = options.id;
+    this.data.data.sectarian_id = options.id;
     this.data.formData.token = wx.getStorageSync('token').token;
     this.data.upload_api = config.restUrl + 'index/v1/upload';
     this.setData(this.data)
@@ -49,7 +49,7 @@ Page({
     if (this.data.data.title == '') return wx.showToast({ title: '请输入标题', icon: 'none' });
     if (this.data.data.images.length==0) return wx.showToast({ title: '至少上传一张图片', icon: 'none' });
     wx.showLoading({ title: '提交中', mask: true });
-    school.publishTheme(this.data.data, (res) => {
+    sectarian.publishTheme(this.data.data, (res) => {
       wx.hideLoading();
       getApp().globalData.is_refresh = true;
       wx.navigateBack({});

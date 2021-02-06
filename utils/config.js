@@ -2,4 +2,5 @@ export class config{
   constructor(){}
 }
 config.restUrl = 'http://motui.cn/';
-config.uploadFile = 'https://motui.xwzj88.cn/uploads';
+config.uploadUrl = config.restUrl+'api/v1/index/upload';
+config.uploadFile = config.restUrl+'uploads';

@@ -1,4 +1,4 @@
-/* pages/school/detail/index.wxss */
+/* pages/sectarian/detail/index.wxss */
 .article{padding: 30rpx;font-size: 37rpx;display: flex;}
 .article>view:first-child{
   flex: 1;overflow: hidden;line-height: 1.4;

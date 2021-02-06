@@ -1,5 +1,5 @@
-// pages/school/theme/index.js
-import school from '../../../model/school.js'
+// pages/sectarian/theme/index.js
+import sectarian from '../../../model/sectarian.js'
 Page({
 
   /**
@@ -28,7 +28,7 @@ Page({
    */
   getThemeDetail: function () {
     let param = {id:this.data.theme_info.id};
-    school.themeDetail(param,(res)=>{
+    sectarian.themeDetail(param,(res)=>{
       this.setData({ theme_info:res});
     });
   },
@@ -41,7 +41,7 @@ Page({
       return this.setData({ show_loading: true });
     }
     let param = { id: this.data.theme_info.id,page:this.data.current_page+1};
-    school.themeCommentList(param,(res)=>{
+    sectarian.themeCommentList(param,(res)=>{
       if (res.current_page > 1) {
         res.data = [...this.data.data, ...res.data];
       }
@@ -65,14 +65,14 @@ Page({
         content: '还没有加入主题所属门派无法评论',
         success:(res)=> {
           if (res.confirm) {
-            wx.navigateTo({ url: '/pages/school/detail/index?id=' + this.data.theme_info.school_id});
+            wx.navigateTo({ url: '/pages/sectarian/detail/index?id=' + this.data.theme_info.sectarian_id});
           }
         }
       });
     }
     if (this.data.comment_content.length==0) return wx.showToast({title: '内容不能为空',icon:'none'});
-    let param = { school_theme_id: this.data.theme_info.id, content:this.data.comment_content};
-    school.commentTheme(param,(res)=>{
+    let param = { sectarian_theme_id: this.data.theme_info.id, content:this.data.comment_content};
+    sectarian.commentTheme(param,(res)=>{
       this.data.data.unshift(res)
       this.setData({comment_content:'',data:this.data.data})
     });
@@ -92,7 +92,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: this.data.theme_info.title,
-      path: '/pages/school/detail/index?share_uid=' + getApp().globalData.userInfo.uid + '&id=' + this.data.theme_info.id
+      path: '/pages/sectarian/detail/index?share_uid=' + getApp().globalData.userInfo.uid + '&id=' + this.data.theme_info.id
     }
   }
 })

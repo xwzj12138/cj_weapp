@@ -21,7 +21,7 @@ Page({
    */
   onLoad: function (options) {
     this.data.formData.token = wx.getStorageSync('token').token;
-    this.data.upload_api = config.restUrl + 'index/v1/upload';
+    this.data.upload_api = config.uploadUrl;
     this.setData(this.data);
     //获取品牌列表
     brand.getList((res)=>{

@@ -1,26 +1,26 @@
-<x-cell title='{{school_info.school_name}}' label='{{school_info.add_time}}创建'>
-  <x-avatar shape='square' size='62' src='{{school_info.cover_image}}' slot='icon'></x-avatar>
+<x-cell title='{{sectarian_info.sectarian_name}}' label='{{sectarian_info.add_time}}创建'>
+  <x-avatar shape='square' size='62' src='{{sectarian_info.cover_image}}' slot='icon'></x-avatar>
   <x-button inline size='40' type='info' shape='circle' bind:click="showShare">分享门派</x-button>
-  <x-button wx:if='{{school_info.join_status==0}}' slot='footer' inline size='52' type='info' bind:click="joinSchool">加入</x-button>
-  <x-button wx:else slot='footer' inline size='52' bind:click="joinSchool">已加入</x-button>
+  <x-button wx:if='{{sectarian_info.join_status==0}}' slot='footer' inline size='52' type='info' bind:click="joinSectarian">加入</x-button>
+  <x-button wx:else slot='footer' inline size='52' bind:click="joinSectarian">已加入</x-button>
 </x-cell>
-<x-cell label='{{school_info.intro}}'></x-cell>
-<x-cell menuArrow value='门派成员' url='/pages/school/member/index?id={{school_info.id}}'>
+<x-cell label='{{sectarian_info.intro}}'></x-cell>
+<x-cell menuArrow value='门派成员' url='/pages/sectarian/member/index?id={{sectarian_info.id}}'>
   <view>
-    <x-avatar wx:for='{{school_info.member_list}}' wx:key='school_member' src="{{item.avatar}}" size='36' x-class="{{index>0?'x_avatar':''}}"></x-avatar>
+    <x-avatar wx:for='{{sectarian_info.member_list}}' wx:key='sectarian_member' src="{{item.avatar}}" size='36' x-class="{{index>0?'x_avatar':''}}"></x-avatar>
   </view>
 </x-cell>
 <x-nav tab-list="{{navList}}" bindtabSelect="tabSelect"></x-nav>
 <!-- 主题列表 -->
-<block wx:for='{{data}}' wx:key='school_theme'>
+<block wx:for='{{data}}' wx:key='sectarian_theme'>
   <view>
-    <view class="article" data-page="/pages/school/theme/index?id={{item.id}}" catchtap="goDetail">
+    <view class="article" data-page="/pages/sectarian/theme/index?id={{item.id}}" catchtap="goDetail">
       <view>{{item.title}}</view>
       <image src="{{item.first_image}}" lazy-load mode="widthFix"></image>
     </view>
     <view class="browse_like">
       <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
-      <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeSchoolTheme"></x-icon><text>{{item.like_num}}</text></view>
+      <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeSectarianTheme"></x-icon><text>{{item.like_num}}</text></view>
       <view><x-icon name='messagefill' color='#666' size='40'></x-icon><text>{{item.comment_num}}</text></view>
     </view>
   </view>
@@ -29,7 +29,7 @@
 <ad wx:if='{{data.length<ad_number}}' unit-id="adunit-fe00613673ea846f"></ad>
 <x-loading icon='' isShow="{{show_loading}}" hint='暂时没有更多的主题了！'></x-loading>
 <!-- 添加主题按钮 -->
-<view class='addButton' wx:if='{{school_info.join_status!=0}}'><x-icon size='98' name='roundaddfill' catchtap="goPublishTheme"></x-icon></view>
+<view class='addButton' wx:if='{{sectarian_info.join_status!=0}}'><x-icon size='98' name='roundaddfill' catchtap="goPublishTheme"></x-icon></view>
 
 <x-drawer type='bottom' show='{{showShare}}' maskShow='{{showShareImage}}'>
   <canvas wx:if='{{showShareImage}}' type='2d' id='share_image' canvas-id='share_image' style="margin:0 auto;width:650rpx;height:800rpx;background:#fff;"></canvas>

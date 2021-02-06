@@ -1,25 +1,25 @@
 <x-cell-group>
-  <x-cell menuArrow title='我加入的' url='/pages/school/my_join/index' value='{{school_list.total}}个门派'></x-cell>
+  <x-cell menuArrow title='我加入的' url='/pages/sectarian/my_join/index' value='{{sectarian_list.total}}个门派'></x-cell>
 </x-cell-group>
 <!-- 加入的门派列表，只显示前15条 -->
 <scroll-view scroll-x='{{true}}' enable-flex='true'>
-  <view wx:for='{{school_list.data}}' wx:key='school_list' class="school_list" 
-  data-page="{{item.id==0?'/pages/school/my_join/index?index=1':'/pages/school/detail/index?id='+item.id}}" catchtap="goDetail">
+  <view wx:for='{{sectarian_list.data}}' wx:key='sectarian_list' class="sectarian_list" 
+  data-page="{{item.id==0?'/pages/sectarian/my_join/index?index=1':'/pages/sectarian/detail/index?id='+item.id}}" catchtap="goDetail">
     <image src="{{item.cover_image}}"></image>
-    <view>{{item.school_name}}</view>
+    <view>{{item.sectarian_name}}</view>
   </view>
 </scroll-view>
 <!-- 热门讨论主题列表 -->
 <x-nav tab-list="{{navList}}"></x-nav>
-<block wx:for='{{data}}' wx:key='school_theme'>
+<block wx:for='{{data}}' wx:key='sectarian_theme'>
   <view>
-    <view class="article" data-page="/pages/school/theme/index?id={{item.id}}" catchtap="goDetail">
+    <view class="article" data-page="/pages/sectarian/theme/index?id={{item.id}}" catchtap="goDetail">
       <view>{{item.title}}</view>
       <image src="{{item.first_image}}" lazy-load  mode="widthFix"></image>
     </view>
     <view class="browse_like">
       <view><x-icon name='attention' color='#666' size='40'></x-icon><text>{{item.browse_num}}</text></view>
-      <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeSchoolTheme"></x-icon><text>{{item.like_num}}</text></view>
+      <view><x-icon name='appreciate' color='#666' size='40' data-index='{{index}}' catchtap="likeSectarianTheme"></x-icon><text>{{item.like_num}}</text></view>
       <view><x-icon name='messagefill' color='#666' size='40'></x-icon><text>{{item.comment_num}}</text></view>
     </view>
   </view>
