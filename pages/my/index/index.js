@@ -36,11 +36,10 @@ Page({
    * 更新用户信息
    */
   updateUserInfo(e){
-    let param = { nickname: e.detail.userInfo.nickName, avatar: e.detail.userInfo.avatarUrl, gender: e.detail.userInfo.gender};
-    user.updateUserInfo(param,(res)=>{
-      this.data.userinfo.nickname = param.nickname
-      this.data.userinfo.avatar = param.avatar
-      this.data.userinfo.gender = param.gender
+    user.updateUserInfo(e.detail.userInfo,(res)=>{
+      this.data.userinfo.nickname = e.detail.userInfo.nickname
+      this.data.userinfo.avatar = e.detail.userInfo.avatar
+      this.data.userinfo.gender = e.detail.userInfo.gender
       this.setData(this.data)
     })
   },

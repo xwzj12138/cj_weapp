@@ -59,7 +59,7 @@ export default new class user extends auth {
   }
   //修改用户信息
   updateUserInfo(param,callback){
-    this.request({ url: 'api/v1/user/update', method: 'POST', data: param, sCallBack: (res) => { callback(res); } });
+    this.request({ url: 'api/v2/user/update', method: 'POST', data: param, sCallBack: (res) => { callback(res); } });
   }
   //修改用户信息
   signIn(callback) {
